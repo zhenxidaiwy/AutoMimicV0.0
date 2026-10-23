@@ -1,3 +1,5 @@
+<p align="right"><b>English</b> | <a href="README.zh-CN.md">简体中文</a></p>
+
 # AutoMimic — a self-improving harness that teaches a humanoid acrobatics from one internet video
 
 <p align="center">
