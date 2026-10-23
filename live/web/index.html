@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>G1 跟跳演示</title>
+<style>
+  :root {
+    --bg: #0f1216; --panel: #171b21; --line: #262c35; --text: #e6e9ee; --muted: #8b95a3;
+    --accent: #4fb3ff; --ok: #3ccf91; --warn: #ffb547; --danger: #ff5a5f;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text);
+         font: 15px/1.5 -apple-system, "Segoe UI", "Microsoft YaHei", sans-serif; }
+  header { padding: 18px 24px 8px; }
+  h1 { margin: 0; font-size: 22px; font-weight: 600; }
+  .sub { color: var(--muted); font-size: 13px; margin-top: 2px; }
+  .bar { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; padding: 10px 24px 14px;
+         border-bottom: 1px solid var(--line); }
+  select, button { font: inherit; color: var(--text); background: var(--panel); border: 1px solid var(--line);
+                   border-radius: 8px; padding: 8px 12px; }
+  select { min-width: 260px; }
+  button { cursor: pointer; }
+  button:hover:not(:disabled) { border-color: var(--accent); }
+  button:disabled { opacity: .4; cursor: default; }
+  button.primary { background: #1d4f7a; border-color: #2a6aa3; }
+  button.push { background: #6e1f24; border-color: #a8323a; font-weight: 600; padding: 8px 22px; }
+  button.push:hover:not(:disabled) { border-color: var(--danger); }
+  label.chk { color: var(--muted); display: flex; align-items: center; gap: 6px; }
+  button.dance { background: #1d5a45; border-color: #2a7d60; }
+  button.dance:hover:not(:disabled) { border-color: var(--ok); }
+  .sep { width: 1px; height: 28px; background: var(--line); margin: 0 4px; }
+  .pill { margin-left: auto; font-size: 13px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--line);
+          color: var(--muted); }
+  .pill.ok { color: var(--ok); border-color: #1f5c44; } .pill.bad { color: var(--danger); border-color: #6e1f24; }
+  main { padding: 16px 24px 28px; display: grid; gap: 16px; grid-template-columns: 1fr 1fr; }
+  .card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; }
+  .card h2 { margin: 0; padding: 10px 14px; font-size: 14px; font-weight: 600; color: var(--muted);
+             border-bottom: 1px solid var(--line); }
+  .view { background: #000; display: flex; justify-content: center; align-items: center; aspect-ratio: 4 / 3; }
+  .view img { max-width: 100%; max-height: 100%; }
+  .stats { grid-column: 1 / -1; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); }
+  .stat { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .stat .k { color: var(--muted); font-size: 12px; }
+  .stat .v { font-size: 20px; font-weight: 600; margin-top: 4px; font-variant-numeric: tabular-nums; }
+  .stat .v small { font-size: 13px; color: var(--muted); font-weight: 400; }
+  .conf { height: 6px; border-radius: 3px; background: var(--line); margin-top: 8px; overflow: hidden; }
+  .conf div { height: 100%; background: var(--accent); width: 0; transition: width .2s; }
+  .mode-dance { color: var(--ok); } .mode-getup { color: var(--warn); }
+  .log { grid-column: 1 / -1; }
+  .log ul { list-style: none; margin: 0; padding: 8px 14px 12px; font-family: Consolas, monospace; font-size: 13px;
+            color: var(--muted); min-height: 40px; }
+  .note { grid-column: 1 / -1; color: var(--muted); font-size: 12px; }
+  @media (max-width: 900px) { main { grid-template-columns: 1fr; padding: 12px 16px; } .bar, header { padding-left: 16px; padding-right: 16px; } select { min-width: 0; flex: 1 1 100%; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>G1 看人跳舞 · 跟跳演示</h1>
+  <div class="sub">输入里是谁、跳的是哪支舞，系统事先都不知道：舞种和动作进度全靠实时识别。被推倒后由起身策略站起来，再接着跳。</div>
+</header>
+<div class="bar">
+  <select id="src"></select>
+  <label class="chk"><input type="checkbox" id="loop" checked> 视频循环播放</label>
+  <button class="primary" id="start">开始</button>
+  <button id="stop" disabled>停止</button>
+  <button class="push" id="push" disabled>推一下</button>
+  <button id="reset" disabled>复位</button>
+  <span class="sep"></span>
+  <button class="dance" id="d0" disabled>跳闪身步</button>
+  <button class="dance" id="d1" disabled>跳狗熊哆嗦毛</button>
+  <button id="mirror" title="只影响摄像头画面的显示">镜像</button>
+  <span class="pill" id="server">仿真服务启动中…</span>
+</div>
+<main>
+  <section class="card"><h2>输入：人（骨骼为实时识别结果）</h2><div class="view"><img src="/stream/human" alt="input"></div></section>
+  <section class="card"><h2>机器人（绿色半透明 = 正在跟的参考动作）</h2><div class="view"><img src="/stream/robot" alt="robot"></div></section>
+  <div class="stats">
+    <div class="stat"><div class="k">看到的人（实时识别）</div><div class="v" id="seen" style="font-size:16px">—</div><div class="conf"><div id="confbar"></div></div></div>
+    <div class="stat"><div class="k">机器人在做什么</div><div class="v" id="phase" style="font-size:16px">—</div></div>
+    <div class="stat"><div class="k">状态</div><div class="v" id="mode">—</div></div>
+    <div class="stat"><div class="k">推搡 / 摔倒 / 自己起身</div><div class="v" id="counts">0 / 0 / 0</div></div>
+    <div class="stat"><div class="k">输入帧率 · 仿真速度</div><div class="v" id="perf">—</div></div>
+  </div>
+  <section class="card log"><h2>事件</h2><ul id="events"><li>—</li></ul></section>
+  <div class="note">本地演示：视频来自 projects/dance/live_tests（unseen_* 为从未进入数据集的演员）。摄像头模式请站在离电脑 2.5–3 米处，让全身入镜。</div>
+</main>
+<script>
+const $ = id => document.getElementById(id);
+const DANCE = {0: "闪身步", 1: "狗熊哆嗦毛"};
+let running = false;
+
+async function api(path, body) {
+  const r = await fetch(path, body === undefined ? {} : {method: "POST", headers: {"Content-Type": "application/json"}, body: JSON.stringify(body)});
+  return r.json();
+}
+
+async function loadSources() {
+  const s = await api("/api/sources");
+  const sel = $("src"); sel.innerHTML = "";
+  const add = (label, items) => {
+    if (!items.length) return;
+    const g = document.createElement("optgroup"); g.label = label;
+    items.forEach(v => { const o = document.createElement("option"); o.value = v; o.textContent = v.replace(".mp4", ""); g.appendChild(o); });
+    sel.appendChild(g);
+  };
+  const cam = document.createElement("optgroup"); cam.label = "实时";
+  const o = document.createElement("option"); o.value = "camera"; o.textContent = "笔记本摄像头"; cam.appendChild(o);
+  add("从未见过的演员", s.unseen); add("其他测试视频", s.other); sel.appendChild(cam);
+}
+
+function setRunning(v) {
+  running = v;
+  $("start").disabled = v; $("stop").disabled = !v; $("push").disabled = !v; $("reset").disabled = !v;
+}
+
+$("start").onclick = async () => {
+  const r = await api("/api/start", {source: $("src").value, loop: $("loop").checked});
+  if (!r.ok) alert(r.msg); else setRunning(true);
+};
+$("stop").onclick = async () => { await api("/api/stop", {}); setRunning(false); };
+$("push").onclick = () => api("/api/push", {});
+$("reset").onclick = () => api("/api/reset", {});
+$("mirror").onclick = () => api("/api/mirror", {});
+// "dance this": works with or without an input source (the back end connects a control-only session if needed)
+$("d0").onclick = async () => { const r = await api("/api/dance", {dance: 0}); if (r.ok) { $("push").disabled = false; $("stop").disabled = false; } };
+$("d1").onclick = async () => { const r = await api("/api/dance", {dance: 1}); if (r.ok) { $("push").disabled = false; $("stop").disabled = false; } };
+
+async function poll() {
+  try {
+    const s = await api("/api/status");
+    const pill = $("server");
+    pill.textContent = s.server === "ready" ? "仿真服务就绪" : (s.server === "starting" ? "仿真服务启动中…（约 1 分钟）" : "仿真服务：" + s.server);
+    pill.className = "pill " + (s.server === "ready" ? "ok" : (s.server === "starting" ? "" : "bad"));
+    $("d0").disabled = $("d1").disabled = s.server !== "ready";
+    if (s.error) $("events").innerHTML = `<li style="color:var(--danger)">${s.error}</li>`;
+    if (running && !s.source) setRunning(false);
+    const h = s.sim || {};
+    if (h.dance !== undefined) {
+      const EN2ZH = {"Shan Shen Bu": "闪身步", "Gou Xiong Duo Suo Mao": "狗熊哆嗦毛"};
+      let seen = h.seen || "—";
+      for (const [en, zh] of Object.entries(EN2ZH)) seen = seen.replace(en, zh);
+      seen = seen.replace(/^nobody.*/, "没有看到人").replace("legs not visible", "腿不在画面里（请退后）").replace(/^stand/, "站着 / 没在跳");
+      $("seen").textContent = seen;
+      const m = /\((\d+)%\)/.exec(h.seen || "");
+      $("confbar").style.width = m ? `${m[1]}%` : "0%";
+      const rep = EN2ZH[h.replaying] || "";
+      $("phase").textContent = h.mode === "getup" ? "摔倒了，正在起身" :
+        h.mode === "idle" ? "站着观察" : (rep ? `完整回放${rep}：${(h.phase || "").replace("replay ", "")}` : (h.phase || "—"));
+      $("mode").innerHTML = h.mode === "getup" ? '<span class="mode-getup">起身中</span>' :
+        h.mode === "idle" ? '<span>观察中</span>' : '<span class="mode-dance">跟跳中</span>';
+      $("counts").textContent = `${h.push_count || 0} / ${h.fell_count || 0} / ${h.getups || 0}`;
+      const slow = (h.rt_factor || 0) > 0 && h.rt_factor < 0.9;
+      $("perf").innerHTML = `${s.cam_fps || 0} fps <small style="color:${slow ? "var(--warn)" : "inherit"}">· 仿真 ×${h.rt_factor || 0}${slow ? "（变慢：GPU 被其他任务占用）" : ""}</small>`;
+      const ev = (h.events || []).slice().reverse();
+      if (!s.error) $("events").innerHTML = ev.length ? ev.map(e => `<li>${e}</li>`).join("") : "<li>—</li>";
+    }
+    if (s.video_done) $("phase").textContent = "视频播放完毕";
+  } catch (e) { $("server").textContent = "网页后端未响应"; $("server").className = "pill bad"; }
+  setTimeout(poll, 300);
+}
+
+loadSources(); poll();
+</script>
+</body>
+</html>

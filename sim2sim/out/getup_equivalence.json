@@ -1,0 +1,145 @@
+{
+ "n_envs": 64,
+ "n_steps": 500,
+ "obs_compared_states": 32064,
+ "obs_max_abs_diff": {
+  "base_lin_vel": 1.7636428590872555e-06,
+  "base_ang_vel": 2.86102294921875e-06,
+  "projected_gravity": 4.111160910036382e-07,
+  "joint_pos": 1.1920928955078125e-07,
+  "joint_vel": 0.0,
+  "actions": 0.0,
+  "command": 0.0
+ },
+ "obs_term_pass_1e-4": {
+  "base_lin_vel": true,
+  "base_ang_vel": true,
+  "projected_gravity": true,
+  "joint_pos": true,
+  "joint_vel": true,
+  "actions": true,
+  "command": true
+ },
+ "obs_term_what_is_tested": {
+  "base_lin_vel": "native velocimeter sensor recomputed by mj_forward from the copied qpos/qvel",
+  "base_ang_vel": "native gyro sensor recomputed by mj_forward from the copied qpos/qvel",
+  "projected_gravity": "native pelvis rotation (mj_kinematics) from the copied qpos",
+  "joint_pos": "copied qpos -> joint order (name lookup) minus default_joint_pos from getup_info.json",
+  "joint_vel": "copied qvel -> joint order only (no arithmetic, so exact 0 means the index mapping is right; it cannot detect a velocity-estimation problem)",
+  "actions": "native-maintained last raw action (zeros at reset) vs mjlab's last_action term",
+  "command": "native constant zero vs mjlab's generated_commands(twist); trivial: the command is identically zero in this task (see mjlab_command_max_abs)"
+ },
+ "mjlab_command_max_abs": 0.0,
+ "actor_cpu_vs_runner_max_abs_diff": 6.103515625e-05,
+ "ctrl_native_vs_mjlab_max_abs_diff": 9.536579455016181e-07,
+ "env_step_4_substeps": {
+  "qpos": {
+   "max": 0.07387819369079951,
+   "p99": 0.007424708972236943,
+   "median": 2.5211664716334736e-05,
+   "n": 32000
+  },
+  "qvel": {
+   "max": 5.799001897995293,
+   "p99": 0.5002675424760821,
+   "median": 0.0019361854620401145,
+   "n": 32000
+  },
+  "first_step_qpos_max": 0.0577709199063719,
+  "first_step_qvel_max": 3.743385740634931,
+  "qpos_median_per_second": [
+   0.0005394924623338959,
+   5.698995316830158e-05,
+   1.3405405385136238e-05,
+   2.2749646805292345e-05,
+   3.746856388591596e-05,
+   3.329792755840666e-05,
+   2.524645795683178e-05,
+   1.8958205191166484e-05,
+   1.3397681029024902e-05,
+   1.0723389547231954e-05
+  ],
+  "qvel_median_per_second": [
+   0.036704950555907445,
+   0.0032491806659564228,
+   0.0012940409334213825,
+   0.0031096089582312025,
+   0.002628569862242053,
+   0.001962749898124852,
+   0.0014659767891432689,
+   0.0010927707001267572,
+   0.000825980052326895,
+   0.0006570501579496336
+  ]
+ },
+ "single_substep": {
+  "steps_sampled": [
+   0,
+   1,
+   5,
+   25,
+   50,
+   100,
+   200,
+   300,
+   400
+  ],
+  "qpos": {
+   "max": 0.010633583419426385,
+   "p99": 0.005996032735301249,
+   "median": 7.531262055354704e-06,
+   "n": 576
+  },
+  "qvel": {
+   "max": 2.1267151341645123,
+   "p99": 1.1992064278509598,
+   "median": 0.0015048884891596757,
+   "n": 576
+  }
+ },
+ "model_check_max_abs": {
+  "body_mass": 0.0,
+  "body_inertia": 0.0,
+  "body_ipos": 0.0,
+  "dof_armature": 0.0,
+  "dof_damping": 0.0,
+  "dof_frictionloss": 0.0,
+  "geom_friction": 0.0,
+  "geom_solref": 0.0,
+  "geom_solimp": 0.0,
+  "actuator_gainprm": 0.0,
+  "actuator_biasprm": 0.0,
+  "actuator_forcerange": 0.0,
+  "jnt_range": 0.0
+ },
+ "opt": {
+  "timestep": 0.005,
+  "integrator": 3,
+  "cone": 0,
+  "jacobian": 2,
+  "solver": 2,
+  "iterations": 10,
+  "tolerance": 1e-08,
+  "ls_iterations": 20,
+  "ls_tolerance": 0.01,
+  "ccd_iterations": 50,
+  "impratio": 1.0,
+  "gravity": [
+   0.0,
+   0.0,
+   -9.81
+  ],
+  "enableflags": 0,
+  "disableflags": 0
+ },
+ "warp_only_opt": {
+  "ls_parallel": "True",
+  "contact_sensor_maxmatch": "64"
+ },
+ "removed_events": [
+  "foot_friction",
+  "encoder_bias",
+  "base_com"
+ ],
+ "seed": 0
+}

@@ -1,0 +1,56 @@
+{
+ "args": {
+  "name": "smoke",
+  "n_synth": 4,
+  "epochs": 2,
+  "lead": 0,
+  "no_aux": false,
+  "seed": 0
+ },
+ "test_real": {
+  "joint_mae_rad": 0.1973,
+  "joint_mae_now": 0.1868,
+  "n": 468,
+  "dance_acc": 0.906,
+  "phase_acc": 0.5342,
+  "contact_acc": 0.7373,
+  "dance_acc_sss": 1.0,
+  "dance_acc_gxdsm": 0.7381
+ },
+ "test_synth_views": {
+  "joint_mae_rad": 0.1991,
+  "joint_mae_now": 0.1878,
+  "n": 4680,
+  "dance_acc": 0.8983,
+  "phase_acc": 0.5167,
+  "contact_acc": 0.7447,
+  "dance_acc_sss": 1.0,
+  "dance_acc_gxdsm": 0.7167
+ },
+ "train_real": {
+  "joint_mae_rad": 0.1716,
+  "joint_mae_now": 0.1627,
+  "n": 1013,
+  "dance_acc": 0.9822,
+  "phase_acc": 0.6762,
+  "contact_acc": 0.8559,
+  "dance_acc_sss": 1.0,
+  "dance_acc_gxdsm": 0.9224
+ },
+ "history": [
+  {
+   "epoch": 2,
+   "loss": 0.46283324925523056,
+   "test_real": {
+    "joint_mae_rad": 0.1973,
+    "joint_mae_now": 0.1868,
+    "n": 468,
+    "dance_acc": 0.906,
+    "phase_acc": 0.5342,
+    "contact_acc": 0.7373,
+    "dance_acc_sss": 1.0,
+    "dance_acc_gxdsm": 0.7381
+   }
+  }
+ ]
+}

@@ -1,0 +1,55 @@
+{
+ "round": 10,
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r09_quant.md (automatic) -> step 2 analysis/r09_llm.md -> step 3 this file -> train",
+ "based_on": "r09 model_6999 (score 9.248)",
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-187"],
+ "human_input": [
+  "(dev) user, during r09: explain how round 8 was analysed (no technical content added)"
+ ],
+ "priorities": [
+  "P1 stand: pre-flip regression (stepping, arm raise lost), walking away after landing at 1.2 m/s, trembling (action change 0.41)",
+  "P2 keep the flight (best so far): no change to flight terms",
+  "P3 plane deviation 17 deg: later"
+ ],
+ "knobs": {
+  "tracking.scale": 1.5,
+  "tracking.std_scale": 0.85,
+  "weights.flip_stand_still": 4.0,
+  "extra_dyn": [
+   {"name": "agent_r09_hip_tuck", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_hip_pitch_joint", "right_hip_pitch_joint"], "phases": ["flight"], "std": 0.6}},
+   {"name": "agent_r09_arms_air", "func": "dyn_joint", "weight": 2.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["takeoff", "flight", "land"], "std": 0.8}},
+   {"name": "agent_r10_arms_stand", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["settle", "stand_after"], "std": 1.0}}
+  ]
+ },
+ "library": {
+  "contact:left_foot:stand": 2.0,
+  "contact:right_foot:stand": 2.0,
+  "contact:left_foot:stand_after": 2.0,
+  "contact:right_foot:stand_after": 2.0,
+  "jitter:all:stand_after": 2.0
+ },
+ "library_params": {},
+ "code_changes": [
+  "flip_rewards.flip_stand_still: pelvis velocity scale 0.2 -> 0.6 m/s (exp(-1.2/0.2) = 0.002 gave no gradient)",
+  "eval_flip: landing_offset = end of the first airborne run (was the last airborne step; r09's hop gave 67)",
+  "quant_report: section F2 = knob diff + training-log configuration diff (ground truth)"
+ ],
+ "expect": {
+  "prestand_feet_off_steps": "< 5 of 71 (r09 41 left)",
+  "stand_pelvis_speed": "< 0.3 m/s (r09 1.2)",
+  "stand_action_change": "< 0.2 (r09 0.41)",
+  "stand_feet_off_steps": "< 5 of 58 (r09 25 left)",
+  "rotation_deg": ">= 345 (r09 358)",
+  "flight_hip_mean_rad": "<= -1.5 (r09 -1.74)",
+  "flight_knee_overfold_rad": "< 0.5 (r09 0.35)"
+ },
+ "rollback_if": "rotation < 330 or no upright landing: r11 starts again from r09 model_6999 with only the stand changes"
+}

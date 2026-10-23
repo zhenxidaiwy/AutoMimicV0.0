@@ -1,0 +1,357 @@
+{
+ "policy": "backflip_r13_fid1",
+ "lag_physics_steps": 4,
+ "delay_ms": 20,
+ "substeps": 756,
+ "ctrl_vs_native_delay_buffer_max_abs": 0.8575674425746431,
+ "substeps_differing": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "ctrl_diff_by_delay_model": {
+  "lag2_first": 3.5797451950540164,
+  "lag2_default": 3.5797451950540164,
+  "lag2_zeros": 3.5797451950540164,
+  "lag3_first": 3.5797451950540164,
+  "lag3_default": 3.5797451950540164,
+  "lag3_zeros": 3.5797451950540164,
+  "lag4_first": 0.8575674425746431,
+  "lag4_default": 0.6690000295639038,
+  "lag4_zeros": 3.8628334664281283e-07,
+  "lag5_first": 3.579745220824069,
+  "lag5_default": 3.579745220824069,
+  "lag5_zeros": 3.579745220824069,
+  "lag6_first": 3.579745220824069,
+  "lag6_default": 3.579745220824069,
+  "lag6_zeros": 3.579745220824069
+ },
+ "obs_last_action_vs_policy_output_max_abs": 0.0,
+ "mjlab_fill_after_reset": "zeros",
+ "ctrl_diff_with_that_fill": 3.8628334664281283e-07,
+ "metrics": {
+  "mjlab": {
+   "success": true,
+   "rotation_deg": 363.3,
+   "rotation_max_abs_deg": 363.3,
+   "peak_pelvis_m": 1.056,
+   "airborne_s": 0.54,
+   "airborne_no_contact_s": 0.5,
+   "takeoff_step": 97,
+   "landing_step": 122,
+   "takeoff_offset_steps": -2,
+   "landing_offset_steps": 0,
+   "landing_tilt_deg": 33.0,
+   "landing_tilt_max_0p5s_deg": 33.0,
+   "pelvis_min_after_landing_m": 0.605,
+   "end_tilt_deg": 15.8,
+   "tail_tilt_max_deg": 28.8,
+   "end_pelvis_m": 0.799,
+   "tail_pelvis_min_m": 0.756,
+   "fell": false,
+   "early_fall": false,
+   "steps": 189
+  },
+  "native": {
+   "success": true,
+   "rotation_deg": 362.2,
+   "rotation_max_abs_deg": 374.2,
+   "peak_pelvis_m": 1.1,
+   "airborne_s": 0.54,
+   "airborne_no_contact_s": 0.52,
+   "takeoff_step": 96,
+   "landing_step": 122,
+   "takeoff_offset_steps": -3,
+   "landing_offset_steps": 0,
+   "landing_tilt_deg": 28.2,
+   "landing_tilt_max_0p5s_deg": 28.2,
+   "pelvis_min_after_landing_m": 0.67,
+   "end_tilt_deg": 3.3,
+   "tail_tilt_max_deg": 11.2,
+   "end_pelvis_m": 0.791,
+   "tail_pelvis_min_m": 0.78,
+   "fell": false,
+   "early_fall": false,
+   "steps": 189,
+   "knee_torque_max_Nm": 120.0,
+   "knee_torque_limit_Nm": [
+    120.0,
+    120.0
+   ],
+   "knee_at_limit_frac": 0.0185,
+   "knee_torque_respects_limit": true,
+   "knee_pd_demand_max_Nm": 188.1,
+   "ncon_max": 28
+  },
+  "native_fill_first": {
+   "success": true,
+   "rotation_deg": 360.7,
+   "rotation_max_abs_deg": 371.0,
+   "peak_pelvis_m": 1.09,
+   "airborne_s": 0.54,
+   "airborne_no_contact_s": 0.5,
+   "takeoff_step": 97,
+   "landing_step": 122,
+   "takeoff_offset_steps": -2,
+   "landing_offset_steps": 0,
+   "landing_tilt_deg": 29.5,
+   "landing_tilt_max_0p5s_deg": 29.5,
+   "pelvis_min_after_landing_m": 0.689,
+   "end_tilt_deg": 14.0,
+   "tail_tilt_max_deg": 23.1,
+   "end_pelvis_m": 0.789,
+   "tail_pelvis_min_m": 0.752,
+   "fell": false,
+   "early_fall": false,
+   "steps": 189,
+   "knee_torque_max_Nm": 120.0,
+   "knee_torque_limit_Nm": [
+    120.0,
+    120.0
+   ],
+   "knee_at_limit_frac": 0.0225,
+   "knee_torque_respects_limit": true,
+   "knee_pd_demand_max_Nm": 211.9
+  }
+ },
+ "divergence": {
+  "takeoff": {
+   "step": 99,
+   "at_s": 1.98,
+   "pelvis_pos_diff_m": 0.0121,
+   "torso_ori_diff_deg": 2.61,
+   "rotation_diff_deg": -2.92,
+   "joint_max_abs_at_rad": 0.1345,
+   "joint_rms_at_rad": 0.0395,
+   "joint_max_abs_upto_rad": 0.2021,
+   "bitwise_identical_upto": false
+  },
+  "mid_flight": {
+   "step": 110,
+   "at_s": 2.2,
+   "pelvis_pos_diff_m": 0.0703,
+   "torso_ori_diff_deg": 13.1,
+   "rotation_diff_deg": -15.11,
+   "joint_max_abs_at_rad": 0.2971,
+   "joint_rms_at_rad": 0.1086,
+   "joint_max_abs_upto_rad": 0.2971,
+   "bitwise_identical_upto": false
+  },
+  "landing": {
+   "step": 122,
+   "at_s": 2.44,
+   "pelvis_pos_diff_m": 0.1015,
+   "torso_ori_diff_deg": 9.29,
+   "rotation_diff_deg": -8.72,
+   "joint_max_abs_at_rad": 0.3143,
+   "joint_rms_at_rad": 0.127,
+   "joint_max_abs_upto_rad": 0.696,
+   "bitwise_identical_upto": false
+  },
+  "end": {
+   "step": 189,
+   "at_s": 3.78,
+   "pelvis_pos_diff_m": 0.2974,
+   "torso_ori_diff_deg": 53.03,
+   "rotation_diff_deg": 1.13,
+   "joint_max_abs_at_rad": 0.5742,
+   "joint_rms_at_rad": 0.2197,
+   "joint_max_abs_upto_rad": 0.8713,
+   "bitwise_identical_upto": false
+  },
+  "first_differing_step": 0,
+  "curve_every_5_steps": [
+   [
+    0,
+    0.0,
+    0.0
+   ],
+   [
+    5,
+    0.0,
+    0.0
+   ],
+   [
+    10,
+    0.0,
+    0.0
+   ],
+   [
+    15,
+    0.0,
+    0.0
+   ],
+   [
+    20,
+    0.0,
+    0.0
+   ],
+   [
+    25,
+    0.0,
+    0.0
+   ],
+   [
+    30,
+    0.0,
+    0.0
+   ],
+   [
+    35,
+    0.0,
+    0.0
+   ],
+   [
+    40,
+    0.0,
+    0.0
+   ],
+   [
+    45,
+    0.0,
+    0.0
+   ],
+   [
+    50,
+    0.0,
+    0.0
+   ],
+   [
+    55,
+    0.0,
+    0.0
+   ],
+   [
+    60,
+    0.0,
+    0.0
+   ],
+   [
+    65,
+    0.0,
+    0.0
+   ],
+   [
+    70,
+    0.0,
+    0.0
+   ],
+   [
+    75,
+    0.0,
+    0.0
+   ],
+   [
+    80,
+    0.0001,
+    0.0036
+   ],
+   [
+    85,
+    0.0009,
+    0.0065
+   ],
+   [
+    90,
+    0.0012,
+    0.0323
+   ],
+   [
+    95,
+    0.0067,
+    0.1377
+   ],
+   [
+    100,
+    0.0142,
+    0.1421
+   ],
+   [
+    105,
+    0.0474,
+    0.2608
+   ],
+   [
+    110,
+    0.0703,
+    0.2971
+   ],
+   [
+    115,
+    0.0637,
+    0.4363
+   ],
+   [
+    120,
+    0.0978,
+    0.2396
+   ],
+   [
+    125,
+    0.1074,
+    0.5271
+   ],
+   [
+    130,
+    0.1243,
+    0.6312
+   ],
+   [
+    135,
+    0.1182,
+    0.677
+   ],
+   [
+    140,
+    0.1082,
+    0.4009
+   ],
+   [
+    145,
+    0.138,
+    0.3755
+   ],
+   [
+    150,
+    0.1279,
+    0.4956
+   ],
+   [
+    155,
+    0.1807,
+    0.4366
+   ],
+   [
+    160,
+    0.2073,
+    0.5413
+   ],
+   [
+    165,
+    0.2146,
+    0.3757
+   ],
+   [
+    170,
+    0.2697,
+    0.5316
+   ],
+   [
+    175,
+    0.2745,
+    0.4632
+   ],
+   [
+    180,
+    0.3003,
+    0.5081
+   ],
+   [
+    185,
+    0.3164,
+    0.4974
+   ]
+  ]
+ }
+}

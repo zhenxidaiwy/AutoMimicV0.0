@@ -1,0 +1,20 @@
+{
+  "clip_id": "bda_ming_gxdsm_b",
+  "source": {"platform": "bilibili", "id": "av117312921404527", "start_s": 31.2, "end_s": 33.3,
+             "origin": "北京舞蹈学院中国民族民间舞教材，明文军示范，山东鼓子秧歌·狗熊哆嗦毛（后半段，近景特写之后）"},
+  "fps": 30,
+  "n_frames": 63,
+  "camera": "static",
+  "people": 1,
+  "full_body": true,
+  "performer": "明文军",
+  "move": "狗熊哆嗦毛",
+  "quality": 4,
+  "notes": "Starts right after a close-up shot: landing (L foot), wide 'X' stance with arms spread (R foot slides), L foot lifts sideways and closes, then the characteristic shake: arms beat down while the whole body quivers (2D ankle speed oscillates 0.2-5% leg/frame on both feet simultaneously; small bounces cannot be ruled out, so contacts there are 'unsure'), then stand. Performer drifts away from the camera.",
+  "annotator": "Claude (VLM) + ViTPose 2D ankle speed check",
+  "phases": [[0, 5, "recover"], [6, 17, "hold"], [18, 29, "recover"], [30, 32, "settle"],
+             [33, 48, "shake"], [49, 62, "stand"]],
+  "swing": [[0, 3, "L"], [19, 29, "L"]],
+  "unsure": [[7, 17], [33, 48]],
+  "airborne": []
+}

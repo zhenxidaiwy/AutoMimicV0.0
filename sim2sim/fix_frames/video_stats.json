@@ -1,0 +1,22 @@
+{
+ "sss": {
+  "n_frames": 354,
+  "shape": [
+   480,
+   960,
+   3
+  ],
+  "mean_abs_frame_diff_left": 1.3333487510681152,
+  "mean_abs_frame_diff_right": 1.3326570987701416
+ },
+ "gxdsm": {
+  "n_frames": 385,
+  "shape": [
+   480,
+   960,
+   3
+  ],
+  "mean_abs_frame_diff_left": 2.380694627761841,
+  "mean_abs_frame_diff_right": 2.3874523639678955
+ }
+}

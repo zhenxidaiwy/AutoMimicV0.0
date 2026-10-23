@@ -1,0 +1,34 @@
+{
+ "platform": "bilibili",
+ "id": "av75680591",
+ "url": "https://www.bilibili.com/video/av75680591",
+ "title": "武术基本功—原地直体后空翻",
+ "uploader": "功夫者平台",
+ "start_s": 35.2,
+ "end_s": 37.833,
+ "frames": 79,
+ "fps": 30,
+ "dataset_range_s": [
+  35.2,
+  38.25
+ ],
+ "note": "Source is a portrait collage (1080x1920); only the live-video band (rows 579-1336, native 1080x758) is kept, as in scripts/data/backflip_redo.sh. Frames 0-78 = the 79 frames labelled in dataset/backflip_3/annotation.json.",
+ "policies": [
+  "policies/backflip_r12_clean",
+  "policies/backflip_r13_fid1",
+  "policies/backflip_r14_fid2"
+ ],
+ "motion": "dataset/backflip_3/g1_ballistic_50fps.npz",
+ "clip_id": "backflip_3",
+ "video": {
+  "file": "backflip_3.mp4",
+  "codec": "h264",
+  "width": 1080,
+  "height": 758,
+  "fps": "30/1",
+  "frames": 79,
+  "audio": false
+ },
+ "face_mosaic": "yolov8n-pose (ultralytics 8.2.42) per frame, plus a 180-degree-rotated pass when the head keypoints are missing (inverted bodies); face box from nose/eyes/ears (1.6x their span, >= 6% of frame height and >= 0.2 x the clip person size), shoulder/box-top fallback, union over +-3 frames, last box reused when nothing is detected; pixelated with block size = box/7. Every person detected (conf >= 0.15) is mosaicked.",
+ "license_note": "Third-party internet video, faces mosaicked; for research illustration only."
+}

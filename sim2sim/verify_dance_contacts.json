@@ -1,0 +1,22 @@
+{
+ "sss": {
+  "states": 118,
+  "native_ncon_mean": 16.43220338983051,
+  "warp_nacon_mean": 16.43220338983051,
+  "ncon_equal_frac": 1.0,
+  "pairset_mismatch_states": 0,
+  "pairs_only_native": {},
+  "pairs_only_warp": {},
+  "examples": []
+ },
+ "gxdsm": {
+  "states": 128,
+  "native_ncon_mean": 6.6328125,
+  "warp_nacon_mean": 6.6328125,
+  "ncon_equal_frac": 1.0,
+  "pairset_mismatch_states": 0,
+  "pairs_only_native": {},
+  "pairs_only_warp": {},
+  "examples": []
+ }
+}

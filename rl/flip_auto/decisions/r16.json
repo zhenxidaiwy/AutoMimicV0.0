@@ -1,0 +1,40 @@
+{
+ "round": 16,
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r15_quant.md (automatic, section S stop criteria) -> step 2 analysis/r15_llm.md -> step 3 this file -> train",
+ "based_on": "r15 model_13499 (score 9.489): latency 20 ms 99.2 %, quietness regressed",
+ "init": {"run": "2026-10-23_11-39-43_flipauto_r15", "ckpt": "model_13499.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-187"],
+ "human_input": [
+  "(dev) user, during r15: three-level library (generic / family / task) and layered stop criteria; keep the backflip-specific parts for reproducibility"
+ ],
+ "priorities": [
+  "P1 delay-buffer reset bug (0 rad targets after every reset) - fixed in code",
+  "P2 quietness after landing (action change 0.185, pelvis 0.27 m/s): expected to follow P1; otherwise stand terms next round",
+  "- wrists: waived (cosmetic, unreliable GVHMR hand orientation)"
+ ],
+ "knobs": {},
+ "library": {},
+ "library_params": {},
+ "waive": [
+  {"check": "backflip_3/*wrist*", "reason": "GVHMR hand orientation unreliable; wrists do not affect the flip (r12-r15 analyses)"}
+ ],
+ "lessons": [
+  {"name": "delay-reset-zero-target", "kind": "lesson", "phase": "any",
+   "note": "mjlab delay buffer backfilled reset rows with an all-zero target -> 0 rad commands at every episode start; fixed with hold-pose (r15)",
+   "code": "rl/mimic_generic._hold_delay_cfg"}
+ ],
+ "code_changes": [
+  "rl/mimic_generic.py: generic (L0) layer; HoldDelayedActuator fixes the 0-rad targets after reset",
+  "rl/flip_rewards.py: generic part replaced by imports from mimic_generic (names unchanged)",
+  "library v2: scopes generic / family:aerial / task:backflip_3, lessons, mark_verified, promote, freeze; migrated",
+  "stop_criteria.json/.py + quant_report section S + harness enforcement; critic --task"
+ ],
+ "expect": {
+  "stand_action_change": "<= 0.1 (r15 0.185)",
+  "stand_pelvis_speed": "<= 0.1 (r15 0.27)",
+  "robust_delay1_success": ">= 0.95 (r15 0.992)",
+  "rotation_deg": ">= 345 (r15 367.5)"
+ },
+ "rollback_if": "latency 20 ms success < 0.9 or rotation < 340: r17 from r15 model_13499"
+}

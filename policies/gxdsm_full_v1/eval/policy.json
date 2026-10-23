@@ -1,0 +1,18 @@
+{
+ "ckpt": "/home/user/dance_win/policies/gxdsm_full_v1/policy.pt",
+ "motion": "/home/user/dance_win/policies/gxdsm_full_v1/reference_motion.npz",
+ "clip_steps": 385,
+ "steps_run": 410,
+ "completed_clip": true,
+ "fell_at_step": null,
+ "fell_at_s": null,
+ "termination_terms": [],
+ "bodies_z_err_gt_15cm": {},
+ "eval_mode": "fall-only (torso height/orientation)",
+ "ee_z_violation_frac": 0.0,
+ "body_pos_err_mean_m": 0.0563,
+ "body_pos_err_max_m": 1.0099,
+ "joint_pos_err_mean": 0.9446,
+ "anchor_z_err_max_m": 0.0579,
+ "video": "/home/user/dance_win/policies/gxdsm_full_v1/eval/policy.mp4"
+}

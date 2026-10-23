@@ -1,0 +1,28 @@
+{
+  "clip_id": "gym_sss",
+  "source": {"platform": "bilibili", "id": "av117332315867932", "start_s": 52.8, "end_s": 58.6,
+             "origin": "闪身步教学（健身房），教学中的全速示范段"},
+  "fps": 30,
+  "n_frames": 174,
+  "camera": "static",
+  "people": 1,
+  "full_body": true,
+  "performer": "健身房光头男",
+  "move": "闪身步",
+  "quality": 3,
+  "notes": "360p portrait; feet close to the bottom edge; a second person is visible far in the background (tracker stayed on the performer). 4 sequential-step flashes: lead foot L,R,L,R, then the other foot closes. The first flash starts at frame 2 (no prep in the clip).",
+  "annotator": "Claude (VLM) + ViTPose 2D ankle speed check",
+  "phases": [
+    [0, 1, "prep"], [2, 11, "flash"], [12, 13, "hold"], [14, 20, "recover"], [21, 26, "settle"],
+    [27, 49, "stand"], [50, 50, "prep"],
+    [51, 58, "flash"], [59, 60, "hold"], [61, 68, "recover"], [69, 74, "settle"],
+    [75, 93, "stand"], [94, 95, "prep"],
+    [96, 106, "flash"], [107, 114, "recover"], [115, 120, "settle"],
+    [121, 143, "stand"], [144, 144, "prep"],
+    [145, 152, "flash"], [153, 153, "hold"], [154, 165, "recover"], [166, 173, "settle"]
+  ],
+  "swing": [[2, 11, "L"], [14, 20, "R"], [51, 58, "R"], [61, 68, "L"],
+            [96, 106, "L"], [107, 114, "R"], [145, 152, "R"], [154, 165, "L"]],
+  "unsure": [[106, 107]],
+  "airborne": []
+}

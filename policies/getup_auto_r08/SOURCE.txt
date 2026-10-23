@@ -1,0 +1,1 @@
+source: /home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-59-18_auto_r08/model_24998.pt (task Dance-Recovery-G1-auto, harness round 8; user: 'auto_r08 is good enough')

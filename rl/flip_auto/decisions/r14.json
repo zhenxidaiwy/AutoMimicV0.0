@@ -1,0 +1,30 @@
+{
+ "round": 14,
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r13_quant.md (automatic) -> step 2 analysis/r13_llm.md -> step 3 this file -> train",
+ "based_on": "r13 model_11499 (score 9.55)",
+ "init": {"run": "2026-10-23_08-45-13_flipauto_r13", "ckpt": "model_11499.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-187"],
+ "human_input": [],
+ "priorities": [
+  "P1 fidelity curriculum step 2 (arm errors at take-off / landing are tracking errors)",
+  "- wrists: cosmetic, unreliable reference"
+ ],
+ "knobs": {
+  "tracking.scale": 3.375,
+  "tracking.std_scale": 0.614
+ },
+ "library": {},
+ "library_params": {},
+ "code_changes": [],
+ "expect": {
+  "track_joint_err": "< 1.4 (r13 1.52)",
+  "track_body_err_m": "< 0.065 (r13 0.073)",
+  "takeoff_shoulder_yaw_sev": "< 3 (r13 4.9)",
+  "stand_pelvis_speed": "< 0.3 (r13 0.047)",
+  "stand_action_change": "< 0.1 (r13 0.039)",
+  "rotation_deg": ">= 345 (r13 367)",
+  "landed_upright": "true"
+ },
+ "rollback_if": "stand pelvis speed > 0.3 or action change > 0.15 or rotation < 340: r15 from r13 model_11499 at x2.25 / x0.722"
+}

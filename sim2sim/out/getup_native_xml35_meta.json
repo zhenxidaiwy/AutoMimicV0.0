@@ -1,0 +1,31 @@
+{
+ "mujoco": "3.5.0",
+ "model": "models/getup.xml",
+ "wall_s": 11.456721067428589,
+ "model_vs_mjb_max_abs": {
+  "body_mass": 0.0,
+  "body_inertia": 0.0,
+  "body_ipos": 0.0,
+  "body_pos": 0.0,
+  "body_quat": 0.0,
+  "dof_armature": 2.4999999997249445e-08,
+  "dof_damping": 0.0,
+  "dof_frictionloss": 0.0,
+  "geom_friction": 0.0,
+  "geom_solref": 0.0,
+  "geom_solimp": 0.0,
+  "geom_size": 4.3743823403830095e-08,
+  "geom_pos": 2.7755575615628914e-17,
+  "geom_type": 0.0,
+  "geom_contype": 0.0,
+  "geom_conaffinity": 0.0,
+  "actuator_gainprm": 4.6195748577559925e-05,
+  "actuator_biasprm": 4.6195748577559925e-05,
+  "actuator_forcerange": 0.0,
+  "actuator_trnid": 0.0,
+  "jnt_range": 0.0,
+  "qpos0": 0.0
+ },
+ "policy_ms_per_step": 0.13783715487519288,
+ "physics_ms_per_policy_step": 0.2158456354380789
+}

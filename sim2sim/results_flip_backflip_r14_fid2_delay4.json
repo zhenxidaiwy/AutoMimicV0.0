@@ -1,0 +1,357 @@
+{
+ "policy": "backflip_r14_fid2",
+ "lag_physics_steps": 4,
+ "delay_ms": 20,
+ "substeps": 756,
+ "ctrl_vs_native_delay_buffer_max_abs": 0.7649391933313998,
+ "substeps_differing": [
+  0,
+  1,
+  2,
+  3
+ ],
+ "ctrl_diff_by_delay_model": {
+  "lag2_first": 2.2950865032730476,
+  "lag2_default": 2.2950865032730476,
+  "lag2_zeros": 2.2950865032730476,
+  "lag3_first": 2.2950865032730476,
+  "lag3_default": 2.2950865032730476,
+  "lag3_zeros": 2.2950865032730476,
+  "lag4_first": 0.7649391933313998,
+  "lag4_default": 0.6690000295639038,
+  "lag4_zeros": 4.359929732800083e-07,
+  "lag5_first": 2.295086447628222,
+  "lag5_default": 2.295086447628222,
+  "lag5_zeros": 2.295086447628222,
+  "lag6_first": 2.295086447628222,
+  "lag6_default": 2.295086447628222,
+  "lag6_zeros": 2.295086447628222
+ },
+ "obs_last_action_vs_policy_output_max_abs": 0.0,
+ "mjlab_fill_after_reset": "zeros",
+ "ctrl_diff_with_that_fill": 4.359929732800083e-07,
+ "metrics": {
+  "mjlab": {
+   "success": true,
+   "rotation_deg": 360.6,
+   "rotation_max_abs_deg": 362.2,
+   "peak_pelvis_m": 1.046,
+   "airborne_s": 0.52,
+   "airborne_no_contact_s": 0.5,
+   "takeoff_step": 96,
+   "landing_step": 121,
+   "takeoff_offset_steps": -3,
+   "landing_offset_steps": -1,
+   "landing_tilt_deg": 44.5,
+   "landing_tilt_max_0p5s_deg": 44.5,
+   "pelvis_min_after_landing_m": 0.636,
+   "end_tilt_deg": 2.3,
+   "tail_tilt_max_deg": 5.2,
+   "end_pelvis_m": 0.79,
+   "tail_pelvis_min_m": 0.778,
+   "fell": false,
+   "early_fall": false,
+   "steps": 189
+  },
+  "native": {
+   "success": true,
+   "rotation_deg": 359.3,
+   "rotation_max_abs_deg": 365.6,
+   "peak_pelvis_m": 1.092,
+   "airborne_s": 0.52,
+   "airborne_no_contact_s": 0.48,
+   "takeoff_step": 97,
+   "landing_step": 121,
+   "takeoff_offset_steps": -2,
+   "landing_offset_steps": -1,
+   "landing_tilt_deg": 40.8,
+   "landing_tilt_max_0p5s_deg": 40.8,
+   "pelvis_min_after_landing_m": 0.682,
+   "end_tilt_deg": 2.5,
+   "tail_tilt_max_deg": 5.8,
+   "end_pelvis_m": 0.779,
+   "tail_pelvis_min_m": 0.778,
+   "fell": false,
+   "early_fall": false,
+   "steps": 189,
+   "knee_torque_max_Nm": 120.0,
+   "knee_torque_limit_Nm": [
+    120.0,
+    120.0
+   ],
+   "knee_at_limit_frac": 0.0317,
+   "knee_torque_respects_limit": true,
+   "knee_pd_demand_max_Nm": 282.1,
+   "ncon_max": 28
+  },
+  "native_fill_first": {
+   "success": true,
+   "rotation_deg": 369.1,
+   "rotation_max_abs_deg": 369.3,
+   "peak_pelvis_m": 1.105,
+   "airborne_s": 0.54,
+   "airborne_no_contact_s": 0.5,
+   "takeoff_step": 97,
+   "landing_step": 122,
+   "takeoff_offset_steps": -2,
+   "landing_offset_steps": 0,
+   "landing_tilt_deg": 35.7,
+   "landing_tilt_max_0p5s_deg": 35.7,
+   "pelvis_min_after_landing_m": 0.681,
+   "end_tilt_deg": 8.8,
+   "tail_tilt_max_deg": 10.6,
+   "end_pelvis_m": 0.775,
+   "tail_pelvis_min_m": 0.775,
+   "fell": false,
+   "early_fall": false,
+   "steps": 189,
+   "knee_torque_max_Nm": 120.0,
+   "knee_torque_limit_Nm": [
+    120.0,
+    120.0
+   ],
+   "knee_at_limit_frac": 0.0463,
+   "knee_torque_respects_limit": true,
+   "knee_pd_demand_max_Nm": 287.0
+  }
+ },
+ "divergence": {
+  "takeoff": {
+   "step": 99,
+   "at_s": 1.98,
+   "pelvis_pos_diff_m": 0.0355,
+   "torso_ori_diff_deg": 0.77,
+   "rotation_diff_deg": 1.15,
+   "joint_max_abs_at_rad": 0.1734,
+   "joint_rms_at_rad": 0.0569,
+   "joint_max_abs_upto_rad": 0.2075,
+   "bitwise_identical_upto": false
+  },
+  "mid_flight": {
+   "step": 110,
+   "at_s": 2.2,
+   "pelvis_pos_diff_m": 0.0644,
+   "torso_ori_diff_deg": 5.62,
+   "rotation_diff_deg": -4.65,
+   "joint_max_abs_at_rad": 0.1527,
+   "joint_rms_at_rad": 0.0598,
+   "joint_max_abs_upto_rad": 0.2075,
+   "bitwise_identical_upto": false
+  },
+  "landing": {
+   "step": 122,
+   "at_s": 2.44,
+   "pelvis_pos_diff_m": 0.1011,
+   "torso_ori_diff_deg": 4.75,
+   "rotation_diff_deg": -5.19,
+   "joint_max_abs_at_rad": 0.3897,
+   "joint_rms_at_rad": 0.1105,
+   "joint_max_abs_upto_rad": 0.3897,
+   "bitwise_identical_upto": false
+  },
+  "end": {
+   "step": 189,
+   "at_s": 3.78,
+   "pelvis_pos_diff_m": 0.4698,
+   "torso_ori_diff_deg": 24.03,
+   "rotation_diff_deg": 1.31,
+   "joint_max_abs_at_rad": 0.2713,
+   "joint_rms_at_rad": 0.1285,
+   "joint_max_abs_upto_rad": 0.9069,
+   "bitwise_identical_upto": false
+  },
+  "first_differing_step": 0,
+  "curve_every_5_steps": [
+   [
+    0,
+    0.0,
+    0.0
+   ],
+   [
+    5,
+    0.0,
+    0.0
+   ],
+   [
+    10,
+    0.0,
+    0.0
+   ],
+   [
+    15,
+    0.0,
+    0.0
+   ],
+   [
+    20,
+    0.0004,
+    0.0639
+   ],
+   [
+    25,
+    0.0007,
+    0.0267
+   ],
+   [
+    30,
+    0.0019,
+    0.0304
+   ],
+   [
+    35,
+    0.004,
+    0.0365
+   ],
+   [
+    40,
+    0.0053,
+    0.0397
+   ],
+   [
+    45,
+    0.0158,
+    0.1174
+   ],
+   [
+    50,
+    0.0179,
+    0.1257
+   ],
+   [
+    55,
+    0.0202,
+    0.0738
+   ],
+   [
+    60,
+    0.0173,
+    0.0771
+   ],
+   [
+    65,
+    0.0163,
+    0.1142
+   ],
+   [
+    70,
+    0.0208,
+    0.0613
+   ],
+   [
+    75,
+    0.0212,
+    0.0425
+   ],
+   [
+    80,
+    0.0186,
+    0.0417
+   ],
+   [
+    85,
+    0.0208,
+    0.0735
+   ],
+   [
+    90,
+    0.0261,
+    0.1129
+   ],
+   [
+    95,
+    0.0325,
+    0.1104
+   ],
+   [
+    100,
+    0.0375,
+    0.1539
+   ],
+   [
+    105,
+    0.056,
+    0.1064
+   ],
+   [
+    110,
+    0.0644,
+    0.1527
+   ],
+   [
+    115,
+    0.0811,
+    0.177
+   ],
+   [
+    120,
+    0.1013,
+    0.277
+   ],
+   [
+    125,
+    0.1112,
+    0.3118
+   ],
+   [
+    130,
+    0.1347,
+    0.4604
+   ],
+   [
+    135,
+    0.1235,
+    0.5273
+   ],
+   [
+    140,
+    0.1471,
+    0.7899
+   ],
+   [
+    145,
+    0.1583,
+    0.5459
+   ],
+   [
+    150,
+    0.2227,
+    0.2501
+   ],
+   [
+    155,
+    0.2575,
+    0.2301
+   ],
+   [
+    160,
+    0.3088,
+    0.2179
+   ],
+   [
+    165,
+    0.3463,
+    0.3053
+   ],
+   [
+    170,
+    0.3828,
+    0.3005
+   ],
+   [
+    175,
+    0.4075,
+    0.4737
+   ],
+   [
+    180,
+    0.4305,
+    0.3297
+   ],
+   [
+    185,
+    0.4528,
+    0.2295
+   ]
+  ]
+ }
+}

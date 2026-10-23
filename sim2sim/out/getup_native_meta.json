@@ -1,0 +1,8 @@
+{
+ "mujoco": "3.5.0",
+ "model": "models/getup.mjb",
+ "wall_s": 10.783707618713379,
+ "model_vs_mjb_max_abs": null,
+ "policy_ms_per_step": 0.09941276615479921,
+ "physics_ms_per_policy_step": 0.2013177104070536
+}

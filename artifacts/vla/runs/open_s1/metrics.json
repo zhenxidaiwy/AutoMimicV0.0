@@ -1,0 +1,20 @@
+{
+ "args": {
+  "name": "open_s1",
+  "seed": 0,
+  "epochs": 40,
+  "n_synth": 40,
+  "neg_frac": 0.35,
+  "max_seq": 1200,
+  "conf_aug": 0.5
+ },
+ "test_real": {
+  "n": 468,
+  "pos_rejected": 0.4081,
+  "dance_acc": 0.9423
+ },
+ "neg_val": {
+  "n": 4000,
+  "neg_rejected": 0.9998
+ }
+}

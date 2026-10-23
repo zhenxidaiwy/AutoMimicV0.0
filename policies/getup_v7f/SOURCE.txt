@@ -1,0 +1,1 @@
+source: /home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-20_21-37-02_getup_v7f_n2048/model_21098.pt (task Dance-Recovery-G1-v7f, warm start from 2026-10-20_20-29-51_getup_v7e_n2048)

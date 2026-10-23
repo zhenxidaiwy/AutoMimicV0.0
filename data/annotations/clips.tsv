@@ -1,0 +1,17 @@
+# raw_id	clip_id	start_s	end_s	camera	move	performer	note (VLM screening)
+av117312921404527	bda_zhao_sss	2.5	9.6	static	闪身步	赵铁春(北舞教材)	reference; 4 flashes; plain backdrop
+av117346945600980	tonyfu_sss_fast	92.2	96.2	static	闪身步	TonyFu	4 full-speed flashes; curtain backdrop; 360p portrait
+av117346945600980	tonyfu_sss_slow	86.8	92.1	static	闪身步	TonyFu	slow-motion decomposition; held wide stance with small weight shifts (start moved 86.6->86.8: shot cut in first 5 frames)
+av117346945600980	tonyfu_sss_single	11.3	13.0	static	闪身步	TonyFu	single full-speed flash (end moved 13.4->13.0: shot cut at frame 54)
+av117332315867932	gym_sss	52.8	58.6	static	闪身步	健身房光头男	4 flashes; feet near bottom edge; 360p portrait
+av117438683289595	street_sss_a	20.80	21.72	static	闪身步	街头戴帽男	sub-shot 1 of an edited sequence (jump cuts detected at 20.8s+frames 28,104,153,187,219); 1 flash
+av117438683289595	street_sss_b	21.75	24.22	static	闪身步	街头戴帽男	sub-shot 2; stand then 1 flash
+av117438683289595	street_sss_c	25.92	26.99	static	闪身步	街头戴帽男	sub-shot 4; 1 flash
+av117438683289595	street_sss_d	27.05	28.05	static	闪身步	街头戴帽男	sub-shot 5; 1 flash
+av117438683289595	street_sss_e	28.12	30.50	static	闪身步	街头戴帽男	sub-shot 6; stand then 1 flash
+av117285977068813	hoodie_sss	1.10	5.28	static	闪身步	卫衣男(家中)	4 flashes, exaggerated side kick with high foot lift; shot cut at 5.5 s; 360p portrait
+av117416621246346	latin_sss	0.0	12.45	static	闪身步(拉丁版)	练功房女舞者	Latin-dance style variation of the flash step; full body, fixed camera; 360p portrait
+av117381925963568	bda2_gxdsm_wide	8.4	11.85	static	狗熊哆嗦毛	明文军(北舞鼓子秧歌教材)	wide shot before close-up; 768x576
+av117381925963568	bda2_gxdsm_full	16.25	24.0	static	狗熊哆嗦毛	北舞教材男舞者(白衣)	8 s continuous full-body demo after a cut at ~16.0 s; best gxdsm source
+av117312921404527	bda_ming_gxdsm_a	25.6	29.1	static	狗熊哆嗦毛	明文军(北舞教材)	wide shot before the cut to close-up (29.2-31.0 has no feet, excluded)
+av117312921404527	bda_ming_gxdsm_b	31.2	33.3	static	狗熊哆嗦毛	明文军(北舞教材)	wide shot after the close-up; ending part

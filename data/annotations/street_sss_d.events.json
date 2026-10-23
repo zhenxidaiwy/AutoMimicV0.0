@@ -1,0 +1,13 @@
+{
+  "clip_id": "street_sss_d",
+  "source": {"platform": "bilibili", "id": "av117438683289595", "start_s": 27.05, "end_s": 28.05,
+             "origin": "街头翻跳（剪辑合集中的第 5 个镜头）"},
+  "fps": 30, "n_frames": 30, "camera": "static", "people": 1, "full_body": true,
+  "performer": "街头戴帽男", "move": "闪身步", "quality": 3,
+  "notes": "One flash: both ankles jump at frame 10 (likely a small hop), right foot keeps sliding to 12; held lean 13-20; left foot closes quickly (21-25).",
+  "annotator": "Claude (VLM) + ViTPose 2D ankle speed check",
+  "phases": [[0, 7, "stand"], [8, 12, "flash"], [13, 20, "hold"], [21, 25, "recover"], [26, 29, "settle"]],
+  "swing": [[21, 25, "L"]],
+  "unsure": [[9, 12]],
+  "airborne": []
+}

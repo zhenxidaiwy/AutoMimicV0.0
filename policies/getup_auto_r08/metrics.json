@@ -1,0 +1,55 @@
+{
+ "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-59-18_auto_r08/model_24998.pt",
+ "task": "Dance-Recovery-G1-auto",
+ "knobs": "/home/user/projects/dance_logs/auto/r08/knobs.json",
+ "n": 128,
+ "success": 1.0,
+ "end_standing": 1.0,
+ "t_stand_median": 2.0999999046325684,
+ "per_pose": {
+  "supine": {
+   "n": 35,
+   "success": 1.0,
+   "t_stand": 2.2200000286102295
+  },
+  "face-down": {
+   "n": 35,
+   "success": 1.0,
+   "t_stand": 2.0199999809265137
+  },
+  "left side": {
+   "n": 31,
+   "success": 1.0,
+   "t_stand": 2.259999990463257
+  },
+  "right side": {
+   "n": 27,
+   "success": 1.0,
+   "t_stand": 1.8200000524520874
+  }
+ },
+ "peak_joint_speed_median": 9.644113540649414,
+ "peak_joint_speed_p90": 11.221144676208496,
+ "peak_joint_accel_median": 327.17449951171875,
+ "peak_vz_median": 0.6332864165306091,
+ "max_pelvis_z": 0.771023154258728,
+ "feet_spread_median": 0.439633309841156,
+ "squat_match_median": 0.39542755484580994,
+ "torso_tilt_median": 1.0333170890808105,
+ "pelvis_tilt_median": 0.6055492162704468,
+ "template_median": 0.8614703416824341,
+ "touchdowns_rising_median": 4.0,
+ "touchdowns_after_stand_median": 0.0,
+ "foot_travel_after_stand_median": 0.08762888610363007,
+ "peak_foot_force_median": 390.6438903808594,
+ "sway_pp_cm_median": 2.1569337844848633,
+ "torso_angv_rms_median": 0.0168556347489357,
+ "stand_start_torso_tilt": 0.7941378355026245,
+ "stand_start_template": 0.9651712775230408,
+ "stand_start_still_standing": 1.0,
+ "stand_start_touchdowns": 1.0,
+ "stand_start_foot_travel": 0.10994322597980499,
+ "stand_start_sway_pp_cm": 1.5445709228515625,
+ "stand_start_torso_angv_rms": 0.018872663378715515,
+ "t_stand_min_pose": 1.8200000524520874
+}

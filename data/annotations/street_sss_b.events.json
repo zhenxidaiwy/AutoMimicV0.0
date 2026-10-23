@@ -1,0 +1,13 @@
+{
+  "clip_id": "street_sss_b",
+  "source": {"platform": "bilibili", "id": "av117438683289595", "start_s": 21.75, "end_s": 24.22,
+             "origin": "街头翻跳（剪辑合集中的第 2 个镜头）"},
+  "fps": 30, "n_frames": 75, "camera": "static", "people": 1, "full_body": true,
+  "performer": "街头戴帽男", "move": "闪身步", "quality": 3,
+  "notes": "Long stand (talking), then one flash: both ankles jump at 50-52 (lunge), hold, right foot closes in two pushes (58-60, 64-66).",
+  "annotator": "Claude (VLM) + ViTPose 2D ankle speed check",
+  "phases": [[0, 45, "stand"], [46, 49, "prep"], [50, 55, "flash"], [56, 57, "hold"], [58, 66, "recover"], [67, 74, "settle"]],
+  "swing": [[58, 66, "R"]],
+  "unsure": [[50, 53]],
+  "airborne": []
+}

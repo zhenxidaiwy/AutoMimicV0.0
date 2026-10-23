@@ -1,0 +1,10597 @@
+{
+ "version": 1,
+ "checks": [
+  {
+   "id": "joint:elbow:stand",
+   "kind": "joint",
+   "target": "elbow",
+   "phase": "stand",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3055,
+     "severity": 1.17
+    },
+    {
+     "round": 8,
+     "value": 0.4114,
+     "severity": 1.57
+    },
+    {
+     "round": 9,
+     "value": 0.4257,
+     "severity": 1.63
+    },
+    {
+     "round": 10,
+     "value": 0.139,
+     "severity": 0.53
+    },
+    {
+     "round": 11,
+     "value": 0.372,
+     "severity": 1.42
+    },
+    {
+     "round": 12,
+     "value": 0.2105,
+     "severity": 0.8
+    },
+    {
+     "round": 13,
+     "value": 0.1463,
+     "severity": 0.56
+    },
+    {
+     "round": 14,
+     "value": 0.1361,
+     "severity": 0.52
+    },
+    {
+     "round": 15,
+     "value": 0.1598,
+     "severity": 0.61
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_pitch:stand",
+   "kind": "joint",
+   "target": "shoulder_pitch",
+   "phase": "stand",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.6267,
+     "severity": 2.39
+    },
+    {
+     "round": 8,
+     "value": 0.3863,
+     "severity": 1.48
+    },
+    {
+     "round": 9,
+     "value": 0.9916,
+     "severity": 3.79
+    },
+    {
+     "round": 10,
+     "value": 0.6737,
+     "severity": 2.57
+    },
+    {
+     "round": 11,
+     "value": 0.6048,
+     "severity": 2.31
+    },
+    {
+     "round": 12,
+     "value": 0.5572,
+     "severity": 2.13
+    },
+    {
+     "round": 13,
+     "value": 0.264,
+     "severity": 1.01
+    },
+    {
+     "round": 14,
+     "value": 0.2574,
+     "severity": 0.98
+    },
+    {
+     "round": 15,
+     "value": 0.3242,
+     "severity": 1.24
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_roll:stand",
+   "kind": "joint",
+   "target": "shoulder_roll",
+   "phase": "stand",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_roll_joint",
+      "right_shoulder_roll_joint"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2468,
+     "severity": 0.94
+    },
+    {
+     "round": 8,
+     "value": 0.1758,
+     "severity": 0.67
+    },
+    {
+     "round": 9,
+     "value": 0.3288,
+     "severity": 1.26
+    },
+    {
+     "round": 10,
+     "value": 0.2702,
+     "severity": 1.03
+    },
+    {
+     "round": 11,
+     "value": 0.3023,
+     "severity": 1.15
+    },
+    {
+     "round": 12,
+     "value": 0.2206,
+     "severity": 0.84
+    },
+    {
+     "round": 13,
+     "value": 0.1637,
+     "severity": 0.63
+    },
+    {
+     "round": 14,
+     "value": 0.1275,
+     "severity": 0.49
+    },
+    {
+     "round": 15,
+     "value": 0.1503,
+     "severity": 0.57
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_yaw:stand",
+   "kind": "joint",
+   "target": "shoulder_yaw",
+   "phase": "stand",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.5918,
+     "severity": 2.26
+    },
+    {
+     "round": 8,
+     "value": 0.4088,
+     "severity": 1.56
+    },
+    {
+     "round": 9,
+     "value": 0.629,
+     "severity": 2.4
+    },
+    {
+     "round": 10,
+     "value": 0.6172,
+     "severity": 2.36
+    },
+    {
+     "round": 11,
+     "value": 0.526,
+     "severity": 2.01
+    },
+    {
+     "round": 12,
+     "value": 0.2831,
+     "severity": 1.08
+    },
+    {
+     "round": 13,
+     "value": 0.1396,
+     "severity": 0.53
+    },
+    {
+     "round": 14,
+     "value": 0.1695,
+     "severity": 0.65
+    },
+    {
+     "round": 15,
+     "value": 0.1536,
+     "severity": 0.59
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_yaw:stand",
+   "kind": "joint",
+   "target": "wrist_yaw",
+   "phase": "stand",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_yaw_joint",
+      "right_wrist_yaw_joint"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4812,
+     "severity": 1.84
+    },
+    {
+     "round": 8,
+     "value": 0.465,
+     "severity": 1.78
+    },
+    {
+     "round": 9,
+     "value": 0.6689,
+     "severity": 2.56
+    },
+    {
+     "round": 10,
+     "value": 0.7335,
+     "severity": 2.8
+    },
+    {
+     "round": 11,
+     "value": 0.8779,
+     "severity": 3.35
+    },
+    {
+     "round": 12,
+     "value": 0.5503,
+     "severity": 2.1
+    },
+    {
+     "round": 13,
+     "value": 0.4824,
+     "severity": 1.84
+    },
+    {
+     "round": 14,
+     "value": 0.3936,
+     "severity": 1.5
+    },
+    {
+     "round": 15,
+     "value": 0.4939,
+     "severity": 1.89
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_pitch:stand",
+   "kind": "asymmetry",
+   "target": "hip_pitch",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_pitch",
+     "sign": 1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1405,
+     "severity": 0.81
+    },
+    {
+     "round": 8,
+     "value": 0.0454,
+     "severity": 0.26
+    },
+    {
+     "round": 9,
+     "value": 0.2278,
+     "severity": 1.31
+    },
+    {
+     "round": 10,
+     "value": 0.088,
+     "severity": 0.5
+    },
+    {
+     "round": 11,
+     "value": 0.0724,
+     "severity": 0.41
+    },
+    {
+     "round": 12,
+     "value": 0.1206,
+     "severity": 0.69
+    },
+    {
+     "round": 13,
+     "value": 0.0254,
+     "severity": 0.15
+    },
+    {
+     "round": 14,
+     "value": 0.0307,
+     "severity": 0.18
+    },
+    {
+     "round": 15,
+     "value": 0.0727,
+     "severity": 0.42
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_roll:stand",
+   "kind": "asymmetry",
+   "target": "hip_roll",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0064,
+     "severity": 0.04
+    },
+    {
+     "round": 8,
+     "value": 0.0072,
+     "severity": 0.04
+    },
+    {
+     "round": 9,
+     "value": 0.0603,
+     "severity": 0.35
+    },
+    {
+     "round": 10,
+     "value": 0.0217,
+     "severity": 0.12
+    },
+    {
+     "round": 11,
+     "value": 0.0028,
+     "severity": 0.02
+    },
+    {
+     "round": 12,
+     "value": -0.0174,
+     "severity": -0.1
+    },
+    {
+     "round": 13,
+     "value": -0.0233,
+     "severity": -0.13
+    },
+    {
+     "round": 14,
+     "value": 0.0025,
+     "severity": 0.01
+    },
+    {
+     "round": 15,
+     "value": 0.0153,
+     "severity": 0.09
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_yaw:stand",
+   "kind": "asymmetry",
+   "target": "hip_yaw",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_yaw",
+     "sign": -1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1939,
+     "severity": 1.11
+    },
+    {
+     "round": 8,
+     "value": 0.0481,
+     "severity": 0.28
+    },
+    {
+     "round": 9,
+     "value": 0.0976,
+     "severity": 0.56
+    },
+    {
+     "round": 10,
+     "value": -0.0007,
+     "severity": -0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0448,
+     "severity": 0.26
+    },
+    {
+     "round": 12,
+     "value": -0.0288,
+     "severity": -0.17
+    },
+    {
+     "round": 13,
+     "value": 0.0938,
+     "severity": 0.54
+    },
+    {
+     "round": 14,
+     "value": 0.0385,
+     "severity": 0.22
+    },
+    {
+     "round": 15,
+     "value": -0.0028,
+     "severity": -0.02
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:knee:stand",
+   "kind": "asymmetry",
+   "target": "knee",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "knee",
+     "sign": 1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0029,
+     "severity": 0.02
+    },
+    {
+     "round": 8,
+     "value": 0.038,
+     "severity": 0.22
+    },
+    {
+     "round": 9,
+     "value": 0.0846,
+     "severity": 0.48
+    },
+    {
+     "round": 10,
+     "value": 0.0425,
+     "severity": 0.24
+    },
+    {
+     "round": 11,
+     "value": 0.0144,
+     "severity": 0.08
+    },
+    {
+     "round": 12,
+     "value": -0.0043,
+     "severity": -0.02
+    },
+    {
+     "round": 13,
+     "value": -0.0195,
+     "severity": -0.11
+    },
+    {
+     "round": 14,
+     "value": -0.0263,
+     "severity": -0.15
+    },
+    {
+     "round": 15,
+     "value": 0.0267,
+     "severity": 0.15
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_pitch:stand",
+   "kind": "asymmetry",
+   "target": "ankle_pitch",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_pitch",
+     "sign": 1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1344,
+     "severity": 0.77
+    },
+    {
+     "round": 8,
+     "value": 0.0585,
+     "severity": 0.34
+    },
+    {
+     "round": 9,
+     "value": 0.171,
+     "severity": 0.98
+    },
+    {
+     "round": 10,
+     "value": 0.1187,
+     "severity": 0.68
+    },
+    {
+     "round": 11,
+     "value": 0.0624,
+     "severity": 0.36
+    },
+    {
+     "round": 12,
+     "value": 0.0843,
+     "severity": 0.48
+    },
+    {
+     "round": 13,
+     "value": 0.0323,
+     "severity": 0.19
+    },
+    {
+     "round": 14,
+     "value": 0.0322,
+     "severity": 0.18
+    },
+    {
+     "round": 15,
+     "value": 0.1125,
+     "severity": 0.64
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_roll:stand",
+   "kind": "asymmetry",
+   "target": "ankle_roll",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0062,
+     "severity": -0.04
+    },
+    {
+     "round": 8,
+     "value": 0.0007,
+     "severity": 0.0
+    },
+    {
+     "round": 9,
+     "value": 0.0344,
+     "severity": 0.2
+    },
+    {
+     "round": 10,
+     "value": -0.0062,
+     "severity": -0.04
+    },
+    {
+     "round": 11,
+     "value": -0.0029,
+     "severity": -0.02
+    },
+    {
+     "round": 12,
+     "value": -0.0341,
+     "severity": -0.2
+    },
+    {
+     "round": 13,
+     "value": -0.0145,
+     "severity": -0.08
+    },
+    {
+     "round": 14,
+     "value": -0.0415,
+     "severity": -0.24
+    },
+    {
+     "round": 15,
+     "value": -0.0147,
+     "severity": -0.08
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_roll:stand",
+   "kind": "asymmetry",
+   "target": "shoulder_roll",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0737,
+     "severity": 0.42
+    },
+    {
+     "round": 8,
+     "value": 0.0537,
+     "severity": 0.31
+    },
+    {
+     "round": 9,
+     "value": 0.1939,
+     "severity": 1.11
+    },
+    {
+     "round": 10,
+     "value": 0.0103,
+     "severity": 0.06
+    },
+    {
+     "round": 11,
+     "value": 0.0872,
+     "severity": 0.5
+    },
+    {
+     "round": 12,
+     "value": 0.01,
+     "severity": 0.06
+    },
+    {
+     "round": 13,
+     "value": -0.0181,
+     "severity": -0.1
+    },
+    {
+     "round": 14,
+     "value": -0.0117,
+     "severity": -0.07
+    },
+    {
+     "round": 15,
+     "value": -0.0105,
+     "severity": -0.06
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_yaw:stand",
+   "kind": "asymmetry",
+   "target": "shoulder_yaw",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_yaw",
+     "sign": -1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.076,
+     "severity": 0.44
+    },
+    {
+     "round": 8,
+     "value": 0.1344,
+     "severity": 0.77
+    },
+    {
+     "round": 9,
+     "value": 0.1894,
+     "severity": 1.09
+    },
+    {
+     "round": 10,
+     "value": -0.0267,
+     "severity": -0.15
+    },
+    {
+     "round": 11,
+     "value": -0.0535,
+     "severity": -0.31
+    },
+    {
+     "round": 12,
+     "value": -0.0379,
+     "severity": -0.22
+    },
+    {
+     "round": 13,
+     "value": 0.0761,
+     "severity": 0.44
+    },
+    {
+     "round": 14,
+     "value": -0.0053,
+     "severity": -0.03
+    },
+    {
+     "round": 15,
+     "value": -0.0163,
+     "severity": -0.09
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:elbow:stand",
+   "kind": "asymmetry",
+   "target": "elbow",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "elbow",
+     "sign": 1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1966,
+     "severity": 1.13
+    },
+    {
+     "round": 8,
+     "value": 0.2823,
+     "severity": 1.62
+    },
+    {
+     "round": 9,
+     "value": 0.2498,
+     "severity": 1.43
+    },
+    {
+     "round": 10,
+     "value": 0.0615,
+     "severity": 0.35
+    },
+    {
+     "round": 11,
+     "value": 0.3741,
+     "severity": 2.14
+    },
+    {
+     "round": 12,
+     "value": 0.1609,
+     "severity": 0.92
+    },
+    {
+     "round": 13,
+     "value": 0.0447,
+     "severity": 0.26
+    },
+    {
+     "round": 14,
+     "value": 0.0396,
+     "severity": 0.23
+    },
+    {
+     "round": 15,
+     "value": 0.0882,
+     "severity": 0.51
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:wrist_roll:stand",
+   "kind": "asymmetry",
+   "target": "wrist_roll",
+   "phase": "stand",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "wrist_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand"
+     ],
+     "std": 0.5
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.8153,
+     "severity": 4.67
+    },
+    {
+     "round": 8,
+     "value": 0.6368,
+     "severity": 3.65
+    },
+    {
+     "round": 9,
+     "value": 0.1566,
+     "severity": 0.9
+    },
+    {
+     "round": 10,
+     "value": 0.1317,
+     "severity": 0.75
+    },
+    {
+     "round": 11,
+     "value": 0.0988,
+     "severity": 0.57
+    },
+    {
+     "round": 12,
+     "value": 0.1028,
+     "severity": 0.59
+    },
+    {
+     "round": 13,
+     "value": 0.0489,
+     "severity": 0.28
+    },
+    {
+     "round": 14,
+     "value": 0.0744,
+     "severity": 0.43
+    },
+    {
+     "round": 15,
+     "value": 0.0922,
+     "severity": 0.53
+    }
+   ]
+  },
+  {
+   "id": "contact:left_foot:stand",
+   "kind": "contact",
+   "target": "left_foot",
+   "phase": "stand",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 0,
+     "phases": [
+      "stand"
+     ]
+    }
+   },
+   "weight": 2.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 11.0,
+     "severity": 3.67
+    },
+    {
+     "round": 8,
+     "value": 2.0,
+     "severity": 0.67
+    },
+    {
+     "round": 9,
+     "value": 41.0,
+     "severity": 13.67
+    },
+    {
+     "round": 10,
+     "value": 2.0,
+     "severity": 0.67
+    },
+    {
+     "round": 11,
+     "value": 6.0,
+     "severity": 2.0
+    },
+    {
+     "round": 12,
+     "value": 8.0,
+     "severity": 2.67
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "contact:right_foot:stand",
+   "kind": "contact",
+   "target": "right_foot",
+   "phase": "stand",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 1,
+     "phases": [
+      "stand"
+     ]
+    }
+   },
+   "weight": 2.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 3.0,
+     "severity": 1.0
+    },
+    {
+     "round": 8,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 9,
+     "value": 23.0,
+     "severity": 7.67
+    },
+    {
+     "round": 10,
+     "value": 3.0,
+     "severity": 1.0
+    },
+    {
+     "round": 11,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "joint:elbow:crouch",
+   "kind": "joint",
+   "target": "elbow",
+   "phase": "crouch",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3355,
+     "severity": 1.28
+    },
+    {
+     "round": 8,
+     "value": 0.2715,
+     "severity": 1.04
+    },
+    {
+     "round": 9,
+     "value": 0.3706,
+     "severity": 1.42
+    },
+    {
+     "round": 10,
+     "value": 0.2914,
+     "severity": 1.11
+    },
+    {
+     "round": 11,
+     "value": 0.4396,
+     "severity": 1.68
+    },
+    {
+     "round": 12,
+     "value": 0.6927,
+     "severity": 2.65
+    },
+    {
+     "round": 13,
+     "value": 0.4685,
+     "severity": 1.79
+    },
+    {
+     "round": 14,
+     "value": 0.4476,
+     "severity": 1.71
+    },
+    {
+     "round": 15,
+     "value": 0.454,
+     "severity": 1.73
+    }
+   ]
+  },
+  {
+   "id": "joint:hip_pitch:crouch",
+   "kind": "joint",
+   "target": "hip_pitch",
+   "phase": "crouch",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "right_hip_pitch_joint"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2852,
+     "severity": 1.09
+    },
+    {
+     "round": 8,
+     "value": 0.336,
+     "severity": 1.28
+    },
+    {
+     "round": 9,
+     "value": 0.2894,
+     "severity": 1.11
+    },
+    {
+     "round": 10,
+     "value": 0.239,
+     "severity": 0.91
+    },
+    {
+     "round": 11,
+     "value": 0.3061,
+     "severity": 1.17
+    },
+    {
+     "round": 12,
+     "value": 0.3022,
+     "severity": 1.15
+    },
+    {
+     "round": 13,
+     "value": 0.2571,
+     "severity": 0.98
+    },
+    {
+     "round": 14,
+     "value": 0.2687,
+     "severity": 1.03
+    },
+    {
+     "round": 15,
+     "value": 0.2279,
+     "severity": 0.87
+    }
+   ]
+  },
+  {
+   "id": "joint:knee:crouch",
+   "kind": "joint",
+   "target": "knee",
+   "phase": "crouch",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_knee_joint",
+      "right_knee_joint"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2635,
+     "severity": 1.01
+    },
+    {
+     "round": 8,
+     "value": 0.2105,
+     "severity": 0.8
+    },
+    {
+     "round": 9,
+     "value": 0.1262,
+     "severity": 0.48
+    },
+    {
+     "round": 10,
+     "value": 0.1546,
+     "severity": 0.59
+    },
+    {
+     "round": 11,
+     "value": 0.1665,
+     "severity": 0.64
+    },
+    {
+     "round": 12,
+     "value": 0.1858,
+     "severity": 0.71
+    },
+    {
+     "round": 13,
+     "value": 0.1502,
+     "severity": 0.57
+    },
+    {
+     "round": 14,
+     "value": 0.1103,
+     "severity": 0.42
+    },
+    {
+     "round": 15,
+     "value": 0.1524,
+     "severity": 0.58
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_pitch:crouch",
+   "kind": "joint",
+   "target": "shoulder_pitch",
+   "phase": "crouch",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4126,
+     "severity": 1.58
+    },
+    {
+     "round": 8,
+     "value": 0.521,
+     "severity": 1.99
+    },
+    {
+     "round": 9,
+     "value": 0.3013,
+     "severity": 1.15
+    },
+    {
+     "round": 10,
+     "value": 0.4435,
+     "severity": 1.69
+    },
+    {
+     "round": 11,
+     "value": 0.3354,
+     "severity": 1.28
+    },
+    {
+     "round": 12,
+     "value": 0.311,
+     "severity": 1.19
+    },
+    {
+     "round": 13,
+     "value": 0.4178,
+     "severity": 1.6
+    },
+    {
+     "round": 14,
+     "value": 0.241,
+     "severity": 0.92
+    },
+    {
+     "round": 15,
+     "value": 0.1512,
+     "severity": 0.58
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_yaw:crouch",
+   "kind": "joint",
+   "target": "shoulder_yaw",
+   "phase": "crouch",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3,
+     "severity": 1.15
+    },
+    {
+     "round": 8,
+     "value": 0.1823,
+     "severity": 0.7
+    },
+    {
+     "round": 9,
+     "value": 0.2701,
+     "severity": 1.03
+    },
+    {
+     "round": 10,
+     "value": 0.3336,
+     "severity": 1.27
+    },
+    {
+     "round": 11,
+     "value": 0.2681,
+     "severity": 1.02
+    },
+    {
+     "round": 12,
+     "value": 0.3132,
+     "severity": 1.2
+    },
+    {
+     "round": 13,
+     "value": 0.2897,
+     "severity": 1.11
+    },
+    {
+     "round": 14,
+     "value": 0.2499,
+     "severity": 0.95
+    },
+    {
+     "round": 15,
+     "value": 0.3033,
+     "severity": 1.16
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_roll:crouch",
+   "kind": "joint",
+   "target": "wrist_roll",
+   "phase": "crouch",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_roll_joint",
+      "right_wrist_roll_joint"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.7083,
+     "severity": 2.71
+    },
+    {
+     "round": 8,
+     "value": 0.3817,
+     "severity": 1.46
+    },
+    {
+     "round": 9,
+     "value": 0.7205,
+     "severity": 2.75
+    },
+    {
+     "round": 10,
+     "value": 0.5282,
+     "severity": 2.02
+    },
+    {
+     "round": 11,
+     "value": 0.3192,
+     "severity": 1.22
+    },
+    {
+     "round": 12,
+     "value": 0.4261,
+     "severity": 1.63
+    },
+    {
+     "round": 13,
+     "value": 0.4347,
+     "severity": 1.66
+    },
+    {
+     "round": 14,
+     "value": 0.4167,
+     "severity": 1.59
+    },
+    {
+     "round": 15,
+     "value": 0.6645,
+     "severity": 2.54
+    }
+   ]
+  },
+  {
+   "id": "body:ankle_roll:crouch",
+   "kind": "body",
+   "target": "ankle_roll",
+   "phase": "crouch",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_ankle_roll_link",
+      "right_ankle_roll_link"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1782,
+     "severity": 2.23
+    },
+    {
+     "round": 8,
+     "value": 0.1161,
+     "severity": 1.45
+    },
+    {
+     "round": 9,
+     "value": 0.1426,
+     "severity": 1.78
+    },
+    {
+     "round": 10,
+     "value": 0.1408,
+     "severity": 1.76
+    },
+    {
+     "round": 11,
+     "value": 0.1772,
+     "severity": 2.22
+    },
+    {
+     "round": 12,
+     "value": 0.1462,
+     "severity": 1.83
+    },
+    {
+     "round": 13,
+     "value": 0.1546,
+     "severity": 1.93
+    },
+    {
+     "round": 14,
+     "value": 0.1131,
+     "severity": 1.41
+    },
+    {
+     "round": 15,
+     "value": 0.1673,
+     "severity": 2.09
+    }
+   ]
+  },
+  {
+   "id": "body:wrist_yaw:crouch",
+   "kind": "body",
+   "target": "wrist_yaw",
+   "phase": "crouch",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_wrist_yaw_link",
+      "right_wrist_yaw_link"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1561,
+     "severity": 1.95
+    },
+    {
+     "round": 8,
+     "value": 0.164,
+     "severity": 2.05
+    },
+    {
+     "round": 9,
+     "value": 0.1131,
+     "severity": 1.41
+    },
+    {
+     "round": 10,
+     "value": 0.1142,
+     "severity": 1.43
+    },
+    {
+     "round": 11,
+     "value": 0.1202,
+     "severity": 1.5
+    },
+    {
+     "round": 12,
+     "value": 0.1604,
+     "severity": 2.01
+    },
+    {
+     "round": 13,
+     "value": 0.1173,
+     "severity": 1.47
+    },
+    {
+     "round": 14,
+     "value": 0.0941,
+     "severity": 1.18
+    },
+    {
+     "round": 15,
+     "value": 0.1175,
+     "severity": 1.47
+    }
+   ]
+  },
+  {
+   "id": "body:knee:crouch",
+   "kind": "body",
+   "target": "knee",
+   "phase": "crouch",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_knee_link",
+      "right_knee_link"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1254,
+     "severity": 1.57
+    },
+    {
+     "round": 8,
+     "value": 0.0678,
+     "severity": 0.85
+    },
+    {
+     "round": 9,
+     "value": 0.0936,
+     "severity": 1.17
+    },
+    {
+     "round": 10,
+     "value": 0.1034,
+     "severity": 1.29
+    },
+    {
+     "round": 11,
+     "value": 0.0978,
+     "severity": 1.22
+    },
+    {
+     "round": 12,
+     "value": 0.0922,
+     "severity": 1.15
+    },
+    {
+     "round": 13,
+     "value": 0.0807,
+     "severity": 1.01
+    },
+    {
+     "round": 14,
+     "value": 0.0713,
+     "severity": 0.89
+    },
+    {
+     "round": 15,
+     "value": 0.0847,
+     "severity": 1.06
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_pitch:crouch",
+   "kind": "asymmetry",
+   "target": "hip_pitch",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_pitch",
+     "sign": 1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.104,
+     "severity": 0.6
+    },
+    {
+     "round": 8,
+     "value": 0.0571,
+     "severity": 0.33
+    },
+    {
+     "round": 9,
+     "value": 0.0404,
+     "severity": 0.23
+    },
+    {
+     "round": 10,
+     "value": -0.0049,
+     "severity": -0.03
+    },
+    {
+     "round": 11,
+     "value": -0.003,
+     "severity": -0.02
+    },
+    {
+     "round": 12,
+     "value": 0.0414,
+     "severity": 0.24
+    },
+    {
+     "round": 13,
+     "value": -0.0069,
+     "severity": -0.04
+    },
+    {
+     "round": 14,
+     "value": -0.0032,
+     "severity": -0.02
+    },
+    {
+     "round": 15,
+     "value": 0.0689,
+     "severity": 0.4
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_roll:crouch",
+   "kind": "asymmetry",
+   "target": "hip_roll",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_roll",
+     "sign": -1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0544,
+     "severity": -0.31
+    },
+    {
+     "round": 8,
+     "value": -0.0152,
+     "severity": -0.09
+    },
+    {
+     "round": 9,
+     "value": 0.0256,
+     "severity": 0.15
+    },
+    {
+     "round": 10,
+     "value": 0.0124,
+     "severity": 0.07
+    },
+    {
+     "round": 11,
+     "value": 0.042,
+     "severity": 0.24
+    },
+    {
+     "round": 12,
+     "value": -0.037,
+     "severity": -0.21
+    },
+    {
+     "round": 13,
+     "value": -0.0463,
+     "severity": -0.27
+    },
+    {
+     "round": 14,
+     "value": 0.0043,
+     "severity": 0.02
+    },
+    {
+     "round": 15,
+     "value": -0.056,
+     "severity": -0.32
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_yaw:crouch",
+   "kind": "asymmetry",
+   "target": "hip_yaw",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_yaw",
+     "sign": -1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1508,
+     "severity": 0.86
+    },
+    {
+     "round": 8,
+     "value": 0.0736,
+     "severity": 0.42
+    },
+    {
+     "round": 9,
+     "value": 0.1971,
+     "severity": 1.13
+    },
+    {
+     "round": 10,
+     "value": 0.1799,
+     "severity": 1.03
+    },
+    {
+     "round": 11,
+     "value": 0.2735,
+     "severity": 1.57
+    },
+    {
+     "round": 12,
+     "value": 0.1846,
+     "severity": 1.06
+    },
+    {
+     "round": 13,
+     "value": 0.1685,
+     "severity": 0.97
+    },
+    {
+     "round": 14,
+     "value": 0.1144,
+     "severity": 0.66
+    },
+    {
+     "round": 15,
+     "value": 0.075,
+     "severity": 0.43
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:knee:crouch",
+   "kind": "asymmetry",
+   "target": "knee",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "knee",
+     "sign": 1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0435,
+     "severity": 0.25
+    },
+    {
+     "round": 8,
+     "value": 0.0481,
+     "severity": 0.28
+    },
+    {
+     "round": 9,
+     "value": 0.0129,
+     "severity": 0.07
+    },
+    {
+     "round": 10,
+     "value": -0.0041,
+     "severity": -0.02
+    },
+    {
+     "round": 11,
+     "value": 0.0883,
+     "severity": 0.51
+    },
+    {
+     "round": 12,
+     "value": 0.0324,
+     "severity": 0.19
+    },
+    {
+     "round": 13,
+     "value": 0.042,
+     "severity": 0.24
+    },
+    {
+     "round": 14,
+     "value": 0.0126,
+     "severity": 0.07
+    },
+    {
+     "round": 15,
+     "value": 0.1109,
+     "severity": 0.64
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_pitch:crouch",
+   "kind": "asymmetry",
+   "target": "ankle_pitch",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_pitch",
+     "sign": 1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1569,
+     "severity": 0.9
+    },
+    {
+     "round": 8,
+     "value": 0.0937,
+     "severity": 0.54
+    },
+    {
+     "round": 9,
+     "value": 0.0163,
+     "severity": 0.09
+    },
+    {
+     "round": 10,
+     "value": 0.0006,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0507,
+     "severity": 0.29
+    },
+    {
+     "round": 12,
+     "value": 0.1157,
+     "severity": 0.66
+    },
+    {
+     "round": 13,
+     "value": 0.0548,
+     "severity": 0.31
+    },
+    {
+     "round": 14,
+     "value": 0.016,
+     "severity": 0.09
+    },
+    {
+     "round": 15,
+     "value": 0.2277,
+     "severity": 1.3
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_roll:crouch",
+   "kind": "asymmetry",
+   "target": "ankle_roll",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_roll",
+     "sign": -1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0628,
+     "severity": 0.36
+    },
+    {
+     "round": 8,
+     "value": -0.0094,
+     "severity": -0.05
+    },
+    {
+     "round": 9,
+     "value": -0.0131,
+     "severity": -0.08
+    },
+    {
+     "round": 10,
+     "value": 0.0003,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": -0.0184,
+     "severity": -0.11
+    },
+    {
+     "round": 12,
+     "value": -0.0175,
+     "severity": -0.1
+    },
+    {
+     "round": 13,
+     "value": -0.0268,
+     "severity": -0.15
+    },
+    {
+     "round": 14,
+     "value": -0.0047,
+     "severity": -0.03
+    },
+    {
+     "round": 15,
+     "value": -0.037,
+     "severity": -0.21
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_pitch:crouch",
+   "kind": "asymmetry",
+   "target": "shoulder_pitch",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_pitch",
+     "sign": 1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2641,
+     "severity": 1.51
+    },
+    {
+     "round": 8,
+     "value": 0.2589,
+     "severity": 1.48
+    },
+    {
+     "round": 9,
+     "value": 0.0785,
+     "severity": 0.45
+    },
+    {
+     "round": 10,
+     "value": 0.2217,
+     "severity": 1.27
+    },
+    {
+     "round": 11,
+     "value": 0.0819,
+     "severity": 0.47
+    },
+    {
+     "round": 12,
+     "value": 0.0954,
+     "severity": 0.55
+    },
+    {
+     "round": 13,
+     "value": 0.1991,
+     "severity": 1.14
+    },
+    {
+     "round": 14,
+     "value": 0.025,
+     "severity": 0.14
+    },
+    {
+     "round": 15,
+     "value": 0.0387,
+     "severity": 0.22
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_roll:crouch",
+   "kind": "asymmetry",
+   "target": "shoulder_roll",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_roll",
+     "sign": -1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1682,
+     "severity": 0.96
+    },
+    {
+     "round": 8,
+     "value": 0.0407,
+     "severity": 0.23
+    },
+    {
+     "round": 9,
+     "value": 0.0354,
+     "severity": 0.2
+    },
+    {
+     "round": 10,
+     "value": 0.0418,
+     "severity": 0.24
+    },
+    {
+     "round": 11,
+     "value": 0.2267,
+     "severity": 1.3
+    },
+    {
+     "round": 12,
+     "value": 0.3404,
+     "severity": 1.95
+    },
+    {
+     "round": 13,
+     "value": 0.2098,
+     "severity": 1.2
+    },
+    {
+     "round": 14,
+     "value": 0.1158,
+     "severity": 0.66
+    },
+    {
+     "round": 15,
+     "value": 0.0858,
+     "severity": 0.49
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_yaw:crouch",
+   "kind": "asymmetry",
+   "target": "shoulder_yaw",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_yaw",
+     "sign": -1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0684,
+     "severity": -0.39
+    },
+    {
+     "round": 8,
+     "value": 0.0123,
+     "severity": 0.07
+    },
+    {
+     "round": 9,
+     "value": -0.0419,
+     "severity": -0.24
+    },
+    {
+     "round": 10,
+     "value": 0.0804,
+     "severity": 0.46
+    },
+    {
+     "round": 11,
+     "value": 0.017,
+     "severity": 0.1
+    },
+    {
+     "round": 12,
+     "value": 0.1494,
+     "severity": 0.86
+    },
+    {
+     "round": 13,
+     "value": 0.2884,
+     "severity": 1.65
+    },
+    {
+     "round": 14,
+     "value": 0.0648,
+     "severity": 0.37
+    },
+    {
+     "round": 15,
+     "value": 0.0044,
+     "severity": 0.03
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:elbow:crouch",
+   "kind": "asymmetry",
+   "target": "elbow",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "elbow",
+     "sign": 1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1487,
+     "severity": 0.85
+    },
+    {
+     "round": 8,
+     "value": 0.0868,
+     "severity": 0.5
+    },
+    {
+     "round": 9,
+     "value": 0.1169,
+     "severity": 0.67
+    },
+    {
+     "round": 10,
+     "value": 0.1446,
+     "severity": 0.83
+    },
+    {
+     "round": 11,
+     "value": 0.1462,
+     "severity": 0.84
+    },
+    {
+     "round": 12,
+     "value": 0.4538,
+     "severity": 2.6
+    },
+    {
+     "round": 13,
+     "value": 0.2333,
+     "severity": 1.34
+    },
+    {
+     "round": 14,
+     "value": 0.2466,
+     "severity": 1.41
+    },
+    {
+     "round": 15,
+     "value": 0.1397,
+     "severity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:wrist_roll:crouch",
+   "kind": "asymmetry",
+   "target": "wrist_roll",
+   "phase": "crouch",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "wrist_roll",
+     "sign": -1.0,
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1682,
+     "severity": 0.96
+    },
+    {
+     "round": 8,
+     "value": 0.1938,
+     "severity": 1.11
+    },
+    {
+     "round": 9,
+     "value": 0.0935,
+     "severity": 0.54
+    },
+    {
+     "round": 10,
+     "value": -0.0306,
+     "severity": -0.18
+    },
+    {
+     "round": 11,
+     "value": -0.0333,
+     "severity": -0.19
+    },
+    {
+     "round": 12,
+     "value": 0.112,
+     "severity": 0.64
+    },
+    {
+     "round": 13,
+     "value": -0.0567,
+     "severity": -0.32
+    },
+    {
+     "round": 14,
+     "value": 0.4149,
+     "severity": 2.38
+    },
+    {
+     "round": 15,
+     "value": 1.1248,
+     "severity": 6.44
+    }
+   ]
+  },
+  {
+   "id": "contact:left_foot:crouch",
+   "kind": "contact",
+   "target": "left_foot",
+   "phase": "crouch",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 0,
+     "phases": [
+      "crouch"
+     ]
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 8,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 9,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 10,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "contact:right_foot:crouch",
+   "kind": "contact",
+   "target": "right_foot",
+   "phase": "crouch",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 1,
+     "phases": [
+      "crouch"
+     ]
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 8,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 9,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 10,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "joint:ankle_pitch:takeoff",
+   "kind": "joint",
+   "target": "ankle_pitch",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_ankle_pitch_joint",
+      "right_ankle_pitch_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.5033,
+     "severity": 1.92
+    },
+    {
+     "round": 8,
+     "value": 0.5159,
+     "severity": 1.97
+    },
+    {
+     "round": 9,
+     "value": 0.6266,
+     "severity": 2.39
+    },
+    {
+     "round": 10,
+     "value": 0.5576,
+     "severity": 2.13
+    },
+    {
+     "round": 11,
+     "value": 0.6419,
+     "severity": 2.45
+    },
+    {
+     "round": 12,
+     "value": 0.5999,
+     "severity": 2.29
+    },
+    {
+     "round": 13,
+     "value": 0.572,
+     "severity": 2.18
+    },
+    {
+     "round": 14,
+     "value": 0.6333,
+     "severity": 2.42
+    },
+    {
+     "round": 15,
+     "value": 0.48,
+     "severity": 1.83
+    }
+   ]
+  },
+  {
+   "id": "joint:elbow:takeoff",
+   "kind": "joint",
+   "target": "elbow",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.7795,
+     "severity": 2.98
+    },
+    {
+     "round": 8,
+     "value": 0.7533,
+     "severity": 2.88
+    },
+    {
+     "round": 9,
+     "value": 1.006,
+     "severity": 3.84
+    },
+    {
+     "round": 10,
+     "value": 0.6815,
+     "severity": 2.6
+    },
+    {
+     "round": 11,
+     "value": 0.8035,
+     "severity": 3.07
+    },
+    {
+     "round": 12,
+     "value": 0.8732,
+     "severity": 3.34
+    },
+    {
+     "round": 13,
+     "value": 0.8785,
+     "severity": 3.36
+    },
+    {
+     "round": 14,
+     "value": 0.7904,
+     "severity": 3.02
+    },
+    {
+     "round": 15,
+     "value": 0.9996,
+     "severity": 3.82
+    }
+   ]
+  },
+  {
+   "id": "joint:hip_pitch:takeoff",
+   "kind": "joint",
+   "target": "hip_pitch",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "right_hip_pitch_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4015,
+     "severity": 1.53
+    },
+    {
+     "round": 8,
+     "value": 0.2958,
+     "severity": 1.13
+    },
+    {
+     "round": 9,
+     "value": 0.5173,
+     "severity": 1.98
+    },
+    {
+     "round": 10,
+     "value": 0.4039,
+     "severity": 1.54
+    },
+    {
+     "round": 11,
+     "value": 0.3462,
+     "severity": 1.32
+    },
+    {
+     "round": 12,
+     "value": 0.4519,
+     "severity": 1.73
+    },
+    {
+     "round": 13,
+     "value": 0.4144,
+     "severity": 1.58
+    },
+    {
+     "round": 14,
+     "value": 0.3988,
+     "severity": 1.52
+    },
+    {
+     "round": 15,
+     "value": 0.3877,
+     "severity": 1.48
+    }
+   ]
+  },
+  {
+   "id": "joint:knee:takeoff",
+   "kind": "joint",
+   "target": "knee",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_knee_joint",
+      "right_knee_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1591,
+     "severity": 0.61
+    },
+    {
+     "round": 8,
+     "value": 0.2407,
+     "severity": 0.92
+    },
+    {
+     "round": 9,
+     "value": 0.187,
+     "severity": 0.71
+    },
+    {
+     "round": 10,
+     "value": 0.1935,
+     "severity": 0.74
+    },
+    {
+     "round": 11,
+     "value": 0.2875,
+     "severity": 1.1
+    },
+    {
+     "round": 12,
+     "value": 0.303,
+     "severity": 1.16
+    },
+    {
+     "round": 13,
+     "value": 0.3067,
+     "severity": 1.17
+    },
+    {
+     "round": 14,
+     "value": 0.2936,
+     "severity": 1.12
+    },
+    {
+     "round": 15,
+     "value": 0.1774,
+     "severity": 0.68
+    }
+   ]
+  },
+  {
+   "id": "body:ankle_roll:takeoff",
+   "kind": "body",
+   "target": "ankle_roll",
+   "phase": "takeoff",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_ankle_roll_link",
+      "right_ankle_roll_link"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1984,
+     "severity": 2.48
+    },
+    {
+     "round": 8,
+     "value": 0.2524,
+     "severity": 3.16
+    },
+    {
+     "round": 9,
+     "value": 0.1938,
+     "severity": 2.42
+    },
+    {
+     "round": 10,
+     "value": 0.2179,
+     "severity": 2.72
+    },
+    {
+     "round": 11,
+     "value": 0.2751,
+     "severity": 3.44
+    },
+    {
+     "round": 12,
+     "value": 0.2403,
+     "severity": 3.0
+    },
+    {
+     "round": 13,
+     "value": 0.236,
+     "severity": 2.95
+    },
+    {
+     "round": 14,
+     "value": 0.2279,
+     "severity": 2.85
+    },
+    {
+     "round": 15,
+     "value": 0.1996,
+     "severity": 2.49
+    }
+   ]
+  },
+  {
+   "id": "body:wrist_yaw:takeoff",
+   "kind": "body",
+   "target": "wrist_yaw",
+   "phase": "takeoff",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_wrist_yaw_link",
+      "right_wrist_yaw_link"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2441,
+     "severity": 3.05
+    },
+    {
+     "round": 8,
+     "value": 0.214,
+     "severity": 2.68
+    },
+    {
+     "round": 9,
+     "value": 0.3605,
+     "severity": 4.51
+    },
+    {
+     "round": 10,
+     "value": 0.3221,
+     "severity": 4.03
+    },
+    {
+     "round": 11,
+     "value": 0.2983,
+     "severity": 3.73
+    },
+    {
+     "round": 12,
+     "value": 0.3131,
+     "severity": 3.91
+    },
+    {
+     "round": 13,
+     "value": 0.3092,
+     "severity": 3.86
+    },
+    {
+     "round": 14,
+     "value": 0.3094,
+     "severity": 3.87
+    },
+    {
+     "round": 15,
+     "value": 0.2979,
+     "severity": 3.72
+    }
+   ]
+  },
+  {
+   "id": "body:knee:takeoff",
+   "kind": "body",
+   "target": "knee",
+   "phase": "takeoff",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_knee_link",
+      "right_knee_link"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1423,
+     "severity": 1.78
+    },
+    {
+     "round": 8,
+     "value": 0.1889,
+     "severity": 2.36
+    },
+    {
+     "round": 9,
+     "value": 0.1538,
+     "severity": 1.92
+    },
+    {
+     "round": 10,
+     "value": 0.1642,
+     "severity": 2.05
+    },
+    {
+     "round": 11,
+     "value": 0.1779,
+     "severity": 2.22
+    },
+    {
+     "round": 12,
+     "value": 0.1602,
+     "severity": 2.0
+    },
+    {
+     "round": 13,
+     "value": 0.1614,
+     "severity": 2.02
+    },
+    {
+     "round": 14,
+     "value": 0.1638,
+     "severity": 2.05
+    },
+    {
+     "round": 15,
+     "value": 0.1448,
+     "severity": 1.81
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_pitch:takeoff",
+   "kind": "asymmetry",
+   "target": "hip_pitch",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_pitch",
+     "sign": 1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2484,
+     "severity": 1.42
+    },
+    {
+     "round": 8,
+     "value": 0.0907,
+     "severity": 0.52
+    },
+    {
+     "round": 9,
+     "value": 0.185,
+     "severity": 1.06
+    },
+    {
+     "round": 10,
+     "value": 0.1812,
+     "severity": 1.04
+    },
+    {
+     "round": 11,
+     "value": 0.09,
+     "severity": 0.52
+    },
+    {
+     "round": 12,
+     "value": 0.1854,
+     "severity": 1.06
+    },
+    {
+     "round": 13,
+     "value": 0.1742,
+     "severity": 1.0
+    },
+    {
+     "round": 14,
+     "value": 0.0925,
+     "severity": 0.53
+    },
+    {
+     "round": 15,
+     "value": 0.1209,
+     "severity": 0.69
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_roll:takeoff",
+   "kind": "asymmetry",
+   "target": "hip_roll",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_roll",
+     "sign": -1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1959,
+     "severity": 1.12
+    },
+    {
+     "round": 8,
+     "value": -0.0875,
+     "severity": -0.5
+    },
+    {
+     "round": 9,
+     "value": 0.2014,
+     "severity": 1.15
+    },
+    {
+     "round": 10,
+     "value": -0.0463,
+     "severity": -0.27
+    },
+    {
+     "round": 11,
+     "value": -0.0702,
+     "severity": -0.4
+    },
+    {
+     "round": 12,
+     "value": -0.0575,
+     "severity": -0.33
+    },
+    {
+     "round": 13,
+     "value": 0.0033,
+     "severity": 0.02
+    },
+    {
+     "round": 14,
+     "value": -0.0488,
+     "severity": -0.28
+    },
+    {
+     "round": 15,
+     "value": 0.0284,
+     "severity": 0.16
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:knee:takeoff",
+   "kind": "asymmetry",
+   "target": "knee",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "knee",
+     "sign": 1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0554,
+     "severity": 0.32
+    },
+    {
+     "round": 8,
+     "value": 0.0117,
+     "severity": 0.07
+    },
+    {
+     "round": 9,
+     "value": 0.2216,
+     "severity": 1.27
+    },
+    {
+     "round": 10,
+     "value": 0.1892,
+     "severity": 1.08
+    },
+    {
+     "round": 11,
+     "value": 0.0652,
+     "severity": 0.37
+    },
+    {
+     "round": 12,
+     "value": 0.1462,
+     "severity": 0.84
+    },
+    {
+     "round": 13,
+     "value": 0.1736,
+     "severity": 0.99
+    },
+    {
+     "round": 14,
+     "value": 0.1894,
+     "severity": 1.09
+    },
+    {
+     "round": 15,
+     "value": 0.0667,
+     "severity": 0.38
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_roll:takeoff",
+   "kind": "asymmetry",
+   "target": "ankle_roll",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_roll",
+     "sign": -1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0618,
+     "severity": -0.35
+    },
+    {
+     "round": 8,
+     "value": -0.1475,
+     "severity": -0.85
+    },
+    {
+     "round": 9,
+     "value": -0.1227,
+     "severity": -0.7
+    },
+    {
+     "round": 10,
+     "value": -0.0785,
+     "severity": -0.45
+    },
+    {
+     "round": 11,
+     "value": -0.1301,
+     "severity": -0.75
+    },
+    {
+     "round": 12,
+     "value": -0.0734,
+     "severity": -0.42
+    },
+    {
+     "round": 13,
+     "value": -0.1458,
+     "severity": -0.84
+    },
+    {
+     "round": 14,
+     "value": -0.0714,
+     "severity": -0.41
+    },
+    {
+     "round": 15,
+     "value": -0.1359,
+     "severity": -0.78
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_pitch:takeoff",
+   "kind": "asymmetry",
+   "target": "shoulder_pitch",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_pitch",
+     "sign": 1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.256,
+     "severity": 1.47
+    },
+    {
+     "round": 8,
+     "value": 0.2506,
+     "severity": 1.44
+    },
+    {
+     "round": 9,
+     "value": 0.1061,
+     "severity": 0.61
+    },
+    {
+     "round": 10,
+     "value": 0.0872,
+     "severity": 0.5
+    },
+    {
+     "round": 11,
+     "value": 0.0654,
+     "severity": 0.37
+    },
+    {
+     "round": 12,
+     "value": 0.026,
+     "severity": 0.15
+    },
+    {
+     "round": 13,
+     "value": 0.0136,
+     "severity": 0.08
+    },
+    {
+     "round": 14,
+     "value": 0.0806,
+     "severity": 0.46
+    },
+    {
+     "round": 15,
+     "value": 0.1797,
+     "severity": 1.03
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_roll:takeoff",
+   "kind": "asymmetry",
+   "target": "shoulder_roll",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_roll",
+     "sign": -1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1944,
+     "severity": 1.11
+    },
+    {
+     "round": 8,
+     "value": 0.0895,
+     "severity": 0.51
+    },
+    {
+     "round": 9,
+     "value": 0.0452,
+     "severity": 0.26
+    },
+    {
+     "round": 10,
+     "value": 0.1691,
+     "severity": 0.97
+    },
+    {
+     "round": 11,
+     "value": 0.2267,
+     "severity": 1.3
+    },
+    {
+     "round": 12,
+     "value": 0.0703,
+     "severity": 0.4
+    },
+    {
+     "round": 13,
+     "value": 0.0846,
+     "severity": 0.48
+    },
+    {
+     "round": 14,
+     "value": 0.0924,
+     "severity": 0.53
+    },
+    {
+     "round": 15,
+     "value": 0.1438,
+     "severity": 0.82
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_yaw:takeoff",
+   "kind": "asymmetry",
+   "target": "shoulder_yaw",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_yaw",
+     "sign": -1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.8
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.1785,
+     "severity": 6.75
+    },
+    {
+     "round": 8,
+     "value": 0.9906,
+     "severity": 5.68
+    },
+    {
+     "round": 9,
+     "value": 0.1192,
+     "severity": 0.68
+    },
+    {
+     "round": 10,
+     "value": 0.0341,
+     "severity": 0.2
+    },
+    {
+     "round": 11,
+     "value": 0.0531,
+     "severity": 0.3
+    },
+    {
+     "round": 12,
+     "value": 0.0869,
+     "severity": 0.5
+    },
+    {
+     "round": 13,
+     "value": 0.1244,
+     "severity": 0.71
+    },
+    {
+     "round": 14,
+     "value": -0.0066,
+     "severity": -0.04
+    },
+    {
+     "round": 15,
+     "value": 0.2585,
+     "severity": 1.48
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:elbow:takeoff",
+   "kind": "asymmetry",
+   "target": "elbow",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "elbow",
+     "sign": 1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4378,
+     "severity": 2.51
+    },
+    {
+     "round": 8,
+     "value": 0.2673,
+     "severity": 1.53
+    },
+    {
+     "round": 9,
+     "value": 0.1549,
+     "severity": 0.89
+    },
+    {
+     "round": 10,
+     "value": 0.0548,
+     "severity": 0.31
+    },
+    {
+     "round": 11,
+     "value": 0.1103,
+     "severity": 0.63
+    },
+    {
+     "round": 12,
+     "value": 0.145,
+     "severity": 0.83
+    },
+    {
+     "round": 13,
+     "value": 0.1975,
+     "severity": 1.13
+    },
+    {
+     "round": 14,
+     "value": 0.1606,
+     "severity": 0.92
+    },
+    {
+     "round": 15,
+     "value": 0.0518,
+     "severity": 0.3
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:wrist_roll:takeoff",
+   "kind": "asymmetry",
+   "target": "wrist_roll",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "wrist_roll",
+     "sign": -1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4149,
+     "severity": 2.38
+    },
+    {
+     "round": 8,
+     "value": 0.0281,
+     "severity": 0.16
+    },
+    {
+     "round": 9,
+     "value": 0.4848,
+     "severity": 2.78
+    },
+    {
+     "round": 10,
+     "value": 0.4464,
+     "severity": 2.56
+    },
+    {
+     "round": 11,
+     "value": 0.2636,
+     "severity": 1.51
+    },
+    {
+     "round": 12,
+     "value": 0.1046,
+     "severity": 0.6
+    },
+    {
+     "round": 13,
+     "value": 0.7602,
+     "severity": 4.36
+    },
+    {
+     "round": 14,
+     "value": 0.9087,
+     "severity": 5.21
+    },
+    {
+     "round": 15,
+     "value": 0.7919,
+     "severity": 4.54
+    }
+   ]
+  },
+  {
+   "id": "joint:ankle_pitch:flight",
+   "kind": "joint",
+   "target": "ankle_pitch",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_ankle_pitch_joint",
+      "right_ankle_pitch_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1757,
+     "severity": 0.67
+    },
+    {
+     "round": 8,
+     "value": 0.1412,
+     "severity": 0.54
+    },
+    {
+     "round": 9,
+     "value": 0.0797,
+     "severity": 0.3
+    },
+    {
+     "round": 10,
+     "value": 0.096,
+     "severity": 0.37
+    },
+    {
+     "round": 11,
+     "value": 0.1101,
+     "severity": 0.42
+    },
+    {
+     "round": 12,
+     "value": 0.0921,
+     "severity": 0.35
+    },
+    {
+     "round": 13,
+     "value": 0.0828,
+     "severity": 0.32
+    },
+    {
+     "round": 14,
+     "value": 0.0986,
+     "severity": 0.38
+    },
+    {
+     "round": 15,
+     "value": 0.069,
+     "severity": 0.26
+    }
+   ]
+  },
+  {
+   "id": "joint:elbow:flight",
+   "kind": "joint",
+   "target": "elbow",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.2757,
+     "severity": 4.87
+    },
+    {
+     "round": 8,
+     "value": 1.4011,
+     "severity": 5.35
+    },
+    {
+     "round": 9,
+     "value": 0.72,
+     "severity": 2.75
+    },
+    {
+     "round": 10,
+     "value": 0.4201,
+     "severity": 1.6
+    },
+    {
+     "round": 11,
+     "value": 0.2705,
+     "severity": 1.03
+    },
+    {
+     "round": 12,
+     "value": 0.3545,
+     "severity": 1.35
+    },
+    {
+     "round": 13,
+     "value": 0.3912,
+     "severity": 1.49
+    },
+    {
+     "round": 14,
+     "value": 0.3572,
+     "severity": 1.36
+    },
+    {
+     "round": 15,
+     "value": 0.3062,
+     "severity": 1.17
+    }
+   ]
+  },
+  {
+   "id": "joint:hip_pitch:flight",
+   "kind": "joint",
+   "target": "hip_pitch",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "right_hip_pitch_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.9623,
+     "severity": 3.68
+    },
+    {
+     "round": 8,
+     "value": 0.56,
+     "severity": 2.14
+    },
+    {
+     "round": 9,
+     "value": 0.1964,
+     "severity": 0.75
+    },
+    {
+     "round": 10,
+     "value": 0.1196,
+     "severity": 0.46
+    },
+    {
+     "round": 11,
+     "value": 0.0852,
+     "severity": 0.33
+    },
+    {
+     "round": 12,
+     "value": 0.1114,
+     "severity": 0.43
+    },
+    {
+     "round": 13,
+     "value": 0.086,
+     "severity": 0.33
+    },
+    {
+     "round": 14,
+     "value": 0.1223,
+     "severity": 0.47
+    },
+    {
+     "round": 15,
+     "value": 0.254,
+     "severity": 0.97
+    }
+   ]
+  },
+  {
+   "id": "joint:knee:flight",
+   "kind": "joint",
+   "target": "knee",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_knee_joint",
+      "right_knee_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.8
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.1474,
+     "severity": 4.38
+    },
+    {
+     "round": 8,
+     "value": 1.2093,
+     "severity": 4.62
+    },
+    {
+     "round": 9,
+     "value": 0.1952,
+     "severity": 0.75
+    },
+    {
+     "round": 10,
+     "value": 0.1654,
+     "severity": 0.63
+    },
+    {
+     "round": 11,
+     "value": 0.2002,
+     "severity": 0.76
+    },
+    {
+     "round": 12,
+     "value": 0.1743,
+     "severity": 0.67
+    },
+    {
+     "round": 13,
+     "value": 0.2053,
+     "severity": 0.78
+    },
+    {
+     "round": 14,
+     "value": 0.2173,
+     "severity": 0.83
+    },
+    {
+     "round": 15,
+     "value": 0.1294,
+     "severity": 0.49
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_pitch:flight",
+   "kind": "joint",
+   "target": "shoulder_pitch",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4975,
+     "severity": 1.9
+    },
+    {
+     "round": 8,
+     "value": 1.2518,
+     "severity": 4.78
+    },
+    {
+     "round": 9,
+     "value": 0.3977,
+     "severity": 1.52
+    },
+    {
+     "round": 10,
+     "value": 0.4207,
+     "severity": 1.61
+    },
+    {
+     "round": 11,
+     "value": 0.5052,
+     "severity": 1.93
+    },
+    {
+     "round": 12,
+     "value": 0.4302,
+     "severity": 1.64
+    },
+    {
+     "round": 13,
+     "value": 0.5102,
+     "severity": 1.95
+    },
+    {
+     "round": 14,
+     "value": 0.4908,
+     "severity": 1.87
+    },
+    {
+     "round": 15,
+     "value": 0.4694,
+     "severity": 1.79
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_roll:flight",
+   "kind": "joint",
+   "target": "shoulder_roll",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_roll_joint",
+      "right_shoulder_roll_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.6757,
+     "severity": 2.58
+    },
+    {
+     "round": 8,
+     "value": 0.4715,
+     "severity": 1.8
+    },
+    {
+     "round": 9,
+     "value": 0.4034,
+     "severity": 1.54
+    },
+    {
+     "round": 10,
+     "value": 0.4588,
+     "severity": 1.75
+    },
+    {
+     "round": 11,
+     "value": 0.3349,
+     "severity": 1.28
+    },
+    {
+     "round": 12,
+     "value": 0.376,
+     "severity": 1.44
+    },
+    {
+     "round": 13,
+     "value": 0.4027,
+     "severity": 1.54
+    },
+    {
+     "round": 14,
+     "value": 0.3342,
+     "severity": 1.28
+    },
+    {
+     "round": 15,
+     "value": 0.4013,
+     "severity": 1.53
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_yaw:flight",
+   "kind": "joint",
+   "target": "shoulder_yaw",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.1345,
+     "severity": 4.33
+    },
+    {
+     "round": 8,
+     "value": 1.9893,
+     "severity": 7.6
+    },
+    {
+     "round": 9,
+     "value": 0.4114,
+     "severity": 1.57
+    },
+    {
+     "round": 10,
+     "value": 0.514,
+     "severity": 1.96
+    },
+    {
+     "round": 11,
+     "value": 0.4688,
+     "severity": 1.79
+    },
+    {
+     "round": 12,
+     "value": 0.4517,
+     "severity": 1.73
+    },
+    {
+     "round": 13,
+     "value": 0.3981,
+     "severity": 1.52
+    },
+    {
+     "round": 14,
+     "value": 0.436,
+     "severity": 1.67
+    },
+    {
+     "round": 15,
+     "value": 0.4598,
+     "severity": 1.76
+    }
+   ]
+  },
+  {
+   "id": "joint:waist_pitch:flight",
+   "kind": "joint",
+   "target": "waist_pitch",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "waist_pitch_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3171,
+     "severity": 1.21
+    },
+    {
+     "round": 8,
+     "value": 0.5666,
+     "severity": 2.16
+    },
+    {
+     "round": 9,
+     "value": 0.2304,
+     "severity": 0.88
+    },
+    {
+     "round": 10,
+     "value": 0.276,
+     "severity": 1.05
+    },
+    {
+     "round": 11,
+     "value": 0.3245,
+     "severity": 1.24
+    },
+    {
+     "round": 12,
+     "value": 0.2562,
+     "severity": 0.98
+    },
+    {
+     "round": 13,
+     "value": 0.2987,
+     "severity": 1.14
+    },
+    {
+     "round": 14,
+     "value": 0.2151,
+     "severity": 0.82
+    },
+    {
+     "round": 15,
+     "value": 0.1987,
+     "severity": 0.76
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_roll:flight",
+   "kind": "joint",
+   "target": "wrist_roll",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_roll_joint",
+      "right_wrist_roll_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.0655,
+     "severity": 4.07
+    },
+    {
+     "round": 8,
+     "value": 0.6473,
+     "severity": 2.47
+    },
+    {
+     "round": 9,
+     "value": 0.4542,
+     "severity": 1.73
+    },
+    {
+     "round": 10,
+     "value": 0.7616,
+     "severity": 2.91
+    },
+    {
+     "round": 11,
+     "value": 0.4628,
+     "severity": 1.77
+    },
+    {
+     "round": 12,
+     "value": 0.4843,
+     "severity": 1.85
+    },
+    {
+     "round": 13,
+     "value": 0.7739,
+     "severity": 2.96
+    },
+    {
+     "round": 14,
+     "value": 0.9966,
+     "severity": 3.81
+    },
+    {
+     "round": 15,
+     "value": 0.8599,
+     "severity": 3.28
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_yaw:flight",
+   "kind": "joint",
+   "target": "wrist_yaw",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_yaw_joint",
+      "right_wrist_yaw_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.6377,
+     "severity": 2.44
+    },
+    {
+     "round": 8,
+     "value": 0.4027,
+     "severity": 1.54
+    },
+    {
+     "round": 9,
+     "value": 0.5246,
+     "severity": 2.0
+    },
+    {
+     "round": 10,
+     "value": 0.6623,
+     "severity": 2.53
+    },
+    {
+     "round": 11,
+     "value": 0.8615,
+     "severity": 3.29
+    },
+    {
+     "round": 12,
+     "value": 0.8511,
+     "severity": 3.25
+    },
+    {
+     "round": 13,
+     "value": 0.7987,
+     "severity": 3.05
+    },
+    {
+     "round": 14,
+     "value": 0.6602,
+     "severity": 2.52
+    },
+    {
+     "round": 15,
+     "value": 0.8573,
+     "severity": 3.27
+    }
+   ]
+  },
+  {
+   "id": "body:ankle_roll:flight",
+   "kind": "body",
+   "target": "ankle_roll",
+   "phase": "flight",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_ankle_roll_link",
+      "right_ankle_roll_link"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.5
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4742,
+     "severity": 5.93
+    },
+    {
+     "round": 8,
+     "value": 0.7493,
+     "severity": 9.37
+    },
+    {
+     "round": 9,
+     "value": 0.2592,
+     "severity": 3.24
+    },
+    {
+     "round": 10,
+     "value": 0.2588,
+     "severity": 3.24
+    },
+    {
+     "round": 11,
+     "value": 0.2532,
+     "severity": 3.16
+    },
+    {
+     "round": 12,
+     "value": 0.2329,
+     "severity": 2.91
+    },
+    {
+     "round": 13,
+     "value": 0.2328,
+     "severity": 2.91
+    },
+    {
+     "round": 14,
+     "value": 0.2121,
+     "severity": 2.65
+    },
+    {
+     "round": 15,
+     "value": 0.2593,
+     "severity": 3.24
+    }
+   ]
+  },
+  {
+   "id": "body:wrist_yaw:flight",
+   "kind": "body",
+   "target": "wrist_yaw",
+   "phase": "flight",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_wrist_yaw_link",
+      "right_wrist_yaw_link"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3605,
+     "severity": 4.51
+    },
+    {
+     "round": 8,
+     "value": 0.471,
+     "severity": 5.89
+    },
+    {
+     "round": 9,
+     "value": 0.2705,
+     "severity": 3.38
+    },
+    {
+     "round": 10,
+     "value": 0.2815,
+     "severity": 3.52
+    },
+    {
+     "round": 11,
+     "value": 0.2286,
+     "severity": 2.86
+    },
+    {
+     "round": 12,
+     "value": 0.2637,
+     "severity": 3.3
+    },
+    {
+     "round": 13,
+     "value": 0.2376,
+     "severity": 2.97
+    },
+    {
+     "round": 14,
+     "value": 0.233,
+     "severity": 2.91
+    },
+    {
+     "round": 15,
+     "value": 0.2409,
+     "severity": 3.01
+    }
+   ]
+  },
+  {
+   "id": "body:knee:flight",
+   "kind": "body",
+   "target": "knee",
+   "phase": "flight",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_knee_link",
+      "right_knee_link"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3477,
+     "severity": 4.35
+    },
+    {
+     "round": 8,
+     "value": 0.55,
+     "severity": 6.87
+    },
+    {
+     "round": 9,
+     "value": 0.1825,
+     "severity": 2.28
+    },
+    {
+     "round": 10,
+     "value": 0.1742,
+     "severity": 2.18
+    },
+    {
+     "round": 11,
+     "value": 0.1822,
+     "severity": 2.28
+    },
+    {
+     "round": 12,
+     "value": 0.1654,
+     "severity": 2.07
+    },
+    {
+     "round": 13,
+     "value": 0.1619,
+     "severity": 2.02
+    },
+    {
+     "round": 14,
+     "value": 0.1468,
+     "severity": 1.84
+    },
+    {
+     "round": 15,
+     "value": 0.1775,
+     "severity": 2.22
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_pitch:flight",
+   "kind": "asymmetry",
+   "target": "hip_pitch",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_pitch",
+     "sign": 1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.002,
+     "severity": -0.01
+    },
+    {
+     "round": 8,
+     "value": 0.0189,
+     "severity": 0.11
+    },
+    {
+     "round": 9,
+     "value": -0.0137,
+     "severity": -0.08
+    },
+    {
+     "round": 10,
+     "value": -0.0275,
+     "severity": -0.16
+    },
+    {
+     "round": 11,
+     "value": -0.0167,
+     "severity": -0.1
+    },
+    {
+     "round": 12,
+     "value": -0.0252,
+     "severity": -0.14
+    },
+    {
+     "round": 13,
+     "value": -0.0333,
+     "severity": -0.19
+    },
+    {
+     "round": 14,
+     "value": -0.0044,
+     "severity": -0.03
+    },
+    {
+     "round": 15,
+     "value": 0.0041,
+     "severity": 0.02
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_roll:flight",
+   "kind": "asymmetry",
+   "target": "hip_roll",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_roll",
+     "sign": -1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0432,
+     "severity": -0.25
+    },
+    {
+     "round": 8,
+     "value": -0.0587,
+     "severity": -0.34
+    },
+    {
+     "round": 9,
+     "value": -0.0486,
+     "severity": -0.28
+    },
+    {
+     "round": 10,
+     "value": -0.081,
+     "severity": -0.46
+    },
+    {
+     "round": 11,
+     "value": -0.0664,
+     "severity": -0.38
+    },
+    {
+     "round": 12,
+     "value": -0.0793,
+     "severity": -0.45
+    },
+    {
+     "round": 13,
+     "value": -0.0497,
+     "severity": -0.28
+    },
+    {
+     "round": 14,
+     "value": -0.0655,
+     "severity": -0.38
+    },
+    {
+     "round": 15,
+     "value": -0.0687,
+     "severity": -0.39
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:knee:flight",
+   "kind": "asymmetry",
+   "target": "knee",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "knee",
+     "sign": 1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0792,
+     "severity": -0.45
+    },
+    {
+     "round": 8,
+     "value": -0.0486,
+     "severity": -0.28
+    },
+    {
+     "round": 9,
+     "value": -0.0657,
+     "severity": -0.38
+    },
+    {
+     "round": 10,
+     "value": -0.0845,
+     "severity": -0.48
+    },
+    {
+     "round": 11,
+     "value": -0.0617,
+     "severity": -0.35
+    },
+    {
+     "round": 12,
+     "value": -0.0719,
+     "severity": -0.41
+    },
+    {
+     "round": 13,
+     "value": -0.0798,
+     "severity": -0.46
+    },
+    {
+     "round": 14,
+     "value": -0.0906,
+     "severity": -0.52
+    },
+    {
+     "round": 15,
+     "value": -0.0848,
+     "severity": -0.49
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_pitch:flight",
+   "kind": "asymmetry",
+   "target": "ankle_pitch",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_pitch",
+     "sign": 1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0219,
+     "severity": -0.13
+    },
+    {
+     "round": 8,
+     "value": -0.0606,
+     "severity": -0.35
+    },
+    {
+     "round": 9,
+     "value": -0.0734,
+     "severity": -0.42
+    },
+    {
+     "round": 10,
+     "value": -0.0665,
+     "severity": -0.38
+    },
+    {
+     "round": 11,
+     "value": -0.0612,
+     "severity": -0.35
+    },
+    {
+     "round": 12,
+     "value": -0.0575,
+     "severity": -0.33
+    },
+    {
+     "round": 13,
+     "value": -0.0712,
+     "severity": -0.41
+    },
+    {
+     "round": 14,
+     "value": -0.0644,
+     "severity": -0.37
+    },
+    {
+     "round": 15,
+     "value": -0.0448,
+     "severity": -0.26
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_roll:flight",
+   "kind": "asymmetry",
+   "target": "ankle_roll",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_roll",
+     "sign": -1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0798,
+     "severity": -0.46
+    },
+    {
+     "round": 8,
+     "value": -0.0731,
+     "severity": -0.42
+    },
+    {
+     "round": 9,
+     "value": -0.0797,
+     "severity": -0.46
+    },
+    {
+     "round": 10,
+     "value": -0.0739,
+     "severity": -0.42
+    },
+    {
+     "round": 11,
+     "value": -0.0729,
+     "severity": -0.42
+    },
+    {
+     "round": 12,
+     "value": -0.073,
+     "severity": -0.42
+    },
+    {
+     "round": 13,
+     "value": -0.0828,
+     "severity": -0.47
+    },
+    {
+     "round": 14,
+     "value": -0.0561,
+     "severity": -0.32
+    },
+    {
+     "round": 15,
+     "value": -0.0635,
+     "severity": -0.36
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_pitch:flight",
+   "kind": "asymmetry",
+   "target": "shoulder_pitch",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_pitch",
+     "sign": 1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.6865,
+     "severity": 3.93
+    },
+    {
+     "round": 8,
+     "value": 0.4665,
+     "severity": 2.67
+    },
+    {
+     "round": 9,
+     "value": 0.1209,
+     "severity": 0.69
+    },
+    {
+     "round": 10,
+     "value": 0.2994,
+     "severity": 1.72
+    },
+    {
+     "round": 11,
+     "value": 0.241,
+     "severity": 1.38
+    },
+    {
+     "round": 12,
+     "value": 0.0267,
+     "severity": 0.15
+    },
+    {
+     "round": 13,
+     "value": 0.2207,
+     "severity": 1.26
+    },
+    {
+     "round": 14,
+     "value": 0.3602,
+     "severity": 2.06
+    },
+    {
+     "round": 15,
+     "value": 0.164,
+     "severity": 0.94
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_roll:flight",
+   "kind": "asymmetry",
+   "target": "shoulder_roll",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_roll",
+     "sign": -1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.5556,
+     "severity": 3.18
+    },
+    {
+     "round": 8,
+     "value": 0.2536,
+     "severity": 1.45
+    },
+    {
+     "round": 9,
+     "value": 0.1221,
+     "severity": 0.7
+    },
+    {
+     "round": 10,
+     "value": 0.1111,
+     "severity": 0.64
+    },
+    {
+     "round": 11,
+     "value": 0.0865,
+     "severity": 0.5
+    },
+    {
+     "round": 12,
+     "value": 0.1118,
+     "severity": 0.64
+    },
+    {
+     "round": 13,
+     "value": -0.0638,
+     "severity": -0.37
+    },
+    {
+     "round": 14,
+     "value": 0.0406,
+     "severity": 0.23
+    },
+    {
+     "round": 15,
+     "value": 0.2383,
+     "severity": 1.37
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_yaw:flight",
+   "kind": "asymmetry",
+   "target": "shoulder_yaw",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_yaw",
+     "sign": -1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.8
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.7635,
+     "severity": 10.1
+    },
+    {
+     "round": 8,
+     "value": 2.3328,
+     "severity": 13.37
+    },
+    {
+     "round": 9,
+     "value": 0.0741,
+     "severity": 0.42
+    },
+    {
+     "round": 10,
+     "value": 0.0452,
+     "severity": 0.26
+    },
+    {
+     "round": 11,
+     "value": -0.0054,
+     "severity": -0.03
+    },
+    {
+     "round": 12,
+     "value": 0.0614,
+     "severity": 0.35
+    },
+    {
+     "round": 13,
+     "value": -0.033,
+     "severity": -0.19
+    },
+    {
+     "round": 14,
+     "value": -0.0094,
+     "severity": -0.05
+    },
+    {
+     "round": 15,
+     "value": 0.075,
+     "severity": 0.43
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:elbow:flight",
+   "kind": "asymmetry",
+   "target": "elbow",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "elbow",
+     "sign": 1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2337,
+     "severity": 1.34
+    },
+    {
+     "round": 8,
+     "value": 0.8039,
+     "severity": 4.61
+    },
+    {
+     "round": 9,
+     "value": 0.23,
+     "severity": 1.32
+    },
+    {
+     "round": 10,
+     "value": 0.1167,
+     "severity": 0.67
+    },
+    {
+     "round": 11,
+     "value": -0.018,
+     "severity": -0.1
+    },
+    {
+     "round": 12,
+     "value": 0.0748,
+     "severity": 0.43
+    },
+    {
+     "round": 13,
+     "value": 0.0545,
+     "severity": 0.31
+    },
+    {
+     "round": 14,
+     "value": 0.0676,
+     "severity": 0.39
+    },
+    {
+     "round": 15,
+     "value": 0.0596,
+     "severity": 0.34
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:wrist_roll:flight",
+   "kind": "asymmetry",
+   "target": "wrist_roll",
+   "phase": "flight",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "wrist_roll",
+     "sign": -1.0,
+     "phases": [
+      "flight"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4899,
+     "severity": 2.81
+    },
+    {
+     "round": 8,
+     "value": 0.2606,
+     "severity": 1.49
+    },
+    {
+     "round": 9,
+     "value": 0.2282,
+     "severity": 1.31
+    },
+    {
+     "round": 10,
+     "value": 0.6928,
+     "severity": 3.97
+    },
+    {
+     "round": 11,
+     "value": 0.8099,
+     "severity": 4.64
+    },
+    {
+     "round": 12,
+     "value": 0.6523,
+     "severity": 3.74
+    },
+    {
+     "round": 13,
+     "value": 0.876,
+     "severity": 5.02
+    },
+    {
+     "round": 14,
+     "value": 1.2613,
+     "severity": 7.23
+    },
+    {
+     "round": 15,
+     "value": 1.0348,
+     "severity": 5.93
+    }
+   ]
+  },
+  {
+   "id": "joint:hip_pitch:land",
+   "kind": "joint",
+   "target": "hip_pitch",
+   "phase": "land",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "right_hip_pitch_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0512,
+     "severity": 0.2
+    },
+    {
+     "round": 8,
+     "value": 0.3602,
+     "severity": 1.38
+    },
+    {
+     "round": 9,
+     "value": 0.0876,
+     "severity": 0.33
+    },
+    {
+     "round": 10,
+     "value": 0.0585,
+     "severity": 0.22
+    },
+    {
+     "round": 11,
+     "value": 0.0324,
+     "severity": 0.12
+    },
+    {
+     "round": 12,
+     "value": 0.0996,
+     "severity": 0.38
+    },
+    {
+     "round": 13,
+     "value": 0.0786,
+     "severity": 0.3
+    },
+    {
+     "round": 14,
+     "value": 0.0391,
+     "severity": 0.15
+    },
+    {
+     "round": 15,
+     "value": 0.0705,
+     "severity": 0.27
+    }
+   ]
+  },
+  {
+   "id": "joint:knee:land",
+   "kind": "joint",
+   "target": "knee",
+   "phase": "land",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_knee_joint",
+      "right_knee_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1772,
+     "severity": 0.68
+    },
+    {
+     "round": 8,
+     "value": 0.2841,
+     "severity": 1.09
+    },
+    {
+     "round": 9,
+     "value": 0.309,
+     "severity": 1.18
+    },
+    {
+     "round": 10,
+     "value": 0.2438,
+     "severity": 0.93
+    },
+    {
+     "round": 11,
+     "value": 0.1837,
+     "severity": 0.7
+    },
+    {
+     "round": 12,
+     "value": 0.4823,
+     "severity": 1.84
+    },
+    {
+     "round": 13,
+     "value": 0.1908,
+     "severity": 0.73
+    },
+    {
+     "round": 14,
+     "value": 0.261,
+     "severity": 1.0
+    },
+    {
+     "round": 15,
+     "value": 0.4456,
+     "severity": 1.7
+    }
+   ]
+  },
+  {
+   "id": "body:ankle_roll:land",
+   "kind": "body",
+   "target": "ankle_roll",
+   "phase": "land",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_ankle_roll_link",
+      "right_ankle_roll_link"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1193,
+     "severity": 1.49
+    },
+    {
+     "round": 8,
+     "value": 0.8069,
+     "severity": 10.09
+    },
+    {
+     "round": 9,
+     "value": 0.1274,
+     "severity": 1.59
+    },
+    {
+     "round": 10,
+     "value": 0.0557,
+     "severity": 0.7
+    },
+    {
+     "round": 11,
+     "value": 0.099,
+     "severity": 1.24
+    },
+    {
+     "round": 12,
+     "value": 0.1384,
+     "severity": 1.73
+    },
+    {
+     "round": 13,
+     "value": 0.0825,
+     "severity": 1.03
+    },
+    {
+     "round": 14,
+     "value": 0.0874,
+     "severity": 1.09
+    },
+    {
+     "round": 15,
+     "value": 0.1364,
+     "severity": 1.71
+    }
+   ]
+  },
+  {
+   "id": "body:wrist_yaw:land",
+   "kind": "body",
+   "target": "wrist_yaw",
+   "phase": "land",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_wrist_yaw_link",
+      "right_wrist_yaw_link"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1927,
+     "severity": 2.41
+    },
+    {
+     "round": 8,
+     "value": 0.5057,
+     "severity": 6.32
+    },
+    {
+     "round": 9,
+     "value": 0.1851,
+     "severity": 2.31
+    },
+    {
+     "round": 10,
+     "value": 0.163,
+     "severity": 2.04
+    },
+    {
+     "round": 11,
+     "value": 0.1937,
+     "severity": 2.42
+    },
+    {
+     "round": 12,
+     "value": 0.1395,
+     "severity": 1.74
+    },
+    {
+     "round": 13,
+     "value": 0.1844,
+     "severity": 2.31
+    },
+    {
+     "round": 14,
+     "value": 0.1528,
+     "severity": 1.91
+    },
+    {
+     "round": 15,
+     "value": 0.1599,
+     "severity": 2.0
+    }
+   ]
+  },
+  {
+   "id": "body:knee:land",
+   "kind": "body",
+   "target": "knee",
+   "phase": "land",
+   "tol": 0.08,
+   "origin": "init:backflip_3",
+   "note": "hands / feet / knees shape",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_knee_link",
+      "right_knee_link"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1152,
+     "severity": 1.44
+    },
+    {
+     "round": 8,
+     "value": 0.4865,
+     "severity": 6.08
+    },
+    {
+     "round": 9,
+     "value": 0.0797,
+     "severity": 1.0
+    },
+    {
+     "round": 10,
+     "value": 0.0593,
+     "severity": 0.74
+    },
+    {
+     "round": 11,
+     "value": 0.0633,
+     "severity": 0.79
+    },
+    {
+     "round": 12,
+     "value": 0.0751,
+     "severity": 0.94
+    },
+    {
+     "round": 13,
+     "value": 0.0461,
+     "severity": 0.58
+    },
+    {
+     "round": 14,
+     "value": 0.053,
+     "severity": 0.66
+    },
+    {
+     "round": 15,
+     "value": 0.0739,
+     "severity": 0.92
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_pitch:land",
+   "kind": "asymmetry",
+   "target": "hip_pitch",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_pitch",
+     "sign": 1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0066,
+     "severity": 0.04
+    },
+    {
+     "round": 8,
+     "value": 0.0585,
+     "severity": 0.34
+    },
+    {
+     "round": 9,
+     "value": -0.0031,
+     "severity": -0.02
+    },
+    {
+     "round": 10,
+     "value": -0.0158,
+     "severity": -0.09
+    },
+    {
+     "round": 11,
+     "value": -0.0203,
+     "severity": -0.12
+    },
+    {
+     "round": 12,
+     "value": -0.0334,
+     "severity": -0.19
+    },
+    {
+     "round": 13,
+     "value": -0.023,
+     "severity": -0.13
+    },
+    {
+     "round": 14,
+     "value": -0.0281,
+     "severity": -0.16
+    },
+    {
+     "round": 15,
+     "value": 0.0032,
+     "severity": 0.02
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_roll:land",
+   "kind": "asymmetry",
+   "target": "hip_roll",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_roll",
+     "sign": -1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0374,
+     "severity": -0.21
+    },
+    {
+     "round": 8,
+     "value": 0.1195,
+     "severity": 0.68
+    },
+    {
+     "round": 9,
+     "value": -0.0095,
+     "severity": -0.05
+    },
+    {
+     "round": 10,
+     "value": -0.1025,
+     "severity": -0.59
+    },
+    {
+     "round": 11,
+     "value": -0.0341,
+     "severity": -0.2
+    },
+    {
+     "round": 12,
+     "value": -0.0852,
+     "severity": -0.49
+    },
+    {
+     "round": 13,
+     "value": -0.0582,
+     "severity": -0.33
+    },
+    {
+     "round": 14,
+     "value": -0.0759,
+     "severity": -0.44
+    },
+    {
+     "round": 15,
+     "value": -0.0422,
+     "severity": -0.24
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:knee:land",
+   "kind": "asymmetry",
+   "target": "knee",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "knee",
+     "sign": 1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0911,
+     "severity": -0.52
+    },
+    {
+     "round": 8,
+     "value": 0.0755,
+     "severity": 0.43
+    },
+    {
+     "round": 9,
+     "value": -0.075,
+     "severity": -0.43
+    },
+    {
+     "round": 10,
+     "value": -0.1305,
+     "severity": -0.75
+    },
+    {
+     "round": 11,
+     "value": -0.133,
+     "severity": -0.76
+    },
+    {
+     "round": 12,
+     "value": -0.1393,
+     "severity": -0.8
+    },
+    {
+     "round": 13,
+     "value": -0.1158,
+     "severity": -0.66
+    },
+    {
+     "round": 14,
+     "value": -0.1273,
+     "severity": -0.73
+    },
+    {
+     "round": 15,
+     "value": -0.1381,
+     "severity": -0.79
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_pitch:land",
+   "kind": "asymmetry",
+   "target": "ankle_pitch",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_pitch",
+     "sign": 1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0659,
+     "severity": -0.38
+    },
+    {
+     "round": 8,
+     "value": -0.065,
+     "severity": -0.37
+    },
+    {
+     "round": 9,
+     "value": -0.0971,
+     "severity": -0.56
+    },
+    {
+     "round": 10,
+     "value": -0.0838,
+     "severity": -0.48
+    },
+    {
+     "round": 11,
+     "value": -0.0939,
+     "severity": -0.54
+    },
+    {
+     "round": 12,
+     "value": -0.1307,
+     "severity": -0.75
+    },
+    {
+     "round": 13,
+     "value": -0.1102,
+     "severity": -0.63
+    },
+    {
+     "round": 14,
+     "value": -0.1108,
+     "severity": -0.63
+    },
+    {
+     "round": 15,
+     "value": -0.0719,
+     "severity": -0.41
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_roll:land",
+   "kind": "asymmetry",
+   "target": "ankle_roll",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_roll",
+     "sign": -1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0308,
+     "severity": 0.18
+    },
+    {
+     "round": 8,
+     "value": 0.0445,
+     "severity": 0.25
+    },
+    {
+     "round": 9,
+     "value": 0.0526,
+     "severity": 0.3
+    },
+    {
+     "round": 10,
+     "value": -0.0025,
+     "severity": -0.01
+    },
+    {
+     "round": 11,
+     "value": 0.0118,
+     "severity": 0.07
+    },
+    {
+     "round": 12,
+     "value": 0.0034,
+     "severity": 0.02
+    },
+    {
+     "round": 13,
+     "value": -0.0042,
+     "severity": -0.02
+    },
+    {
+     "round": 14,
+     "value": 0.0083,
+     "severity": 0.05
+    },
+    {
+     "round": 15,
+     "value": 0.0116,
+     "severity": 0.07
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_pitch:land",
+   "kind": "asymmetry",
+   "target": "shoulder_pitch",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_pitch",
+     "sign": 1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.4529,
+     "severity": 2.6
+    },
+    {
+     "round": 8,
+     "value": 1.0851,
+     "severity": 6.22
+    },
+    {
+     "round": 9,
+     "value": 0.3318,
+     "severity": 1.9
+    },
+    {
+     "round": 10,
+     "value": 0.2633,
+     "severity": 1.51
+    },
+    {
+     "round": 11,
+     "value": -0.0159,
+     "severity": -0.09
+    },
+    {
+     "round": 12,
+     "value": 0.0774,
+     "severity": 0.44
+    },
+    {
+     "round": 13,
+     "value": 0.1161,
+     "severity": 0.67
+    },
+    {
+     "round": 14,
+     "value": 0.1551,
+     "severity": 0.89
+    },
+    {
+     "round": 15,
+     "value": 0.1576,
+     "severity": 0.9
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_roll:land",
+   "kind": "asymmetry",
+   "target": "shoulder_roll",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_roll",
+     "sign": -1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2434,
+     "severity": 1.39
+    },
+    {
+     "round": 8,
+     "value": 0.6923,
+     "severity": 3.97
+    },
+    {
+     "round": 9,
+     "value": 0.187,
+     "severity": 1.07
+    },
+    {
+     "round": 10,
+     "value": -0.0555,
+     "severity": -0.32
+    },
+    {
+     "round": 11,
+     "value": -0.0481,
+     "severity": -0.28
+    },
+    {
+     "round": 12,
+     "value": 0.0395,
+     "severity": 0.23
+    },
+    {
+     "round": 13,
+     "value": 0.1138,
+     "severity": 0.65
+    },
+    {
+     "round": 14,
+     "value": 0.0191,
+     "severity": 0.11
+    },
+    {
+     "round": 15,
+     "value": -0.0431,
+     "severity": -0.25
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_yaw:land",
+   "kind": "asymmetry",
+   "target": "shoulder_yaw",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_yaw",
+     "sign": -1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2788,
+     "severity": 1.6
+    },
+    {
+     "round": 8,
+     "value": 1.3556,
+     "severity": 7.77
+    },
+    {
+     "round": 9,
+     "value": 0.0243,
+     "severity": 0.14
+    },
+    {
+     "round": 10,
+     "value": -0.0212,
+     "severity": -0.12
+    },
+    {
+     "round": 11,
+     "value": -0.0211,
+     "severity": -0.12
+    },
+    {
+     "round": 12,
+     "value": 0.0066,
+     "severity": 0.04
+    },
+    {
+     "round": 13,
+     "value": 0.0082,
+     "severity": 0.05
+    },
+    {
+     "round": 14,
+     "value": 0.082,
+     "severity": 0.47
+    },
+    {
+     "round": 15,
+     "value": 0.0973,
+     "severity": 0.56
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:elbow:land",
+   "kind": "asymmetry",
+   "target": "elbow",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "elbow",
+     "sign": 1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.126,
+     "severity": 0.72
+    },
+    {
+     "round": 8,
+     "value": 0.3142,
+     "severity": 1.8
+    },
+    {
+     "round": 9,
+     "value": 0.5406,
+     "severity": 3.1
+    },
+    {
+     "round": 10,
+     "value": 0.1267,
+     "severity": 0.73
+    },
+    {
+     "round": 11,
+     "value": 0.0885,
+     "severity": 0.51
+    },
+    {
+     "round": 12,
+     "value": 0.1981,
+     "severity": 1.14
+    },
+    {
+     "round": 13,
+     "value": 0.1177,
+     "severity": 0.67
+    },
+    {
+     "round": 14,
+     "value": 0.4618,
+     "severity": 2.65
+    },
+    {
+     "round": 15,
+     "value": 0.0439,
+     "severity": 0.25
+    }
+   ]
+  },
+  {
+   "id": "contact:left_foot:land",
+   "kind": "contact",
+   "target": "left_foot",
+   "phase": "land",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 0,
+     "phases": [
+      "land"
+     ]
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 3.0,
+     "severity": 1.0
+    },
+    {
+     "round": 8,
+     "value": 9.0,
+     "severity": 3.0
+    },
+    {
+     "round": 9,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 10,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 11,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 12,
+     "value": 3.0,
+     "severity": 1.0
+    },
+    {
+     "round": 13,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 1.0,
+     "severity": 0.33
+    }
+   ]
+  },
+  {
+   "id": "contact:right_foot:land",
+   "kind": "contact",
+   "target": "right_foot",
+   "phase": "land",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 1,
+     "phases": [
+      "land"
+     ]
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 3.0,
+     "severity": 1.0
+    },
+    {
+     "round": 8,
+     "value": 9.0,
+     "severity": 3.0
+    },
+    {
+     "round": 9,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 10,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 11,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 12,
+     "value": 3.0,
+     "severity": 1.0
+    },
+    {
+     "round": 13,
+     "value": 1.0,
+     "severity": 0.33
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 1.0,
+     "severity": 0.33
+    }
+   ]
+  },
+  {
+   "id": "joint:elbow:settle",
+   "kind": "joint",
+   "target": "elbow",
+   "phase": "settle",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.5167,
+     "severity": 1.97
+    },
+    {
+     "round": 8,
+     "value": 0.5506,
+     "severity": 2.1
+    },
+    {
+     "round": 9,
+     "value": 0.2779,
+     "severity": 1.06
+    },
+    {
+     "round": 10,
+     "value": 0.2605,
+     "severity": 1.0
+    },
+    {
+     "round": 11,
+     "value": 0.1977,
+     "severity": 0.76
+    },
+    {
+     "round": 12,
+     "value": 0.1277,
+     "severity": 0.49
+    },
+    {
+     "round": 13,
+     "value": 0.1384,
+     "severity": 0.53
+    },
+    {
+     "round": 14,
+     "value": 0.1997,
+     "severity": 0.76
+    },
+    {
+     "round": 15,
+     "value": 0.1796,
+     "severity": 0.69
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_pitch:settle",
+   "kind": "joint",
+   "target": "shoulder_pitch",
+   "phase": "settle",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3481,
+     "severity": 1.33
+    },
+    {
+     "round": 8,
+     "value": 0.3087,
+     "severity": 1.18
+    },
+    {
+     "round": 9,
+     "value": 0.3832,
+     "severity": 1.46
+    },
+    {
+     "round": 10,
+     "value": 0.1406,
+     "severity": 0.54
+    },
+    {
+     "round": 11,
+     "value": 0.1319,
+     "severity": 0.5
+    },
+    {
+     "round": 12,
+     "value": 0.0773,
+     "severity": 0.3
+    },
+    {
+     "round": 13,
+     "value": 0.0759,
+     "severity": 0.29
+    },
+    {
+     "round": 14,
+     "value": 0.0634,
+     "severity": 0.24
+    },
+    {
+     "round": 15,
+     "value": 0.129,
+     "severity": 0.49
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_roll:settle",
+   "kind": "joint",
+   "target": "wrist_roll",
+   "phase": "settle",
+   "tol": 0.2617993877991494,
+   "origin": "init:backflip_3",
+   "note": "reference moves this joint a lot",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_roll_joint",
+      "right_wrist_roll_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.7083,
+     "severity": 2.71
+    },
+    {
+     "round": 8,
+     "value": 0.3837,
+     "severity": 1.47
+    },
+    {
+     "round": 9,
+     "value": 0.6023,
+     "severity": 2.3
+    },
+    {
+     "round": 10,
+     "value": 0.1936,
+     "severity": 0.74
+    },
+    {
+     "round": 11,
+     "value": 0.1118,
+     "severity": 0.43
+    },
+    {
+     "round": 12,
+     "value": 0.2913,
+     "severity": 1.11
+    },
+    {
+     "round": 13,
+     "value": 0.1618,
+     "severity": 0.62
+    },
+    {
+     "round": 14,
+     "value": 0.1442,
+     "severity": 0.55
+    },
+    {
+     "round": 15,
+     "value": 0.2235,
+     "severity": 0.85
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_pitch:settle",
+   "kind": "asymmetry",
+   "target": "hip_pitch",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_pitch",
+     "sign": 1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0283,
+     "severity": 0.16
+    },
+    {
+     "round": 8,
+     "value": 0.1052,
+     "severity": 0.6
+    },
+    {
+     "round": 9,
+     "value": 0.0525,
+     "severity": 0.3
+    },
+    {
+     "round": 10,
+     "value": 0.0038,
+     "severity": 0.02
+    },
+    {
+     "round": 11,
+     "value": 0.0272,
+     "severity": 0.16
+    },
+    {
+     "round": 12,
+     "value": 0.0204,
+     "severity": 0.12
+    },
+    {
+     "round": 13,
+     "value": -0.0034,
+     "severity": -0.02
+    },
+    {
+     "round": 14,
+     "value": 0.0102,
+     "severity": 0.06
+    },
+    {
+     "round": 15,
+     "value": -0.0162,
+     "severity": -0.09
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_roll:settle",
+   "kind": "asymmetry",
+   "target": "hip_roll",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_roll",
+     "sign": -1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0516,
+     "severity": -0.3
+    },
+    {
+     "round": 8,
+     "value": 0.0582,
+     "severity": 0.33
+    },
+    {
+     "round": 9,
+     "value": -0.0108,
+     "severity": -0.06
+    },
+    {
+     "round": 10,
+     "value": -0.0577,
+     "severity": -0.33
+    },
+    {
+     "round": 11,
+     "value": -0.0057,
+     "severity": -0.03
+    },
+    {
+     "round": 12,
+     "value": -0.0118,
+     "severity": -0.07
+    },
+    {
+     "round": 13,
+     "value": 0.0396,
+     "severity": 0.23
+    },
+    {
+     "round": 14,
+     "value": 0.0161,
+     "severity": 0.09
+    },
+    {
+     "round": 15,
+     "value": 0.0036,
+     "severity": 0.02
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:knee:settle",
+   "kind": "asymmetry",
+   "target": "knee",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "knee",
+     "sign": 1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0355,
+     "severity": -0.2
+    },
+    {
+     "round": 8,
+     "value": 0.0751,
+     "severity": 0.43
+    },
+    {
+     "round": 9,
+     "value": 0.025,
+     "severity": 0.14
+    },
+    {
+     "round": 10,
+     "value": -0.0618,
+     "severity": -0.35
+    },
+    {
+     "round": 11,
+     "value": -0.0525,
+     "severity": -0.3
+    },
+    {
+     "round": 12,
+     "value": -0.1155,
+     "severity": -0.66
+    },
+    {
+     "round": 13,
+     "value": -0.0535,
+     "severity": -0.31
+    },
+    {
+     "round": 14,
+     "value": -0.0569,
+     "severity": -0.33
+    },
+    {
+     "round": 15,
+     "value": -0.0977,
+     "severity": -0.56
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_pitch:settle",
+   "kind": "asymmetry",
+   "target": "ankle_pitch",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_pitch",
+     "sign": 1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": -0.0359,
+     "severity": -0.21
+    },
+    {
+     "round": 8,
+     "value": 0.0888,
+     "severity": 0.51
+    },
+    {
+     "round": 9,
+     "value": 0.0671,
+     "severity": 0.38
+    },
+    {
+     "round": 10,
+     "value": 0.0015,
+     "severity": 0.01
+    },
+    {
+     "round": 11,
+     "value": -0.0592,
+     "severity": -0.34
+    },
+    {
+     "round": 12,
+     "value": -0.0492,
+     "severity": -0.28
+    },
+    {
+     "round": 13,
+     "value": -0.0353,
+     "severity": -0.2
+    },
+    {
+     "round": 14,
+     "value": -0.025,
+     "severity": -0.14
+    },
+    {
+     "round": 15,
+     "value": -0.0811,
+     "severity": -0.46
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_roll:settle",
+   "kind": "asymmetry",
+   "target": "ankle_roll",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_roll",
+     "sign": -1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0298,
+     "severity": 0.17
+    },
+    {
+     "round": 8,
+     "value": -0.0104,
+     "severity": -0.06
+    },
+    {
+     "round": 9,
+     "value": 0.0518,
+     "severity": 0.3
+    },
+    {
+     "round": 10,
+     "value": -0.0168,
+     "severity": -0.1
+    },
+    {
+     "round": 11,
+     "value": 0.0578,
+     "severity": 0.33
+    },
+    {
+     "round": 12,
+     "value": -0.0311,
+     "severity": -0.18
+    },
+    {
+     "round": 13,
+     "value": -0.0225,
+     "severity": -0.13
+    },
+    {
+     "round": 14,
+     "value": -0.0343,
+     "severity": -0.2
+    },
+    {
+     "round": 15,
+     "value": -0.0225,
+     "severity": -0.13
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_pitch:settle",
+   "kind": "asymmetry",
+   "target": "shoulder_pitch",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_pitch",
+     "sign": 1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3514,
+     "severity": 2.01
+    },
+    {
+     "round": 8,
+     "value": 0.3988,
+     "severity": 2.29
+    },
+    {
+     "round": 9,
+     "value": 0.3527,
+     "severity": 2.02
+    },
+    {
+     "round": 10,
+     "value": 0.0115,
+     "severity": 0.07
+    },
+    {
+     "round": 11,
+     "value": 0.0544,
+     "severity": 0.31
+    },
+    {
+     "round": 12,
+     "value": -0.0027,
+     "severity": -0.02
+    },
+    {
+     "round": 13,
+     "value": 0.0391,
+     "severity": 0.22
+    },
+    {
+     "round": 14,
+     "value": -0.0061,
+     "severity": -0.04
+    },
+    {
+     "round": 15,
+     "value": 0.0928,
+     "severity": 0.53
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_roll:settle",
+   "kind": "asymmetry",
+   "target": "shoulder_roll",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_roll",
+     "sign": -1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2106,
+     "severity": 1.21
+    },
+    {
+     "round": 8,
+     "value": 0.2017,
+     "severity": 1.16
+    },
+    {
+     "round": 9,
+     "value": 0.129,
+     "severity": 0.74
+    },
+    {
+     "round": 10,
+     "value": 0.0759,
+     "severity": 0.43
+    },
+    {
+     "round": 11,
+     "value": 0.0157,
+     "severity": 0.09
+    },
+    {
+     "round": 12,
+     "value": 0.0325,
+     "severity": 0.19
+    },
+    {
+     "round": 13,
+     "value": 0.0551,
+     "severity": 0.32
+    },
+    {
+     "round": 14,
+     "value": 0.0033,
+     "severity": 0.02
+    },
+    {
+     "round": 15,
+     "value": 0.0099,
+     "severity": 0.06
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_yaw:settle",
+   "kind": "asymmetry",
+   "target": "shoulder_yaw",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_yaw",
+     "sign": -1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1859,
+     "severity": 1.07
+    },
+    {
+     "round": 8,
+     "value": 0.2535,
+     "severity": 1.45
+    },
+    {
+     "round": 9,
+     "value": 0.0786,
+     "severity": 0.45
+    },
+    {
+     "round": 10,
+     "value": 0.0317,
+     "severity": 0.18
+    },
+    {
+     "round": 11,
+     "value": -0.0351,
+     "severity": -0.2
+    },
+    {
+     "round": 12,
+     "value": 0.1349,
+     "severity": 0.77
+    },
+    {
+     "round": 13,
+     "value": 0.0685,
+     "severity": 0.39
+    },
+    {
+     "round": 14,
+     "value": -0.0337,
+     "severity": -0.19
+    },
+    {
+     "round": 15,
+     "value": -0.009,
+     "severity": -0.05
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:elbow:settle",
+   "kind": "asymmetry",
+   "target": "elbow",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "elbow",
+     "sign": 1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3821,
+     "severity": 2.19
+    },
+    {
+     "round": 8,
+     "value": 0.5546,
+     "severity": 3.18
+    },
+    {
+     "round": 9,
+     "value": 0.22,
+     "severity": 1.26
+    },
+    {
+     "round": 10,
+     "value": 0.2374,
+     "severity": 1.36
+    },
+    {
+     "round": 11,
+     "value": 0.3005,
+     "severity": 1.72
+    },
+    {
+     "round": 12,
+     "value": 0.0563,
+     "severity": 0.32
+    },
+    {
+     "round": 13,
+     "value": 0.0975,
+     "severity": 0.56
+    },
+    {
+     "round": 14,
+     "value": 0.0627,
+     "severity": 0.36
+    },
+    {
+     "round": 15,
+     "value": 0.0527,
+     "severity": 0.3
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:wrist_roll:settle",
+   "kind": "asymmetry",
+   "target": "wrist_roll",
+   "phase": "settle",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "wrist_roll",
+     "sign": -1.0,
+     "phases": [
+      "settle"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3726,
+     "severity": 2.13
+    },
+    {
+     "round": 8,
+     "value": 0.2907,
+     "severity": 1.67
+    },
+    {
+     "round": 9,
+     "value": 0.2542,
+     "severity": 1.46
+    },
+    {
+     "round": 10,
+     "value": 0.0232,
+     "severity": 0.13
+    },
+    {
+     "round": 11,
+     "value": -0.0048,
+     "severity": -0.03
+    },
+    {
+     "round": 12,
+     "value": -0.0422,
+     "severity": -0.24
+    },
+    {
+     "round": 13,
+     "value": -0.0078,
+     "severity": -0.04
+    },
+    {
+     "round": 14,
+     "value": -0.0555,
+     "severity": -0.32
+    },
+    {
+     "round": 15,
+     "value": 0.0779,
+     "severity": 0.45
+    }
+   ]
+  },
+  {
+   "id": "contact:left_foot:settle",
+   "kind": "contact",
+   "target": "left_foot",
+   "phase": "settle",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 0,
+     "phases": [
+      "settle"
+     ]
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 3.0,
+     "severity": 1.0
+    },
+    {
+     "round": 8,
+     "value": 7.0,
+     "severity": 2.33
+    },
+    {
+     "round": 9,
+     "value": 4.0,
+     "severity": 1.33
+    },
+    {
+     "round": 10,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "contact:right_foot:settle",
+   "kind": "contact",
+   "target": "right_foot",
+   "phase": "settle",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 1,
+     "phases": [
+      "settle"
+     ]
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 5.0,
+     "severity": 1.67
+    },
+    {
+     "round": 8,
+     "value": 6.0,
+     "severity": 2.0
+    },
+    {
+     "round": 9,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 10,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "jitter:all:settle",
+   "kind": "jitter",
+   "target": "all",
+   "phase": "settle",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "quiet stance",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_hip_yaw_joint",
+      "left_knee_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_hip_yaw_joint",
+      "right_knee_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint",
+      "waist_yaw_joint",
+      "waist_roll_joint",
+      "waist_pitch_joint",
+      "left_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "left_shoulder_yaw_joint",
+      "left_elbow_joint",
+      "left_wrist_roll_joint",
+      "left_wrist_pitch_joint",
+      "left_wrist_yaw_joint",
+      "right_shoulder_pitch_joint",
+      "right_shoulder_roll_joint",
+      "right_shoulder_yaw_joint",
+      "right_elbow_joint",
+      "right_wrist_roll_joint",
+      "right_wrist_pitch_joint",
+      "right_wrist_yaw_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 20.4623,
+     "severity": 6.82
+    },
+    {
+     "round": 8,
+     "value": 31.8294,
+     "severity": 10.61
+    },
+    {
+     "round": 9,
+     "value": 21.5205,
+     "severity": 7.17
+    },
+    {
+     "round": 10,
+     "value": 6.4597,
+     "severity": 2.15
+    },
+    {
+     "round": 11,
+     "value": 9.4253,
+     "severity": 3.14
+    },
+    {
+     "round": 12,
+     "value": 5.1334,
+     "severity": 1.71
+    },
+    {
+     "round": 13,
+     "value": 6.7845,
+     "severity": 2.26
+    },
+    {
+     "round": 14,
+     "value": 8.9648,
+     "severity": 2.99
+    },
+    {
+     "round": 15,
+     "value": 7.5692,
+     "severity": 2.52
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_pitch:stand_after",
+   "kind": "asymmetry",
+   "target": "hip_pitch",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_pitch",
+     "sign": 1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.3605,
+     "severity": 2.07
+    },
+    {
+     "round": 8,
+     "value": 0.0367,
+     "severity": 0.21
+    },
+    {
+     "round": 9,
+     "value": 0.0614,
+     "severity": 0.35
+    },
+    {
+     "round": 10,
+     "value": 0.0323,
+     "severity": 0.19
+    },
+    {
+     "round": 11,
+     "value": 0.1849,
+     "severity": 1.06
+    },
+    {
+     "round": 12,
+     "value": -0.0052,
+     "severity": -0.03
+    },
+    {
+     "round": 13,
+     "value": -0.0071,
+     "severity": -0.04
+    },
+    {
+     "round": 14,
+     "value": -0.0012,
+     "severity": -0.01
+    },
+    {
+     "round": 15,
+     "value": 0.0219,
+     "severity": 0.13
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_roll:stand_after",
+   "kind": "asymmetry",
+   "target": "hip_roll",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.7912,
+     "severity": 4.53
+    },
+    {
+     "round": 8,
+     "value": 0.2947,
+     "severity": 1.69
+    },
+    {
+     "round": 9,
+     "value": 0.0448,
+     "severity": 0.26
+    },
+    {
+     "round": 10,
+     "value": -0.0233,
+     "severity": -0.13
+    },
+    {
+     "round": 11,
+     "value": 0.2765,
+     "severity": 1.58
+    },
+    {
+     "round": 12,
+     "value": 0.0017,
+     "severity": 0.01
+    },
+    {
+     "round": 13,
+     "value": 0.0418,
+     "severity": 0.24
+    },
+    {
+     "round": 14,
+     "value": -0.0304,
+     "severity": -0.17
+    },
+    {
+     "round": 15,
+     "value": -0.013,
+     "severity": -0.07
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_yaw:stand_after",
+   "kind": "asymmetry",
+   "target": "hip_yaw",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_yaw",
+     "sign": -1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.2088,
+     "severity": 1.2
+    },
+    {
+     "round": 8,
+     "value": 0.1482,
+     "severity": 0.85
+    },
+    {
+     "round": 9,
+     "value": 0.1716,
+     "severity": 0.98
+    },
+    {
+     "round": 10,
+     "value": 0.1444,
+     "severity": 0.83
+    },
+    {
+     "round": 11,
+     "value": 0.5378,
+     "severity": 3.08
+    },
+    {
+     "round": 12,
+     "value": 0.0307,
+     "severity": 0.18
+    },
+    {
+     "round": 13,
+     "value": 0.1544,
+     "severity": 0.88
+    },
+    {
+     "round": 14,
+     "value": 0.0126,
+     "severity": 0.07
+    },
+    {
+     "round": 15,
+     "value": 0.0969,
+     "severity": 0.56
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:knee:stand_after",
+   "kind": "asymmetry",
+   "target": "knee",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "knee",
+     "sign": 1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0195,
+     "severity": 0.11
+    },
+    {
+     "round": 8,
+     "value": -0.0034,
+     "severity": -0.02
+    },
+    {
+     "round": 9,
+     "value": 0.234,
+     "severity": 1.34
+    },
+    {
+     "round": 10,
+     "value": -0.0173,
+     "severity": -0.1
+    },
+    {
+     "round": 11,
+     "value": 0.2042,
+     "severity": 1.17
+    },
+    {
+     "round": 12,
+     "value": -0.0394,
+     "severity": -0.23
+    },
+    {
+     "round": 13,
+     "value": -0.045,
+     "severity": -0.26
+    },
+    {
+     "round": 14,
+     "value": -0.0659,
+     "severity": -0.38
+    },
+    {
+     "round": 15,
+     "value": 0.0146,
+     "severity": 0.08
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_pitch:stand_after",
+   "kind": "asymmetry",
+   "target": "ankle_pitch",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_pitch",
+     "sign": 1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0166,
+     "severity": 0.1
+    },
+    {
+     "round": 8,
+     "value": 0.0483,
+     "severity": 0.28
+    },
+    {
+     "round": 9,
+     "value": 0.1979,
+     "severity": 1.13
+    },
+    {
+     "round": 10,
+     "value": 0.0117,
+     "severity": 0.07
+    },
+    {
+     "round": 11,
+     "value": 0.0843,
+     "severity": 0.48
+    },
+    {
+     "round": 12,
+     "value": 0.0297,
+     "severity": 0.17
+    },
+    {
+     "round": 13,
+     "value": -0.001,
+     "severity": -0.01
+    },
+    {
+     "round": 14,
+     "value": -0.0634,
+     "severity": -0.36
+    },
+    {
+     "round": 15,
+     "value": -0.0279,
+     "severity": -0.16
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:ankle_roll:stand_after",
+   "kind": "asymmetry",
+   "target": "ankle_roll",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "ankle_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0449,
+     "severity": 0.26
+    },
+    {
+     "round": 8,
+     "value": -0.0285,
+     "severity": -0.16
+    },
+    {
+     "round": 9,
+     "value": 0.045,
+     "severity": 0.26
+    },
+    {
+     "round": 10,
+     "value": 0.0211,
+     "severity": 0.12
+    },
+    {
+     "round": 11,
+     "value": 0.0005,
+     "severity": 0.0
+    },
+    {
+     "round": 12,
+     "value": -0.0449,
+     "severity": -0.26
+    },
+    {
+     "round": 13,
+     "value": -0.0554,
+     "severity": -0.32
+    },
+    {
+     "round": 14,
+     "value": -0.0768,
+     "severity": -0.44
+    },
+    {
+     "round": 15,
+     "value": -0.0265,
+     "severity": -0.15
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_pitch:stand_after",
+   "kind": "asymmetry",
+   "target": "shoulder_pitch",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_pitch",
+     "sign": 1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.2286,
+     "severity": 7.04
+    },
+    {
+     "round": 8,
+     "value": 1.1083,
+     "severity": 6.35
+    },
+    {
+     "round": 9,
+     "value": 0.6773,
+     "severity": 3.88
+    },
+    {
+     "round": 10,
+     "value": 0.5629,
+     "severity": 3.23
+    },
+    {
+     "round": 11,
+     "value": 0.1647,
+     "severity": 0.94
+    },
+    {
+     "round": 12,
+     "value": 0.0186,
+     "severity": 0.11
+    },
+    {
+     "round": 13,
+     "value": 0.0079,
+     "severity": 0.05
+    },
+    {
+     "round": 14,
+     "value": -0.0031,
+     "severity": -0.02
+    },
+    {
+     "round": 15,
+     "value": 0.2434,
+     "severity": 1.39
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_roll:stand_after",
+   "kind": "asymmetry",
+   "target": "shoulder_roll",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.1654,
+     "severity": 0.95
+    },
+    {
+     "round": 8,
+     "value": 0.316,
+     "severity": 1.81
+    },
+    {
+     "round": 9,
+     "value": 0.8386,
+     "severity": 4.8
+    },
+    {
+     "round": 10,
+     "value": 0.7348,
+     "severity": 4.21
+    },
+    {
+     "round": 11,
+     "value": 0.3944,
+     "severity": 2.26
+    },
+    {
+     "round": 12,
+     "value": 0.2474,
+     "severity": 1.42
+    },
+    {
+     "round": 13,
+     "value": 0.2635,
+     "severity": 1.51
+    },
+    {
+     "round": 14,
+     "value": 0.0226,
+     "severity": 0.13
+    },
+    {
+     "round": 15,
+     "value": 0.1461,
+     "severity": 0.84
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:shoulder_yaw:stand_after",
+   "kind": "asymmetry",
+   "target": "shoulder_yaw",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "shoulder_yaw",
+     "sign": -1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.8
+    }
+   },
+   "weight": 1.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.0266,
+     "severity": 5.88
+    },
+    {
+     "round": 8,
+     "value": 1.7854,
+     "severity": 10.23
+    },
+    {
+     "round": 9,
+     "value": 0.0057,
+     "severity": 0.03
+    },
+    {
+     "round": 10,
+     "value": 0.0988,
+     "severity": 0.57
+    },
+    {
+     "round": 11,
+     "value": 0.0348,
+     "severity": 0.2
+    },
+    {
+     "round": 12,
+     "value": 0.098,
+     "severity": 0.56
+    },
+    {
+     "round": 13,
+     "value": 0.0335,
+     "severity": 0.19
+    },
+    {
+     "round": 14,
+     "value": -0.0489,
+     "severity": -0.28
+    },
+    {
+     "round": 15,
+     "value": -0.0201,
+     "severity": -0.12
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:elbow:stand_after",
+   "kind": "asymmetry",
+   "target": "elbow",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "elbow",
+     "sign": 1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 1.5091,
+     "severity": 8.65
+    },
+    {
+     "round": 8,
+     "value": 0.9951,
+     "severity": 5.7
+    },
+    {
+     "round": 9,
+     "value": 0.373,
+     "severity": 2.14
+    },
+    {
+     "round": 10,
+     "value": 0.0808,
+     "severity": 0.46
+    },
+    {
+     "round": 11,
+     "value": 0.7681,
+     "severity": 4.4
+    },
+    {
+     "round": 12,
+     "value": -0.0868,
+     "severity": -0.5
+    },
+    {
+     "round": 13,
+     "value": 0.1468,
+     "severity": 0.84
+    },
+    {
+     "round": 14,
+     "value": -0.0768,
+     "severity": -0.44
+    },
+    {
+     "round": 15,
+     "value": 0.1124,
+     "severity": 0.64
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:wrist_roll:stand_after",
+   "kind": "asymmetry",
+   "target": "wrist_roll",
+   "phase": "stand_after",
+   "tol": 0.17453292519943295,
+   "origin": "init:backflip_3",
+   "note": "reference is symmetric",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "wrist_roll",
+     "sign": -1.0,
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0411,
+     "severity": 0.24
+    },
+    {
+     "round": 8,
+     "value": 0.6201,
+     "severity": 3.55
+    },
+    {
+     "round": 9,
+     "value": 0.0694,
+     "severity": 0.4
+    },
+    {
+     "round": 10,
+     "value": 0.2686,
+     "severity": 1.54
+    },
+    {
+     "round": 11,
+     "value": 0.2265,
+     "severity": 1.3
+    },
+    {
+     "round": 12,
+     "value": 0.037,
+     "severity": 0.21
+    },
+    {
+     "round": 13,
+     "value": 0.0125,
+     "severity": 0.07
+    },
+    {
+     "round": 14,
+     "value": 0.0482,
+     "severity": 0.28
+    },
+    {
+     "round": 15,
+     "value": 0.0994,
+     "severity": 0.57
+    }
+   ]
+  },
+  {
+   "id": "contact:left_foot:stand_after",
+   "kind": "contact",
+   "target": "left_foot",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 0,
+     "phases": [
+      "stand_after"
+     ]
+    }
+   },
+   "weight": 2.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 6.0,
+     "severity": 2.0
+    },
+    {
+     "round": 8,
+     "value": 11.0,
+     "severity": 3.67
+    },
+    {
+     "round": 9,
+     "value": 21.0,
+     "severity": 7.0
+    },
+    {
+     "round": 10,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 4.0,
+     "severity": 1.33
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "contact:right_foot:stand_after",
+   "kind": "contact",
+   "target": "right_foot",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "reference stands on it",
+   "fix": {
+    "func": "dyn_contact",
+    "params": {
+     "foot": 1,
+     "phases": [
+      "stand_after"
+     ]
+    }
+   },
+   "weight": 2.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 9.0,
+     "severity": 3.0
+    },
+    {
+     "round": 8,
+     "value": 4.0,
+     "severity": 1.33
+    },
+    {
+     "round": 9,
+     "value": 12.0,
+     "severity": 4.0
+    },
+    {
+     "round": 10,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "jitter:all:stand_after",
+   "kind": "jitter",
+   "target": "all",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "quiet stance",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "left_hip_roll_joint",
+      "left_hip_yaw_joint",
+      "left_knee_joint",
+      "left_ankle_pitch_joint",
+      "left_ankle_roll_joint",
+      "right_hip_pitch_joint",
+      "right_hip_roll_joint",
+      "right_hip_yaw_joint",
+      "right_knee_joint",
+      "right_ankle_pitch_joint",
+      "right_ankle_roll_joint",
+      "waist_yaw_joint",
+      "waist_roll_joint",
+      "waist_pitch_joint",
+      "left_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "left_shoulder_yaw_joint",
+      "left_elbow_joint",
+      "left_wrist_roll_joint",
+      "left_wrist_pitch_joint",
+      "left_wrist_yaw_joint",
+      "right_shoulder_pitch_joint",
+      "right_shoulder_roll_joint",
+      "right_shoulder_yaw_joint",
+      "right_elbow_joint",
+      "right_wrist_roll_joint",
+      "right_wrist_pitch_joint",
+      "right_wrist_yaw_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 2.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 5.4553,
+     "severity": 1.82
+    },
+    {
+     "round": 8,
+     "value": 7.6578,
+     "severity": 2.55
+    },
+    {
+     "round": 9,
+     "value": 26.9314,
+     "severity": 8.98
+    },
+    {
+     "round": 10,
+     "value": 8.556,
+     "severity": 2.85
+    },
+    {
+     "round": 11,
+     "value": 26.0022,
+     "severity": 8.67
+    },
+    {
+     "round": 12,
+     "value": 2.761,
+     "severity": 0.92
+    },
+    {
+     "round": 13,
+     "value": 1.3721,
+     "severity": 0.46
+    },
+    {
+     "round": 14,
+     "value": 1.61,
+     "severity": 0.54
+    },
+    {
+     "round": 15,
+     "value": 12.8249,
+     "severity": 4.27
+    }
+   ]
+  },
+  {
+   "id": "timing:whole_body:crouch..land",
+   "kind": "timing",
+   "target": "whole_body",
+   "phase": "crouch..land",
+   "tol": 3.0,
+   "origin": "init:backflip_3",
+   "note": "phase timing",
+   "fix": null,
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 7,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 8,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 9,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 10,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 11,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 12,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 13,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 14,
+     "value": 0.0,
+     "severity": 0.0
+    },
+    {
+     "round": 15,
+     "value": 0.0,
+     "severity": 0.0
+    }
+   ]
+  },
+  {
+   "id": "custom:airborne-while-lying",
+   "kind": "metric",
+   "target": "airborne-while-lying",
+   "phase": "flight",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "_airborne: whole body > 5 cm and pelvis > 0.45 m (r2: lying + kicking counted as airborne)",
+   "level": "custom",
+   "knob": null,
+   "code": "flip_rewards._airborne",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:spin-only-in-air",
+   "kind": "spin",
+   "target": "spin-only-in-air",
+   "phase": "flight",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "spin rewarded only when truly airborne (user design)",
+   "level": "custom",
+   "knob": "weights.flip_spin",
+   "code": "flip_rewards.flip_spin",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:two-foot-push-off",
+   "kind": "pushoff",
+   "target": "two-foot-push-off",
+   "phase": "takeoff",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "vertical speed only while both feet load",
+   "level": "custom",
+   "knob": "weights.flip_pushoff",
+   "code": "flip_rewards.flip_pushoff",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:legs-spread-air",
+   "kind": "termination",
+   "target": "legs-spread-air",
+   "phase": "flight",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "feet > max_d apart in the air ends the episode (r4 star shape)",
+   "level": "custom",
+   "knob": "terms.term_flight_spread",
+   "code": "flip_rewards.term_flight_spread",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:hips-extended-air",
+   "kind": "termination",
+   "target": "hips-extended-air",
+   "phase": "flight",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "hip pitch > max_hip mid-flight ends the episode (r4/r6 arching)",
+   "level": "custom",
+   "knob": "terms.term_hip_extended",
+   "code": "flip_rewards.term_hip_extended",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:knee-overfold",
+   "kind": "tuck",
+   "target": "knee-overfold",
+   "phase": "flight",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "hips one-sided, knees two-sided (r6: one-sided knees folded to 2.9 rad)",
+   "level": "custom",
+   "knob": "weights.flip_tuck",
+   "code": "flip_rewards.flip_tuck",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:legs-twisted-lotus",
+   "kind": "termination",
+   "target": "legs-twisted-lotus",
+   "phase": "flight",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "hip roll / yaw / knee separation limits (r7 lotus legs)",
+   "level": "custom",
+   "knob": "terms.term_leg_twist",
+   "code": "flip_rewards.term_leg_twist",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:walk-to-reference",
+   "kind": "tracking",
+   "target": "walk-to-reference",
+   "phase": "stand_after",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "global position: height only after landing (r6 drift)",
+   "level": "custom",
+   "knob": null,
+   "code": "flip_rewards.flip_root_pos",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:waist-twist-heading",
+   "kind": "tracking",
+   "target": "waist-twist-heading",
+   "phase": "stand_after",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "global orientation: tilt only after landing (r7 waist 115 deg)",
+   "level": "custom",
+   "knob": null,
+   "code": "flip_rewards.flip_root_ori",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:unstable-stance",
+   "kind": "termination",
+   "target": "unstable-stance",
+   "phase": "stand_after",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "feet / tilt / waist limits after landing",
+   "level": "custom",
+   "knob": "terms.term_stand_fail",
+   "code": "flip_rewards.term_stand_fail",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:quiet-stance",
+   "kind": "quiet",
+   "target": "quiet-stance",
+   "phase": "stand_after",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "arm speed / torso spin / action change after landing (r7 trembling)",
+   "level": "custom",
+   "knob": "weights.flip_stand_quiet",
+   "code": "flip_rewards.flip_stand_quiet",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:rotation-spike",
+   "kind": "reference",
+   "target": "rotation-spike",
+   "phase": "flight",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "angular-momentum-consistent flight rotation (omega ~ 1/I)",
+   "level": "reference",
+   "knob": null,
+   "code": "scripts/data/flight_momentum.py",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "custom:no-stand-up-tail",
+   "kind": "reference",
+   "target": "no-stand-up-tail",
+   "phase": "stand_after",
+   "tol": null,
+   "origin": "agent (hand-written)",
+   "note": "reference padded with a stand-up tail",
+   "level": "reference",
+   "knob": null,
+   "code": "scripts/data/pad_landing.py",
+   "fix": null,
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "jitter:ankle_pitch:settle",
+   "kind": "jitter",
+   "target": "ankle_pitch",
+   "phase": "settle",
+   "tol": 3.0,
+   "origin": "critic r7",
+   "note": "right_ankle_pitch_joint: joint acceleration RMS 184 vs reference 1 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_ankle_pitch_joint",
+      "right_ankle_pitch_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 8,
+     "value": 43.9152,
+     "severity": 14.64
+    },
+    {
+     "round": 9,
+     "value": 36.4673,
+     "severity": 12.16
+    },
+    {
+     "round": 10,
+     "value": 2.2014,
+     "severity": 0.73
+    },
+    {
+     "round": 11,
+     "value": 10.7011,
+     "severity": 3.57
+    },
+    {
+     "round": 12,
+     "value": 8.6552,
+     "severity": 2.89
+    },
+    {
+     "round": 13,
+     "value": 4.9923,
+     "severity": 1.66
+    },
+    {
+     "round": 14,
+     "value": 8.1687,
+     "severity": 2.72
+    },
+    {
+     "round": 15,
+     "value": 5.5244,
+     "severity": 1.84
+    }
+   ]
+  },
+  {
+   "id": "joint:waist_yaw:stand_after",
+   "kind": "joint",
+   "target": "waist_yaw",
+   "phase": "stand_after",
+   "tol": 0.2617993877991494,
+   "origin": "critic r7",
+   "note": "waist_yaw_joint: mean |err| 115 deg (signed +115), step 184: robot +2.11 vs ref -0.02 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "waist_yaw_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 8,
+     "value": 1.3956,
+     "severity": 5.33
+    },
+    {
+     "round": 9,
+     "value": 0.1719,
+     "severity": 0.66
+    },
+    {
+     "round": 10,
+     "value": 0.2633,
+     "severity": 1.01
+    },
+    {
+     "round": 11,
+     "value": 0.1591,
+     "severity": 0.61
+    },
+    {
+     "round": 12,
+     "value": 0.0226,
+     "severity": 0.09
+    },
+    {
+     "round": 13,
+     "value": 0.0177,
+     "severity": 0.07
+    },
+    {
+     "round": 14,
+     "value": 0.0214,
+     "severity": 0.08
+    },
+    {
+     "round": 15,
+     "value": 0.0336,
+     "severity": 0.13
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_yaw:takeoff",
+   "kind": "joint",
+   "target": "shoulder_yaw",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "critic r7",
+   "note": "left_shoulder_yaw_joint: mean |err| 106 deg (signed +106), step 95: robot +1.13 vs ref -1.11 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 8,
+     "value": 1.3066,
+     "severity": 4.99
+    },
+    {
+     "round": 9,
+     "value": 1.3598,
+     "severity": 5.19
+    },
+    {
+     "round": 10,
+     "value": 1.1333,
+     "severity": 4.33
+    },
+    {
+     "round": 11,
+     "value": 1.0716,
+     "severity": 4.09
+    },
+    {
+     "round": 12,
+     "value": 1.2324,
+     "severity": 4.71
+    },
+    {
+     "round": 13,
+     "value": 1.2804,
+     "severity": 4.89
+    },
+    {
+     "round": 14,
+     "value": 1.1672,
+     "severity": 4.46
+    },
+    {
+     "round": 15,
+     "value": 1.4925,
+     "severity": 5.7
+    }
+   ]
+  },
+  {
+   "id": "jitter:hip_yaw:settle",
+   "kind": "jitter",
+   "target": "hip_yaw",
+   "phase": "settle",
+   "tol": 3.0,
+   "origin": "critic r7",
+   "note": "right_hip_yaw_joint: joint acceleration RMS 137 vs reference 2 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_hip_yaw_joint",
+      "right_hip_yaw_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 8,
+     "value": 26.6978,
+     "severity": 8.9
+    },
+    {
+     "round": 9,
+     "value": 22.0216,
+     "severity": 7.34
+    },
+    {
+     "round": 10,
+     "value": 2.1078,
+     "severity": 0.7
+    },
+    {
+     "round": 11,
+     "value": 7.9504,
+     "severity": 2.65
+    },
+    {
+     "round": 12,
+     "value": 1.8903,
+     "severity": 0.63
+    },
+    {
+     "round": 13,
+     "value": 2.057,
+     "severity": 0.69
+    },
+    {
+     "round": 14,
+     "value": 2.8711,
+     "severity": 0.96
+    },
+    {
+     "round": 15,
+     "value": 1.9516,
+     "severity": 0.65
+    }
+   ]
+  },
+  {
+   "id": "joint:elbow:stand_after",
+   "kind": "joint",
+   "target": "elbow",
+   "phase": "stand_after",
+   "tol": 0.2617993877991494,
+   "origin": "critic r7",
+   "note": "left_elbow_joint: mean |err| 96 deg (signed -96), step 187: robot -0.79 vs ref +1.01 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 8,
+     "value": 0.7161,
+     "severity": 2.74
+    },
+    {
+     "round": 9,
+     "value": 0.567,
+     "severity": 2.17
+    },
+    {
+     "round": 10,
+     "value": 0.5923,
+     "severity": 2.26
+    },
+    {
+     "round": 11,
+     "value": 0.4783,
+     "severity": 1.83
+    },
+    {
+     "round": 12,
+     "value": 0.0938,
+     "severity": 0.36
+    },
+    {
+     "round": 13,
+     "value": 0.089,
+     "severity": 0.34
+    },
+    {
+     "round": 14,
+     "value": 0.0908,
+     "severity": 0.35
+    },
+    {
+     "round": 15,
+     "value": 0.0743,
+     "severity": 0.28
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_roll:stand_after",
+   "kind": "joint",
+   "target": "wrist_roll",
+   "phase": "stand_after",
+   "tol": 0.2617993877991494,
+   "origin": "critic r7",
+   "note": "right_wrist_roll_joint: mean |err| 93 deg (signed +93), step 169: robot +1.66 vs ref -0.11 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_roll_joint",
+      "right_wrist_roll_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 8,
+     "value": 1.0442,
+     "severity": 3.99
+    },
+    {
+     "round": 9,
+     "value": 0.5172,
+     "severity": 1.98
+    },
+    {
+     "round": 10,
+     "value": 0.5594,
+     "severity": 2.14
+    },
+    {
+     "round": 11,
+     "value": 0.6734,
+     "severity": 2.57
+    },
+    {
+     "round": 12,
+     "value": 0.4907,
+     "severity": 1.87
+    },
+    {
+     "round": 13,
+     "value": 0.1574,
+     "severity": 0.6
+    },
+    {
+     "round": 14,
+     "value": 0.312,
+     "severity": 1.19
+    },
+    {
+     "round": 15,
+     "value": 0.3031,
+     "severity": 1.16
+    }
+   ]
+  },
+  {
+   "id": "jitter:ankle_pitch:stand_after",
+   "kind": "jitter",
+   "target": "ankle_pitch",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r9",
+   "note": "left_ankle_pitch_joint: joint acceleration RMS 324 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_ankle_pitch_joint",
+      "right_ankle_pitch_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 10,
+     "value": 22.9145,
+     "severity": 7.64
+    },
+    {
+     "round": 11,
+     "value": 52.1347,
+     "severity": 17.38
+    },
+    {
+     "round": 12,
+     "value": 1.159,
+     "severity": 0.39
+    },
+    {
+     "round": 13,
+     "value": 0.174,
+     "severity": 0.06
+    },
+    {
+     "round": 14,
+     "value": 0.8522,
+     "severity": 0.28
+    },
+    {
+     "round": 15,
+     "value": 12.5422,
+     "severity": 4.18
+    }
+   ]
+  },
+  {
+   "id": "jitter:knee:stand_after",
+   "kind": "jitter",
+   "target": "knee",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r9",
+   "note": "left_knee_joint: joint acceleration RMS 194 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_knee_joint",
+      "right_knee_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 10,
+     "value": 19.4365,
+     "severity": 6.48
+    },
+    {
+     "round": 11,
+     "value": 44.0071,
+     "severity": 14.67
+    },
+    {
+     "round": 12,
+     "value": 1.6473,
+     "severity": 0.55
+    },
+    {
+     "round": 13,
+     "value": 0.3113,
+     "severity": 0.1
+    },
+    {
+     "round": 14,
+     "value": 0.5057,
+     "severity": 0.17
+    },
+    {
+     "round": 15,
+     "value": 16.4685,
+     "severity": 5.49
+    }
+   ]
+  },
+  {
+   "id": "jitter:hip_yaw:stand_after",
+   "kind": "jitter",
+   "target": "hip_yaw",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r9",
+   "note": "left_hip_yaw_joint: joint acceleration RMS 160 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_hip_yaw_joint",
+      "right_hip_yaw_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 10,
+     "value": 6.8226,
+     "severity": 2.27
+    },
+    {
+     "round": 11,
+     "value": 38.68,
+     "severity": 12.89
+    },
+    {
+     "round": 12,
+     "value": 2.1704,
+     "severity": 0.72
+    },
+    {
+     "round": 13,
+     "value": 0.3256,
+     "severity": 0.11
+    },
+    {
+     "round": 14,
+     "value": 0.7007,
+     "severity": 0.23
+    },
+    {
+     "round": 15,
+     "value": 17.1521,
+     "severity": 5.72
+    }
+   ]
+  },
+  {
+   "id": "jitter:shoulder_yaw:stand_after",
+   "kind": "jitter",
+   "target": "shoulder_yaw",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r9",
+   "note": "left_shoulder_yaw_joint: joint acceleration RMS 130 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 10,
+     "value": 5.8779,
+     "severity": 1.96
+    },
+    {
+     "round": 11,
+     "value": 14.9503,
+     "severity": 4.98
+    },
+    {
+     "round": 12,
+     "value": 1.0463,
+     "severity": 0.35
+    },
+    {
+     "round": 13,
+     "value": 0.6059,
+     "severity": 0.2
+    },
+    {
+     "round": 14,
+     "value": 0.8197,
+     "severity": 0.27
+    },
+    {
+     "round": 15,
+     "value": 7.2435,
+     "severity": 2.41
+    }
+   ]
+  },
+  {
+   "id": "jitter:ankle_roll:stand_after",
+   "kind": "jitter",
+   "target": "ankle_roll",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r9",
+   "note": "right_ankle_roll_joint: joint acceleration RMS 116 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_ankle_roll_joint",
+      "right_ankle_roll_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 10,
+     "value": 12.709,
+     "severity": 4.24
+    },
+    {
+     "round": 11,
+     "value": 38.8476,
+     "severity": 12.95
+    },
+    {
+     "round": 12,
+     "value": 0.5487,
+     "severity": 0.18
+    },
+    {
+     "round": 13,
+     "value": 0.1413,
+     "severity": 0.05
+    },
+    {
+     "round": 14,
+     "value": 0.5848,
+     "severity": 0.19
+    },
+    {
+     "round": 15,
+     "value": 8.589,
+     "severity": 2.86
+    }
+   ]
+  },
+  {
+   "id": "jitter:knee:settle",
+   "kind": "jitter",
+   "target": "knee",
+   "phase": "settle",
+   "tol": 3.0,
+   "origin": "critic r9",
+   "note": "left_knee_joint: joint acceleration RMS 164 vs reference 2 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_knee_joint",
+      "right_knee_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 10,
+     "value": 3.333,
+     "severity": 1.11
+    },
+    {
+     "round": 11,
+     "value": 6.4127,
+     "severity": 2.14
+    },
+    {
+     "round": 12,
+     "value": 4.992,
+     "severity": 1.66
+    },
+    {
+     "round": 13,
+     "value": 3.6398,
+     "severity": 1.21
+    },
+    {
+     "round": 14,
+     "value": 4.2539,
+     "severity": 1.42
+    },
+    {
+     "round": 15,
+     "value": 3.3696,
+     "severity": 1.12
+    }
+   ]
+  },
+  {
+   "id": "jitter:wrist_roll:stand_after",
+   "kind": "jitter",
+   "target": "wrist_roll",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r10",
+   "note": "right_wrist_roll_joint: joint acceleration RMS 72 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_wrist_roll_joint",
+      "right_wrist_roll_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 11,
+     "value": 26.3325,
+     "severity": 8.78
+    },
+    {
+     "round": 12,
+     "value": 1.0218,
+     "severity": 0.34
+    },
+    {
+     "round": 13,
+     "value": 0.5308,
+     "severity": 0.18
+    },
+    {
+     "round": 14,
+     "value": 0.9031,
+     "severity": 0.3
+    },
+    {
+     "round": 15,
+     "value": 13.5373,
+     "severity": 4.51
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_pitch:takeoff",
+   "kind": "joint",
+   "target": "wrist_pitch",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "critic r10",
+   "note": "right_wrist_pitch_joint: mean |err| 70 deg (signed +70), step 95: robot +0.89 vs ref -0.37 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_pitch_joint",
+      "right_wrist_pitch_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 11,
+     "value": 1.4148,
+     "severity": 5.4
+    },
+    {
+     "round": 12,
+     "value": 1.3172,
+     "severity": 5.03
+    },
+    {
+     "round": 13,
+     "value": 1.222,
+     "severity": 4.67
+    },
+    {
+     "round": 14,
+     "value": 1.1636,
+     "severity": 4.44
+    },
+    {
+     "round": 15,
+     "value": 1.3603,
+     "severity": 5.2
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_pitch:stand_after",
+   "kind": "joint",
+   "target": "wrist_pitch",
+   "phase": "stand_after",
+   "tol": 0.2617993877991494,
+   "origin": "critic r10",
+   "note": "right_wrist_pitch_joint: mean |err| 65 deg (signed +65), step 187: robot +1.21 vs ref -0.13 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_pitch_joint",
+      "right_wrist_pitch_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 11,
+     "value": 1.3883,
+     "severity": 5.3
+    },
+    {
+     "round": 12,
+     "value": 0.7302,
+     "severity": 2.79
+    },
+    {
+     "round": 13,
+     "value": 0.9227,
+     "severity": 3.52
+    },
+    {
+     "round": 14,
+     "value": 0.8164,
+     "severity": 3.12
+    },
+    {
+     "round": 15,
+     "value": 0.8739,
+     "severity": 3.34
+    }
+   ]
+  },
+  {
+   "id": "jitter:hip_pitch:stand_after",
+   "kind": "jitter",
+   "target": "hip_pitch",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r10",
+   "note": "left_hip_pitch_joint: joint acceleration RMS 61 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "right_hip_pitch_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 11,
+     "value": 21.6631,
+     "severity": 7.22
+    },
+    {
+     "round": 12,
+     "value": 0.9311,
+     "severity": 0.31
+    },
+    {
+     "round": 13,
+     "value": 0.2283,
+     "severity": 0.08
+    },
+    {
+     "round": 14,
+     "value": 0.3653,
+     "severity": 0.12
+    },
+    {
+     "round": 15,
+     "value": 7.9739,
+     "severity": 2.66
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_yaw:stand_after",
+   "kind": "joint",
+   "target": "wrist_yaw",
+   "phase": "stand_after",
+   "tol": 0.2617993877991494,
+   "origin": "critic r10",
+   "note": "left_wrist_yaw_joint: mean |err| 55 deg (signed +55), step 165: robot +0.88 vs ref -0.17 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_yaw_joint",
+      "right_wrist_yaw_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 11,
+     "value": 0.3546,
+     "severity": 1.35
+    },
+    {
+     "round": 12,
+     "value": 0.4931,
+     "severity": 1.88
+    },
+    {
+     "round": 13,
+     "value": 0.3813,
+     "severity": 1.46
+    },
+    {
+     "round": 14,
+     "value": 0.0955,
+     "severity": 0.36
+    },
+    {
+     "round": 15,
+     "value": 0.2815,
+     "severity": 1.08
+    }
+   ]
+  },
+  {
+   "id": "asymmetry:hip_yaw:takeoff",
+   "kind": "asymmetry",
+   "target": "hip_yaw",
+   "phase": "takeoff",
+   "tol": 0.17453292519943295,
+   "origin": "critic r10",
+   "note": "left/right differ 48 deg vs reference 11 deg",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "hip_yaw",
+     "sign": -1.0,
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 11,
+     "value": 0.6284,
+     "severity": 3.6
+    },
+    {
+     "round": 12,
+     "value": 0.4865,
+     "severity": 2.79
+    },
+    {
+     "round": 13,
+     "value": 0.5855,
+     "severity": 3.35
+    },
+    {
+     "round": 14,
+     "value": 0.4943,
+     "severity": 2.83
+    },
+    {
+     "round": 15,
+     "value": 0.2593,
+     "severity": 1.49
+    }
+   ]
+  },
+  {
+   "id": "jitter:shoulder_pitch:stand_after",
+   "kind": "jitter",
+   "target": "shoulder_pitch",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r11",
+   "note": "left_shoulder_pitch_joint: joint acceleration RMS 110 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 12,
+     "value": 1.1288,
+     "severity": 0.38
+    },
+    {
+     "round": 13,
+     "value": 0.4716,
+     "severity": 0.16
+    },
+    {
+     "round": 14,
+     "value": 0.7896,
+     "severity": 0.26
+    },
+    {
+     "round": 15,
+     "value": 7.4845,
+     "severity": 2.49
+    }
+   ]
+  },
+  {
+   "id": "jitter:hip_roll:stand_after",
+   "kind": "jitter",
+   "target": "hip_roll",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r11",
+   "note": "right_hip_roll_joint: joint acceleration RMS 91 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_hip_roll_joint",
+      "right_hip_roll_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 12,
+     "value": 0.844,
+     "severity": 0.28
+    },
+    {
+     "round": 13,
+     "value": 0.1978,
+     "severity": 0.07
+    },
+    {
+     "round": 14,
+     "value": 0.3437,
+     "severity": 0.11
+    },
+    {
+     "round": 15,
+     "value": 7.5557,
+     "severity": 2.52
+    }
+   ]
+  },
+  {
+   "id": "jitter:elbow:stand_after",
+   "kind": "jitter",
+   "target": "elbow",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r11",
+   "note": "right_elbow_joint: joint acceleration RMS 70 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 12,
+     "value": 1.6936,
+     "severity": 0.56
+    },
+    {
+     "round": 13,
+     "value": 1.1164,
+     "severity": 0.37
+    },
+    {
+     "round": 14,
+     "value": 1.0561,
+     "severity": 0.35
+    },
+    {
+     "round": 15,
+     "value": 8.5955,
+     "severity": 2.87
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_pitch:flight",
+   "kind": "joint",
+   "target": "wrist_pitch",
+   "phase": "flight",
+   "tol": 0.2617993877991494,
+   "origin": "critic r11",
+   "note": "right_wrist_pitch_joint: mean |err| 70 deg (signed +70), step 106: robot +0.99 vs ref -0.45 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_pitch_joint",
+      "right_wrist_pitch_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 12,
+     "value": 1.1741,
+     "severity": 4.48
+    },
+    {
+     "round": 13,
+     "value": 1.2641,
+     "severity": 4.83
+    },
+    {
+     "round": 14,
+     "value": 1.2141,
+     "severity": 4.64
+    },
+    {
+     "round": 15,
+     "value": 1.2111,
+     "severity": 4.63
+    }
+   ]
+  },
+  {
+   "id": "jitter:waist_roll:stand_after",
+   "kind": "jitter",
+   "target": "waist_roll",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r11",
+   "note": "waist_roll_joint: joint acceleration RMS 66 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "waist_roll_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 12,
+     "value": 0.4501,
+     "severity": 0.15
+    },
+    {
+     "round": 13,
+     "value": 0.087,
+     "severity": 0.03
+    },
+    {
+     "round": 14,
+     "value": 0.3085,
+     "severity": 0.1
+    },
+    {
+     "round": 15,
+     "value": 11.7216,
+     "severity": 3.91
+    }
+   ]
+  },
+  {
+   "id": "jitter:waist_yaw:stand_after",
+   "kind": "jitter",
+   "target": "waist_yaw",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r11",
+   "note": "waist_yaw_joint: joint acceleration RMS 64 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "waist_yaw_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 12,
+     "value": 0.6952,
+     "severity": 0.23
+    },
+    {
+     "round": 13,
+     "value": 0.456,
+     "severity": 0.15
+    },
+    {
+     "round": 14,
+     "value": 0.5089,
+     "severity": 0.17
+    },
+    {
+     "round": 15,
+     "value": 4.7855,
+     "severity": 1.6
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_pitch:crouch",
+   "kind": "joint",
+   "target": "wrist_pitch",
+   "phase": "crouch",
+   "tol": 0.2617993877991494,
+   "origin": "critic r12",
+   "note": "right_wrist_pitch_joint: mean |err| 55 deg (signed +55), step 90: robot +0.97 vs ref -0.18 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_pitch_joint",
+      "right_wrist_pitch_joint"
+     ],
+     "phases": [
+      "crouch"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 13,
+     "value": 0.9174,
+     "severity": 3.5
+    },
+    {
+     "round": 14,
+     "value": 0.9366,
+     "severity": 3.58
+    },
+    {
+     "round": 15,
+     "value": 1.1579,
+     "severity": 4.42
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_pitch:stand",
+   "kind": "joint",
+   "target": "wrist_pitch",
+   "phase": "stand",
+   "tol": 0.2617993877991494,
+   "origin": "critic r12",
+   "note": "right_wrist_pitch_joint: mean |err| 48 deg (signed +48), step 53: robot +1.21 vs ref -0.15 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_pitch_joint",
+      "right_wrist_pitch_joint"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 13,
+     "value": 0.6735,
+     "severity": 2.57
+    },
+    {
+     "round": 14,
+     "value": 0.766,
+     "severity": 2.93
+    },
+    {
+     "round": 15,
+     "value": 0.7139,
+     "severity": 2.73
+    }
+   ]
+  },
+  {
+   "id": "body:wrist_yaw:stand",
+   "kind": "body",
+   "target": "wrist_yaw",
+   "phase": "stand",
+   "tol": 0.08,
+   "origin": "critic r12",
+   "note": "left_wrist_yaw_link: mean 0.19 m, max 0.34 m",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_wrist_yaw_link",
+      "right_wrist_yaw_link"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 13,
+     "value": 0.1408,
+     "severity": 1.76
+    },
+    {
+     "round": 14,
+     "value": 0.0941,
+     "severity": 1.18
+    },
+    {
+     "round": 15,
+     "value": 0.1331,
+     "severity": 1.66
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_yaw:takeoff",
+   "kind": "joint",
+   "target": "wrist_yaw",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "critic r12",
+   "note": "left_wrist_yaw_joint: mean |err| 32 deg (signed +32), step 93: robot +0.85 vs ref +0.23 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_yaw_joint",
+      "right_wrist_yaw_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 13,
+     "value": 0.511,
+     "severity": 1.95
+    },
+    {
+     "round": 14,
+     "value": 0.6003,
+     "severity": 2.29
+    },
+    {
+     "round": 15,
+     "value": 0.6216,
+     "severity": 2.37
+    }
+   ]
+  },
+  {
+   "id": "joint:shoulder_pitch:land",
+   "kind": "joint",
+   "target": "shoulder_pitch",
+   "phase": "land",
+   "tol": 0.2617993877991494,
+   "origin": "critic r13",
+   "note": "right_shoulder_pitch_joint: mean |err| 45 deg (signed -45), step 123: robot -1.87 vs ref -0.78 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 14,
+     "value": 0.5624,
+     "severity": 2.15
+    },
+    {
+     "round": 15,
+     "value": 0.3312,
+     "severity": 1.27
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_roll:takeoff",
+   "kind": "joint",
+   "target": "wrist_roll",
+   "phase": "takeoff",
+   "tol": 0.2617993877991494,
+   "origin": "critic r13",
+   "note": "right_wrist_roll_joint: mean |err| 36 deg (signed -36), step 97: robot -0.60 vs ref +0.07 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_roll_joint",
+      "right_wrist_roll_joint"
+     ],
+     "phases": [
+      "takeoff"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 14,
+     "value": 0.8697,
+     "severity": 3.32
+    },
+    {
+     "round": 15,
+     "value": 0.6501,
+     "severity": 2.48
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_pitch:settle",
+   "kind": "joint",
+   "target": "wrist_pitch",
+   "phase": "settle",
+   "tol": 0.2617993877991494,
+   "origin": "critic r13",
+   "note": "right_wrist_pitch_joint: mean |err| 32 deg (signed +32), step 154: robot +0.62 vs ref -0.13 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_pitch_joint",
+      "right_wrist_pitch_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 14,
+     "value": 0.3941,
+     "severity": 1.51
+    },
+    {
+     "round": 15,
+     "value": 0.2097,
+     "severity": 0.8
+    }
+   ]
+  },
+  {
+   "id": "body:elbow:flight",
+   "kind": "body",
+   "target": "elbow",
+   "phase": "flight",
+   "tol": 0.08,
+   "origin": "critic r13",
+   "note": "left_elbow_link: mean 0.16 m, max 0.32 m",
+   "fix": {
+    "func": "dyn_body",
+    "params": {
+     "bodies": [
+      "left_elbow_link",
+      "right_elbow_link"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.1
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 14,
+     "value": 0.1437,
+     "severity": 1.8
+    },
+    {
+     "round": 15,
+     "value": 0.1457,
+     "severity": 1.82
+    }
+   ]
+  },
+  {
+   "id": "joint:elbow:land",
+   "kind": "joint",
+   "target": "elbow",
+   "phase": "land",
+   "tol": 0.2617993877991494,
+   "origin": "critic r14",
+   "note": "right_elbow_joint: mean |err| 42 deg (signed +42), step 121: robot +0.74 vs ref -0.44 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 15,
+     "value": 0.5883,
+     "severity": 2.25
+    }
+   ]
+  },
+  {
+   "id": "jitter:waist_roll:land",
+   "kind": "jitter",
+   "target": "waist_roll",
+   "phase": "land",
+   "tol": 3.0,
+   "origin": "critic r14",
+   "note": "waist_roll_joint: joint acceleration RMS 55 vs reference 4 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "waist_roll_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": [
+    {
+     "round": 15,
+     "value": 5.6187,
+     "severity": 1.87
+    }
+   ]
+  },
+  {
+   "id": "joint:wrist_yaw:settle",
+   "kind": "joint",
+   "target": "wrist_yaw",
+   "phase": "settle",
+   "tol": 0.2617993877991494,
+   "origin": "critic r15",
+   "note": "left_wrist_yaw_joint: mean |err| 42 deg (signed +42), step 149: robot +0.69 vs ref -0.14 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_yaw_joint",
+      "right_wrist_yaw_joint"
+     ],
+     "phases": [
+      "settle"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "jitter:shoulder_roll:stand_after",
+   "kind": "jitter",
+   "target": "shoulder_roll",
+   "phase": "stand_after",
+   "tol": 3.0,
+   "origin": "critic r15",
+   "note": "right_shoulder_roll_joint: joint acceleration RMS 42 vs reference 0 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_shoulder_roll_joint",
+      "right_shoulder_roll_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "asymmetry:wrist_roll:land",
+   "kind": "asymmetry",
+   "target": "wrist_roll",
+   "phase": "land",
+   "tol": 0.17453292519943295,
+   "origin": "critic r15",
+   "note": "left/right differ 43 deg vs reference 15 deg",
+   "fix": {
+    "func": "dyn_sym",
+    "params": {
+     "base": "wrist_roll",
+     "sign": -1.0,
+     "phases": [
+      "land"
+     ],
+     "std": 0.2
+    }
+   },
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "joint:wrist_roll:land",
+   "kind": "joint",
+   "target": "wrist_roll",
+   "phase": "land",
+   "tol": 0.2617993877991494,
+   "origin": "critic r15",
+   "note": "right_wrist_roll_joint: mean |err| 37 deg (signed -37), step 122: robot -0.20 vs ref +0.68 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_roll_joint",
+      "right_wrist_roll_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "joint:wrist_pitch:land",
+   "kind": "joint",
+   "target": "wrist_pitch",
+   "phase": "land",
+   "tol": 0.2617993877991494,
+   "origin": "critic r15",
+   "note": "right_wrist_pitch_joint: mean |err| 34 deg (signed +34), step 121: robot +0.63 vs ref -0.32 rad",
+   "fix": {
+    "func": "dyn_joint",
+    "params": {
+     "joints": [
+      "left_wrist_pitch_joint",
+      "right_wrist_pitch_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 0.3
+    }
+   },
+   "weight": 0.0,
+   "history": []
+  },
+  {
+   "id": "jitter:ankle_pitch:land",
+   "kind": "jitter",
+   "target": "ankle_pitch",
+   "phase": "land",
+   "tol": 3.0,
+   "origin": "critic r15",
+   "note": "right_ankle_pitch_joint: joint acceleration RMS 520 vs reference 81 rad/s^2",
+   "fix": {
+    "func": "dyn_quiet",
+    "params": {
+     "joints": [
+      "left_ankle_pitch_joint",
+      "right_ankle_pitch_joint"
+     ],
+     "phases": [
+      "land"
+     ],
+     "std": 1.0
+    }
+   },
+   "weight": 0.0,
+   "history": []
+  }
+ ]
+}

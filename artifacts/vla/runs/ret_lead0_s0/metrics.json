@@ -1,0 +1,25 @@
+{
+ "args": {
+  "name": "ret_lead0_s0",
+  "seed": 0,
+  "lead": 0,
+  "epochs": 40,
+  "n_synth": 40
+ },
+ "test_real": {
+  "state_acc": 0.3248,
+  "frame_err": 14.99,
+  "segment_acc": 0.7009,
+  "human_phase_acc": 0.6261,
+  "dance_acc": 0.9252,
+  "n": 468
+ },
+ "train_real": {
+  "state_acc": 0.9457,
+  "frame_err": 0.13,
+  "segment_acc": 0.9941,
+  "human_phase_acc": 0.9556,
+  "dance_acc": 1.0,
+  "n": 1013
+ }
+}

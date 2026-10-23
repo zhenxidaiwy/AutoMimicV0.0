@@ -1,0 +1,50 @@
+{
+ "round": 13,
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r12_quant.md (automatic) -> step 2 analysis/r12_llm.md -> step 3 this file -> train",
+ "based_on": "r12 model_10000 (score 9.519): full flow complete and clean",
+ "init": {"run": "2026-10-23_07-20-15_flipauto_r12", "ckpt": "model_10000.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-187"],
+ "human_input": [],
+ "priorities": [
+  "P1 fidelity curriculum step (user's curriculum: tighten tracking once the flow is complete)",
+  "P2 pre-flip arm raise (right arm horizontal instead of overhead)"
+ ],
+ "knobs": {
+  "tracking.scale": 2.25,
+  "tracking.std_scale": 0.722,
+  "extra_dyn": [
+   {"name": "agent_r09_hip_tuck", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_hip_pitch_joint", "right_hip_pitch_joint"], "phases": ["flight"], "std": 0.6}},
+   {"name": "agent_r09_arms_air", "func": "dyn_joint", "weight": 2.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["takeoff", "flight", "land"], "std": 0.8}},
+   {"name": "agent_r10_arms_stand", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["settle", "stand_after"], "std": 1.0}},
+   {"name": "agent_r11_legs_stand", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_knee_joint", "right_knee_joint", "left_hip_pitch_joint", "right_hip_pitch_joint",
+                          "left_ankle_pitch_joint", "right_ankle_pitch_joint"], "phases": ["stand_after"], "std": 0.4}},
+   {"name": "agent_r13_arms_prestand", "func": "dyn_joint", "weight": 2.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["stand"], "std": 0.8}}
+  ]
+ },
+ "library": {},
+ "library_params": {},
+ "code_changes": [],
+ "expect": {
+  "track_joint_err": "< 1.6 (r12 1.73)",
+  "track_body_err_m": "< 0.08 (r12 0.0825)",
+  "prestand_right_shoulder_pitch_err_rad": "< 0.6 (r12 ~1.1)",
+  "stand_pelvis_speed": "< 0.3 (r12 0.14)",
+  "stand_action_change": "< 0.1 (r12 0.05)",
+  "stand_feet_off_steps": "0",
+  "rotation_deg": ">= 345 (r12 368)",
+  "landed_upright": "true"
+ },
+ "rollback_if": "stand regresses (pelvis speed > 0.4 or action change > 0.2) or rotation < 340: r14 from r12 model_10000, curriculum back to x1.5 / x0.85"
+}

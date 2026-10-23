@@ -1,0 +1,44 @@
+{
+ "what": "Which actuators are force-saturated in the native get-up closed loop (out/getup_native.npz), by phase?",
+ "n_envs": 64,
+ "0-1 s": {
+  "saturated_actuator_frac_of_actuator_steps": 0.07070285010555946,
+  "per_actuator_frac_top": {
+   "waist_pitch_joint": 0.527,
+   "right_ankle_roll_joint": 0.517,
+   "waist_roll_joint": 0.378,
+   "left_ankle_roll_joint": 0.267,
+   "left_wrist_pitch_joint": 0.112,
+   "left_ankle_pitch_joint": 0.086
+  },
+  "forcerange_of_top": {
+   "waist_pitch_joint": 50.0,
+   "right_ankle_roll_joint": 50.0,
+   "waist_roll_joint": 50.0
+  }
+ },
+ "1-2.5 s": {
+  "saturated_actuator_frac_of_actuator_steps": 0.05012212643678161,
+  "per_actuator_frac_top": {
+   "right_ankle_roll_joint": 0.97,
+   "left_ankle_roll_joint": 0.48,
+   "waist_pitch_joint": 0.003
+  },
+  "forcerange_of_top": {
+   "right_ankle_roll_joint": 50.0,
+   "left_ankle_roll_joint": 50.0,
+   "waist_pitch_joint": 50.0
+  }
+ },
+ "2.5-10 s (standing)": {
+  "saturated_actuator_frac_of_actuator_steps": 0.06896551724137931,
+  "per_actuator_frac_top": {
+   "left_ankle_roll_joint": 1.0,
+   "right_ankle_roll_joint": 1.0
+  },
+  "forcerange_of_top": {
+   "left_ankle_roll_joint": 50.0,
+   "right_ankle_roll_joint": 50.0
+  }
+ }
+}

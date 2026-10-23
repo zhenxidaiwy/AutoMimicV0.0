@@ -1,0 +1,4588 @@
+{
+ "rounds": [
+  {
+   "round": 1,
+   "run": "2026-10-22_17-19-08_flipauto_r01",
+   "minutes": null,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.0,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 1.0
+    },
+    "prior": {
+     "stand": 0.4,
+     "crouch": 2.0,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 1.0,
+     "settle": 0.5,
+     "other": 0.5
+    }
+   },
+   "ep_len_end": 234.61,
+   "evals": [
+    {
+     "ckpt": "model_1000.pt",
+     "score": 4.163,
+     "robot_rotation_deg": 322.8,
+     "robot_max_rotation_deg": 347.3,
+     "robot_peak_pelvis_m": 1.401,
+     "pelvis_rise_m": 0.641,
+     "robot_airborne_s": 0.8,
+     "landed_upright": false,
+     "end_tilt_deg": 93.3,
+     "early_fall": false,
+     "plane_dev_max_deg": 80.0,
+     "plane_dev_mean_deg": 52.4,
+     "leg_asym_deg": 25.1,
+     "leg_err_deg": 39.2
+    }
+   ],
+   "adjust": [
+    "training killed at ~1400 iters (operator error); model_1000 used",
+    "rotates but does not land -> land x1.5, land prior x1.3",
+    "out of plane (max 80.0 deg) -> plane weights x1.5",
+    "legs flail (asym 25.1 deg, err 39.2 deg) -> leg weights x1.5"
+   ]
+  },
+  {
+   "round": 2,
+   "run": "2026-10-22_18-23-12_flipauto_r02",
+   "minutes": 66.2,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.0,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 2.25,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 2.25,
+     "flip_leg_track": 2.25,
+     "flip_leg_calm": 1.125
+    },
+    "prior": {
+     "stand": 0.4,
+     "crouch": 2.0,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 1.69,
+     "settle": 0.5,
+     "other": 0.5
+    }
+   },
+   "ep_len_end": 86.12,
+   "evals": [
+    {
+     "ckpt": "model_1500.pt",
+     "score": 5.22,
+     "robot_rotation_deg": 376.9,
+     "robot_max_rotation_deg": 386.4,
+     "robot_peak_pelvis_m": 1.325,
+     "pelvis_rise_m": 0.549,
+     "robot_airborne_s": 0.74,
+     "landed_upright": false,
+     "end_tilt_deg": 78.7,
+     "early_fall": true,
+     "plane_dev_max_deg": 42.4,
+     "plane_dev_mean_deg": 25.2,
+     "leg_asym_deg": 6.6,
+     "leg_err_deg": 41.4
+    },
+    {
+     "ckpt": "model_2000.pt",
+     "score": 5.386,
+     "robot_rotation_deg": 288.9,
+     "robot_max_rotation_deg": 386.1,
+     "robot_peak_pelvis_m": 1.394,
+     "pelvis_rise_m": 0.621,
+     "robot_airborne_s": 0.74,
+     "landed_upright": false,
+     "end_tilt_deg": 106.6,
+     "early_fall": false,
+     "plane_dev_max_deg": 30.6,
+     "plane_dev_mean_deg": 17.1,
+     "leg_asym_deg": 4.8,
+     "leg_err_deg": 42.8
+    },
+    {
+     "ckpt": "model_2499.pt",
+     "score": 5.442,
+     "robot_rotation_deg": 321.2,
+     "robot_max_rotation_deg": 360.0,
+     "robot_peak_pelvis_m": 1.404,
+     "pelvis_rise_m": 0.628,
+     "robot_airborne_s": 0.78,
+     "landed_upright": false,
+     "end_tilt_deg": 76.4,
+     "early_fall": false,
+     "plane_dev_max_deg": 33.4,
+     "plane_dev_mean_deg": 18.5,
+     "leg_asym_deg": 4.4,
+     "leg_err_deg": 41.9
+    }
+   ],
+   "adjust": [
+    "rotates but does not land -> land x1.5, land prior x1.3",
+    "out of plane (max 33.4 deg) -> plane weights x1.5",
+    "legs flail (asym 4.4 deg, err 41.9 deg) -> leg weights x1.5"
+   ]
+  },
+  {
+   "round": 3,
+   "run": "2026-10-22_19-45-18_flipauto_r03",
+   "minutes": 64.7,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.0,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 7.5938,
+     "flip_leg_track": 7.5938,
+     "flip_leg_calm": 3.7968,
+     "flip_feet_together": 6.75,
+     "flip_tuck": 6.75,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 3.375
+    },
+    "prior": {
+     "stand": 0.4,
+     "crouch": 2.0,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    }
+   },
+   "ep_len_end": 122.55,
+   "evals": [
+    {
+     "ckpt": "model_3000.pt",
+     "score": 5.747,
+     "robot_rotation_deg": 315.4,
+     "robot_max_rotation_deg": 389.3,
+     "robot_peak_pelvis_m": 1.361,
+     "pelvis_rise_m": 0.603,
+     "robot_airborne_s": 0.74,
+     "landed_upright": false,
+     "end_tilt_deg": 80.2,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.4,
+     "plane_dev_mean_deg": 5.1,
+     "leg_asym_deg": 4.2,
+     "leg_err_deg": 44.2,
+     "feet_dist_max_m": 1.281,
+     "feet_dist_touchdown_m": 0.092,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 8,
+     "flight_hip_err_rad": 3.83,
+     "rot_at_ref_landing_deg": 319.6,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.188
+    },
+    {
+     "ckpt": "model_3500.pt",
+     "score": 5.768,
+     "robot_rotation_deg": 478.7,
+     "robot_max_rotation_deg": 480.3,
+     "robot_peak_pelvis_m": 1.358,
+     "pelvis_rise_m": 0.624,
+     "robot_airborne_s": 0.78,
+     "landed_upright": false,
+     "end_tilt_deg": 105.2,
+     "early_fall": false,
+     "plane_dev_max_deg": 6.7,
+     "plane_dev_mean_deg": 3.7,
+     "leg_asym_deg": 4.5,
+     "leg_err_deg": 44.0,
+     "feet_dist_max_m": 1.318,
+     "feet_dist_touchdown_m": 0.117,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 10,
+     "flight_hip_err_rad": 3.78,
+     "rot_at_ref_landing_deg": 303.4,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.207
+    },
+    {
+     "ckpt": "model_3998.pt",
+     "score": 5.677,
+     "robot_rotation_deg": 376.1,
+     "robot_max_rotation_deg": 398.1,
+     "robot_peak_pelvis_m": 1.424,
+     "pelvis_rise_m": 0.642,
+     "robot_airborne_s": 0.7,
+     "landed_upright": false,
+     "end_tilt_deg": 98.9,
+     "early_fall": false,
+     "plane_dev_max_deg": 11.4,
+     "plane_dev_mean_deg": 5.4,
+     "leg_asym_deg": 6.1,
+     "leg_err_deg": 43.8,
+     "feet_dist_max_m": 1.284,
+     "feet_dist_touchdown_m": 0.193,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 36,
+     "flight_hip_err_rad": 3.66,
+     "rot_at_ref_landing_deg": 275.1,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.685
+    }
+   ],
+   "adjust": [
+    "rotates but does not land -> land x1.5, land prior x1.3",
+    "legs flail (asym 4.5 deg, err 44.0 deg) -> leg weights x1.5",
+    "took off 6 steps early -> stay-down x1.5",
+    "hips not tucked in flight (err 3.78 rad) -> tuck x1.5",
+    "collapsed after landing (pelvis 0.207 m) -> land-balance x1.5",
+    "legs spread (feet 1.318 m) -> feet-together x1.5"
+   ]
+  },
+  {
+   "round": 4,
+   "run": "2026-10-22_20-52-20_flipauto_r04",
+   "minutes": 65.6,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.0,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 7.5938,
+     "flip_leg_track": 7.5938,
+     "flip_leg_calm": 3.7968,
+     "flip_feet_together": 6.75,
+     "flip_tuck": 6.75,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 3.375
+    },
+    "prior": {
+     "stand": 0.4,
+     "crouch": 2.0,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    }
+   },
+   "ep_len_end": 341.21,
+   "evals": [
+    {
+     "ckpt": "model_4000.pt",
+     "score": 7.621,
+     "robot_rotation_deg": 368.3,
+     "robot_max_rotation_deg": 378.9,
+     "robot_peak_pelvis_m": 1.416,
+     "pelvis_rise_m": 0.647,
+     "robot_airborne_s": 0.68,
+     "landed_upright": true,
+     "end_tilt_deg": 1.6,
+     "early_fall": false,
+     "plane_dev_max_deg": 12.5,
+     "plane_dev_mean_deg": 7.9,
+     "leg_asym_deg": 6.1,
+     "leg_err_deg": 43.7,
+     "feet_dist_max_m": 1.243,
+     "feet_dist_touchdown_m": 0.112,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 29,
+     "flight_hip_err_rad": 3.69,
+     "rot_at_ref_landing_deg": 331.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.73
+    },
+    {
+     "ckpt": "model_4500.pt",
+     "score": 5.699,
+     "robot_rotation_deg": 409.9,
+     "robot_max_rotation_deg": 409.9,
+     "robot_peak_pelvis_m": 1.379,
+     "pelvis_rise_m": 0.639,
+     "robot_airborne_s": 0.66,
+     "landed_upright": false,
+     "end_tilt_deg": 52.3,
+     "early_fall": false,
+     "plane_dev_max_deg": 11.4,
+     "plane_dev_mean_deg": 5.6,
+     "leg_asym_deg": 5.3,
+     "leg_err_deg": 42.9,
+     "feet_dist_max_m": 1.241,
+     "feet_dist_touchdown_m": 0.098,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 67,
+     "flight_hip_err_rad": 3.65,
+     "rot_at_ref_landing_deg": 320.6,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.716
+    },
+    {
+     "ckpt": "model_4999.pt",
+     "score": 5.677,
+     "robot_rotation_deg": 380.3,
+     "robot_max_rotation_deg": 390.4,
+     "robot_peak_pelvis_m": 1.302,
+     "pelvis_rise_m": 0.587,
+     "robot_airborne_s": 0.62,
+     "landed_upright": false,
+     "end_tilt_deg": 29.5,
+     "early_fall": false,
+     "plane_dev_max_deg": 10.0,
+     "plane_dev_mean_deg": 6.3,
+     "leg_asym_deg": 5.5,
+     "leg_err_deg": 41.6,
+     "feet_dist_max_m": 1.231,
+     "feet_dist_touchdown_m": 0.162,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 66,
+     "flight_hip_err_rad": 3.58,
+     "rot_at_ref_landing_deg": 316.4,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.696
+    }
+   ],
+   "adjust": [
+    "full flip landed -> keep knobs, train on",
+    "legs flail (asym 6.1 deg, err 43.7 deg) -> leg weights x1.5",
+    "took off 6 steps early -> stay-down x1.5",
+    "hips not tucked in flight (err 3.69 rad) -> tuck x1.5",
+    "legs spread (feet 1.243 m) -> feet-together x1.5"
+   ]
+  },
+  {
+   "round": 5,
+   "run": "2026-10-22_22-00-11_flipauto_r05",
+   "minutes": 65.9,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.0,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 7.5938,
+     "flip_leg_track": 7.5938,
+     "flip_leg_calm": 3.7968,
+     "flip_feet_together": 6.75,
+     "flip_tuck": 6.75,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 3.375
+    },
+    "prior": {
+     "stand": 0.4,
+     "crouch": 2.0,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    }
+   },
+   "ep_len_end": 279.67,
+   "evals": [
+    {
+     "ckpt": "model_4500.pt",
+     "score": 7.714,
+     "robot_rotation_deg": 365.8,
+     "robot_max_rotation_deg": 375.4,
+     "robot_peak_pelvis_m": 1.366,
+     "pelvis_rise_m": 0.607,
+     "robot_airborne_s": 0.62,
+     "landed_upright": true,
+     "end_tilt_deg": 26.0,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.2,
+     "plane_dev_mean_deg": 5.8,
+     "leg_asym_deg": 4.7,
+     "leg_err_deg": 41.6,
+     "feet_dist_max_m": 1.27,
+     "feet_dist_touchdown_m": 0.161,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 38,
+     "flight_hip_err_rad": 3.57,
+     "rot_at_ref_landing_deg": 327.1,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.727
+    },
+    {
+     "ckpt": "model_5000.pt",
+     "score": 7.691,
+     "robot_rotation_deg": 396.5,
+     "robot_max_rotation_deg": 396.5,
+     "robot_peak_pelvis_m": 1.345,
+     "pelvis_rise_m": 0.667,
+     "robot_airborne_s": 0.64,
+     "landed_upright": true,
+     "end_tilt_deg": 18.1,
+     "early_fall": false,
+     "plane_dev_max_deg": 12.2,
+     "plane_dev_mean_deg": 6.7,
+     "leg_asym_deg": 4.8,
+     "leg_err_deg": 40.5,
+     "feet_dist_max_m": 1.277,
+     "feet_dist_touchdown_m": 0.167,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 4,
+     "flight_hip_err_rad": 3.56,
+     "rot_at_ref_landing_deg": 336.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.719
+    },
+    {
+     "ckpt": "model_5499.pt",
+     "score": 5.723,
+     "robot_rotation_deg": 339.8,
+     "robot_max_rotation_deg": 367.0,
+     "robot_peak_pelvis_m": 1.324,
+     "pelvis_rise_m": 0.605,
+     "robot_airborne_s": 0.62,
+     "landed_upright": false,
+     "end_tilt_deg": 35.8,
+     "early_fall": false,
+     "plane_dev_max_deg": 10.7,
+     "plane_dev_mean_deg": 6.9,
+     "leg_asym_deg": 3.7,
+     "leg_err_deg": 39.1,
+     "feet_dist_max_m": 1.252,
+     "feet_dist_touchdown_m": 0.175,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 3,
+     "flight_hip_err_rad": 3.38,
+     "rot_at_ref_landing_deg": 336.3,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.726
+    }
+   ],
+   "adjust": [
+    "full flip landed -> keep knobs, train on",
+    "legs flail (asym 4.7 deg, err 41.6 deg) -> leg weights x1.5",
+    "took off 5 steps early -> stay-down x1.5",
+    "hips not tucked in flight (err 3.57 rad) -> tuck x1.5",
+    "legs spread (feet 1.27 m) -> feet-together x1.5"
+   ]
+  },
+  {
+   "round": 6,
+   "run": "2026-10-22_23-08-44_flipauto_r06",
+   "minutes": 69.8,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 17.0861,
+     "flip_leg_track": 17.0861,
+     "flip_leg_calm": 8.5428,
+     "flip_feet_together": 15.1875,
+     "flip_tuck": 15.1875,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 7.5938
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.6
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 30.0
+     }
+    }
+   },
+   "ep_len_end": 243.21,
+   "evals": [
+    {
+     "ckpt": "model_5000.pt",
+     "score": 6.677,
+     "robot_rotation_deg": 345.5,
+     "robot_max_rotation_deg": 358.8,
+     "robot_peak_pelvis_m": 1.252,
+     "pelvis_rise_m": 0.517,
+     "robot_airborne_s": 0.64,
+     "landed_upright": true,
+     "end_tilt_deg": 22.3,
+     "early_fall": false,
+     "plane_dev_max_deg": 16.7,
+     "plane_dev_mean_deg": 9.3,
+     "leg_asym_deg": 3.5,
+     "leg_err_deg": 32.7,
+     "feet_dist_max_m": 0.367,
+     "feet_dist_touchdown_m": 0.172,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 40,
+     "flight_hip_err_rad": 1.48,
+     "rot_at_ref_landing_deg": 307.6,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.757,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.292
+    },
+    {
+     "ckpt": "model_5500.pt",
+     "score": 6.762,
+     "robot_rotation_deg": 380.8,
+     "robot_max_rotation_deg": 382.6,
+     "robot_peak_pelvis_m": 1.197,
+     "pelvis_rise_m": 0.435,
+     "robot_airborne_s": 0.62,
+     "landed_upright": true,
+     "end_tilt_deg": 15.8,
+     "early_fall": false,
+     "plane_dev_max_deg": 14.7,
+     "plane_dev_mean_deg": 7.1,
+     "leg_asym_deg": 2.4,
+     "leg_err_deg": 30.5,
+     "feet_dist_max_m": 0.378,
+     "feet_dist_touchdown_m": 0.179,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 67,
+     "flight_hip_err_rad": 1.16,
+     "rot_at_ref_landing_deg": 299.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.752,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.247
+    },
+    {
+     "ckpt": "model_5999.pt",
+     "score": 6.816,
+     "robot_rotation_deg": 387.2,
+     "robot_max_rotation_deg": 388.9,
+     "robot_peak_pelvis_m": 1.223,
+     "pelvis_rise_m": 0.463,
+     "robot_airborne_s": 0.62,
+     "landed_upright": true,
+     "end_tilt_deg": 11.9,
+     "early_fall": false,
+     "plane_dev_max_deg": 7.6,
+     "plane_dev_mean_deg": 4.7,
+     "leg_asym_deg": 2.4,
+     "leg_err_deg": 30.4,
+     "feet_dist_max_m": 0.374,
+     "feet_dist_touchdown_m": 0.188,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 67,
+     "flight_hip_err_rad": 1.06,
+     "rot_at_ref_landing_deg": 313.3,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.756,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.231
+    }
+   ],
+   "adjust": [
+    "full flip landed -> keep knobs, train on",
+    "legs flail (asym 2.4 deg, err 30.4 deg) -> leg weights x1.5",
+    "took off 5 steps early -> stay-down x1.5",
+    "hips not tucked in flight (err 1.06 rad) -> tuck x1.5",
+    "hips extended -> hip limit 0.9 rad",
+    "not standing stably (feet end 0.231 m) -> stand limits 0.45 m / 30.0 deg",
+    "legs spread (feet 0.374 m) -> feet-together x1.5"
+   ]
+  },
+  {
+   "round": 7,
+   "run": "2026-10-23_00-20-46_flipauto_r07",
+   "minutes": 70.5,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 17.0861,
+     "flip_leg_track": 17.0861,
+     "flip_leg_calm": 8.5428,
+     "flip_feet_together": 15.1875,
+     "flip_tuck": 15.1875,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 7.5938
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.6
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 30.0
+     }
+    }
+   },
+   "ep_len_end": 205.59,
+   "evals": [
+    {
+     "ckpt": "model_5000.pt",
+     "score": 8.783,
+     "robot_rotation_deg": 372.9,
+     "robot_max_rotation_deg": 373.4,
+     "robot_peak_pelvis_m": 1.194,
+     "pelvis_rise_m": 0.437,
+     "robot_airborne_s": 0.6,
+     "landed_upright": true,
+     "end_tilt_deg": 10.7,
+     "early_fall": true,
+     "plane_dev_max_deg": 11.5,
+     "plane_dev_mean_deg": 6.0,
+     "leg_asym_deg": 2.5,
+     "leg_err_deg": 26.8,
+     "feet_dist_max_m": 0.378,
+     "feet_dist_touchdown_m": 0.173,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 19,
+     "flight_hip_err_rad": 0.98,
+     "rot_at_ref_landing_deg": 312.3,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.755,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.334
+    },
+    {
+     "ckpt": "model_5500.pt",
+     "score": 6.739,
+     "robot_rotation_deg": 372.7,
+     "robot_max_rotation_deg": 378.8,
+     "robot_peak_pelvis_m": 1.278,
+     "pelvis_rise_m": 0.561,
+     "robot_airborne_s": 0.68,
+     "landed_upright": true,
+     "end_tilt_deg": 10.8,
+     "early_fall": false,
+     "plane_dev_max_deg": 17.2,
+     "plane_dev_mean_deg": 8.3,
+     "leg_asym_deg": 2.3,
+     "leg_err_deg": 26.0,
+     "feet_dist_max_m": 0.388,
+     "feet_dist_touchdown_m": 0.189,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 13,
+     "flight_hip_err_rad": 0.86,
+     "rot_at_ref_landing_deg": 309.3,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.76,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.265
+    },
+    {
+     "ckpt": "model_5999.pt",
+     "score": 3.927,
+     "robot_rotation_deg": 237.0,
+     "robot_max_rotation_deg": 271.0,
+     "robot_peak_pelvis_m": 0.897,
+     "pelvis_rise_m": 0.132,
+     "robot_airborne_s": 0.3,
+     "landed_upright": false,
+     "end_tilt_deg": 59.1,
+     "early_fall": true,
+     "plane_dev_max_deg": 109.3,
+     "plane_dev_mean_deg": 91.3,
+     "leg_asym_deg": 11.7,
+     "leg_err_deg": 33.3,
+     "feet_dist_max_m": 0.433,
+     "feet_dist_touchdown_m": 0.075,
+     "flight_hip_err_rad": 0.66,
+     "rot_at_ref_landing_deg": 197.8,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.138,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.339
+    }
+   ],
+   "adjust": [
+    "fell before take-off -> lean x1.5, stand/crouch prior x1.3",
+    "legs flail (asym 2.5 deg, err 26.8 deg) -> leg weights x1.5",
+    "took off 5 steps early -> stay-down x1.5",
+    "hips not tucked in flight (err 0.98 rad) -> tuck x1.5",
+    "hips extended -> hip limit 0.6 rad",
+    "legs spread (feet 0.378 m) -> feet-together x1.5"
+   ]
+  },
+  {
+   "round": 8,
+   "run": "2026-10-23_01-39-50_flipauto_r08",
+   "minutes": 71.1,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 10.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 30.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 2.25,
+     "std_scale": 0.722
+    }
+   },
+   "ep_len_end": 305.0,
+   "evals": [
+    {
+     "ckpt": "model_5500.pt",
+     "score": 9.097,
+     "robot_rotation_deg": 344.2,
+     "robot_max_rotation_deg": 370.8,
+     "robot_peak_pelvis_m": 1.341,
+     "pelvis_rise_m": 0.574,
+     "robot_airborne_s": 0.74,
+     "landed_upright": true,
+     "end_tilt_deg": 10.2,
+     "early_fall": false,
+     "plane_dev_max_deg": 18.5,
+     "plane_dev_mean_deg": 7.6,
+     "leg_asym_deg": 4.7,
+     "leg_err_deg": 19.6,
+     "feet_dist_max_m": 0.322,
+     "feet_dist_touchdown_m": 0.241,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 22,
+     "flight_hip_err_rad": 0.52,
+     "rot_at_ref_landing_deg": 285.4,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.705,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.313,
+     "flight_hip_mean_rad": -1.03,
+     "flight_knee_max_rad": 2.95,
+     "flight_knee_overfold_rad": 2.06,
+     "knee_sep_min_m": 0.202,
+     "track_body_err_m": 0.1444,
+     "track_joint_err": 2.3985,
+     "knee_sep_max_m": 0.369,
+     "flight_hip_roll_max_rad": 0.28,
+     "flight_hip_yaw_max_rad": 0.44
+    },
+    {
+     "ckpt": "model_6000.pt",
+     "score": 7.316,
+     "robot_rotation_deg": 366.2,
+     "robot_max_rotation_deg": 372.9,
+     "robot_peak_pelvis_m": 1.171,
+     "pelvis_rise_m": 0.406,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 8.2,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.9,
+     "plane_dev_mean_deg": 4.9,
+     "leg_asym_deg": 2.3,
+     "leg_err_deg": 6.5,
+     "feet_dist_max_m": 0.233,
+     "feet_dist_touchdown_m": 0.217,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 20,
+     "flight_hip_err_rad": -0.18,
+     "rot_at_ref_landing_deg": 313.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.747,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.324,
+     "flight_hip_mean_rad": -1.72,
+     "flight_knee_max_rad": 1.75,
+     "flight_knee_overfold_rad": 0.42,
+     "knee_sep_min_m": 0.195,
+     "track_body_err_m": 0.1247,
+     "track_joint_err": 2.3765,
+     "knee_sep_max_m": 0.278,
+     "flight_hip_roll_max_rad": 0.15,
+     "flight_hip_yaw_max_rad": 0.23
+    },
+    {
+     "ckpt": "model_6499.pt",
+     "score": 7.27,
+     "robot_rotation_deg": 369.8,
+     "robot_max_rotation_deg": 374.7,
+     "robot_peak_pelvis_m": 1.124,
+     "pelvis_rise_m": 0.352,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 13.9,
+     "early_fall": false,
+     "plane_dev_max_deg": 8.1,
+     "plane_dev_mean_deg": 5.0,
+     "leg_asym_deg": 2.6,
+     "leg_err_deg": 6.4,
+     "feet_dist_max_m": 0.25,
+     "feet_dist_touchdown_m": 0.21,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 67,
+     "flight_hip_err_rad": -0.14,
+     "rot_at_ref_landing_deg": 316.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.735,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.306,
+     "flight_hip_mean_rad": -1.68,
+     "flight_knee_max_rad": 1.71,
+     "flight_knee_overfold_rad": 0.38,
+     "knee_sep_min_m": 0.195,
+     "track_body_err_m": 0.1331,
+     "track_joint_err": 2.4836,
+     "knee_sep_max_m": 0.297,
+     "flight_hip_roll_max_rad": 0.23,
+     "flight_hip_yaw_max_rad": 0.3
+    }
+   ],
+   "adjust": [
+    "full flip landed -> keep knobs, train on",
+    "took off 5 steps early -> stay-down x1.5",
+    "flow complete -> fidelity stage 1: tracking x2.25, std x0.722 (body err 0.1444 m)",
+    "knees over-folded by 2.06 rad (legs coiled) -> tuck x1.5"
+   ]
+  },
+  {
+   "round": 9,
+   "run": "2026-10-23_03-07-12_flipauto_r09",
+   "minutes": 77.0,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 5.0,
+     "flip_stand_quiet": 3.0,
+     "flip_stand_still": 3.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 30.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 2.25,
+     "std_scale": 0.722
+    },
+    "extra_dyn": [
+     {
+      "name": "agent_r09_hip_tuck",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint"
+       ],
+       "phases": [
+        "flight"
+       ],
+       "std": 0.6
+      }
+     },
+     {
+      "name": "agent_r09_arms_air",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "takeoff",
+        "flight",
+        "land"
+       ],
+       "std": 0.8
+      }
+     },
+     {
+      "name": "agent_r09_arms_stand",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "settle",
+        "stand_after"
+       ],
+       "std": 0.5
+      }
+     }
+    ]
+   },
+   "ep_len_end": 367.23,
+   "evals": [
+    {
+     "ckpt": "model_6000.pt",
+     "score": 7.357,
+     "robot_rotation_deg": 346.2,
+     "robot_max_rotation_deg": 360.3,
+     "robot_peak_pelvis_m": 1.114,
+     "pelvis_rise_m": 0.344,
+     "robot_airborne_s": 0.6,
+     "landed_upright": true,
+     "end_tilt_deg": 12.8,
+     "early_fall": false,
+     "plane_dev_max_deg": 11.4,
+     "plane_dev_mean_deg": 7.1,
+     "leg_asym_deg": 3.2,
+     "leg_err_deg": 6.4,
+     "feet_dist_max_m": 0.228,
+     "feet_dist_touchdown_m": 0.216,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.18,
+     "rot_at_ref_landing_deg": 311.1,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.742,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.207,
+     "flight_hip_mean_rad": -1.73,
+     "flight_knee_max_rad": 1.63,
+     "flight_knee_overfold_rad": 0.3,
+     "knee_sep_min_m": 0.184,
+     "track_body_err_m": 0.0946,
+     "track_joint_err": 1.8247,
+     "knee_sep_max_m": 0.277,
+     "flight_hip_roll_max_rad": 0.16,
+     "flight_hip_yaw_max_rad": 0.31,
+     "stand_arm_vel_rms": 1.656,
+     "stand_action_change": 0.1995,
+     "stand_pelvis_speed": 0.534,
+     "stand_torso_angvel": 0.865
+    },
+    {
+     "ckpt": "model_6500.pt",
+     "score": 7.334,
+     "robot_rotation_deg": 361.1,
+     "robot_max_rotation_deg": 361.5,
+     "robot_peak_pelvis_m": 1.235,
+     "pelvis_rise_m": 0.47,
+     "robot_airborne_s": 0.64,
+     "landed_upright": true,
+     "end_tilt_deg": 1.4,
+     "early_fall": false,
+     "plane_dev_max_deg": 11.6,
+     "plane_dev_mean_deg": 6.8,
+     "leg_asym_deg": 2.5,
+     "leg_err_deg": 6.2,
+     "feet_dist_max_m": 0.251,
+     "feet_dist_touchdown_m": 0.19,
+     "takeoff_offset_steps": -7,
+     "landing_offset_steps": 61,
+     "flight_hip_err_rad": -0.17,
+     "rot_at_ref_landing_deg": 301.4,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.754,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.33,
+     "flight_hip_mean_rad": -1.71,
+     "flight_knee_max_rad": 1.76,
+     "flight_knee_overfold_rad": 0.43,
+     "knee_sep_min_m": 0.19,
+     "track_body_err_m": 0.108,
+     "track_joint_err": 2.0655,
+     "knee_sep_max_m": 0.291,
+     "flight_hip_roll_max_rad": 0.24,
+     "flight_hip_yaw_max_rad": 0.23,
+     "stand_arm_vel_rms": 2.532,
+     "stand_action_change": 0.4548,
+     "stand_pelvis_speed": 0.854,
+     "stand_torso_angvel": 1.949
+    },
+    {
+     "ckpt": "model_6999.pt",
+     "score": 9.248,
+     "robot_rotation_deg": 358.3,
+     "robot_max_rotation_deg": 367.2,
+     "robot_peak_pelvis_m": 1.194,
+     "pelvis_rise_m": 0.436,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 13.2,
+     "early_fall": false,
+     "plane_dev_max_deg": 17.0,
+     "plane_dev_mean_deg": 7.7,
+     "leg_asym_deg": 3.0,
+     "leg_err_deg": 6.4,
+     "feet_dist_max_m": 0.228,
+     "feet_dist_touchdown_m": 0.201,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 67,
+     "flight_hip_err_rad": -0.2,
+     "rot_at_ref_landing_deg": 323.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.747,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.209,
+     "flight_hip_mean_rad": -1.74,
+     "flight_knee_max_rad": 1.69,
+     "flight_knee_overfold_rad": 0.35,
+     "knee_sep_min_m": 0.192,
+     "track_body_err_m": 0.1202,
+     "track_joint_err": 2.3686,
+     "knee_sep_max_m": 0.312,
+     "flight_hip_roll_max_rad": 0.27,
+     "flight_hip_yaw_max_rad": 0.26,
+     "stand_arm_vel_rms": 2.962,
+     "stand_action_change": 0.4655,
+     "stand_pelvis_speed": 1.2,
+     "stand_torso_angvel": 1.805
+    }
+   ],
+   "adjust": [
+    "(suggestion) full flip landed -> keep knobs, train on",
+    "(suggestion) took off 5 steps early -> stay-down x1.5",
+    "(suggestion) flow complete -> fidelity stage 1: tracking x3.375, std x0.614 (body err 0.1202 m)",
+    "(suggestion) not quiet after landing (arm 2.962 rad/s, torso 1.805 rad/s, action change 0.4655) -> quiet x1.5"
+   ],
+   "critic_top": [
+    {
+     "severity": 21.63,
+     "kind": "jitter",
+     "what": "ankle_pitch",
+     "phase": "stand_after",
+     "detail": "left_ankle_pitch_joint: joint acceleration RMS 324 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 13.67,
+     "kind": "contact",
+     "what": "left_foot",
+     "phase": "stand",
+     "detail": "left_foot off the floor for 41 of 71 steps"
+    },
+    {
+     "severity": 12.94,
+     "kind": "jitter",
+     "what": "knee",
+     "phase": "stand_after",
+     "detail": "left_knee_joint: joint acceleration RMS 194 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 12.16,
+     "kind": "jitter",
+     "what": "ankle_pitch",
+     "phase": "settle",
+     "detail": "left_ankle_pitch_joint: joint acceleration RMS 248 vs reference 2 rad/s^2"
+    },
+    {
+     "severity": 10.66,
+     "kind": "jitter",
+     "what": "hip_yaw",
+     "phase": "stand_after",
+     "detail": "left_hip_yaw_joint: joint acceleration RMS 160 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 8.98,
+     "kind": "jitter",
+     "what": "all",
+     "phase": "stand_after",
+     "detail": "mean action change 0.449 (quiet < 0.05)"
+    },
+    {
+     "severity": 8.67,
+     "kind": "jitter",
+     "what": "shoulder_yaw",
+     "phase": "stand_after",
+     "detail": "left_shoulder_yaw_joint: joint acceleration RMS 130 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 7.75,
+     "kind": "jitter",
+     "what": "ankle_roll",
+     "phase": "stand_after",
+     "detail": "right_ankle_roll_joint: joint acceleration RMS 116 vs reference 0 rad/s^2"
+    }
+   ],
+   "library_changes": [
+    "suggest: fix contact:left_foot:stand (severity 13.67, weight now 0.0)",
+    "suggest: fix jitter:ankle_pitch:settle (severity 12.16, weight now 0.0)",
+    "suggest: fix jitter:all:stand_after (severity 8.98, weight now 0.0)",
+    "suggest: fix contact:right_foot:stand (severity 7.67, weight now 0.0)",
+    "suggest: fix jitter:hip_yaw:settle (severity 7.34, weight now 0.0)",
+    "suggest: fix contact:left_foot:stand_after (severity 7.0, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:takeoff (severity 5.19, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:stand_after (severity 4.8, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:takeoff (severity 4.51, weight now 0.0)",
+    "suggest: fix contact:right_foot:stand_after (severity 4.0, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:stand_after (severity 3.88, weight now 0.0)",
+    "suggest: fix joint:elbow:takeoff (severity 3.84, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:stand (severity 3.79, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:flight (severity 3.38, weight now 0.0)",
+    "suggest: fix body:ankle_roll:flight (severity 3.24, weight now 1.0)",
+    "suggest: fix asymmetry:elbow:land (severity 3.1, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:takeoff (severity 2.78, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:crouch (severity 2.75, weight now 0.0)",
+    "suggest: fix joint:elbow:flight (severity 2.75, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand (severity 2.56, weight now 0.0)",
+    "suggest: fix body:ankle_roll:takeoff (severity 2.42, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:stand (severity 2.4, weight now 0.0)",
+    "suggest: fix joint:ankle_pitch:takeoff (severity 2.39, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:land (severity 2.31, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:settle (severity 2.3, weight now 0.0)",
+    "suggest: fix body:knee:flight (severity 2.28, weight now 0.0)",
+    "suggest: fix joint:elbow:stand_after (severity 2.17, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:stand_after (severity 2.14, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:settle (severity 2.02, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:flight (severity 2.0, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:takeoff (severity 1.98, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:stand_after (severity 1.98, weight now 0.0)",
+    "suggest: fix body:knee:takeoff (severity 1.92, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:land (severity 1.9, weight now 0.0)",
+    "suggest: fix body:ankle_roll:crouch (severity 1.78, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:flight (severity 1.73, weight now 0.0)",
+    "suggest: fix joint:elbow:stand (severity 1.63, weight now 0.0)",
+    "suggest: fix body:ankle_roll:land (severity 1.59, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:flight (severity 1.57, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:flight (severity 1.54, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:flight (severity 1.52, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:settle (severity 1.46, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:settle (severity 1.46, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:stand (severity 1.43, weight now 0.0)",
+    "suggest: fix joint:elbow:crouch (severity 1.42, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:crouch (severity 1.41, weight now 0.0)",
+    "suggest: fix asymmetry:knee:stand_after (severity 1.34, weight now 0.0)",
+    "suggest: fix contact:left_foot:settle (severity 1.33, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:flight (severity 1.32, weight now 0.0)",
+    "suggest: fix asymmetry:hip_pitch:stand (severity 1.31, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:flight (severity 1.31, weight now 0.0)",
+    "suggest: fix asymmetry:knee:takeoff (severity 1.27, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:stand (severity 1.26, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:settle (severity 1.26, weight now 0.0)",
+    "suggest: fix joint:knee:land (severity 1.18, weight now 0.0)",
+    "suggest: fix body:knee:crouch (severity 1.17, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:crouch (severity 1.15, weight now 0.0)",
+    "suggest: fix asymmetry:hip_roll:takeoff (severity 1.15, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:crouch (severity 1.13, weight now 0.0)",
+    "suggest: fix asymmetry:ankle_pitch:stand_after (severity 1.13, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:stand (severity 1.11, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:crouch (severity 1.11, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_yaw:stand (severity 1.09, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:land (severity 1.07, weight now 0.0)",
+    "suggest: fix asymmetry:hip_pitch:takeoff (severity 1.06, weight now 0.0)",
+    "suggest: fix joint:elbow:settle (severity 1.06, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:crouch (severity 1.03, weight now 0.0)",
+    "NEW check jitter:ankle_pitch:stand_after (severity 21.63) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:knee:stand_after (severity 12.94) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:hip_yaw:stand_after (severity 10.66) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:shoulder_yaw:stand_after (severity 8.67) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:ankle_roll:stand_after (severity 7.75) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:knee:settle (severity 7.38) with template fix (fix not switched on: LLM decides)"
+   ],
+   "escalate": [
+    {
+     "check": "jitter:all:settle",
+     "severity": 7.17,
+     "detail": "mean action change 0.359 (quiet < 0.05)",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    }
+   ],
+   "mode": "llm",
+   "decision": {
+    "round": 9,
+    "decider": "agent (Claude, in the Claude Code session); first LLM-mode round",
+    "protocol": "step 1 analysis/r08_quant.md -> step 2 analysis/r08_llm.md -> step 3 this file -> train",
+    "based_on": "r08 model_5500 (score 9.097)",
+    "reviewed_sheets": [
+     "000-039",
+     "040-079",
+     "080-119",
+     "120-159",
+     "160-187"
+    ],
+    "human_input": [
+     "(dev, before r08) hands trembling and body swaying while standing: does the fidelity curriculum fix it?",
+     "(dev) do not wait for the human to point out problems; compare with the reference from many angles",
+     "(dev, r09 attempt 1) user: did you skip checking round 8? -> sheets 000-079 unreviewed, run stopped",
+     "(dev) user: quantify fully, then LLM analysis, then solution, then train; and start that process automatically when a round ends"
+    ],
+    "priorities": [
+     "P1 stand after landing (waist 1.86 rad, arm err 29 deg, action change 0.30, ankle acc ~100 rad/s^2, feet lifting): first training of the r07 stand code + arm pose term in settle/stand_after",
+     "P2 flight arms asymmetric / thrown back (shoulder-yaw asym 138 deg): arm pose term in take-off/flight/land",
+     "P3 hip tuck ~9 steps late, knees over-folded 2.06 rad, rotation 344 deg: hip-pitch term in flight",
+     "P4 stay_down 10 -> 5; tracking curriculum unchanged"
+    ],
+    "knobs": {
+     "weights.flip_stay_down": 5.0,
+     "weights.flip_stand_still": 3.0,
+     "weights.flip_stand_quiet": 3.0,
+     "extra_dyn": [
+      {
+       "name": "agent_r09_hip_tuck",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_hip_pitch_joint",
+         "right_hip_pitch_joint"
+        ],
+        "phases": [
+         "flight"
+        ],
+        "std": 0.6
+       }
+      },
+      {
+       "name": "agent_r09_arms_air",
+       "func": "dyn_joint",
+       "weight": 2.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "takeoff",
+         "flight",
+         "land"
+        ],
+        "std": 0.8
+       }
+      },
+      {
+       "name": "agent_r09_arms_stand",
+       "func": "dyn_joint",
+       "weight": 2.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "settle",
+         "stand_after"
+        ],
+        "std": 0.5
+       }
+      }
+     ]
+    },
+    "library": {
+     "joint:elbow:flight": 0.0,
+     "body:wrist_yaw:flight": 0.0,
+     "asymmetry:shoulder_pitch:stand_after": 0.0,
+     "asymmetry:elbow:stand_after": 0.0
+    },
+    "library_params": {
+     "asymmetry:shoulder_yaw:flight": {
+      "std": 0.8
+     },
+     "asymmetry:shoulder_yaw:takeoff": {
+      "std": 0.8
+     },
+     "asymmetry:shoulder_yaw:stand_after": {
+      "std": 0.8
+     },
+     "asymmetry:wrist_roll:stand": {
+      "std": 0.5
+     },
+     "asymmetry:hip_roll:stand_after": {
+      "std": 0.3
+     },
+     "joint:knee:flight": {
+      "std": 0.8
+     },
+     "body:ankle_roll:flight": {
+      "std": 0.5
+     }
+    },
+    "code_changes": [
+     "harness: decisions can set template parameters (library_params) and add decider-composed terms (knob extra_dyn)",
+     "harness: LLM mode runs analyze_round.py + quant_report.py automatically at the end of a round; refuses a decision without the quantitative report, the LLM analysis and all frame sheets reviewed",
+     "no new reward code: flip_root_ori / stand_still (all joints) / stand_quiet / waist termination and the library fixes are trained for the first time"
+    ],
+    "expect": {
+     "waist_yaw_stand_max_rad": "< 0.4 (r08 1.86)",
+     "stand_action_change": "< 0.2 (r08 0.30)",
+     "shoulder_yaw_asym_flight_deg": "< 60 (r08 138)",
+     "hip_pitch_step105": "<= -1.0 (r08 -0.6, ref -1.53)",
+     "rotation_deg": ">= 340 (r08 344)",
+     "plane_dev_max_deg": "< 15 (r08 18.5)"
+    },
+    "rollback_if": "no upright landing or rotation < 300: r10 starts again from r08 model_5500 and the arm terms are halved"
+   }
+  },
+  {
+   "round": 10,
+   "run": "2026-10-23_04-30-18_flipauto_r10",
+   "minutes": 79.8,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 5.0,
+     "flip_stand_quiet": 3.0,
+     "flip_stand_still": 4.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 30.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 1.5,
+     "std_scale": 0.85
+    },
+    "extra_dyn": [
+     {
+      "name": "agent_r09_hip_tuck",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint"
+       ],
+       "phases": [
+        "flight"
+       ],
+       "std": 0.6
+      }
+     },
+     {
+      "name": "agent_r09_arms_air",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "takeoff",
+        "flight",
+        "land"
+       ],
+       "std": 0.8
+      }
+     },
+     {
+      "name": "agent_r10_arms_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "settle",
+        "stand_after"
+       ],
+       "std": 1.0
+      }
+     }
+    ]
+   },
+   "ep_len_end": 415.6,
+   "evals": [
+    {
+     "ckpt": "model_7500.pt",
+     "score": 7.409,
+     "robot_rotation_deg": 369.4,
+     "robot_max_rotation_deg": 369.6,
+     "robot_peak_pelvis_m": 1.153,
+     "pelvis_rise_m": 0.383,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 9.3,
+     "early_fall": false,
+     "plane_dev_max_deg": 13.9,
+     "plane_dev_mean_deg": 4.2,
+     "leg_asym_deg": 2.2,
+     "leg_err_deg": 6.0,
+     "feet_dist_max_m": 0.241,
+     "feet_dist_touchdown_m": 0.191,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.15,
+     "rot_at_ref_landing_deg": 312.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.734,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.359,
+     "flight_hip_mean_rad": -1.7,
+     "flight_knee_max_rad": 1.73,
+     "flight_knee_overfold_rad": 0.37,
+     "knee_sep_min_m": 0.177,
+     "track_body_err_m": 0.106,
+     "track_joint_err": 2.054,
+     "knee_sep_max_m": 0.287,
+     "flight_hip_roll_max_rad": 0.21,
+     "flight_hip_yaw_max_rad": 0.25,
+     "stand_arm_vel_rms": 2.244,
+     "stand_action_change": 0.3836,
+     "stand_pelvis_speed": 0.907,
+     "stand_torso_angvel": 1.268
+    },
+    {
+     "ckpt": "model_8000.pt",
+     "score": 7.414,
+     "robot_rotation_deg": 353.2,
+     "robot_max_rotation_deg": 361.2,
+     "robot_peak_pelvis_m": 1.167,
+     "pelvis_rise_m": 0.389,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 18.3,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.1,
+     "plane_dev_mean_deg": 4.8,
+     "leg_asym_deg": 1.9,
+     "leg_err_deg": 5.1,
+     "feet_dist_max_m": 0.232,
+     "feet_dist_touchdown_m": 0.203,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.11,
+     "rot_at_ref_landing_deg": 320.5,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.738,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.349,
+     "flight_hip_mean_rad": -1.65,
+     "flight_knee_max_rad": 1.67,
+     "flight_knee_overfold_rad": 0.32,
+     "knee_sep_min_m": 0.182,
+     "track_body_err_m": 0.104,
+     "track_joint_err": 2.1392,
+     "knee_sep_max_m": 0.279,
+     "flight_hip_roll_max_rad": 0.1,
+     "flight_hip_yaw_max_rad": 0.25,
+     "stand_arm_vel_rms": 1.529,
+     "stand_action_change": 0.1416,
+     "stand_pelvis_speed": 0.44,
+     "stand_torso_angvel": 0.766
+    },
+    {
+     "ckpt": "model_8498.pt",
+     "score": 7.377,
+     "robot_rotation_deg": 343.0,
+     "robot_max_rotation_deg": 361.2,
+     "robot_peak_pelvis_m": 1.182,
+     "pelvis_rise_m": 0.433,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 18.1,
+     "early_fall": false,
+     "plane_dev_max_deg": 8.7,
+     "plane_dev_mean_deg": 5.4,
+     "leg_asym_deg": 1.6,
+     "leg_err_deg": 5.6,
+     "feet_dist_max_m": 0.217,
+     "feet_dist_touchdown_m": 0.184,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.12,
+     "rot_at_ref_landing_deg": 320.6,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.739,
+     "stand_stable": false,
+     "stand_feet_d_end": 0.316,
+     "flight_hip_mean_rad": -1.67,
+     "flight_knee_max_rad": 1.66,
+     "flight_knee_overfold_rad": 0.31,
+     "knee_sep_min_m": 0.18,
+     "track_body_err_m": 0.1125,
+     "track_joint_err": 2.1123,
+     "knee_sep_max_m": 0.298,
+     "flight_hip_roll_max_rad": 0.18,
+     "flight_hip_yaw_max_rad": 0.25,
+     "stand_arm_vel_rms": 2.808,
+     "stand_action_change": 0.266,
+     "stand_pelvis_speed": 0.479,
+     "stand_torso_angvel": 1.651
+    }
+   ],
+   "adjust": [
+    "(suggestion) full flip landed -> keep knobs, train on",
+    "(suggestion) took off 5 steps early -> stay-down x1.5",
+    "(suggestion) flow complete -> fidelity stage 1: tracking x2.25, std x0.722 (body err 0.104 m)",
+    "(suggestion) not quiet after landing (arm 1.529 rad/s, torso 0.766 rad/s, action change 0.1416) -> quiet x1.5",
+    "(suggestion) not standing stably (feet end 0.349 m) -> stand limits 0.405 m / 25.0 deg"
+   ],
+   "critic_top": [
+    {
+     "severity": 7.64,
+     "kind": "jitter",
+     "what": "ankle_pitch",
+     "phase": "stand_after",
+     "detail": "left_ankle_pitch_joint: joint acceleration RMS 115 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 6.48,
+     "kind": "jitter",
+     "what": "knee",
+     "phase": "stand_after",
+     "detail": "left_knee_joint: joint acceleration RMS 97 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 4.79,
+     "kind": "jitter",
+     "what": "wrist_roll",
+     "phase": "stand_after",
+     "detail": "right_wrist_roll_joint: joint acceleration RMS 72 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 4.69,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "takeoff",
+     "detail": "right_wrist_pitch_joint: mean |err| 70 deg (signed +70), step 95: robot +0.89 vs ref -0.37 rad"
+    },
+    {
+     "severity": 4.33,
+     "kind": "joint",
+     "what": "shoulder_yaw",
+     "phase": "takeoff",
+     "detail": "left_shoulder_yaw_joint: mean |err| 65 deg (signed +65), step 94: robot +0.11 vs ref -1.15 rad"
+    },
+    {
+     "severity": 4.31,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "stand_after",
+     "detail": "right_wrist_pitch_joint: mean |err| 65 deg (signed +65), step 187: robot +1.21 vs ref -0.13 rad"
+    },
+    {
+     "severity": 4.24,
+     "kind": "jitter",
+     "what": "ankle_roll",
+     "phase": "stand_after",
+     "detail": "left_ankle_roll_joint: joint acceleration RMS 64 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 4.21,
+     "kind": "asymmetry",
+     "what": "shoulder_roll",
+     "phase": "stand_after",
+     "detail": "left/right differ 43 deg vs reference 0 deg"
+    }
+   ],
+   "library_changes": [
+    "suggest: fix jitter:ankle_pitch:stand_after (severity 7.64, weight now 0.0)",
+    "suggest: fix jitter:knee:stand_after (severity 6.48, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:takeoff (severity 4.33, weight now 0.0)",
+    "suggest: fix jitter:ankle_roll:stand_after (severity 4.24, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:stand_after (severity 4.21, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:takeoff (severity 4.03, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:flight (severity 3.97, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:flight (severity 3.52, weight now 0.0)",
+    "suggest: fix body:ankle_roll:flight (severity 3.24, weight now 1.0)",
+    "suggest: fix asymmetry:shoulder_pitch:stand_after (severity 3.23, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:flight (severity 2.91, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand (severity 2.8, weight now 0.0)",
+    "suggest: fix body:ankle_roll:takeoff (severity 2.72, weight now 0.0)",
+    "suggest: fix joint:elbow:takeoff (severity 2.6, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:stand (severity 2.57, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:takeoff (severity 2.56, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:flight (severity 2.53, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:stand (severity 2.36, weight now 0.0)",
+    "suggest: fix jitter:hip_yaw:stand_after (severity 2.27, weight now 0.0)",
+    "suggest: fix joint:elbow:stand_after (severity 2.26, weight now 0.0)",
+    "suggest: fix body:knee:flight (severity 2.18, weight now 0.0)",
+    "suggest: fix jitter:all:settle (severity 2.15, weight now 1.0)",
+    "suggest: fix joint:wrist_roll:stand_after (severity 2.14, weight now 0.0)",
+    "suggest: fix joint:ankle_pitch:takeoff (severity 2.13, weight now 0.0)",
+    "suggest: fix body:knee:takeoff (severity 2.05, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:land (severity 2.04, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:crouch (severity 2.02, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:flight (severity 1.96, weight now 0.0)",
+    "suggest: fix jitter:shoulder_yaw:stand_after (severity 1.96, weight now 0.0)",
+    "suggest: fix body:ankle_roll:crouch (severity 1.76, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:flight (severity 1.75, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:flight (severity 1.72, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:crouch (severity 1.69, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:flight (severity 1.61, weight now 0.0)",
+    "suggest: fix joint:elbow:flight (severity 1.6, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:takeoff (severity 1.54, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:stand_after (severity 1.54, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:land (severity 1.51, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:crouch (severity 1.43, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:settle (severity 1.36, weight now 0.0)",
+    "suggest: fix body:knee:crouch (severity 1.29, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:crouch (severity 1.27, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:crouch (severity 1.27, weight now 0.0)",
+    "suggest: fix joint:elbow:crouch (severity 1.11, weight now 0.0)",
+    "suggest: fix jitter:knee:settle (severity 1.11, weight now 0.0)",
+    "suggest: fix asymmetry:knee:takeoff (severity 1.08, weight now 0.0)",
+    "suggest: fix joint:waist_pitch:flight (severity 1.05, weight now 0.0)",
+    "suggest: fix asymmetry:hip_pitch:takeoff (severity 1.04, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:stand (severity 1.03, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:crouch (severity 1.03, weight now 0.0)",
+    "suggest: fix joint:waist_yaw:stand_after (severity 1.01, weight now 0.0)",
+    "NEW check jitter:wrist_roll:stand_after (severity 4.79) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_pitch:takeoff (severity 4.69) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_pitch:stand_after (severity 4.31) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:hip_pitch:stand_after (severity 4.05) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_yaw:stand_after (severity 3.66) with template fix (fix not switched on: LLM decides)",
+    "NEW check asymmetry:hip_yaw:takeoff (severity 3.65) with template fix (fix not switched on: LLM decides)"
+   ],
+   "escalate": [
+    {
+     "check": "jitter:all:stand_after",
+     "severity": 2.85,
+     "detail": "mean action change 0.143 (quiet < 0.05)",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    }
+   ],
+   "mode": "llm",
+   "decision": {
+    "round": 10,
+    "decider": "agent (Claude, in the Claude Code session)",
+    "protocol": "step 1 analysis/r09_quant.md (automatic) -> step 2 analysis/r09_llm.md -> step 3 this file -> train",
+    "based_on": "r09 model_6999 (score 9.248)",
+    "reviewed_sheets": [
+     "000-039",
+     "040-079",
+     "080-119",
+     "120-159",
+     "160-187"
+    ],
+    "human_input": [
+     "(dev) user, during r09: explain how round 8 was analysed (no technical content added)"
+    ],
+    "priorities": [
+     "P1 stand: pre-flip regression (stepping, arm raise lost), walking away after landing at 1.2 m/s, trembling (action change 0.41)",
+     "P2 keep the flight (best so far): no change to flight terms",
+     "P3 plane deviation 17 deg: later"
+    ],
+    "knobs": {
+     "tracking.scale": 1.5,
+     "tracking.std_scale": 0.85,
+     "weights.flip_stand_still": 4.0,
+     "extra_dyn": [
+      {
+       "name": "agent_r09_hip_tuck",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_hip_pitch_joint",
+         "right_hip_pitch_joint"
+        ],
+        "phases": [
+         "flight"
+        ],
+        "std": 0.6
+       }
+      },
+      {
+       "name": "agent_r09_arms_air",
+       "func": "dyn_joint",
+       "weight": 2.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "takeoff",
+         "flight",
+         "land"
+        ],
+        "std": 0.8
+       }
+      },
+      {
+       "name": "agent_r10_arms_stand",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "settle",
+         "stand_after"
+        ],
+        "std": 1.0
+       }
+      }
+     ]
+    },
+    "library": {
+     "contact:left_foot:stand": 2.0,
+     "contact:right_foot:stand": 2.0,
+     "contact:left_foot:stand_after": 2.0,
+     "contact:right_foot:stand_after": 2.0,
+     "jitter:all:stand_after": 2.0
+    },
+    "library_params": {},
+    "code_changes": [
+     "flip_rewards.flip_stand_still: pelvis velocity scale 0.2 -> 0.6 m/s (exp(-1.2/0.2) = 0.002 gave no gradient)",
+     "eval_flip: landing_offset = end of the first airborne run (was the last airborne step; r09's hop gave 67)",
+     "quant_report: section F2 = knob diff + training-log configuration diff (ground truth)"
+    ],
+    "expect": {
+     "prestand_feet_off_steps": "< 5 of 71 (r09 41 left)",
+     "stand_pelvis_speed": "< 0.3 m/s (r09 1.2)",
+     "stand_action_change": "< 0.2 (r09 0.41)",
+     "stand_feet_off_steps": "< 5 of 58 (r09 25 left)",
+     "rotation_deg": ">= 345 (r09 358)",
+     "flight_hip_mean_rad": "<= -1.5 (r09 -1.74)",
+     "flight_knee_overfold_rad": "< 0.5 (r09 0.35)"
+    },
+    "rollback_if": "rotation < 330 or no upright landing: r11 starts again from r09 model_6999 with only the stand changes"
+   }
+  },
+  {
+   "round": 11,
+   "run": "2026-10-23_05-54-33_flipauto_r11",
+   "minutes": 80.5,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 5.0,
+     "flip_stand_quiet": 3.0,
+     "flip_stand_still": 4.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 25.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 1.5,
+     "std_scale": 0.85
+    },
+    "extra_dyn": [
+     {
+      "name": "agent_r09_hip_tuck",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint"
+       ],
+       "phases": [
+        "flight"
+       ],
+       "std": 0.6
+      }
+     },
+     {
+      "name": "agent_r09_arms_air",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "takeoff",
+        "flight",
+        "land"
+       ],
+       "std": 0.8
+      }
+     },
+     {
+      "name": "agent_r10_arms_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "settle",
+        "stand_after"
+       ],
+       "std": 1.0
+      }
+     },
+     {
+      "name": "agent_r11_legs_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_knee_joint",
+        "right_knee_joint",
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint",
+        "left_ankle_pitch_joint",
+        "right_ankle_pitch_joint"
+       ],
+       "phases": [
+        "stand_after"
+       ],
+       "std": 0.4
+      }
+     }
+    ]
+   },
+   "ep_len_end": 448.61,
+   "evals": [
+    {
+     "ckpt": "model_8500.pt",
+     "score": 9.398,
+     "robot_rotation_deg": 362.4,
+     "robot_max_rotation_deg": 366.2,
+     "robot_peak_pelvis_m": 1.14,
+     "pelvis_rise_m": 0.368,
+     "robot_airborne_s": 0.56,
+     "landed_upright": true,
+     "end_tilt_deg": 8.4,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.9,
+     "plane_dev_mean_deg": 5.5,
+     "leg_asym_deg": 2.2,
+     "leg_err_deg": 4.9,
+     "feet_dist_max_m": 0.236,
+     "feet_dist_touchdown_m": 0.194,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 0,
+     "flight_hip_err_rad": -0.09,
+     "rot_at_ref_landing_deg": 324.6,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.738,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.3,
+     "flight_hip_mean_rad": -1.64,
+     "flight_knee_max_rad": 1.56,
+     "flight_knee_overfold_rad": 0.27,
+     "knee_sep_min_m": 0.171,
+     "track_body_err_m": 0.1017,
+     "track_joint_err": 2.1552,
+     "knee_sep_max_m": 0.29,
+     "flight_hip_roll_max_rad": 0.17,
+     "flight_hip_yaw_max_rad": 0.23,
+     "stand_arm_vel_rms": 2.143,
+     "stand_action_change": 0.284,
+     "stand_pelvis_speed": 0.385,
+     "stand_torso_angvel": 1.457
+    },
+    {
+     "ckpt": "model_9000.pt",
+     "score": 9.397,
+     "robot_rotation_deg": 360.6,
+     "robot_max_rotation_deg": 368.4,
+     "robot_peak_pelvis_m": 1.189,
+     "pelvis_rise_m": 0.411,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 6.7,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.3,
+     "plane_dev_mean_deg": 4.5,
+     "leg_asym_deg": 2.0,
+     "leg_err_deg": 5.2,
+     "feet_dist_max_m": 0.215,
+     "feet_dist_touchdown_m": 0.204,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.12,
+     "rot_at_ref_landing_deg": 321.5,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.749,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.304,
+     "flight_hip_mean_rad": -1.66,
+     "flight_knee_max_rad": 1.61,
+     "flight_knee_overfold_rad": 0.33,
+     "knee_sep_min_m": 0.176,
+     "track_body_err_m": 0.1091,
+     "track_joint_err": 2.071,
+     "knee_sep_max_m": 0.297,
+     "flight_hip_roll_max_rad": 0.2,
+     "flight_hip_yaw_max_rad": 0.21,
+     "stand_arm_vel_rms": 2.303,
+     "stand_action_change": 0.268,
+     "stand_pelvis_speed": 0.539,
+     "stand_torso_angvel": 0.982
+    },
+    {
+     "ckpt": "model_9499.pt",
+     "score": 9.433,
+     "robot_rotation_deg": 371.2,
+     "robot_max_rotation_deg": 371.4,
+     "robot_peak_pelvis_m": 1.176,
+     "pelvis_rise_m": 0.421,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 6.4,
+     "early_fall": false,
+     "plane_dev_max_deg": 5.3,
+     "plane_dev_mean_deg": 3.2,
+     "leg_asym_deg": 2.2,
+     "leg_err_deg": 4.9,
+     "feet_dist_max_m": 0.218,
+     "feet_dist_touchdown_m": 0.198,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.04,
+     "rot_at_ref_landing_deg": 324.1,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.746,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.301,
+     "flight_hip_mean_rad": -1.58,
+     "flight_knee_max_rad": 1.56,
+     "flight_knee_overfold_rad": 0.26,
+     "knee_sep_min_m": 0.18,
+     "track_body_err_m": 0.1056,
+     "track_joint_err": 2.0797,
+     "knee_sep_max_m": 0.287,
+     "flight_hip_roll_max_rad": 0.19,
+     "flight_hip_yaw_max_rad": 0.23,
+     "stand_arm_vel_rms": 2.219,
+     "stand_action_change": 0.368,
+     "stand_pelvis_speed": 1.035,
+     "stand_torso_angvel": 1.353
+    }
+   ],
+   "adjust": [
+    "(suggestion) full flip landed -> keep knobs, train on",
+    "(suggestion) took off 5 steps early -> stay-down x1.5",
+    "(suggestion) flow complete -> fidelity stage 1: tracking x2.25, std x0.722 (body err 0.1056 m)",
+    "(suggestion) not quiet after landing (arm 2.219 rad/s, torso 1.353 rad/s, action change 0.368) -> quiet x1.5"
+   ],
+   "critic_top": [
+    {
+     "severity": 17.38,
+     "kind": "jitter",
+     "what": "ankle_pitch",
+     "phase": "stand_after",
+     "detail": "left_ankle_pitch_joint: joint acceleration RMS 261 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 14.67,
+     "kind": "jitter",
+     "what": "knee",
+     "phase": "stand_after",
+     "detail": "left_knee_joint: joint acceleration RMS 220 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 12.95,
+     "kind": "jitter",
+     "what": "ankle_roll",
+     "phase": "stand_after",
+     "detail": "left_ankle_roll_joint: joint acceleration RMS 194 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 12.89,
+     "kind": "jitter",
+     "what": "hip_yaw",
+     "phase": "stand_after",
+     "detail": "left_hip_yaw_joint: joint acceleration RMS 193 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 8.78,
+     "kind": "jitter",
+     "what": "wrist_roll",
+     "phase": "stand_after",
+     "detail": "right_wrist_roll_joint: joint acceleration RMS 132 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 8.67,
+     "kind": "jitter",
+     "what": "all",
+     "phase": "stand_after",
+     "detail": "mean action change 0.433 (quiet < 0.05)"
+    },
+    {
+     "severity": 7.33,
+     "kind": "jitter",
+     "what": "shoulder_pitch",
+     "phase": "stand_after",
+     "detail": "left_shoulder_pitch_joint: joint acceleration RMS 110 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 7.22,
+     "kind": "jitter",
+     "what": "hip_pitch",
+     "phase": "stand_after",
+     "detail": "left_hip_pitch_joint: joint acceleration RMS 108 vs reference 0 rad/s^2"
+    }
+   ],
+   "library_changes": [
+    "suggest: fix jitter:ankle_pitch:stand_after (severity 17.38, weight now 0.0)",
+    "suggest: fix jitter:knee:stand_after (severity 14.67, weight now 0.0)",
+    "suggest: fix jitter:ankle_roll:stand_after (severity 12.95, weight now 0.0)",
+    "suggest: fix jitter:hip_yaw:stand_after (severity 12.89, weight now 0.0)",
+    "suggest: fix jitter:wrist_roll:stand_after (severity 8.78, weight now 0.0)",
+    "suggest: fix jitter:all:stand_after (severity 8.67, weight now 2.0)",
+    "suggest: fix jitter:hip_pitch:stand_after (severity 7.22, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:takeoff (severity 5.4, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand_after (severity 5.3, weight now 0.0)",
+    "suggest: fix jitter:shoulder_yaw:stand_after (severity 4.98, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:flight (severity 4.64, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:stand_after (severity 4.4, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:takeoff (severity 4.09, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:takeoff (severity 3.73, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:takeoff (severity 3.6, weight now 0.0)",
+    "suggest: fix jitter:ankle_pitch:settle (severity 3.57, weight now 0.0)",
+    "suggest: fix body:ankle_roll:takeoff (severity 3.44, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand (severity 3.35, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:flight (severity 3.29, weight now 0.0)",
+    "suggest: fix jitter:all:settle (severity 3.14, weight now 1.0)",
+    "suggest: fix asymmetry:hip_yaw:stand_after (severity 3.08, weight now 0.0)",
+    "suggest: fix joint:elbow:takeoff (severity 3.07, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:flight (severity 2.86, weight now 0.0)",
+    "suggest: fix jitter:hip_yaw:settle (severity 2.65, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:stand_after (severity 2.57, weight now 0.0)",
+    "suggest: fix joint:ankle_pitch:takeoff (severity 2.45, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:land (severity 2.42, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:stand (severity 2.31, weight now 0.0)",
+    "suggest: fix body:knee:flight (severity 2.28, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:stand_after (severity 2.26, weight now 0.0)",
+    "suggest: fix body:ankle_roll:crouch (severity 2.22, weight now 0.0)",
+    "suggest: fix body:knee:takeoff (severity 2.22, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:stand (severity 2.14, weight now 0.0)",
+    "suggest: fix jitter:knee:settle (severity 2.14, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:stand (severity 2.01, weight now 0.0)",
+    "suggest: fix contact:left_foot:stand (severity 2.0, weight now 2.0)",
+    "suggest: fix joint:shoulder_pitch:flight (severity 1.93, weight now 0.0)",
+    "suggest: fix joint:elbow:stand_after (severity 1.83, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:flight (severity 1.79, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:flight (severity 1.77, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:settle (severity 1.72, weight now 0.0)",
+    "suggest: fix joint:elbow:crouch (severity 1.68, weight now 0.0)",
+    "suggest: fix asymmetry:hip_roll:stand_after (severity 1.58, weight now 1.0)",
+    "suggest: fix asymmetry:hip_yaw:crouch (severity 1.57, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:takeoff (severity 1.51, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:crouch (severity 1.5, weight now 0.0)",
+    "suggest: fix joint:elbow:stand (severity 1.42, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:flight (severity 1.38, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand_after (severity 1.35, weight now 0.0)",
+    "suggest: fix contact:left_foot:stand_after (severity 1.33, weight now 2.0)",
+    "suggest: fix joint:hip_pitch:takeoff (severity 1.32, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:crouch (severity 1.3, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:takeoff (severity 1.3, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:stand_after (severity 1.3, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:crouch (severity 1.28, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:flight (severity 1.28, weight now 0.0)",
+    "suggest: fix joint:waist_pitch:flight (severity 1.24, weight now 0.0)",
+    "suggest: fix body:ankle_roll:land (severity 1.24, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:crouch (severity 1.22, weight now 0.0)",
+    "suggest: fix body:knee:crouch (severity 1.22, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:crouch (severity 1.17, weight now 0.0)",
+    "suggest: fix asymmetry:knee:stand_after (severity 1.17, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:stand (severity 1.15, weight now 0.0)",
+    "suggest: fix joint:knee:takeoff (severity 1.1, weight now 0.0)",
+    "suggest: fix asymmetry:hip_pitch:stand_after (severity 1.06, weight now 0.0)",
+    "suggest: fix joint:elbow:flight (severity 1.03, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:crouch (severity 1.02, weight now 0.0)",
+    "NEW check jitter:shoulder_pitch:stand_after (severity 7.33) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:hip_roll:stand_after (severity 6.06) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:elbow:stand_after (severity 4.68) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_pitch:flight (severity 4.65) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:waist_roll:stand_after (severity 4.4) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:waist_yaw:stand_after (severity 4.28) with template fix (fix not switched on: LLM decides)"
+   ],
+   "escalate": [
+    {
+     "check": "body:ankle_roll:flight",
+     "severity": 3.16,
+     "detail": "left_ankle_roll_link: mean 0.25 m, max 0.40 m",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    }
+   ],
+   "mode": "llm",
+   "decision": {
+    "round": 11,
+    "decider": "agent (Claude, in the Claude Code session)",
+    "protocol": "step 1 analysis/r10_quant.md (automatic) -> step 2 analysis/r10_llm.md -> step 3 this file -> train",
+    "based_on": "r10 model_8000 (score 7.414, best policy by the sheets)",
+    "init": {
+     "run": "2026-10-23_04-30-18_flipauto_r10",
+     "ckpt": "model_8000.pt"
+    },
+    "reviewed_sheets": [
+     "000-039",
+     "040-079",
+     "080-119",
+     "120-159",
+     "160-187"
+    ],
+    "human_input": [],
+    "priorities": [
+     "P1 slow squat + forward lean after landing (knees 0.8 vs 0.06 rad, tilt 16-20 deg, feet 0.35 m)",
+     "P2 right arm forward after landing (counterweight of P1; re-check)",
+     "P3 pre-flip arm raise asymmetric (sev 2.6): later"
+    ],
+    "knobs": {
+     "terms.term_stand_fail.max_tilt": 25.0,
+     "extra_dyn": [
+      {
+       "name": "agent_r09_hip_tuck",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_hip_pitch_joint",
+         "right_hip_pitch_joint"
+        ],
+        "phases": [
+         "flight"
+        ],
+        "std": 0.6
+       }
+      },
+      {
+       "name": "agent_r09_arms_air",
+       "func": "dyn_joint",
+       "weight": 2.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "takeoff",
+         "flight",
+         "land"
+        ],
+        "std": 0.8
+       }
+      },
+      {
+       "name": "agent_r10_arms_stand",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "settle",
+         "stand_after"
+        ],
+        "std": 1.0
+       }
+      },
+      {
+       "name": "agent_r11_legs_stand",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_knee_joint",
+         "right_knee_joint",
+         "left_hip_pitch_joint",
+         "right_hip_pitch_joint",
+         "left_ankle_pitch_joint",
+         "right_ankle_pitch_joint"
+        ],
+        "phases": [
+         "stand_after"
+        ],
+        "std": 0.4
+       }
+      }
+     ]
+    },
+    "library": {},
+    "library_params": {},
+    "code_changes": [
+     "harness: a decision may set `init` (start checkpoint); r10's score is lower than r09's only because of the 15 deg end-tilt threshold, the sheets show r10 is the better policy"
+    ],
+    "expect": {
+     "end_tilt_deg": "< 10 (r10 18.3)",
+     "stand_knee_rad": "< 0.3 (r10 0.8)",
+     "pelvis_after_landing_m": "> 0.76 (r10 0.72)",
+     "stand_stable": "true",
+     "stand_feet_off_steps": "0 (r10 0)",
+     "stand_action_change": "< 0.2 (r10 0.14)",
+     "rotation_deg": ">= 345 (r10 353)",
+     "plane_dev_max_deg": "< 12 (r10 9.1)"
+    },
+    "rollback_if": "rotation < 330 or no upright landing: r12 from r10 model_8000 without the leg term"
+   }
+  },
+  {
+   "round": 12,
+   "run": "2026-10-23_07-20-15_flipauto_r12",
+   "minutes": 80.4,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 5.0,
+     "flip_stand_quiet": 3.0,
+     "flip_stand_still": 4.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 25.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 1.5,
+     "std_scale": 0.85
+    },
+    "extra_dyn": [
+     {
+      "name": "agent_r09_hip_tuck",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint"
+       ],
+       "phases": [
+        "flight"
+       ],
+       "std": 0.6
+      }
+     },
+     {
+      "name": "agent_r09_arms_air",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "takeoff",
+        "flight",
+        "land"
+       ],
+       "std": 0.8
+      }
+     },
+     {
+      "name": "agent_r10_arms_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "settle",
+        "stand_after"
+       ],
+       "std": 1.0
+      }
+     },
+     {
+      "name": "agent_r11_legs_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_knee_joint",
+        "right_knee_joint",
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint",
+        "left_ankle_pitch_joint",
+        "right_ankle_pitch_joint"
+       ],
+       "phases": [
+        "stand_after"
+       ],
+       "std": 0.4
+      }
+     }
+    ]
+   },
+   "ep_len_end": 477.22,
+   "evals": [
+    {
+     "ckpt": "model_10000.pt",
+     "score": 9.519,
+     "robot_rotation_deg": 367.9,
+     "robot_max_rotation_deg": 367.9,
+     "robot_peak_pelvis_m": 1.068,
+     "pelvis_rise_m": 0.3,
+     "robot_airborne_s": 0.56,
+     "landed_upright": true,
+     "end_tilt_deg": 8.2,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.1,
+     "plane_dev_mean_deg": 4.4,
+     "leg_asym_deg": 1.6,
+     "leg_err_deg": 6.2,
+     "feet_dist_max_m": 0.215,
+     "feet_dist_touchdown_m": 0.196,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 0,
+     "flight_hip_err_rad": -0.07,
+     "rot_at_ref_landing_deg": 317.2,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.698,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.197,
+     "flight_hip_mean_rad": -1.62,
+     "flight_knee_max_rad": 1.62,
+     "flight_knee_overfold_rad": 0.29,
+     "knee_sep_min_m": 0.182,
+     "track_body_err_m": 0.0825,
+     "track_joint_err": 1.7302,
+     "knee_sep_max_m": 0.284,
+     "flight_hip_roll_max_rad": 0.16,
+     "flight_hip_yaw_max_rad": 0.23,
+     "stand_arm_vel_rms": 0.676,
+     "stand_action_change": 0.0507,
+     "stand_pelvis_speed": 0.14,
+     "stand_torso_angvel": 0.466
+    },
+    {
+     "ckpt": "model_10500.pt",
+     "score": 9.498,
+     "robot_rotation_deg": 361.4,
+     "robot_max_rotation_deg": 362.7,
+     "robot_peak_pelvis_m": 1.154,
+     "pelvis_rise_m": 0.372,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 1.8,
+     "early_fall": false,
+     "plane_dev_max_deg": 11.2,
+     "plane_dev_mean_deg": 5.0,
+     "leg_asym_deg": 2.5,
+     "leg_err_deg": 4.9,
+     "feet_dist_max_m": 0.208,
+     "feet_dist_touchdown_m": 0.204,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.1,
+     "rot_at_ref_landing_deg": 322.7,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.747,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.146,
+     "flight_hip_mean_rad": -1.64,
+     "flight_knee_max_rad": 1.58,
+     "flight_knee_overfold_rad": 0.26,
+     "knee_sep_min_m": 0.179,
+     "track_body_err_m": 0.0768,
+     "track_joint_err": 1.7691,
+     "knee_sep_max_m": 0.28,
+     "flight_hip_roll_max_rad": 0.17,
+     "flight_hip_yaw_max_rad": 0.25,
+     "stand_arm_vel_rms": 0.726,
+     "stand_action_change": 0.1,
+     "stand_pelvis_speed": 0.092,
+     "stand_torso_angvel": 0.633
+    },
+    {
+     "ckpt": "model_10998.pt",
+     "score": 9.495,
+     "robot_rotation_deg": 365.4,
+     "robot_max_rotation_deg": 366.4,
+     "robot_peak_pelvis_m": 1.164,
+     "pelvis_rise_m": 0.402,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 2.6,
+     "early_fall": false,
+     "plane_dev_max_deg": 8.4,
+     "plane_dev_mean_deg": 4.8,
+     "leg_asym_deg": 2.1,
+     "leg_err_deg": 5.4,
+     "feet_dist_max_m": 0.231,
+     "feet_dist_touchdown_m": 0.201,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.13,
+     "rot_at_ref_landing_deg": 322.9,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.739,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.178,
+     "flight_hip_mean_rad": -1.67,
+     "flight_knee_max_rad": 1.72,
+     "flight_knee_overfold_rad": 0.29,
+     "knee_sep_min_m": 0.174,
+     "track_body_err_m": 0.0822,
+     "track_joint_err": 1.7126,
+     "knee_sep_max_m": 0.298,
+     "flight_hip_roll_max_rad": 0.23,
+     "flight_hip_yaw_max_rad": 0.22,
+     "stand_arm_vel_rms": 0.699,
+     "stand_action_change": 0.0708,
+     "stand_pelvis_speed": 0.045,
+     "stand_torso_angvel": 0.335
+    }
+   ],
+   "adjust": [
+    "(suggestion) full flip landed -> keep knobs, train on",
+    "(suggestion) took off 5 steps early -> stay-down x1.5",
+    "(suggestion) flow complete -> fidelity stage 1: tracking x2.25, std x0.722 (body err 0.0825 m)",
+    "(suggestion) not quiet after landing (arm 0.676 rad/s, torso 0.466 rad/s, action change 0.0507) -> quiet x1.5"
+   ],
+   "critic_top": [
+    {
+     "severity": 5.03,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "takeoff",
+     "detail": "right_wrist_pitch_joint: mean |err| 75 deg (signed +75), step 97: robot +0.99 vs ref -0.38 rad"
+    },
+    {
+     "severity": 4.71,
+     "kind": "joint",
+     "what": "shoulder_yaw",
+     "phase": "takeoff",
+     "detail": "left_shoulder_yaw_joint: mean |err| 71 deg (signed +71), step 94: robot +0.21 vs ref -1.15 rad"
+    },
+    {
+     "severity": 4.48,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "flight",
+     "detail": "right_wrist_pitch_joint: mean |err| 67 deg (signed +67), step 107: robot +1.01 vs ref -0.43 rad"
+    },
+    {
+     "severity": 3.91,
+     "kind": "body",
+     "what": "wrist_yaw",
+     "phase": "takeoff",
+     "detail": "left_wrist_yaw_link: mean 0.31 m, max 0.42 m"
+    },
+    {
+     "severity": 3.74,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "flight",
+     "detail": "left/right differ 43 deg vs reference 6 deg"
+    },
+    {
+     "severity": 3.67,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "crouch",
+     "detail": "right_wrist_pitch_joint: mean |err| 55 deg (signed +55), step 90: robot +0.97 vs ref -0.18 rad"
+    },
+    {
+     "severity": 3.34,
+     "kind": "joint",
+     "what": "elbow",
+     "phase": "takeoff",
+     "detail": "right_elbow_joint: mean |err| 50 deg (signed -50), step 91: robot -0.21 vs ref +0.95 rad"
+    },
+    {
+     "severity": 3.3,
+     "kind": "body",
+     "what": "wrist_yaw",
+     "phase": "flight",
+     "detail": "right_wrist_yaw_link: mean 0.26 m, max 0.51 m"
+    }
+   ],
+   "library_changes": [
+    "suggest: fix joint:wrist_pitch:takeoff (severity 5.03, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:takeoff (severity 4.71, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:flight (severity 4.48, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:takeoff (severity 3.91, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:flight (severity 3.74, weight now 0.0)",
+    "suggest: fix joint:elbow:takeoff (severity 3.34, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:flight (severity 3.3, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:flight (severity 3.25, weight now 0.0)",
+    "suggest: fix body:ankle_roll:takeoff (severity 3.0, weight now 0.0)",
+    "suggest: fix body:ankle_roll:flight (severity 2.91, weight now 1.0)",
+    "suggest: fix jitter:ankle_pitch:settle (severity 2.89, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand_after (severity 2.79, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:takeoff (severity 2.79, weight now 0.0)",
+    "suggest: fix joint:elbow:crouch (severity 2.65, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:crouch (severity 2.6, weight now 0.0)",
+    "suggest: fix joint:ankle_pitch:takeoff (severity 2.29, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:stand (severity 2.13, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand (severity 2.1, weight now 0.0)",
+    "suggest: fix body:knee:flight (severity 2.07, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:crouch (severity 2.01, weight now 0.0)",
+    "suggest: fix body:knee:takeoff (severity 2.0, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:crouch (severity 1.95, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand_after (severity 1.88, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:stand_after (severity 1.87, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:flight (severity 1.85, weight now 0.0)",
+    "suggest: fix joint:knee:land (severity 1.84, weight now 0.0)",
+    "suggest: fix body:ankle_roll:crouch (severity 1.83, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:land (severity 1.74, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:takeoff (severity 1.73, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:flight (severity 1.73, weight now 0.0)",
+    "suggest: fix body:ankle_roll:land (severity 1.73, weight now 0.0)",
+    "suggest: fix jitter:all:settle (severity 1.71, weight now 1.0)",
+    "suggest: fix jitter:knee:settle (severity 1.66, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:flight (severity 1.64, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:crouch (severity 1.63, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:flight (severity 1.44, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:stand_after (severity 1.42, weight now 0.0)",
+    "suggest: fix joint:elbow:flight (severity 1.35, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:crouch (severity 1.2, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:crouch (severity 1.19, weight now 0.0)",
+    "suggest: fix joint:knee:takeoff (severity 1.16, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:crouch (severity 1.15, weight now 0.0)",
+    "suggest: fix body:knee:crouch (severity 1.15, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:land (severity 1.14, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:settle (severity 1.11, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:stand (severity 1.08, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:crouch (severity 1.06, weight now 0.0)",
+    "suggest: fix asymmetry:hip_pitch:takeoff (severity 1.06, weight now 0.0)",
+    "NEW check joint:wrist_pitch:crouch (severity 3.67) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_pitch:stand (severity 3.23) with template fix (fix not switched on: LLM decides)",
+    "NEW check body:wrist_yaw:stand (severity 2.33) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_yaw:takeoff (severity 2.14) with template fix (fix not switched on: LLM decides)"
+   ],
+   "escalate": [
+    {
+     "check": "contact:left_foot:stand",
+     "severity": 2.67,
+     "detail": "left_foot off the floor for 8 of 71 steps",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    }
+   ],
+   "mode": "llm",
+   "decision": {
+    "round": 12,
+    "decider": "agent (Claude, in the Claude Code session)",
+    "protocol": "step 1 analysis/r11_quant.md (automatic) -> step 2 analysis/r11_llm.md -> step 3 this file -> train",
+    "based_on": "r11 model_9499 (score 9.433)",
+    "init": {
+     "run": "2026-10-23_05-54-33_flipauto_r11",
+     "ckpt": "model_9499.pt"
+    },
+    "reviewed_sheets": [
+     "000-039",
+     "040-079",
+     "080-119",
+     "120-159",
+     "160-187"
+    ],
+    "human_input": [],
+    "priorities": [
+     "P1 walk-off from the settle -> stand label switch (step 155; speed 0.32 -> 1.19 m/s, drift 0.77 m): balance terms were gated to land/settle only",
+     "P2 arm held out after landing: re-check after P1"
+    ],
+    "knobs": {},
+    "library": {},
+    "library_params": {},
+    "code_changes": [
+     "flip_rewards: flip_land, flip_feet_together, flip_land_balance also gate on stand_after (the walk-off / squat of rounds 9-11 started at the label switch where these stopped)",
+     "quant_report: section E prints pelvis speed and drift per label segment"
+    ],
+    "expect": {
+     "stand_after_pelvis_speed_mean": "< 0.3 m/s (r11 1.19)",
+     "stand_after_drift_m": "< 0.15 (r11 0.77)",
+     "stand_action_change": "< 0.2 (r11 0.37)",
+     "end_tilt_deg": "< 10 (r11 6.4)",
+     "rotation_deg": ">= 345 (r11 371)",
+     "plane_dev_max_deg": "< 10 (r11 5.3)"
+    },
+    "rollback_if": "rotation < 330 or no upright landing: r13 from r11 model_9499 with the gate change only on land_balance"
+   }
+  },
+  {
+   "round": 13,
+   "run": "2026-10-23_08-45-13_flipauto_r13",
+   "minutes": 81.3,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 5.0,
+     "flip_stand_quiet": 3.0,
+     "flip_stand_still": 4.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 25.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 2.25,
+     "std_scale": 0.722
+    },
+    "extra_dyn": [
+     {
+      "name": "agent_r09_hip_tuck",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint"
+       ],
+       "phases": [
+        "flight"
+       ],
+       "std": 0.6
+      }
+     },
+     {
+      "name": "agent_r09_arms_air",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "takeoff",
+        "flight",
+        "land"
+       ],
+       "std": 0.8
+      }
+     },
+     {
+      "name": "agent_r10_arms_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "settle",
+        "stand_after"
+       ],
+       "std": 1.0
+      }
+     },
+     {
+      "name": "agent_r11_legs_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_knee_joint",
+        "right_knee_joint",
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint",
+        "left_ankle_pitch_joint",
+        "right_ankle_pitch_joint"
+       ],
+       "phases": [
+        "stand_after"
+       ],
+       "std": 0.4
+      }
+     },
+     {
+      "name": "agent_r13_arms_prestand",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "stand"
+       ],
+       "std": 0.8
+      }
+     }
+    ]
+   },
+   "ep_len_end": 459.07,
+   "evals": [
+    {
+     "ckpt": "model_10500.pt",
+     "score": 9.493,
+     "robot_rotation_deg": 361.5,
+     "robot_max_rotation_deg": 363.2,
+     "robot_peak_pelvis_m": 1.127,
+     "pelvis_rise_m": 0.35,
+     "robot_airborne_s": 0.56,
+     "landed_upright": true,
+     "end_tilt_deg": 0.8,
+     "early_fall": false,
+     "plane_dev_max_deg": 12.6,
+     "plane_dev_mean_deg": 6.6,
+     "leg_asym_deg": 2.3,
+     "leg_err_deg": 5.9,
+     "feet_dist_max_m": 0.236,
+     "feet_dist_touchdown_m": 0.203,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 0,
+     "flight_hip_err_rad": -0.11,
+     "rot_at_ref_landing_deg": 319.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.728,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.145,
+     "flight_hip_mean_rad": -1.66,
+     "flight_knee_max_rad": 1.7,
+     "flight_knee_overfold_rad": 0.31,
+     "knee_sep_min_m": 0.18,
+     "track_body_err_m": 0.071,
+     "track_joint_err": 1.5936,
+     "knee_sep_max_m": 0.286,
+     "flight_hip_roll_max_rad": 0.15,
+     "flight_hip_yaw_max_rad": 0.34,
+     "stand_arm_vel_rms": 0.915,
+     "stand_action_change": 0.1498,
+     "stand_pelvis_speed": 0.142,
+     "stand_torso_angvel": 1.0
+    },
+    {
+     "ckpt": "model_11000.pt",
+     "score": 9.502,
+     "robot_rotation_deg": 357.1,
+     "robot_max_rotation_deg": 357.8,
+     "robot_peak_pelvis_m": 1.113,
+     "pelvis_rise_m": 0.343,
+     "robot_airborne_s": 0.56,
+     "landed_upright": true,
+     "end_tilt_deg": 4.1,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.4,
+     "plane_dev_mean_deg": 5.7,
+     "leg_asym_deg": 2.4,
+     "leg_err_deg": 4.8,
+     "feet_dist_max_m": 0.202,
+     "feet_dist_touchdown_m": 0.202,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 0,
+     "flight_hip_err_rad": -0.06,
+     "rot_at_ref_landing_deg": 322.7,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.73,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.151,
+     "flight_hip_mean_rad": -1.6,
+     "flight_knee_max_rad": 1.61,
+     "flight_knee_overfold_rad": 0.37,
+     "knee_sep_min_m": 0.172,
+     "track_body_err_m": 0.0729,
+     "track_joint_err": 1.6272,
+     "knee_sep_max_m": 0.27,
+     "flight_hip_roll_max_rad": 0.16,
+     "flight_hip_yaw_max_rad": 0.29,
+     "stand_arm_vel_rms": 0.885,
+     "stand_action_change": 0.2241,
+     "stand_pelvis_speed": 0.204,
+     "stand_torso_angvel": 0.855
+    },
+    {
+     "ckpt": "model_11499.pt",
+     "score": 9.55,
+     "robot_rotation_deg": 366.9,
+     "robot_max_rotation_deg": 367.0,
+     "robot_peak_pelvis_m": 1.148,
+     "pelvis_rise_m": 0.373,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 2.9,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.3,
+     "plane_dev_mean_deg": 4.1,
+     "leg_asym_deg": 2.0,
+     "leg_err_deg": 4.8,
+     "feet_dist_max_m": 0.212,
+     "feet_dist_touchdown_m": 0.21,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.07,
+     "rot_at_ref_landing_deg": 329.8,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.744,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.165,
+     "flight_hip_mean_rad": -1.62,
+     "flight_knee_max_rad": 1.54,
+     "flight_knee_overfold_rad": 0.27,
+     "knee_sep_min_m": 0.174,
+     "track_body_err_m": 0.073,
+     "track_joint_err": 1.5233,
+     "knee_sep_max_m": 0.269,
+     "flight_hip_roll_max_rad": 0.19,
+     "flight_hip_yaw_max_rad": 0.28,
+     "stand_arm_vel_rms": 0.661,
+     "stand_action_change": 0.0392,
+     "stand_pelvis_speed": 0.047,
+     "stand_torso_angvel": 0.201
+    }
+   ],
+   "adjust": [
+    "(suggestion) full flip landed -> keep knobs, train on",
+    "(suggestion) took off 5 steps early -> stay-down x1.5",
+    "(suggestion) flow complete -> fidelity stage 1: tracking x3.375, std x0.614 (body err 0.073 m)"
+   ],
+   "critic_top": [
+    {
+     "severity": 5.02,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "flight",
+     "detail": "left/right differ 56 deg vs reference 6 deg"
+    },
+    {
+     "severity": 4.89,
+     "kind": "joint",
+     "what": "shoulder_yaw",
+     "phase": "takeoff",
+     "detail": "left_shoulder_yaw_joint: mean |err| 73 deg (signed +73), step 96: robot +0.45 vs ref -1.06 rad"
+    },
+    {
+     "severity": 4.83,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "flight",
+     "detail": "right_wrist_pitch_joint: mean |err| 72 deg (signed +72), step 107: robot +1.07 vs ref -0.43 rad"
+    },
+    {
+     "severity": 4.67,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "takeoff",
+     "detail": "right_wrist_pitch_joint: mean |err| 70 deg (signed +70), step 97: robot +0.87 vs ref -0.38 rad"
+    },
+    {
+     "severity": 4.36,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "takeoff",
+     "detail": "left/right differ 54 deg vs reference 10 deg"
+    },
+    {
+     "severity": 3.86,
+     "kind": "body",
+     "what": "wrist_yaw",
+     "phase": "takeoff",
+     "detail": "right_wrist_yaw_link: mean 0.31 m, max 0.43 m"
+    },
+    {
+     "severity": 3.52,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "stand_after",
+     "detail": "right_wrist_pitch_joint: mean |err| 53 deg (signed +53), step 187: robot +0.85 vs ref -0.13 rad"
+    },
+    {
+     "severity": 3.5,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "crouch",
+     "detail": "right_wrist_pitch_joint: mean |err| 53 deg (signed +53), step 82: robot +0.91 vs ref -0.21 rad"
+    }
+   ],
+   "library_changes": [
+    "suggest: fix asymmetry:wrist_roll:flight (severity 5.02, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:takeoff (severity 4.89, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:flight (severity 4.83, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:takeoff (severity 4.67, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:takeoff (severity 4.36, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:takeoff (severity 3.86, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand_after (severity 3.52, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:crouch (severity 3.5, weight now 0.0)",
+    "suggest: fix joint:elbow:takeoff (severity 3.36, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:takeoff (severity 3.35, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:flight (severity 3.05, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:flight (severity 2.97, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:flight (severity 2.96, weight now 0.0)",
+    "suggest: fix body:ankle_roll:takeoff (severity 2.95, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand (severity 2.57, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:land (severity 2.31, weight now 0.0)",
+    "suggest: fix jitter:all:settle (severity 2.26, weight now 1.0)",
+    "suggest: fix joint:ankle_pitch:takeoff (severity 2.18, weight now 0.0)",
+    "suggest: fix body:knee:takeoff (severity 2.02, weight now 0.0)",
+    "suggest: fix body:knee:flight (severity 2.02, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:flight (severity 1.95, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:takeoff (severity 1.95, weight now 0.0)",
+    "suggest: fix body:ankle_roll:crouch (severity 1.93, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand (severity 1.84, weight now 0.0)",
+    "suggest: fix joint:elbow:crouch (severity 1.79, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:stand (severity 1.76, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:crouch (severity 1.66, weight now 0.0)",
+    "suggest: fix jitter:ankle_pitch:settle (severity 1.66, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_yaw:crouch (severity 1.65, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:crouch (severity 1.6, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:takeoff (severity 1.58, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:flight (severity 1.54, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:flight (severity 1.52, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:stand_after (severity 1.51, weight now 0.0)",
+    "suggest: fix joint:elbow:flight (severity 1.49, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:crouch (severity 1.47, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand_after (severity 1.46, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:crouch (severity 1.34, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:flight (severity 1.26, weight now 0.0)",
+    "suggest: fix jitter:knee:settle (severity 1.21, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:crouch (severity 1.2, weight now 0.0)",
+    "suggest: fix joint:knee:takeoff (severity 1.17, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:crouch (severity 1.14, weight now 0.0)",
+    "suggest: fix joint:waist_pitch:flight (severity 1.14, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:takeoff (severity 1.13, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:crouch (severity 1.11, weight now 0.0)",
+    "suggest: fix body:ankle_roll:land (severity 1.03, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:stand (severity 1.01, weight now 0.0)",
+    "suggest: fix body:knee:crouch (severity 1.01, weight now 0.0)",
+    "NEW check joint:shoulder_pitch:land (severity 2.99) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_roll:takeoff (severity 2.43) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_pitch:settle (severity 2.11) with template fix (fix not switched on: LLM decides)",
+    "NEW check body:elbow:flight (severity 2.04) with template fix (fix not switched on: LLM decides)"
+   ],
+   "escalate": [
+    {
+     "check": "body:ankle_roll:flight",
+     "severity": 2.91,
+     "detail": "left_ankle_roll_link: mean 0.23 m, max 0.44 m",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    }
+   ],
+   "mode": "llm",
+   "decision": {
+    "round": 13,
+    "decider": "agent (Claude, in the Claude Code session)",
+    "protocol": "step 1 analysis/r12_quant.md (automatic) -> step 2 analysis/r12_llm.md -> step 3 this file -> train",
+    "based_on": "r12 model_10000 (score 9.519): full flow complete and clean",
+    "init": {
+     "run": "2026-10-23_07-20-15_flipauto_r12",
+     "ckpt": "model_10000.pt"
+    },
+    "reviewed_sheets": [
+     "000-039",
+     "040-079",
+     "080-119",
+     "120-159",
+     "160-187"
+    ],
+    "human_input": [],
+    "priorities": [
+     "P1 fidelity curriculum step (user's curriculum: tighten tracking once the flow is complete)",
+     "P2 pre-flip arm raise (right arm horizontal instead of overhead)"
+    ],
+    "knobs": {
+     "tracking.scale": 2.25,
+     "tracking.std_scale": 0.722,
+     "extra_dyn": [
+      {
+       "name": "agent_r09_hip_tuck",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_hip_pitch_joint",
+         "right_hip_pitch_joint"
+        ],
+        "phases": [
+         "flight"
+        ],
+        "std": 0.6
+       }
+      },
+      {
+       "name": "agent_r09_arms_air",
+       "func": "dyn_joint",
+       "weight": 2.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "takeoff",
+         "flight",
+         "land"
+        ],
+        "std": 0.8
+       }
+      },
+      {
+       "name": "agent_r10_arms_stand",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "settle",
+         "stand_after"
+        ],
+        "std": 1.0
+       }
+      },
+      {
+       "name": "agent_r11_legs_stand",
+       "func": "dyn_joint",
+       "weight": 3.0,
+       "params": {
+        "joints": [
+         "left_knee_joint",
+         "right_knee_joint",
+         "left_hip_pitch_joint",
+         "right_hip_pitch_joint",
+         "left_ankle_pitch_joint",
+         "right_ankle_pitch_joint"
+        ],
+        "phases": [
+         "stand_after"
+        ],
+        "std": 0.4
+       }
+      },
+      {
+       "name": "agent_r13_arms_prestand",
+       "func": "dyn_joint",
+       "weight": 2.0,
+       "params": {
+        "joints": [
+         "left_shoulder_pitch_joint",
+         "right_shoulder_pitch_joint",
+         "left_shoulder_roll_joint",
+         "right_shoulder_roll_joint",
+         "left_shoulder_yaw_joint",
+         "right_shoulder_yaw_joint",
+         "left_elbow_joint",
+         "right_elbow_joint"
+        ],
+        "phases": [
+         "stand"
+        ],
+        "std": 0.8
+       }
+      }
+     ]
+    },
+    "library": {},
+    "library_params": {},
+    "code_changes": [],
+    "expect": {
+     "track_joint_err": "< 1.6 (r12 1.73)",
+     "track_body_err_m": "< 0.08 (r12 0.0825)",
+     "prestand_right_shoulder_pitch_err_rad": "< 0.6 (r12 ~1.1)",
+     "stand_pelvis_speed": "< 0.3 (r12 0.14)",
+     "stand_action_change": "< 0.1 (r12 0.05)",
+     "stand_feet_off_steps": "0",
+     "rotation_deg": ">= 345 (r12 368)",
+     "landed_upright": "true"
+    },
+    "rollback_if": "stand regresses (pelvis speed > 0.4 or action change > 0.2) or rotation < 340: r14 from r12 model_10000, curriculum back to x1.5 / x0.85"
+   }
+  },
+  {
+   "round": 14,
+   "run": "2026-10-23_10-10-11_flipauto_r14",
+   "minutes": 81.2,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 5.0,
+     "flip_stand_quiet": 3.0,
+     "flip_stand_still": 4.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 25.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 3.375,
+     "std_scale": 0.614
+    },
+    "extra_dyn": [
+     {
+      "name": "agent_r09_hip_tuck",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint"
+       ],
+       "phases": [
+        "flight"
+       ],
+       "std": 0.6
+      }
+     },
+     {
+      "name": "agent_r09_arms_air",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "takeoff",
+        "flight",
+        "land"
+       ],
+       "std": 0.8
+      }
+     },
+     {
+      "name": "agent_r10_arms_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "settle",
+        "stand_after"
+       ],
+       "std": 1.0
+      }
+     },
+     {
+      "name": "agent_r11_legs_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_knee_joint",
+        "right_knee_joint",
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint",
+        "left_ankle_pitch_joint",
+        "right_ankle_pitch_joint"
+       ],
+       "phases": [
+        "stand_after"
+       ],
+       "std": 0.4
+      }
+     },
+     {
+      "name": "agent_r13_arms_prestand",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "stand"
+       ],
+       "std": 0.8
+      }
+     }
+    ]
+   },
+   "ep_len_end": 480.89,
+   "evals": [
+    {
+     "ckpt": "model_12000.pt",
+     "score": 9.61,
+     "robot_rotation_deg": 364.9,
+     "robot_max_rotation_deg": 366.5,
+     "robot_peak_pelvis_m": 1.118,
+     "pelvis_rise_m": 0.344,
+     "robot_airborne_s": 0.56,
+     "landed_upright": true,
+     "end_tilt_deg": 1.9,
+     "early_fall": false,
+     "plane_dev_max_deg": 6.4,
+     "plane_dev_mean_deg": 2.9,
+     "leg_asym_deg": 2.1,
+     "leg_err_deg": 5.2,
+     "feet_dist_max_m": 0.207,
+     "feet_dist_touchdown_m": 0.207,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 0,
+     "flight_hip_err_rad": -0.11,
+     "rot_at_ref_landing_deg": 322.3,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.729,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.162,
+     "flight_hip_mean_rad": -1.65,
+     "flight_knee_max_rad": 1.62,
+     "flight_knee_overfold_rad": 0.33,
+     "knee_sep_min_m": 0.181,
+     "track_body_err_m": 0.0638,
+     "track_joint_err": 1.5039,
+     "knee_sep_max_m": 0.277,
+     "flight_hip_roll_max_rad": 0.17,
+     "flight_hip_yaw_max_rad": 0.3,
+     "stand_arm_vel_rms": 0.803,
+     "stand_action_change": 0.0527,
+     "stand_pelvis_speed": 0.076,
+     "stand_torso_angvel": 0.399
+    },
+    {
+     "ckpt": "model_12500.pt",
+     "score": 9.606,
+     "robot_rotation_deg": 366.6,
+     "robot_max_rotation_deg": 367.3,
+     "robot_peak_pelvis_m": 1.197,
+     "pelvis_rise_m": 0.416,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 1.1,
+     "early_fall": false,
+     "plane_dev_max_deg": 6.6,
+     "plane_dev_mean_deg": 3.7,
+     "leg_asym_deg": 2.0,
+     "leg_err_deg": 5.4,
+     "feet_dist_max_m": 0.223,
+     "feet_dist_touchdown_m": 0.2,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.13,
+     "rot_at_ref_landing_deg": 327.6,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.763,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.167,
+     "flight_hip_mean_rad": -1.67,
+     "flight_knee_max_rad": 1.62,
+     "flight_knee_overfold_rad": 0.36,
+     "knee_sep_min_m": 0.181,
+     "track_body_err_m": 0.0613,
+     "track_joint_err": 1.4079,
+     "knee_sep_max_m": 0.292,
+     "flight_hip_roll_max_rad": 0.18,
+     "flight_hip_yaw_max_rad": 0.28,
+     "stand_arm_vel_rms": 0.703,
+     "stand_action_change": 0.0644,
+     "stand_pelvis_speed": 0.083,
+     "stand_torso_angvel": 0.221
+    },
+    {
+     "ckpt": "model_12998.pt",
+     "score": 9.591,
+     "robot_rotation_deg": 365.4,
+     "robot_max_rotation_deg": 365.4,
+     "robot_peak_pelvis_m": 1.133,
+     "pelvis_rise_m": 0.352,
+     "robot_airborne_s": 0.56,
+     "landed_upright": true,
+     "end_tilt_deg": 2.6,
+     "early_fall": false,
+     "plane_dev_max_deg": 9.0,
+     "plane_dev_mean_deg": 4.8,
+     "leg_asym_deg": 2.1,
+     "leg_err_deg": 5.4,
+     "feet_dist_max_m": 0.204,
+     "feet_dist_touchdown_m": 0.199,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 0,
+     "flight_hip_err_rad": -0.14,
+     "rot_at_ref_landing_deg": 321.5,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.73,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.167,
+     "flight_hip_mean_rad": -1.69,
+     "flight_knee_max_rad": 1.7,
+     "flight_knee_overfold_rad": 0.37,
+     "knee_sep_min_m": 0.176,
+     "track_body_err_m": 0.058,
+     "track_joint_err": 1.3097,
+     "knee_sep_max_m": 0.278,
+     "flight_hip_roll_max_rad": 0.19,
+     "flight_hip_yaw_max_rad": 0.28,
+     "stand_arm_vel_rms": 0.632,
+     "stand_action_change": 0.0297,
+     "stand_pelvis_speed": 0.065,
+     "stand_torso_angvel": 0.346
+    }
+   ],
+   "adjust": [
+    "(suggestion) full flip landed -> keep knobs, train on",
+    "(suggestion) took off 5 steps early -> stay-down x1.5",
+    "(suggestion) flow complete -> fidelity stage 1: tracking x4.0, std x0.522 (body err 0.0638 m)",
+    "(suggestion) not quiet after landing (arm 0.803 rad/s, torso 0.399 rad/s, action change 0.0527) -> quiet x1.5"
+   ],
+   "critic_top": [
+    {
+     "severity": 7.23,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "flight",
+     "detail": "left/right differ 78 deg vs reference 6 deg"
+    },
+    {
+     "severity": 5.21,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "takeoff",
+     "detail": "left/right differ 62 deg vs reference 10 deg"
+    },
+    {
+     "severity": 4.64,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "flight",
+     "detail": "right_wrist_pitch_joint: mean |err| 70 deg (signed +70), step 107: robot +1.01 vs ref -0.43 rad"
+    },
+    {
+     "severity": 4.46,
+     "kind": "joint",
+     "what": "shoulder_yaw",
+     "phase": "takeoff",
+     "detail": "right_shoulder_yaw_joint: mean |err| 67 deg (signed -67), step 97: robot -0.43 vs ref +1.07 rad"
+    },
+    {
+     "severity": 4.44,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "takeoff",
+     "detail": "right_wrist_pitch_joint: mean |err| 67 deg (signed +67), step 97: robot +0.84 vs ref -0.38 rad"
+    },
+    {
+     "severity": 3.87,
+     "kind": "body",
+     "what": "wrist_yaw",
+     "phase": "takeoff",
+     "detail": "right_wrist_yaw_link: mean 0.31 m, max 0.41 m"
+    },
+    {
+     "severity": 3.81,
+     "kind": "joint",
+     "what": "wrist_roll",
+     "phase": "flight",
+     "detail": "left_wrist_roll_joint: mean |err| 57 deg (signed -57), step 107: robot -0.99 vs ref +0.70 rad"
+    },
+    {
+     "severity": 3.58,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "crouch",
+     "detail": "right_wrist_pitch_joint: mean |err| 54 deg (signed +54), step 82: robot +0.89 vs ref -0.21 rad"
+    }
+   ],
+   "library_changes": [
+    "suggest: fix asymmetry:wrist_roll:flight (severity 7.23, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:takeoff (severity 5.21, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:flight (severity 4.64, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:takeoff (severity 4.46, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:takeoff (severity 4.44, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:takeoff (severity 3.87, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:flight (severity 3.81, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:crouch (severity 3.58, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:takeoff (severity 3.32, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand_after (severity 3.12, weight now 0.0)",
+    "suggest: fix joint:elbow:takeoff (severity 3.02, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand (severity 2.93, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:flight (severity 2.91, weight now 0.0)",
+    "suggest: fix body:ankle_roll:takeoff (severity 2.85, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:takeoff (severity 2.83, weight now 0.0)",
+    "suggest: fix jitter:ankle_pitch:settle (severity 2.72, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:land (severity 2.65, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:flight (severity 2.52, weight now 0.0)",
+    "suggest: fix joint:ankle_pitch:takeoff (severity 2.42, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:crouch (severity 2.38, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:takeoff (severity 2.29, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:land (severity 2.15, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:flight (severity 2.06, weight now 0.0)",
+    "suggest: fix body:knee:takeoff (severity 2.05, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:land (severity 1.91, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:flight (severity 1.87, weight now 0.0)",
+    "suggest: fix body:knee:flight (severity 1.84, weight now 0.0)",
+    "suggest: fix body:elbow:flight (severity 1.8, weight now 0.0)",
+    "suggest: fix joint:elbow:crouch (severity 1.71, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:flight (severity 1.67, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:crouch (severity 1.59, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:takeoff (severity 1.52, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:settle (severity 1.51, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand (severity 1.5, weight now 0.0)",
+    "suggest: fix jitter:knee:settle (severity 1.42, weight now 0.0)",
+    "suggest: fix body:ankle_roll:crouch (severity 1.41, weight now 0.0)",
+    "suggest: fix asymmetry:elbow:crouch (severity 1.41, weight now 0.0)",
+    "suggest: fix joint:elbow:flight (severity 1.36, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:flight (severity 1.28, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:stand_after (severity 1.19, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:crouch (severity 1.18, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:stand (severity 1.18, weight now 0.0)",
+    "suggest: fix joint:knee:takeoff (severity 1.12, weight now 0.0)",
+    "suggest: fix asymmetry:knee:takeoff (severity 1.09, weight now 0.0)",
+    "suggest: fix body:ankle_roll:land (severity 1.09, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:crouch (severity 1.03, weight now 0.0)",
+    "NEW check joint:elbow:land (severity 2.77) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:waist_roll:land (severity 2.15) with template fix (fix not switched on: LLM decides)"
+   ],
+   "escalate": [
+    {
+     "check": "jitter:all:settle",
+     "severity": 2.99,
+     "detail": "mean action change 0.149 (quiet < 0.05)",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    },
+    {
+     "check": "body:ankle_roll:flight",
+     "severity": 2.65,
+     "detail": "right_ankle_roll_link: mean 0.21 m, max 0.40 m",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    }
+   ],
+   "mode": "llm",
+   "decision": {
+    "round": 14,
+    "decider": "agent (Claude, in the Claude Code session)",
+    "protocol": "step 1 analysis/r13_quant.md (automatic) -> step 2 analysis/r13_llm.md -> step 3 this file -> train",
+    "based_on": "r13 model_11499 (score 9.55)",
+    "init": {
+     "run": "2026-10-23_08-45-13_flipauto_r13",
+     "ckpt": "model_11499.pt"
+    },
+    "reviewed_sheets": [
+     "000-039",
+     "040-079",
+     "080-119",
+     "120-159",
+     "160-187"
+    ],
+    "human_input": [],
+    "priorities": [
+     "P1 fidelity curriculum step 2 (arm errors at take-off / landing are tracking errors)",
+     "- wrists: cosmetic, unreliable reference"
+    ],
+    "knobs": {
+     "tracking.scale": 3.375,
+     "tracking.std_scale": 0.614
+    },
+    "library": {},
+    "library_params": {},
+    "code_changes": [],
+    "expect": {
+     "track_joint_err": "< 1.4 (r13 1.52)",
+     "track_body_err_m": "< 0.065 (r13 0.073)",
+     "takeoff_shoulder_yaw_sev": "< 3 (r13 4.9)",
+     "stand_pelvis_speed": "< 0.3 (r13 0.047)",
+     "stand_action_change": "< 0.1 (r13 0.039)",
+     "rotation_deg": ">= 345 (r13 367)",
+     "landed_upright": "true"
+    },
+    "rollback_if": "stand pelvis speed > 0.3 or action change > 0.15 or rotation < 340: r15 from r13 model_11499 at x2.25 / x0.722"
+   }
+  },
+  {
+   "round": 15,
+   "run": "2026-10-23_11-39-43_flipauto_r15",
+   "minutes": 92.1,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 3.375,
+     "flip_plane_axis": 3.375,
+     "flip_plane_rate": 2.25,
+     "flip_leg_sym": 6.0,
+     "flip_leg_track": 6.0,
+     "flip_leg_calm": 3.0,
+     "flip_feet_together": 6.0,
+     "flip_tuck": 9.0,
+     "flip_rot_track": 2.0,
+     "flip_land_balance": 3.0,
+     "flip_stay_down": 5.0,
+     "flip_stand_quiet": 3.0,
+     "flip_stand_still": 4.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 2.197,
+     "settle": 0.5,
+     "other": 0.5
+    },
+    "terms": {
+     "term_flight_spread": {
+      "max_d": 0.6
+     },
+     "term_hip_extended": {
+      "max_hip": 0.0
+     },
+     "term_stand_fail": {
+      "max_d": 0.45,
+      "max_tilt": 25.0
+     },
+     "term_leg_twist": {
+      "max_roll": 0.6,
+      "max_yaw": 0.8,
+      "max_knee_sep": 0.45
+     }
+    },
+    "tracking": {
+     "stage": 1,
+     "scale": 3.375,
+     "std_scale": 0.614
+    },
+    "extra_dyn": [
+     {
+      "name": "agent_r09_hip_tuck",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint"
+       ],
+       "phases": [
+        "flight"
+       ],
+       "std": 0.6
+      }
+     },
+     {
+      "name": "agent_r09_arms_air",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "takeoff",
+        "flight",
+        "land"
+       ],
+       "std": 0.8
+      }
+     },
+     {
+      "name": "agent_r10_arms_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "settle",
+        "stand_after"
+       ],
+       "std": 1.0
+      }
+     },
+     {
+      "name": "agent_r11_legs_stand",
+      "func": "dyn_joint",
+      "weight": 3.0,
+      "params": {
+       "joints": [
+        "left_knee_joint",
+        "right_knee_joint",
+        "left_hip_pitch_joint",
+        "right_hip_pitch_joint",
+        "left_ankle_pitch_joint",
+        "right_ankle_pitch_joint"
+       ],
+       "phases": [
+        "stand_after"
+       ],
+       "std": 0.4
+      }
+     },
+     {
+      "name": "agent_r13_arms_prestand",
+      "func": "dyn_joint",
+      "weight": 2.0,
+      "params": {
+       "joints": [
+        "left_shoulder_pitch_joint",
+        "right_shoulder_pitch_joint",
+        "left_shoulder_roll_joint",
+        "right_shoulder_roll_joint",
+        "left_shoulder_yaw_joint",
+        "right_shoulder_yaw_joint",
+        "left_elbow_joint",
+        "right_elbow_joint"
+       ],
+       "phases": [
+        "stand"
+       ],
+       "std": 0.8
+      }
+     }
+    ],
+    "delay_ms": 25.0
+   },
+   "ep_len_end": 448.13,
+   "evals": [
+    {
+     "ckpt": "model_12500.pt",
+     "score": 9.487,
+     "robot_rotation_deg": 370.3,
+     "robot_max_rotation_deg": 371.2,
+     "robot_peak_pelvis_m": 1.161,
+     "pelvis_rise_m": 0.383,
+     "robot_airborne_s": 0.6,
+     "landed_upright": true,
+     "end_tilt_deg": 2.5,
+     "early_fall": false,
+     "plane_dev_max_deg": 10.6,
+     "plane_dev_mean_deg": 5.8,
+     "leg_asym_deg": 2.3,
+     "leg_err_deg": 7.0,
+     "feet_dist_max_m": 0.197,
+     "feet_dist_touchdown_m": 0.193,
+     "takeoff_offset_steps": -6,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.22,
+     "rot_at_ref_landing_deg": 328.6,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.725,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.15,
+     "flight_hip_mean_rad": -1.76,
+     "flight_knee_max_rad": 1.66,
+     "flight_knee_overfold_rad": 0.36,
+     "knee_sep_min_m": 0.185,
+     "track_body_err_m": 0.0768,
+     "track_joint_err": 1.7365,
+     "knee_sep_max_m": 0.272,
+     "flight_hip_roll_max_rad": 0.12,
+     "flight_hip_yaw_max_rad": 0.28,
+     "stand_arm_vel_rms": 0.734,
+     "stand_action_change": 0.0801,
+     "stand_pelvis_speed": 0.149,
+     "stand_torso_angvel": 0.498
+    },
+    {
+     "ckpt": "model_13000.pt",
+     "score": 9.484,
+     "robot_rotation_deg": 368.6,
+     "robot_max_rotation_deg": 369.6,
+     "robot_peak_pelvis_m": 1.159,
+     "pelvis_rise_m": 0.382,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 0.7,
+     "early_fall": false,
+     "plane_dev_max_deg": 13.1,
+     "plane_dev_mean_deg": 6.3,
+     "leg_asym_deg": 2.7,
+     "leg_err_deg": 5.8,
+     "feet_dist_max_m": 0.207,
+     "feet_dist_touchdown_m": 0.194,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.19,
+     "rot_at_ref_landing_deg": 325.0,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.744,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.162,
+     "flight_hip_mean_rad": -1.73,
+     "flight_knee_max_rad": 1.65,
+     "flight_knee_overfold_rad": 0.34,
+     "knee_sep_min_m": 0.184,
+     "track_body_err_m": 0.0715,
+     "track_joint_err": 1.6863,
+     "knee_sep_max_m": 0.265,
+     "flight_hip_roll_max_rad": 0.12,
+     "flight_hip_yaw_max_rad": 0.31,
+     "stand_arm_vel_rms": 0.559,
+     "stand_action_change": 0.0315,
+     "stand_pelvis_speed": 0.067,
+     "stand_torso_angvel": 0.466
+    },
+    {
+     "ckpt": "model_13499.pt",
+     "score": 9.489,
+     "robot_rotation_deg": 367.5,
+     "robot_max_rotation_deg": 370.1,
+     "robot_peak_pelvis_m": 1.175,
+     "pelvis_rise_m": 0.392,
+     "robot_airborne_s": 0.58,
+     "landed_upright": true,
+     "end_tilt_deg": 2.2,
+     "early_fall": false,
+     "plane_dev_max_deg": 11.2,
+     "plane_dev_mean_deg": 6.4,
+     "leg_asym_deg": 2.7,
+     "leg_err_deg": 6.7,
+     "feet_dist_max_m": 0.229,
+     "feet_dist_touchdown_m": 0.2,
+     "takeoff_offset_steps": -5,
+     "landing_offset_steps": 1,
+     "flight_hip_err_rad": -0.25,
+     "rot_at_ref_landing_deg": 320.8,
+     "ref_rot_at_landing_deg": 323.0,
+     "pelvis_min_after_landing_m": 0.733,
+     "stand_stable": true,
+     "stand_feet_d_end": 0.186,
+     "flight_hip_mean_rad": -1.79,
+     "flight_knee_max_rad": 1.73,
+     "flight_knee_overfold_rad": 0.33,
+     "knee_sep_min_m": 0.195,
+     "track_body_err_m": 0.0698,
+     "track_joint_err": 1.69,
+     "knee_sep_max_m": 0.271,
+     "flight_hip_roll_max_rad": 0.16,
+     "flight_hip_yaw_max_rad": 0.34,
+     "stand_arm_vel_rms": 1.086,
+     "stand_action_change": 0.1854,
+     "stand_pelvis_speed": 0.27,
+     "stand_torso_angvel": 0.686
+    }
+   ],
+   "adjust": [
+    "(suggestion) full flip landed -> keep knobs, train on",
+    "(suggestion) took off 5 steps early -> stay-down x1.5",
+    "(suggestion) flow complete -> fidelity stage 1: tracking x4.0, std x0.522 (body err 0.0698 m)",
+    "(suggestion) not quiet after landing (arm 1.086 rad/s, torso 0.686 rad/s, action change 0.1854) -> quiet x1.5"
+   ],
+   "critic_top": [
+    {
+     "severity": 6.44,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "crouch",
+     "detail": "left/right differ 73 deg vs reference 9 deg"
+    },
+    {
+     "severity": 5.93,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "flight",
+     "detail": "left/right differ 65 deg vs reference 6 deg"
+    },
+    {
+     "severity": 5.72,
+     "kind": "jitter",
+     "what": "hip_yaw",
+     "phase": "stand_after",
+     "detail": "right_hip_yaw_joint: joint acceleration RMS 86 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 5.7,
+     "kind": "joint",
+     "what": "shoulder_yaw",
+     "phase": "takeoff",
+     "detail": "left_shoulder_yaw_joint: mean |err| 86 deg (signed +86), step 95: robot +0.64 vs ref -1.11 rad"
+    },
+    {
+     "severity": 5.49,
+     "kind": "jitter",
+     "what": "knee",
+     "phase": "stand_after",
+     "detail": "left_knee_joint: joint acceleration RMS 82 vs reference 0 rad/s^2"
+    },
+    {
+     "severity": 5.2,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "takeoff",
+     "detail": "right_wrist_pitch_joint: mean |err| 78 deg (signed +78), step 93: robot +1.05 vs ref -0.35 rad"
+    },
+    {
+     "severity": 4.63,
+     "kind": "joint",
+     "what": "wrist_pitch",
+     "phase": "flight",
+     "detail": "right_wrist_pitch_joint: mean |err| 69 deg (signed +69), step 98: robot +0.93 vs ref -0.37 rad"
+    },
+    {
+     "severity": 4.54,
+     "kind": "asymmetry",
+     "what": "wrist_roll",
+     "phase": "takeoff",
+     "detail": "left/right differ 56 deg vs reference 10 deg"
+    }
+   ],
+   "library_changes": [
+    "suggest: fix asymmetry:wrist_roll:crouch (severity 6.44, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:flight (severity 5.93, weight now 0.0)",
+    "suggest: fix jitter:hip_yaw:stand_after (severity 5.72, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:takeoff (severity 5.7, weight now 0.0)",
+    "suggest: fix jitter:knee:stand_after (severity 5.49, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:takeoff (severity 5.2, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:flight (severity 4.63, weight now 0.0)",
+    "suggest: fix asymmetry:wrist_roll:takeoff (severity 4.54, weight now 0.0)",
+    "suggest: fix jitter:wrist_roll:stand_after (severity 4.51, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:crouch (severity 4.42, weight now 0.0)",
+    "suggest: fix jitter:ankle_pitch:stand_after (severity 4.18, weight now 0.0)",
+    "suggest: fix jitter:waist_roll:stand_after (severity 3.91, weight now 0.0)",
+    "suggest: fix joint:elbow:takeoff (severity 3.82, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:takeoff (severity 3.72, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand_after (severity 3.34, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:flight (severity 3.28, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:flight (severity 3.27, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:flight (severity 3.01, weight now 0.0)",
+    "suggest: fix jitter:elbow:stand_after (severity 2.87, weight now 0.0)",
+    "suggest: fix jitter:ankle_roll:stand_after (severity 2.86, weight now 0.0)",
+    "suggest: fix joint:wrist_pitch:stand (severity 2.73, weight now 0.0)",
+    "suggest: fix jitter:hip_pitch:stand_after (severity 2.66, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:crouch (severity 2.54, weight now 0.0)",
+    "suggest: fix jitter:hip_roll:stand_after (severity 2.52, weight now 0.0)",
+    "suggest: fix body:ankle_roll:takeoff (severity 2.49, weight now 0.0)",
+    "suggest: fix jitter:shoulder_pitch:stand_after (severity 2.49, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:takeoff (severity 2.48, weight now 0.0)",
+    "suggest: fix jitter:shoulder_yaw:stand_after (severity 2.41, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:takeoff (severity 2.37, weight now 0.0)",
+    "suggest: fix joint:elbow:land (severity 2.25, weight now 0.0)",
+    "suggest: fix body:knee:flight (severity 2.22, weight now 0.0)",
+    "suggest: fix body:ankle_roll:crouch (severity 2.09, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:land (severity 2.0, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand (severity 1.89, weight now 0.0)",
+    "suggest: fix jitter:waist_roll:land (severity 1.87, weight now 0.0)",
+    "suggest: fix jitter:ankle_pitch:settle (severity 1.84, weight now 0.0)",
+    "suggest: fix joint:ankle_pitch:takeoff (severity 1.83, weight now 0.0)",
+    "suggest: fix body:elbow:flight (severity 1.82, weight now 0.0)",
+    "suggest: fix body:knee:takeoff (severity 1.81, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:flight (severity 1.79, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:flight (severity 1.76, weight now 0.0)",
+    "suggest: fix joint:elbow:crouch (severity 1.73, weight now 0.0)",
+    "suggest: fix body:ankle_roll:land (severity 1.71, weight now 0.0)",
+    "suggest: fix joint:knee:land (severity 1.7, weight now 0.0)",
+    "suggest: fix body:wrist_yaw:stand (severity 1.66, weight now 0.0)",
+    "suggest: fix jitter:waist_yaw:stand_after (severity 1.6, weight now 0.0)",
+    "suggest: fix joint:shoulder_roll:flight (severity 1.53, weight now 0.0)",
+    "suggest: fix asymmetry:hip_yaw:takeoff (severity 1.49, weight now 0.0)",
+    "suggest: fix joint:hip_pitch:takeoff (severity 1.48, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_yaw:takeoff (severity 1.48, weight now 1.0)",
+    "suggest: fix body:wrist_yaw:crouch (severity 1.47, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:stand_after (severity 1.39, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_roll:flight (severity 1.37, weight now 0.0)",
+    "suggest: fix asymmetry:ankle_pitch:crouch (severity 1.3, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:land (severity 1.27, weight now 0.0)",
+    "suggest: fix joint:shoulder_pitch:stand (severity 1.24, weight now 0.0)",
+    "suggest: fix joint:elbow:flight (severity 1.17, weight now 0.0)",
+    "suggest: fix joint:shoulder_yaw:crouch (severity 1.16, weight now 0.0)",
+    "suggest: fix joint:wrist_roll:stand_after (severity 1.16, weight now 0.0)",
+    "suggest: fix jitter:knee:settle (severity 1.12, weight now 0.0)",
+    "suggest: fix joint:wrist_yaw:stand_after (severity 1.08, weight now 0.0)",
+    "suggest: fix body:knee:crouch (severity 1.06, weight now 0.0)",
+    "suggest: fix asymmetry:shoulder_pitch:takeoff (severity 1.03, weight now 0.0)",
+    "NEW check joint:wrist_yaw:settle (severity 2.81) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:shoulder_roll:stand_after (severity 2.8) with template fix (fix not switched on: LLM decides)",
+    "NEW check asymmetry:wrist_roll:land (severity 2.74) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_roll:land (severity 2.47) with template fix (fix not switched on: LLM decides)",
+    "NEW check joint:wrist_pitch:land (severity 2.28) with template fix (fix not switched on: LLM decides)",
+    "NEW check jitter:ankle_pitch:land (severity 2.03) with template fix (fix not switched on: LLM decides)"
+   ],
+   "escalate": [
+    {
+     "check": "jitter:all:stand_after",
+     "severity": 4.27,
+     "detail": "mean action change 0.214 (quiet < 0.05)",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    },
+    {
+     "check": "body:ankle_roll:flight",
+     "severity": 3.24,
+     "detail": "left_ankle_roll_link: mean 0.26 m, max 0.44 m",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    },
+    {
+     "check": "jitter:all:settle",
+     "severity": 2.52,
+     "detail": "mean action change 0.126 (quiet < 0.05)",
+     "why": "template fix did not reduce the severity for 2 rounds"
+    }
+   ],
+   "mode": "llm",
+   "decision": {
+    "round": 15,
+    "decider": "agent (Claude, in the Claude Code session)",
+    "protocol": "step 1 analysis/r14_quant.md (automatic + A2 robustness) -> step 2 analysis/r14_llm.md -> step 3 this file -> train",
+    "based_on": "r14 model_12000 (score 9.61): fidelity converged; robustness eval shows 20 ms latency -> 70 % success",
+    "init": {
+     "run": "2026-10-23_10-10-11_flipauto_r14",
+     "ckpt": "model_12000.pt"
+    },
+    "reviewed_sheets": [
+     "000-039",
+     "040-079",
+     "080-119",
+     "120-159",
+     "160-187"
+    ],
+    "human_input": [],
+    "priorities": [
+     "P1 control-latency robustness (sim-to-real): train with 0..25 ms randomised actuator delay",
+     "- fidelity converged; wrists cosmetic"
+    ],
+    "knobs": {
+     "delay_ms": 25.0
+    },
+    "library": {},
+    "library_params": {},
+    "code_changes": [
+     "flip_rewards.add_action_delay + train_dance --delay-ms: mjlab DelayedActuatorCfg around every actuator",
+     "eval_flip_robust.py + robust.sh: 256-env robustness eval (nominal, training DR, delay 20/40 ms, stiffness x0.85)",
+     "harness: robustness eval after every LLM-mode round; quant_report section A2"
+    ],
+    "expect": {
+     "robust_delay1_success": ">= 0.95 (r14 0.695)",
+     "robust_delay2_success": ">= 0.5 (r14 0.0)",
+     "robust_nominal_dr_kp_success": "1.0 (r14 1.0)",
+     "track_body_err_m": "< 0.075 (r14 0.064)",
+     "rotation_deg": ">= 345 (r14 365)",
+     "stand_action_change": "< 0.1 (r14 0.053)"
+    },
+    "rollback_if": "nominal success < 1.0 or rotation < 340: r16 from r14 model_12000 with delay_ms 15"
+   }
+  }
+ ],
+ "knobs": {
+  "flip_rewards": 2.0,
+  "knee_limit": 120.0,
+  "ee_threshold": 0.6,
+  "anchor_pos_threshold": 0.4,
+  "weights": {
+   "flip_pushoff": 2.0,
+   "flip_lean": 1.5,
+   "flip_spin": 3.0,
+   "flip_airborne": 1.5,
+   "flip_height": 1.0,
+   "flip_land": 3.375,
+   "flip_plane_axis": 3.375,
+   "flip_plane_rate": 2.25,
+   "flip_leg_sym": 6.0,
+   "flip_leg_track": 6.0,
+   "flip_leg_calm": 3.0,
+   "flip_feet_together": 6.0,
+   "flip_tuck": 9.0,
+   "flip_rot_track": 2.0,
+   "flip_land_balance": 3.0,
+   "flip_stay_down": 5.0,
+   "flip_stand_quiet": 3.0,
+   "flip_stand_still": 4.0
+  },
+  "prior": {
+   "stand": 0.52,
+   "crouch": 2.6,
+   "takeoff": 2.0,
+   "flight": 0.3,
+   "land": 2.197,
+   "settle": 0.5,
+   "other": 0.5
+  },
+  "terms": {
+   "term_flight_spread": {
+    "max_d": 0.6
+   },
+   "term_hip_extended": {
+    "max_hip": 0.0
+   },
+   "term_stand_fail": {
+    "max_d": 0.45,
+    "max_tilt": 25.0
+   },
+   "term_leg_twist": {
+    "max_roll": 0.6,
+    "max_yaw": 0.8,
+    "max_knee_sep": 0.45
+   }
+  },
+  "tracking": {
+   "stage": 1,
+   "scale": 3.375,
+   "std_scale": 0.614
+  },
+  "extra_dyn": [
+   {
+    "name": "agent_r09_hip_tuck",
+    "func": "dyn_joint",
+    "weight": 3.0,
+    "params": {
+     "joints": [
+      "left_hip_pitch_joint",
+      "right_hip_pitch_joint"
+     ],
+     "phases": [
+      "flight"
+     ],
+     "std": 0.6
+    }
+   },
+   {
+    "name": "agent_r09_arms_air",
+    "func": "dyn_joint",
+    "weight": 2.0,
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "right_shoulder_roll_joint",
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint",
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "takeoff",
+      "flight",
+      "land"
+     ],
+     "std": 0.8
+    }
+   },
+   {
+    "name": "agent_r10_arms_stand",
+    "func": "dyn_joint",
+    "weight": 3.0,
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "right_shoulder_roll_joint",
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint",
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "settle",
+      "stand_after"
+     ],
+     "std": 1.0
+    }
+   },
+   {
+    "name": "agent_r11_legs_stand",
+    "func": "dyn_joint",
+    "weight": 3.0,
+    "params": {
+     "joints": [
+      "left_knee_joint",
+      "right_knee_joint",
+      "left_hip_pitch_joint",
+      "right_hip_pitch_joint",
+      "left_ankle_pitch_joint",
+      "right_ankle_pitch_joint"
+     ],
+     "phases": [
+      "stand_after"
+     ],
+     "std": 0.4
+    }
+   },
+   {
+    "name": "agent_r13_arms_prestand",
+    "func": "dyn_joint",
+    "weight": 2.0,
+    "params": {
+     "joints": [
+      "left_shoulder_pitch_joint",
+      "right_shoulder_pitch_joint",
+      "left_shoulder_roll_joint",
+      "right_shoulder_roll_joint",
+      "left_shoulder_yaw_joint",
+      "right_shoulder_yaw_joint",
+      "left_elbow_joint",
+      "right_elbow_joint"
+     ],
+     "phases": [
+      "stand"
+     ],
+     "std": 0.8
+    }
+   }
+  ],
+  "delay_ms": 25.0
+ },
+ "best": {
+  "run": "2026-10-23_10-10-11_flipauto_r14",
+  "ckpt": "model_12000.pt",
+  "score": 9.61,
+  "round": 14
+ }
+}

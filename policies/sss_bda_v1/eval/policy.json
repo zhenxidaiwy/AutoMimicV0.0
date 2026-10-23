@@ -1,0 +1,14 @@
+{
+ "ckpt": "/home/user/dance_win/policies/sss_bda_v1/policy.pt",
+ "motion": "/home/user/dance_win/policies/sss_bda_v1/reference_motion.npz",
+ "clip_steps": 354,
+ "steps_run": 379,
+ "completed_clip": true,
+ "fell_at_step": null,
+ "fell_at_s": null,
+ "body_pos_err_mean_m": 0.0389,
+ "body_pos_err_max_m": 0.1464,
+ "joint_pos_err_mean": 0.5459,
+ "anchor_z_err_max_m": 0.0613,
+ "video": "/home/user/dance_win/policies/sss_bda_v1/eval/policy.mp4"
+}

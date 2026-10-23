@@ -1,0 +1,13 @@
+{
+  "clip_id": "latin_sss",
+  "source": {"platform": "bilibili", "id": "av117416621246346", "start_s": 0.0, "end_s": 12.45,
+             "origin": "拉丁版闪身步（练功房女舞者）"},
+  "fps": 30, "n_frames": 374, "camera": "static", "people": 1, "full_body": true,
+  "performer": "练功房女舞者", "move": "闪身步(拉丁版)", "quality": 2,
+  "notes": "Stylised Latin variation, continuous travelling steps with crossing legs and turns; no clear flash/hold/recover structure. A 2D-speed swing proposal flagged almost every frame (legs cross and travel), and per-frame contact could not be judged reliably from 360p frames, so contacts are left UNSURE after the opening pose. Use as a style-diversity reference only; excluded from the contact-based ablations.",
+  "annotator": "Claude (VLM); 2D swing proposal rejected as unreliable for this clip",
+  "phases": [[0, 12, "stand"], [13, 52, "prep"], [53, 373, "other"]],
+  "swing": [],
+  "unsure": [[13, 373]],
+  "airborne": []
+}

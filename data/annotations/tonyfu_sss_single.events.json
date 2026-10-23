@@ -1,0 +1,20 @@
+{
+  "clip_id": "tonyfu_sss_single",
+  "source": {"platform": "bilibili", "id": "av117346945600980", "start_s": 11.3, "end_s": 13.0,
+             "origin": "TonyFu小课堂 开头全速单次示范"},
+  "fps": 30,
+  "n_frames": 51,
+  "camera": "static",
+  "people": 1,
+  "full_body": true,
+  "performer": "TonyFu",
+  "move": "闪身步",
+  "quality": 4,
+  "notes": "One full-speed flash: left foot steps out (frames 21-27), right foot closes (29-35). Clip end moved to 13.0 s because a shot cut occurs at original frame 54.",
+  "annotator": "Claude (VLM) + ViTPose 2D ankle speed check",
+  "phases": [[0, 13, "stand"], [14, 20, "prep"], [21, 27, "flash"], [28, 28, "hold"],
+             [29, 35, "recover"], [36, 40, "settle"], [41, 50, "stand"]],
+  "swing": [[21, 27, "L"], [29, 35, "R"]],
+  "unsure": [[28, 28]],
+  "airborne": []
+}

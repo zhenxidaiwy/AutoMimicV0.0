@@ -1,0 +1,29 @@
+{
+ "round": 12,
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r11_quant.md (automatic) -> step 2 analysis/r11_llm.md -> step 3 this file -> train",
+ "based_on": "r11 model_9499 (score 9.433)",
+ "init": {"run": "2026-10-23_05-54-33_flipauto_r11", "ckpt": "model_9499.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-187"],
+ "human_input": [],
+ "priorities": [
+  "P1 walk-off from the settle -> stand label switch (step 155; speed 0.32 -> 1.19 m/s, drift 0.77 m): balance terms were gated to land/settle only",
+  "P2 arm held out after landing: re-check after P1"
+ ],
+ "knobs": {},
+ "library": {},
+ "library_params": {},
+ "code_changes": [
+  "flip_rewards: flip_land, flip_feet_together, flip_land_balance also gate on stand_after (the walk-off / squat of rounds 9-11 started at the label switch where these stopped)",
+  "quant_report: section E prints pelvis speed and drift per label segment"
+ ],
+ "expect": {
+  "stand_after_pelvis_speed_mean": "< 0.3 m/s (r11 1.19)",
+  "stand_after_drift_m": "< 0.15 (r11 0.77)",
+  "stand_action_change": "< 0.2 (r11 0.37)",
+  "end_tilt_deg": "< 10 (r11 6.4)",
+  "rotation_deg": ">= 345 (r11 371)",
+  "plane_dev_max_deg": "< 10 (r11 5.3)"
+ },
+ "rollback_if": "rotation < 330 or no upright landing: r13 from r11 model_9499 with the gate change only on land_balance"
+}

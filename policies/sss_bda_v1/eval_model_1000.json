@@ -1,0 +1,14 @@
+{
+ "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_15-44-13_bda_zhao_sss_lock_vlm_adaptive_n4096/model_1000.pt",
+ "motion": "/home/user/projects/dance/dataset/bda_zhao_sss/g1_lock_vlm_50fps.npz",
+ "clip_steps": 354,
+ "steps_run": 379,
+ "completed_clip": true,
+ "fell_at_step": null,
+ "fell_at_s": null,
+ "body_pos_err_mean_m": 0.0382,
+ "body_pos_err_max_m": 0.6744,
+ "joint_pos_err_mean": 0.5621,
+ "anchor_z_err_max_m": 0.0817,
+ "video": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_15-44-13_bda_zhao_sss_lock_vlm_adaptive_n4096/eval/model_1000.mp4"
+}

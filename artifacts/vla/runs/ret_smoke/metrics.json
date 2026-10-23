@@ -1,0 +1,25 @@
+{
+ "args": {
+  "name": "ret_smoke",
+  "seed": 0,
+  "lead": 0,
+  "epochs": 2,
+  "n_synth": 2
+ },
+ "test_real": {
+  "state_acc": 0.235,
+  "frame_err": 15.33,
+  "segment_acc": 0.2906,
+  "human_phase_acc": 0.3162,
+  "dance_acc": 0.641,
+  "n": 468
+ },
+ "train_real": {
+  "state_acc": 0.2517,
+  "frame_err": 16.76,
+  "segment_acc": 0.2744,
+  "human_phase_acc": 0.2567,
+  "dance_acc": 0.771,
+  "n": 1013
+ }
+}

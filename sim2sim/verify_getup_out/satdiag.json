@@ -1,0 +1,80 @@
+{
+ "nominal": {
+  "0": {
+   "dv_max": 3.005045006193118,
+   "dv_median": 1.590339907342475e-05,
+   "n_saturated_actuators_median": 0.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.03125
+  },
+  "200": {
+   "dv_max": 18.355192735511302,
+   "dv_median": 17.88724104167647,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 1.0
+  },
+  "201": {
+   "dv_max": 6.265805741916452,
+   "dv_median": 2.7519148492963694,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 1.0
+  },
+  "205": {
+   "dv_max": 0.4997901706393284,
+   "dv_median": 0.2744724689348581,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 1.0
+  }
+ },
+ "euler_both": {
+  "0": {
+   "dv_max": 1.841078844546522,
+   "dv_median": 4.2594070258861194e-05,
+   "n_saturated_actuators_median": 0.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.0
+  },
+  "200": {
+   "dv_max": 0.0001941410233214924,
+   "dv_median": 7.737203413427096e-05,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.84375
+  },
+  "201": {
+   "dv_max": 0.0062673024589958715,
+   "dv_median": 1.1525462832118194e-05,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.03125
+  },
+  "205": {
+   "dv_max": 0.001030989397679094,
+   "dv_median": 8.894002353931896e-06,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.0
+  }
+ },
+ "no_forcelimit_both": {
+  "0": {
+   "dv_max": 1.2423590974253509,
+   "dv_median": 1.590339907342475e-05,
+   "n_saturated_actuators_median": 0.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.0
+  },
+  "200": {
+   "dv_max": 0.0008312913603276684,
+   "dv_median": 0.00022590277905010225,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.875
+  },
+  "201": {
+   "dv_max": 0.01850570438464194,
+   "dv_median": 8.324907888379585e-06,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.4375
+  },
+  "205": {
+   "dv_max": 0.014387298056579123,
+   "dv_median": 1.627404280135636e-05,
+   "n_saturated_actuators_median": 2.0,
+   "frac_envs_worst_dof_actuator_saturated": 0.40625
+  }
+ }
+}

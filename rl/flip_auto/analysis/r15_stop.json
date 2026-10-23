@@ -1,0 +1,130 @@
+{
+ "round": 15,
+ "task": "backflip_3",
+ "family": "aerial",
+ "done": false,
+ "converged": false,
+ "convergence_rel_improvement": [
+  0.126,
+  -0.094
+ ],
+ "rounds_used": 15,
+ "gpu_hours": 17.4,
+ "over_budget": false,
+ "gates": [
+  {
+   "id": "quiet_after_event",
+   "metric": "eval.stand_action_change",
+   "value": 0.1854,
+   "op": "<=",
+   "threshold": 0.1,
+   "status": "FAIL"
+  },
+  {
+   "id": "still_after_event",
+   "metric": "eval.stand_pelvis_speed",
+   "value": 0.27,
+   "op": "<=",
+   "threshold": 0.1,
+   "status": "FAIL"
+  },
+  {
+   "id": "feet_down_after_event",
+   "metric": "after.feet_off_steps",
+   "value": 0,
+   "op": "<=",
+   "threshold": 0,
+   "status": "pass"
+  },
+  {
+   "id": "critic_clean",
+   "metric": "critic.max_unwaived_severity",
+   "value": 6.44,
+   "op": "<=",
+   "threshold": 3.0,
+   "status": "FAIL"
+  },
+  {
+   "id": "robust_training_dr",
+   "metric": "robust.dr",
+   "value": 1.0,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "pass"
+  },
+  {
+   "id": "robust_latency_20ms",
+   "metric": "robust.delay1",
+   "value": 0.992,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "pass"
+  },
+  {
+   "id": "robust_stiffness",
+   "metric": "robust.kp085",
+   "value": 1.0,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "pass"
+  },
+  {
+   "id": "sim2sim_nominal",
+   "metric": "sim2sim.nominal",
+   "value": null,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "pending"
+  },
+  {
+   "id": "sim2sim_latency_20ms",
+   "metric": "sim2sim.delay20",
+   "value": null,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "pending"
+  },
+  {
+   "id": "rotation_complete",
+   "metric": "eval.robot_rotation_deg",
+   "value": 367.5,
+   "op": ">=",
+   "threshold": 330,
+   "status": "pass"
+  },
+  {
+   "id": "landed_upright",
+   "metric": "eval.landed_upright",
+   "value": true,
+   "op": "==",
+   "threshold": true,
+   "status": "pass"
+  },
+  {
+   "id": "no_early_fall",
+   "metric": "eval.early_fall",
+   "value": false,
+   "op": "==",
+   "threshold": false,
+   "status": "pass"
+  },
+  {
+   "id": "airborne_enough",
+   "metric": "eval.robot_airborne_s",
+   "value": 0.58,
+   "op": ">=",
+   "threshold": 0.322,
+   "status": "pass"
+  },
+  {
+   "id": "in_plane",
+   "metric": "eval.plane_dev_max_deg",
+   "value": 11.2,
+   "op": "<=",
+   "threshold": 10,
+   "status": "FAIL"
+  }
+ ],
+ "n_waivers": 0,
+ "worst_unwaived_check": "backflip_3/asymmetry:wrist_roll:crouch"
+}

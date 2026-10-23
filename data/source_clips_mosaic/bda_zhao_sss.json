@@ -1,0 +1,26 @@
+{
+ "platform": "bilibili",
+ "id": "av117312921404527",
+ "url": "https://www.bilibili.com/video/av117312921404527",
+ "origin": "北京舞蹈学院中国民族民间舞教材（1990年代），赵铁春示范，安徽花鼓灯·闪身步",
+ "start_s": 2.5,
+ "end_s": 9.6,
+ "frames": 213,
+ "fps": 30,
+ "policies": [
+  "policies/sss_bda_v1"
+ ],
+ "motion": "dataset/bda_zhao_sss/g1_lock_vlm_50fps.npz",
+ "clip_id": "bda_zhao_sss",
+ "video": {
+  "file": "bda_zhao_sss.mp4",
+  "codec": "h264",
+  "width": 960,
+  "height": 720,
+  "fps": "30/1",
+  "frames": 213,
+  "audio": false
+ },
+ "face_mosaic": "yolov8n-pose (ultralytics 8.2.42) per frame, plus a 180-degree-rotated pass when the head keypoints are missing (inverted bodies); face box from nose/eyes/ears (1.6x their span, >= 6% of frame height and >= 0.2 x the clip person size), shoulder/box-top fallback, union over +-3 frames, last box reused when nothing is detected; pixelated with block size = box/7. Every person detected (conf >= 0.15) is mosaicked.",
+ "license_note": "Third-party internet video, faces mosaicked; for research illustration only."
+}

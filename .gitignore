@@ -1,0 +1,38 @@
+# --- raw internet videos and anything showing real people: personal research only, never published
+videos/
+data/qa/
+data/raw/
+scripts/data/tmp_sheets*/
+live/*.mp4
+*.webm
+*.mkv
+*.m4s
+# --- third-party content (own licenses; fetch from the original sources)
+third_party_ref/
+papers/
+live/*.pt
+*.STL
+*.stl
+# --- generated / large; whitelisted below where we ship them
+*.mp4
+*.npz
+*.pt
+*.onnx
+*.mjb
+*.ckpt
+*.log
+__pycache__/
+*.pyc
+*.tmp
+.vscode/
+
+# --- shipped artefacts (user 2026-10-23): policies, sim2sim models + trajectories, action-recognition models/data,
+# README media (robot-only renders)
+!policies/**
+!sim2sim/models/*.mjb
+!sim2sim/**/*.npz
+!artifacts/**
+!docs/media/*.mp4
+# human source clips used for training, faces mosaicked (user 2026-10-23: private repo only)
+!data/source_clips_mosaic/*.mp4
+*.bak_*

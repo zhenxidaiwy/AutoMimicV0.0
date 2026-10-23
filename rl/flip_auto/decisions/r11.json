@@ -1,0 +1,48 @@
+{
+ "round": 11,
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r10_quant.md (automatic) -> step 2 analysis/r10_llm.md -> step 3 this file -> train",
+ "based_on": "r10 model_8000 (score 7.414, best policy by the sheets)",
+ "init": {"run": "2026-10-23_04-30-18_flipauto_r10", "ckpt": "model_8000.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-187"],
+ "human_input": [],
+ "priorities": [
+  "P1 slow squat + forward lean after landing (knees 0.8 vs 0.06 rad, tilt 16-20 deg, feet 0.35 m)",
+  "P2 right arm forward after landing (counterweight of P1; re-check)",
+  "P3 pre-flip arm raise asymmetric (sev 2.6): later"
+ ],
+ "knobs": {
+  "terms.term_stand_fail.max_tilt": 25.0,
+  "extra_dyn": [
+   {"name": "agent_r09_hip_tuck", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_hip_pitch_joint", "right_hip_pitch_joint"], "phases": ["flight"], "std": 0.6}},
+   {"name": "agent_r09_arms_air", "func": "dyn_joint", "weight": 2.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["takeoff", "flight", "land"], "std": 0.8}},
+   {"name": "agent_r10_arms_stand", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["settle", "stand_after"], "std": 1.0}},
+   {"name": "agent_r11_legs_stand", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_knee_joint", "right_knee_joint", "left_hip_pitch_joint", "right_hip_pitch_joint",
+                          "left_ankle_pitch_joint", "right_ankle_pitch_joint"], "phases": ["stand_after"], "std": 0.4}}
+  ]
+ },
+ "library": {},
+ "library_params": {},
+ "code_changes": [
+  "harness: a decision may set `init` (start checkpoint); r10's score is lower than r09's only because of the 15 deg end-tilt threshold, the sheets show r10 is the better policy"
+ ],
+ "expect": {
+  "end_tilt_deg": "< 10 (r10 18.3)",
+  "stand_knee_rad": "< 0.3 (r10 0.8)",
+  "pelvis_after_landing_m": "> 0.76 (r10 0.72)",
+  "stand_stable": "true",
+  "stand_feet_off_steps": "0 (r10 0)",
+  "stand_action_change": "< 0.2 (r10 0.14)",
+  "rotation_deg": ">= 345 (r10 353)",
+  "plane_dev_max_deg": "< 12 (r10 9.1)"
+ },
+ "rollback_if": "rotation < 330 or no upright landing: r12 from r10 model_8000 without the leg term"
+}

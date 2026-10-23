@@ -1,0 +1,73 @@
+{
+ "clip_id": "backflip_6",
+ "source": {
+  "platform": "bilibili",
+  "id": "av116460269603942",
+  "start_s": 12.0,
+  "end_s": 15.2
+ },
+ "fps": 30,
+ "n_frames": 96,
+ "camera": "static",
+ "people": 1,
+ "full_body": true,
+ "performer": "see BACKFLIP_README",
+ "move": "后空翻",
+ "quality": 3,
+ "notes": "Standing backflip (capability probe). T/L from frame sheets (+-2 f); crouch start from the G1 pelvis.",
+ "annotator": "Claude (VLM, frame sheets) + retargeted pelvis height",
+ "phases": [
+  [
+   0,
+   15,
+   "stand"
+  ],
+  [
+   16,
+   28,
+   "crouch"
+  ],
+  [
+   29,
+   32,
+   "takeoff"
+  ],
+  [
+   33,
+   52,
+   "flight"
+  ],
+  [
+   53,
+   62,
+   "land"
+  ],
+  [
+   63,
+   72,
+   "settle"
+  ],
+  [
+   73,
+   95,
+   "stand"
+  ]
+ ],
+ "swing": [],
+ "unsure": [
+  [
+   31,
+   32
+  ],
+  [
+   53,
+   54
+  ]
+ ],
+ "airborne": [
+  [
+   33,
+   52
+  ]
+ ]
+}

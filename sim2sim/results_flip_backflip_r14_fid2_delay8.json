@@ -1,0 +1,361 @@
+{
+ "policy": "backflip_r14_fid2",
+ "lag_physics_steps": 8,
+ "delay_ms": 40,
+ "substeps": 756,
+ "ctrl_vs_native_delay_buffer_max_abs": 0.7649391933313998,
+ "substeps_differing": [
+  0,
+  1,
+  2,
+  3,
+  4,
+  5,
+  6,
+  7
+ ],
+ "ctrl_diff_by_delay_model": {
+  "lag6_first": 7.437323294695034,
+  "lag6_default": 7.437323294695034,
+  "lag6_zeros": 7.437323294695034,
+  "lag7_first": 7.437323294695034,
+  "lag7_default": 7.437323294695034,
+  "lag7_zeros": 7.437323294695034,
+  "lag8_first": 0.7649391933313998,
+  "lag8_default": 0.6690000295639038,
+  "lag8_zeros": 6.777998464713164e-07,
+  "lag9_first": 7.437322779879622,
+  "lag9_default": 7.437322779879622,
+  "lag9_zeros": 7.437322779879622,
+  "lag10_first": 7.437322779879622,
+  "lag10_default": 7.437322779879622,
+  "lag10_zeros": 7.437322779879622
+ },
+ "obs_last_action_vs_policy_output_max_abs": 0.0,
+ "mjlab_fill_after_reset": "zeros",
+ "ctrl_diff_with_that_fill": 6.777998464713164e-07,
+ "metrics": {
+  "mjlab": {
+   "success": false,
+   "rotation_deg": 244.9,
+   "rotation_max_abs_deg": 244.9,
+   "peak_pelvis_m": 0.814,
+   "airborne_s": 0.32,
+   "airborne_no_contact_s": 0.2,
+   "takeoff_step": 59,
+   "landing_step": 69,
+   "takeoff_offset_steps": -40,
+   "landing_offset_steps": -53,
+   "landing_tilt_deg": 20.2,
+   "landing_tilt_max_0p5s_deg": 114.4,
+   "pelvis_min_after_landing_m": 0.105,
+   "end_tilt_deg": 100.9,
+   "tail_tilt_max_deg": 107.5,
+   "end_pelvis_m": 0.195,
+   "tail_pelvis_min_m": 0.193,
+   "fell": true,
+   "early_fall": true,
+   "steps": 189
+  },
+  "native": {
+   "success": false,
+   "rotation_deg": 372.6,
+   "rotation_max_abs_deg": 372.6,
+   "peak_pelvis_m": 0.833,
+   "airborne_s": 0.44,
+   "airborne_no_contact_s": 0.4,
+   "takeoff_step": 77,
+   "landing_step": 97,
+   "takeoff_offset_steps": -22,
+   "landing_offset_steps": -25,
+   "landing_tilt_deg": 149.9,
+   "landing_tilt_max_0p5s_deg": 156.9,
+   "pelvis_min_after_landing_m": 0.357,
+   "end_tilt_deg": 42.0,
+   "tail_tilt_max_deg": 137.0,
+   "end_pelvis_m": 0.785,
+   "tail_pelvis_min_m": 0.343,
+   "fell": true,
+   "early_fall": true,
+   "steps": 189,
+   "knee_torque_max_Nm": 120.0,
+   "knee_torque_limit_Nm": [
+    120.0,
+    120.0
+   ],
+   "knee_at_limit_frac": 0.2765,
+   "knee_torque_respects_limit": true,
+   "knee_pd_demand_max_Nm": 2647.0,
+   "ncon_max": 25
+  },
+  "native_fill_first": {
+   "success": false,
+   "rotation_deg": 1182.0,
+   "rotation_max_abs_deg": 1182.0,
+   "peak_pelvis_m": 1.558,
+   "airborne_s": 0.76,
+   "airborne_no_contact_s": 0.74,
+   "takeoff_step": 153,
+   "landing_step": null,
+   "takeoff_offset_steps": 54,
+   "landing_offset_steps": null,
+   "landing_tilt_deg": null,
+   "landing_tilt_max_0p5s_deg": null,
+   "pelvis_min_after_landing_m": null,
+   "end_tilt_deg": 100.1,
+   "tail_tilt_max_deg": 151.1,
+   "end_pelvis_m": 1.523,
+   "tail_pelvis_min_m": 1.283,
+   "fell": false,
+   "early_fall": false,
+   "steps": 189,
+   "knee_torque_max_Nm": 120.0,
+   "knee_torque_limit_Nm": [
+    120.0,
+    120.0
+   ],
+   "knee_at_limit_frac": 0.1005,
+   "knee_torque_respects_limit": true,
+   "knee_pd_demand_max_Nm": 620.8
+  }
+ },
+ "divergence": {
+  "takeoff": {
+   "step": 99,
+   "at_s": 1.98,
+   "pelvis_pos_diff_m": 2.9259,
+   "torso_ori_diff_deg": 39.46,
+   "rotation_diff_deg": 157.28,
+   "joint_max_abs_at_rad": 1.9596,
+   "joint_rms_at_rad": 0.9622,
+   "joint_max_abs_upto_rad": 3.5464,
+   "bitwise_identical_upto": false
+  },
+  "mid_flight": {
+   "step": 110,
+   "at_s": 2.2,
+   "pelvis_pos_diff_m": 4.1771,
+   "torso_ori_diff_deg": 130.54,
+   "rotation_diff_deg": 223.75,
+   "joint_max_abs_at_rad": 2.8416,
+   "joint_rms_at_rad": 0.9481,
+   "joint_max_abs_upto_rad": 3.5464,
+   "bitwise_identical_upto": false
+  },
+  "landing": {
+   "step": 122,
+   "at_s": 2.44,
+   "pelvis_pos_diff_m": 4.9956,
+   "torso_ori_diff_deg": 134.01,
+   "rotation_diff_deg": -1.06,
+   "joint_max_abs_at_rad": 2.6497,
+   "joint_rms_at_rad": 1.1413,
+   "joint_max_abs_upto_rad": 3.5464,
+   "bitwise_identical_upto": false
+  },
+  "end": {
+   "step": 189,
+   "at_s": 3.78,
+   "pelvis_pos_diff_m": 1.9822,
+   "torso_ori_diff_deg": 145.8,
+   "rotation_diff_deg": -127.79,
+   "joint_max_abs_at_rad": 2.1806,
+   "joint_rms_at_rad": 1.0077,
+   "joint_max_abs_upto_rad": 8.8592,
+   "bitwise_identical_upto": false
+  },
+  "first_differing_step": 0,
+  "curve_every_5_steps": [
+   [
+    0,
+    0.0,
+    0.0
+   ],
+   [
+    5,
+    0.0001,
+    0.0076
+   ],
+   [
+    10,
+    0.0004,
+    0.0067
+   ],
+   [
+    15,
+    0.0008,
+    0.0138
+   ],
+   [
+    20,
+    0.0024,
+    0.0264
+   ],
+   [
+    25,
+    0.0057,
+    0.0947
+   ],
+   [
+    30,
+    0.0143,
+    0.1355
+   ],
+   [
+    35,
+    0.0276,
+    0.1728
+   ],
+   [
+    40,
+    0.0215,
+    0.3719
+   ],
+   [
+    45,
+    0.0432,
+    0.4588
+   ],
+   [
+    50,
+    0.0394,
+    1.1007
+   ],
+   [
+    55,
+    0.1193,
+    1.3614
+   ],
+   [
+    60,
+    0.2112,
+    1.4465
+   ],
+   [
+    65,
+    0.1529,
+    2.2837
+   ],
+   [
+    70,
+    0.2171,
+    1.8125
+   ],
+   [
+    75,
+    0.3829,
+    1.7545
+   ],
+   [
+    80,
+    0.748,
+    3.3259
+   ],
+   [
+    85,
+    1.4651,
+    2.5397
+   ],
+   [
+    90,
+    1.8454,
+    2.3385
+   ],
+   [
+    95,
+    2.378,
+    1.819
+   ],
+   [
+    100,
+    3.0126,
+    2.3685
+   ],
+   [
+    105,
+    3.505,
+    1.5086
+   ],
+   [
+    110,
+    4.1771,
+    2.8416
+   ],
+   [
+    115,
+    4.5518,
+    2.2489
+   ],
+   [
+    120,
+    4.902,
+    2.2998
+   ],
+   [
+    125,
+    5.1648,
+    3.8615
+   ],
+   [
+    130,
+    1.5673,
+    1.8369
+   ],
+   [
+    135,
+    1.4995,
+    2.9309
+   ],
+   [
+    140,
+    1.6186,
+    2.1026
+   ],
+   [
+    145,
+    1.8368,
+    1.7225
+   ],
+   [
+    150,
+    1.8266,
+    2.1246
+   ],
+   [
+    155,
+    1.865,
+    1.8583
+   ],
+   [
+    160,
+    1.8439,
+    2.4777
+   ],
+   [
+    165,
+    1.8921,
+    2.6412
+   ],
+   [
+    170,
+    2.0965,
+    4.3619
+   ],
+   [
+    175,
+    1.9945,
+    2.8688
+   ],
+   [
+    180,
+    1.85,
+    2.1474
+   ],
+   [
+    185,
+    1.9482,
+    3.2452
+   ]
+  ]
+ }
+}

@@ -1,0 +1,149 @@
+{
+ "rounds": [
+  {
+   "round": 1,
+   "run": "2026-10-22_17-13-34_flipauto_r01",
+   "minutes": 1.3,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 1.5,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 1.0
+    },
+    "prior": {
+     "stand": 0.52,
+     "crouch": 2.6,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 1.0,
+     "settle": 0.5,
+     "other": 0.5
+    }
+   },
+   "ep_len_end": 14.73,
+   "evals": [
+    {
+     "ckpt": "model_0.pt",
+     "score": 1.276,
+     "robot_rotation_deg": 95.0,
+     "robot_max_rotation_deg": 96.5,
+     "robot_peak_pelvis_m": 0.795,
+     "pelvis_rise_m": 0.045,
+     "robot_airborne_s": 0.12,
+     "landed_upright": false,
+     "end_tilt_deg": 99.2,
+     "early_fall": true
+    },
+    {
+     "ckpt": "model_19.pt",
+     "score": 1.197,
+     "robot_rotation_deg": 92.7,
+     "robot_max_rotation_deg": 95.5,
+     "robot_peak_pelvis_m": 0.795,
+     "pelvis_rise_m": 0.044,
+     "robot_airborne_s": 0.1,
+     "landed_upright": false,
+     "end_tilt_deg": 94.5,
+     "early_fall": true
+    }
+   ],
+   "adjust": [
+    "fell before take-off -> lean x1.5, stand/crouch prior x1.3"
+   ]
+  },
+  {
+   "round": 2,
+   "run": "2026-10-22_17-16-24_flipauto_r02",
+   "minutes": 1.4,
+   "knobs": {
+    "flip_rewards": 2.0,
+    "knee_limit": 120.0,
+    "ee_threshold": 0.6,
+    "anchor_pos_threshold": 0.4,
+    "weights": {
+     "flip_pushoff": 2.0,
+     "flip_lean": 2.25,
+     "flip_spin": 3.0,
+     "flip_airborne": 1.5,
+     "flip_height": 1.0,
+     "flip_land": 1.0
+    },
+    "prior": {
+     "stand": 0.676,
+     "crouch": 3.38,
+     "takeoff": 2.0,
+     "flight": 0.3,
+     "land": 1.0,
+     "settle": 0.5,
+     "other": 0.5
+    }
+   },
+   "ep_len_end": 16.82,
+   "evals": [
+    {
+     "ckpt": "model_0.pt",
+     "score": 1.151,
+     "robot_rotation_deg": 94.1,
+     "robot_max_rotation_deg": 94.2,
+     "robot_peak_pelvis_m": 0.797,
+     "pelvis_rise_m": 0.01,
+     "robot_airborne_s": 0.16,
+     "landed_upright": false,
+     "end_tilt_deg": 99.8,
+     "early_fall": true
+    },
+    {
+     "ckpt": "model_19.pt",
+     "score": 1.288,
+     "robot_rotation_deg": 96.5,
+     "robot_max_rotation_deg": 98.5,
+     "robot_peak_pelvis_m": 0.795,
+     "pelvis_rise_m": 0.011,
+     "robot_airborne_s": 0.2,
+     "landed_upright": false,
+     "end_tilt_deg": 97.8,
+     "early_fall": true
+    }
+   ],
+   "adjust": [
+    "fell before take-off -> lean x1.5, stand/crouch prior x1.3"
+   ]
+  }
+ ],
+ "knobs": {
+  "flip_rewards": 2.0,
+  "knee_limit": 120.0,
+  "ee_threshold": 0.6,
+  "anchor_pos_threshold": 0.4,
+  "weights": {
+   "flip_pushoff": 2.0,
+   "flip_lean": 2.25,
+   "flip_spin": 3.0,
+   "flip_airborne": 1.5,
+   "flip_height": 1.0,
+   "flip_land": 1.0
+  },
+  "prior": {
+   "stand": 0.676,
+   "crouch": 3.38,
+   "takeoff": 2.0,
+   "flight": 0.3,
+   "land": 1.0,
+   "settle": 0.5,
+   "other": 0.5
+  }
+ },
+ "best": {
+  "run": "2026-10-22_17-16-24_flipauto_r02",
+  "ckpt": "model_19.pt",
+  "score": 1.288,
+  "round": 2
+ }
+}

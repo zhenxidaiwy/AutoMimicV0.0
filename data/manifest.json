@@ -1,0 +1,1509 @@
+[
+ {
+  "clip_id": "bda_zhao_sss",
+  "move": "闪身步",
+  "performer": "赵铁春(北舞教材)",
+  "source": "bilibili av117312921404527 2.5-9.6s",
+  "camera": "static",
+  "frames_30fps": 213,
+  "seconds": 7.1,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "reference; 4 flashes; plain backdrop",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.3622,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.727,
+   "human_height_est_m": 1.773
+  },
+  "quality": 5,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 189,
+    "agree": 0.265,
+    "vlm_contact_but_kin_air": 139,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 189,
+    "agree": 0.212,
+    "vlm_contact_but_kin_air": 149,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.4,
+     "planted_sole_z_abs_p95_cm": 1.58,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -6.12,
+     "min": -10.5,
+     "max": -1.15
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.43,
+     "planted_sole_z_abs_p95_cm": 1.68,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -6.1,
+     "min": -9.72,
+     "max": -1.15
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 6.44,
+    "planted_sole_z_abs_p95_cm": 9.49,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.743,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2044,
+     0.862
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.026,
+     0.0049
+    ],
+    "foot_target_err_cm_max": 0.11,
+    "pelvis_shift_cm_max": 4.71,
+    "joint_change_rad_max": 0.885,
+    "min_sole_proxy_ankle_z": 0.038
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2044,
+     0.862
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.18,
+     0.8905
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.18,
+    "joint_change_rad_max": 0.165,
+    "min_sole_proxy_ankle_z": 0.0381
+   }
+  }
+ },
+ {
+  "clip_id": "tonyfu_sss_fast",
+  "move": "闪身步",
+  "performer": "TonyFu",
+  "source": "bilibili av117346945600980 92.2-96.2s",
+  "camera": "static",
+  "frames_30fps": 120,
+  "seconds": 4.0,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "4 full-speed flashes; curtain backdrop; 360p portrait",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.3641,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.766,
+   "human_height_est_m": 1.739
+  },
+  "quality": 4,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 116,
+    "agree": 0.784,
+    "vlm_contact_but_kin_air": 25,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 116,
+    "agree": 0.595,
+    "vlm_contact_but_kin_air": 47,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.38,
+     "planted_sole_z_abs_p95_cm": 1.52,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -1.66,
+     "min": -3.55,
+     "max": 0.02
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.4,
+     "planted_sole_z_abs_p95_cm": 1.52,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -1.63,
+     "min": -3.55,
+     "max": 0.02
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 1.98,
+    "planted_sole_z_abs_p95_cm": 4.0,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.772,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2235,
+     0.7759
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0302,
+     0.0099
+    ],
+    "foot_target_err_cm_max": 0.08,
+    "pelvis_shift_cm_max": 2.89,
+    "joint_change_rad_max": 0.435,
+    "min_sole_proxy_ankle_z": 0.036
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2235,
+     0.7759
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1846,
+     0.7833
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.07,
+    "joint_change_rad_max": 0.132,
+    "min_sole_proxy_ankle_z": 0.036
+   }
+  }
+ },
+ {
+  "clip_id": "tonyfu_sss_slow",
+  "move": "闪身步",
+  "performer": "TonyFu",
+  "source": "bilibili av117346945600980 86.8-92.1s",
+  "camera": "static",
+  "frames_30fps": 159,
+  "seconds": 5.3,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "slow-motion decomposition; held wide stance with small weight shifts (start moved 86.6->86.8: shot cut in first 5 frames)",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.0057,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.763,
+   "human_height_est_m": 1.628
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 159,
+    "agree": 0.579,
+    "vlm_contact_but_kin_air": 67,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 159,
+    "agree": 0.893,
+    "vlm_contact_but_kin_air": 17,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.42,
+     "planted_sole_z_abs_p95_cm": 1.55,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": 0.06,
+     "min": -1.55,
+     "max": 2.87
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.42,
+     "planted_sole_z_abs_p95_cm": 1.55,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": 0.06,
+     "min": -1.55,
+     "max": 2.87
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 0.36,
+    "planted_sole_z_abs_p95_cm": 2.49,
+    "penetration_frames(<-1cm)": 40
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.991,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.0177,
+     0.1065
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0,
+     0.0001
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.83,
+    "joint_change_rad_max": 0.287,
+    "min_sole_proxy_ankle_z": 0.0388
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.0177,
+     0.1065
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0074,
+     0.0
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.02,
+    "joint_change_rad_max": 0.075,
+    "min_sole_proxy_ankle_z": 0.0388
+   }
+  }
+ },
+ {
+  "clip_id": "tonyfu_sss_single",
+  "move": "闪身步",
+  "performer": "TonyFu",
+  "source": "bilibili av117346945600980 11.3-13.0s",
+  "camera": "static",
+  "frames_30fps": 51,
+  "seconds": 1.7,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "single full-speed flash (end moved 13.4->13.0: shot cut at frame 54)",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.1605,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.801,
+   "human_height_est_m": 1.758
+  },
+  "quality": 4,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 50,
+    "agree": 0.78,
+    "vlm_contact_but_kin_air": 11,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 50,
+    "agree": 0.88,
+    "vlm_contact_but_kin_air": 6,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.32,
+     "planted_sole_z_abs_p95_cm": 1.16,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -2.17,
+     "min": -3.69,
+     "max": -1.2
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.36,
+     "planted_sole_z_abs_p95_cm": 1.17,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -2.09,
+     "min": -2.98,
+     "max": -1.2
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 2.35,
+    "planted_sole_z_abs_p95_cm": 3.41,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.83,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1392,
+     0.6542
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0095,
+     0.0
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.11,
+    "joint_change_rad_max": 0.361,
+    "min_sole_proxy_ankle_z": 0.0372
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1392,
+     0.6542
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1119,
+     0.6518
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.01,
+    "joint_change_rad_max": 0.021,
+    "min_sole_proxy_ankle_z": 0.0372
+   }
+  }
+ },
+ {
+  "clip_id": "gym_sss",
+  "move": "闪身步",
+  "performer": "健身房光头男",
+  "source": "bilibili av117332315867932 52.8-58.6s",
+  "camera": "static",
+  "frames_30fps": 174,
+  "seconds": 5.8,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "4 flashes; feet near bottom edge; 360p portrait",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.3403,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.732,
+   "human_height_est_m": 1.737
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 172,
+    "agree": 0.285,
+    "vlm_contact_but_kin_air": 123,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 172,
+    "agree": 0.372,
+    "vlm_contact_but_kin_air": 108,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.8,
+     "planted_sole_z_abs_p95_cm": 3.23,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -5.32,
+     "min": -9.61,
+     "max": 0.69
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.82,
+     "planted_sole_z_abs_p95_cm": 3.23,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -5.29,
+     "min": -9.89,
+     "max": 0.69
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 6.13,
+    "planted_sole_z_abs_p95_cm": 10.91,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.765,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1704,
+     0.5122
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.012,
+     0.0007
+    ],
+    "foot_target_err_cm_max": 0.04,
+    "pelvis_shift_cm_max": 1.35,
+    "joint_change_rad_max": 0.512,
+    "min_sole_proxy_ankle_z": 0.0359
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1704,
+     0.5122
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1368,
+     0.5288
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.08,
+    "joint_change_rad_max": 0.121,
+    "min_sole_proxy_ankle_z": 0.0359
+   }
+  }
+ },
+ {
+  "clip_id": "street_sss_a",
+  "move": "闪身步",
+  "performer": "街头戴帽男",
+  "source": "bilibili av117438683289595 20.80-21.72s",
+  "camera": "static",
+  "frames_30fps": 28,
+  "seconds": 0.93,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "sub-shot 1 of an edited sequence (jump cuts detected at 20.8s+frames 28,104,153,187,219); 1 flash",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.4802,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.721,
+   "human_height_est_m": 1.739
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 23,
+    "agree": 0.217,
+    "vlm_contact_but_kin_air": 18,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 23,
+    "agree": 0.696,
+    "vlm_contact_but_kin_air": 7,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 1.3,
+     "planted_sole_z_abs_p95_cm": 2.9,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -1.06,
+     "min": -2.81,
+     "max": 0.83
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 1.34,
+     "planted_sole_z_abs_p95_cm": 3.11,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -0.93,
+     "min": -2.81,
+     "max": 0.83
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 2.03,
+    "planted_sole_z_abs_p95_cm": 4.24,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.478,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.4577,
+     1.036
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0395,
+     0.3414
+    ],
+    "foot_target_err_cm_max": 0.02,
+    "pelvis_shift_cm_max": 1.21,
+    "joint_change_rad_max": 0.79,
+    "min_sole_proxy_ankle_z": 0.0403
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.4577,
+     1.036
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.4378,
+     1.0519
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.04,
+    "joint_change_rad_max": 0.049,
+    "min_sole_proxy_ankle_z": 0.0403
+   }
+  }
+ },
+ {
+  "clip_id": "street_sss_b",
+  "move": "闪身步",
+  "performer": "街头戴帽男",
+  "source": "bilibili av117438683289595 21.75-24.22s",
+  "camera": "static",
+  "frames_30fps": 75,
+  "seconds": 2.5,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "sub-shot 2; stand then 1 flash",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.1684,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.715,
+   "human_height_est_m": 1.746
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 71,
+    "agree": 0.577,
+    "vlm_contact_but_kin_air": 30,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 71,
+    "agree": 0.845,
+    "vlm_contact_but_kin_air": 11,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 1.22,
+     "planted_sole_z_abs_p95_cm": 3.52,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -1.11,
+     "min": -3.71,
+     "max": 0.8
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 1.22,
+     "planted_sole_z_abs_p95_cm": 3.52,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -1.12,
+     "min": -3.71,
+     "max": 0.8
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 2.31,
+    "planted_sole_z_abs_p95_cm": 5.54,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.775,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2126,
+     1.0119
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0136,
+     0.0014
+    ],
+    "foot_target_err_cm_max": 0.06,
+    "pelvis_shift_cm_max": 2.17,
+    "joint_change_rad_max": 1.155,
+    "min_sole_proxy_ankle_z": 0.0411
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2126,
+     1.0119
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1936,
+     1.0122
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.17,
+    "joint_change_rad_max": 0.079,
+    "min_sole_proxy_ankle_z": 0.0402
+   }
+  }
+ },
+ {
+  "clip_id": "street_sss_c",
+  "move": "闪身步",
+  "performer": "街头戴帽男",
+  "source": "bilibili av117438683289595 25.92-26.99s",
+  "camera": "static",
+  "frames_30fps": 33,
+  "seconds": 1.1,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "sub-shot 4; 1 flash",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.3265,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.782,
+   "human_height_est_m": 1.727
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 28,
+    "agree": 0.464,
+    "vlm_contact_but_kin_air": 15,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 28,
+    "agree": 0.643,
+    "vlm_contact_but_kin_air": 10,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.72,
+     "planted_sole_z_abs_p95_cm": 3.09,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -2.19,
+     "min": -3.64,
+     "max": 1.21
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.68,
+     "planted_sole_z_abs_p95_cm": 3.04,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -2.25,
+     "min": -3.64,
+     "max": 1.21
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 2.96,
+    "planted_sole_z_abs_p95_cm": 4.45,
+    "penetration_frames(<-1cm)": 1
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.732,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2,
+     0.6812
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0518,
+     0.3427
+    ],
+    "foot_target_err_cm_max": 0.05,
+    "pelvis_shift_cm_max": 1.48,
+    "joint_change_rad_max": 0.218,
+    "min_sole_proxy_ankle_z": 0.039
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2,
+     0.6812
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1806,
+     0.692
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.04,
+    "joint_change_rad_max": 0.04,
+    "min_sole_proxy_ankle_z": 0.039
+   }
+  }
+ },
+ {
+  "clip_id": "street_sss_d",
+  "move": "闪身步",
+  "performer": "街头戴帽男",
+  "source": "bilibili av117438683289595 27.05-28.05s",
+  "camera": "static",
+  "frames_30fps": 30,
+  "seconds": 1.0,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "sub-shot 5; 1 flash",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.3064,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.767,
+   "human_height_est_m": 1.728
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 26,
+    "agree": 0.423,
+    "vlm_contact_but_kin_air": 15,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 26,
+    "agree": 0.577,
+    "vlm_contact_but_kin_air": 11,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.83,
+     "planted_sole_z_abs_p95_cm": 2.86,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -1.62,
+     "min": -3.19,
+     "max": 0.66
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.78,
+     "planted_sole_z_abs_p95_cm": 2.86,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -1.74,
+     "min": -3.2,
+     "max": 0.66
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 2.47,
+    "planted_sole_z_abs_p95_cm": 4.15,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.654,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2778,
+     0.906
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0826,
+     0.6218
+    ],
+    "foot_target_err_cm_max": 0.11,
+    "pelvis_shift_cm_max": 3.41,
+    "joint_change_rad_max": 0.402,
+    "min_sole_proxy_ankle_z": 0.0372
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.2778,
+     0.906
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.2547,
+     0.9037
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.07,
+    "joint_change_rad_max": 0.061,
+    "min_sole_proxy_ankle_z": 0.0372
+   }
+  }
+ },
+ {
+  "clip_id": "street_sss_e",
+  "move": "闪身步",
+  "performer": "街头戴帽男",
+  "source": "bilibili av117438683289595 28.12-30.50s",
+  "camera": "static",
+  "frames_30fps": 72,
+  "seconds": 2.4,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "sub-shot 6; stand then 1 flash",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.0552,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.75,
+   "human_height_est_m": 1.73
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 67,
+    "agree": 0.731,
+    "vlm_contact_but_kin_air": 18,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 67,
+    "agree": 0.866,
+    "vlm_contact_but_kin_air": 9,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.64,
+     "planted_sole_z_abs_p95_cm": 2.17,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -0.46,
+     "min": -3.73,
+     "max": 1.05
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.66,
+     "planted_sole_z_abs_p95_cm": 2.2,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -0.43,
+     "min": -3.0,
+     "max": 1.05
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 0.94,
+    "planted_sole_z_abs_p95_cm": 4.21,
+    "penetration_frames(<-1cm)": 2
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.828,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1506,
+     0.9497
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0132,
+     0.0002
+    ],
+    "foot_target_err_cm_max": 0.09,
+    "pelvis_shift_cm_max": 3.38,
+    "joint_change_rad_max": 0.799,
+    "min_sole_proxy_ankle_z": 0.0395
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1506,
+     0.9497
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1374,
+     0.9497
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.3,
+    "joint_change_rad_max": 0.052,
+    "min_sole_proxy_ankle_z": 0.0395
+   }
+  }
+ },
+ {
+  "clip_id": "hoodie_sss",
+  "move": "闪身步",
+  "performer": "卫衣男(家中)",
+  "source": "bilibili av117285977068813 1.10-5.28s",
+  "camera": "static",
+  "frames_30fps": 126,
+  "seconds": 4.2,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "4 flashes, exaggerated side kick with high foot lift; shot cut at 5.5 s; 360p portrait",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.5314,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.778,
+   "human_height_est_m": 1.762
+  },
+  "quality": 3,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 126,
+    "agree": 0.484,
+    "vlm_contact_but_kin_air": 65,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 126,
+    "agree": 0.635,
+    "vlm_contact_but_kin_air": 46,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.94,
+     "planted_sole_z_abs_p95_cm": 3.06,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -4.34,
+     "min": -8.54,
+     "max": -0.54
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 1.22,
+     "planted_sole_z_abs_p95_cm": 3.56,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -3.92,
+     "min": -7.78,
+     "max": -0.54
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 5.11,
+    "planted_sole_z_abs_p95_cm": 8.96,
+    "penetration_frames(<-1cm)": 0
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.69,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.303,
+     0.9702
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0331,
+     0.0003
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.43,
+    "joint_change_rad_max": 0.944,
+    "min_sole_proxy_ankle_z": 0.0356
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.303,
+     0.9702
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.2724,
+     0.975
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.31,
+    "joint_change_rad_max": 0.101,
+    "min_sole_proxy_ankle_z": 0.0356
+   }
+  }
+ },
+ {
+  "clip_id": "latin_sss",
+  "move": "闪身步(拉丁版)",
+  "performer": "练功房女舞者",
+  "source": "bilibili av117416621246346 0.0-12.45s",
+  "camera": "static",
+  "frames_30fps": 374,
+  "seconds": 12.47,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "Latin-dance style variation of the flash step; full body, fixed camera; 360p portrait",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.1867,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.719,
+   "human_height_est_m": 1.592
+  },
+  "quality": 2,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 13,
+    "agree": 0.692,
+    "vlm_contact_but_kin_air": 4,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 13,
+    "agree": 0.615,
+    "vlm_contact_but_kin_air": 5,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.63,
+     "planted_sole_z_abs_p95_cm": 1.55,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -2.3,
+     "min": -2.55,
+     "max": 3.1
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.61,
+     "planted_sole_z_abs_p95_cm": 1.56,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -8.75,
+     "min": -15.2,
+     "max": 3.1
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 1.02,
+    "planted_sole_z_abs_p95_cm": 3.59,
+    "penetration_frames(<-1cm)": 12
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.769,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1539,
+     0.3272
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0,
+     0.0
+    ],
+    "foot_target_err_cm_max": 0.02,
+    "pelvis_shift_cm_max": 1.22,
+    "joint_change_rad_max": 0.402,
+    "min_sole_proxy_ankle_z": 0.0393
+   }
+  }
+ },
+ {
+  "clip_id": "bda2_gxdsm_wide",
+  "move": "狗熊哆嗦毛",
+  "performer": "明文军(北舞鼓子秧歌教材)",
+  "source": "bilibili av117381925963568 8.4-11.85s",
+  "camera": "static",
+  "frames_30fps": 104,
+  "seconds": 3.47,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "wide shot before close-up; 768x576",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.4011,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.722,
+   "human_height_est_m": 1.691
+  },
+  "quality": 4,
+  "duplicate_of": "bda_ming_gxdsm_a",
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 98,
+    "agree": 0.551,
+    "vlm_contact_but_kin_air": 44,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 98,
+    "agree": 0.571,
+    "vlm_contact_but_kin_air": 42,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.49,
+     "planted_sole_z_abs_p95_cm": 2.72,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -4.8,
+     "min": -11.01,
+     "max": 1.26
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.89,
+     "planted_sole_z_abs_p95_cm": 3.72,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -4.33,
+     "min": -9.33,
+     "max": 1.26
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 4.75,
+    "planted_sole_z_abs_p95_cm": 10.12,
+    "penetration_frames(<-1cm)": 2
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.668,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.3972,
+     1.0412
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1143,
+     0.9076
+    ],
+    "foot_target_err_cm_max": 0.06,
+    "pelvis_shift_cm_max": 1.2,
+    "joint_change_rad_max": 0.461,
+    "min_sole_proxy_ankle_z": 0.0379
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.3972,
+     1.0412
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.3735,
+     1.0439
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.19,
+    "joint_change_rad_max": 0.051,
+    "min_sole_proxy_ankle_z": 0.0399
+   }
+  }
+ },
+ {
+  "clip_id": "bda2_gxdsm_full",
+  "move": "狗熊哆嗦毛",
+  "performer": "北舞教材男舞者(白衣)",
+  "source": "bilibili av117381925963568 16.25-24.0s",
+  "camera": "static",
+  "frames_30fps": 232,
+  "seconds": 7.73,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "8 s continuous full-body demo after a cut at ~16.0 s; best gxdsm source",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.2161,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.695,
+   "human_height_est_m": 1.599
+  },
+  "quality": 4,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 215,
+    "agree": 0.405,
+    "vlm_contact_but_kin_air": 128,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 215,
+    "agree": 0.386,
+    "vlm_contact_but_kin_air": 132,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.73,
+     "planted_sole_z_abs_p95_cm": 3.06,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -3.84,
+     "min": -15.1,
+     "max": 4.39
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.91,
+     "planted_sole_z_abs_p95_cm": 3.55,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -3.65,
+     "min": -14.41,
+     "max": 4.39
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 4.63,
+    "planted_sole_z_abs_p95_cm": 9.95,
+    "penetration_frames(<-1cm)": 40
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.602,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.5234,
+     1.6744
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1091,
+     0.6803
+    ],
+    "foot_target_err_cm_max": 0.07,
+    "pelvis_shift_cm_max": 2.91,
+    "joint_change_rad_max": 0.73,
+    "min_sole_proxy_ankle_z": 0.0359
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.5234,
+     1.6744
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.5081,
+     1.6838
+    ],
+    "foot_target_err_cm_max": 0.0,
+    "pelvis_shift_cm_max": 0.21,
+    "joint_change_rad_max": 0.05,
+    "min_sole_proxy_ankle_z": 0.0359
+   }
+  }
+ },
+ {
+  "clip_id": "bda_ming_gxdsm_a",
+  "move": "狗熊哆嗦毛",
+  "performer": "明文军(北舞教材)",
+  "source": "bilibili av117312921404527 25.6-29.1s",
+  "camera": "static",
+  "frames_30fps": 105,
+  "seconds": 3.5,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "wide shot before the cut to close-up (29.2-31.0 has no feet, excluded)",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.439,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.709,
+   "human_height_est_m": 1.666
+  },
+  "quality": 4,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 98,
+    "agree": 0.531,
+    "vlm_contact_but_kin_air": 46,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 98,
+    "agree": 0.52,
+    "vlm_contact_but_kin_air": 47,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.64,
+     "planted_sole_z_abs_p95_cm": 3.51,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -4.07,
+     "min": -9.64,
+     "max": 2.08
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.97,
+     "planted_sole_z_abs_p95_cm": 4.12,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": -3.7,
+     "min": -8.03,
+     "max": 2.08
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 4.2,
+    "planted_sole_z_abs_p95_cm": 10.14,
+    "penetration_frames(<-1cm)": 11
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.653,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.4284,
+     1.3219
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.102,
+     1.2
+    ],
+    "foot_target_err_cm_max": 0.02,
+    "pelvis_shift_cm_max": 0.58,
+    "joint_change_rad_max": 0.388,
+    "min_sole_proxy_ankle_z": 0.0383
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.4284,
+     1.3219
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.4018,
+     1.3192
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.26,
+    "joint_change_rad_max": 0.056,
+    "min_sole_proxy_ankle_z": 0.0411
+   }
+  }
+ },
+ {
+  "clip_id": "bda_ming_gxdsm_b",
+  "move": "狗熊哆嗦毛",
+  "performer": "明文军(北舞教材)",
+  "source": "bilibili av117312921404527 31.2-33.3s",
+  "camera": "static",
+  "frames_30fps": 63,
+  "seconds": 2.1,
+  "has_npz_50fps": true,
+  "annotated": true,
+  "note": "wide shot after the close-up; ending part",
+  "retarget_qa": {
+   "foot_slide_mps_in_contact_mean": 0.0453,
+   "joint_limit_violation_max_rad": 0.0,
+   "root_z_min": 0.711,
+   "human_height_est_m": 1.676
+  },
+  "quality": 4,
+  "contact_agreement_vlm_vs_kinematic": {
+   "L": {
+    "frames_labeled": 36,
+    "agree": 0.833,
+    "vlm_contact_but_kin_air": 6,
+    "vlm_air_but_kin_contact": 0
+   },
+   "R": {
+    "frames_labeled": 36,
+    "agree": 0.639,
+    "vlm_contact_but_kin_air": 13,
+    "vlm_air_but_kin_contact": 0
+   }
+  },
+  "ground_fix": {
+   "ground_vlm": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.63,
+     "planted_sole_z_abs_p95_cm": 1.79,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": 0.14,
+     "min": -4.46,
+     "max": 2.36
+    }
+   },
+   "ground_heuristic": {
+    "after": {
+     "planted_sole_z_mean_cm": 0.66,
+     "planted_sole_z_abs_p95_cm": 1.93,
+     "penetration_frames(<-1cm)": 0
+    },
+    "root_offset_cm": {
+     "mean": 0.17,
+     "min": -3.77,
+     "max": 2.36
+    }
+   },
+   "before": {
+    "planted_sole_z_mean_cm": 0.19,
+    "planted_sole_z_abs_p95_cm": 5.12,
+    "penetration_frames(<-1cm)": 30
+   }
+  },
+  "heuristic_vs_vlm_contact_agreement": 0.861,
+  "foot_lock": {
+   "lock_vlm": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1114,
+     0.5976
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.0428,
+     0.3637
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.53,
+    "joint_change_rad_max": 0.165,
+    "min_sole_proxy_ankle_z": 0.04
+   },
+   "lock_heuristic": {
+    "planted_foot_speed_mps(mean,p95) before": [
+     0.1114,
+     0.5976
+    ],
+    "planted_foot_speed_mps(mean,p95) after": [
+     0.1069,
+     0.6612
+    ],
+    "foot_target_err_cm_max": 0.01,
+    "pelvis_shift_cm_max": 0.25,
+    "joint_change_rad_max": 0.081,
+    "min_sole_proxy_ankle_z": 0.04
+   }
+  }
+ }
+]

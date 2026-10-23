@@ -1,0 +1,31 @@
+{
+ "platform": "bilibili",
+ "id": "av117381925963568",
+ "url": "https://www.bilibili.com/video/av117381925963568",
+ "origin": "北舞鼓子秧歌教材，狗熊哆嗦毛全身完整示范（白衣男舞者）",
+ "start_s": 16.25,
+ "end_s": 23.983,
+ "frames": 232,
+ "fps": 30,
+ "dataset_range_s": [
+  16.25,
+  24.0
+ ],
+ "note": "Cut from data/clips/bda2_gxdsm_full.mp4 (the exact 232-frame clip GVHMR used; the raw download is no longer kept). Resolution 768x576 as in that clip.",
+ "policies": [
+  "policies/gxdsm_full_v1"
+ ],
+ "motion": "dataset/bda2_gxdsm_full/g1_lock_vlm_50fps.npz",
+ "clip_id": "bda2_gxdsm_full",
+ "video": {
+  "file": "bda2_gxdsm_full.mp4",
+  "codec": "h264",
+  "width": 768,
+  "height": 576,
+  "fps": "30/1",
+  "frames": 232,
+  "audio": false
+ },
+ "face_mosaic": "yolov8n-pose (ultralytics 8.2.42) per frame, plus a 180-degree-rotated pass when the head keypoints are missing (inverted bodies); face box from nose/eyes/ears (1.6x their span, >= 6% of frame height and >= 0.2 x the clip person size), shoulder/box-top fallback, union over +-3 frames, last box reused when nothing is detected; pixelated with block size = box/7. Every person detected (conf >= 0.15) is mosaicked.",
+ "license_note": "Third-party internet video, faces mosaicked; for research illustration only."
+}

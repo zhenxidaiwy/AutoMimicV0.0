@@ -1,0 +1,13 @@
+{
+  "clip_id": "street_sss_a",
+  "source": {"platform": "bilibili", "id": "av117438683289595", "start_s": 20.80, "end_s": 21.72,
+             "origin": "街头翻跳（剪辑合集中的第 1 个镜头）"},
+  "fps": 30, "n_frames": 28, "camera": "static", "people": 1, "full_body": true,
+  "performer": "街头戴帽男", "move": "闪身步", "quality": 3,
+  "notes": "One flash: both feet move during the lunge (2D speed peaks on both ankles at frames 6-8), then the right foot closes (frames 15-24). Very short shot; 360p portrait.",
+  "annotator": "Claude (VLM) + ViTPose 2D ankle speed check",
+  "phases": [[0, 3, "stand"], [4, 9, "flash"], [10, 14, "hold"], [15, 24, "recover"], [25, 27, "settle"]],
+  "swing": [[15, 24, "R"]],
+  "unsure": [[5, 9]],
+  "airborne": []
+}

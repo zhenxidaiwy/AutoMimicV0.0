@@ -1,0 +1,1 @@
+source: /home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_10-10-11_flipauto_r14/model_12000.pt (knee limit 120 N.m, G1 EDU)

@@ -1,0 +1,18 @@
+{
+ "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_17-23-05_bda2_gxdsm_full_lock_vlm_adaptive_n4096/model_999.pt",
+ "motion": "/home/user/projects/dance/dataset/bda2_gxdsm_full/g1_lock_vlm_50fps.npz",
+ "clip_steps": 385,
+ "steps_run": 410,
+ "completed_clip": true,
+ "fell_at_step": null,
+ "fell_at_s": null,
+ "termination_terms": [],
+ "bodies_z_err_gt_15cm": {},
+ "eval_mode": "fall-only (torso height/orientation)",
+ "ee_z_violation_frac": 0.0,
+ "body_pos_err_mean_m": 0.0578,
+ "body_pos_err_max_m": 1.0172,
+ "joint_pos_err_mean": 0.957,
+ "anchor_z_err_max_m": 0.0438,
+ "video": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_17-23-05_bda2_gxdsm_full_lock_vlm_adaptive_n4096/eval/model_999.mp4"
+}

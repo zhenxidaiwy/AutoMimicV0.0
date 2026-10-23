@@ -1,0 +1,65 @@
+{
+ "round": 9,
+ "decider": "agent (Claude, in the Claude Code session); first LLM-mode round",
+ "protocol": "step 1 analysis/r08_quant.md -> step 2 analysis/r08_llm.md -> step 3 this file -> train",
+ "based_on": "r08 model_5500 (score 9.097)",
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-187"],
+ "human_input": [
+  "(dev, before r08) hands trembling and body swaying while standing: does the fidelity curriculum fix it?",
+  "(dev) do not wait for the human to point out problems; compare with the reference from many angles",
+  "(dev, r09 attempt 1) user: did you skip checking round 8? -> sheets 000-079 unreviewed, run stopped",
+  "(dev) user: quantify fully, then LLM analysis, then solution, then train; and start that process automatically when a round ends"
+ ],
+ "priorities": [
+  "P1 stand after landing (waist 1.86 rad, arm err 29 deg, action change 0.30, ankle acc ~100 rad/s^2, feet lifting): first training of the r07 stand code + arm pose term in settle/stand_after",
+  "P2 flight arms asymmetric / thrown back (shoulder-yaw asym 138 deg): arm pose term in take-off/flight/land",
+  "P3 hip tuck ~9 steps late, knees over-folded 2.06 rad, rotation 344 deg: hip-pitch term in flight",
+  "P4 stay_down 10 -> 5; tracking curriculum unchanged"
+ ],
+ "knobs": {
+  "weights.flip_stay_down": 5.0,
+  "weights.flip_stand_still": 3.0,
+  "weights.flip_stand_quiet": 3.0,
+  "extra_dyn": [
+   {"name": "agent_r09_hip_tuck", "func": "dyn_joint", "weight": 3.0,
+    "params": {"joints": ["left_hip_pitch_joint", "right_hip_pitch_joint"], "phases": ["flight"], "std": 0.6}},
+   {"name": "agent_r09_arms_air", "func": "dyn_joint", "weight": 2.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["takeoff", "flight", "land"], "std": 0.8}},
+   {"name": "agent_r09_arms_stand", "func": "dyn_joint", "weight": 2.0,
+    "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint",
+                          "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint",
+                          "left_elbow_joint", "right_elbow_joint"], "phases": ["settle", "stand_after"], "std": 0.5}}
+  ]
+ },
+ "library": {
+  "joint:elbow:flight": 0.0,
+  "body:wrist_yaw:flight": 0.0,
+  "asymmetry:shoulder_pitch:stand_after": 0.0,
+  "asymmetry:elbow:stand_after": 0.0
+ },
+ "library_params": {
+  "asymmetry:shoulder_yaw:flight": {"std": 0.8},
+  "asymmetry:shoulder_yaw:takeoff": {"std": 0.8},
+  "asymmetry:shoulder_yaw:stand_after": {"std": 0.8},
+  "asymmetry:wrist_roll:stand": {"std": 0.5},
+  "asymmetry:hip_roll:stand_after": {"std": 0.3},
+  "joint:knee:flight": {"std": 0.8},
+  "body:ankle_roll:flight": {"std": 0.5}
+ },
+ "code_changes": [
+  "harness: decisions can set template parameters (library_params) and add decider-composed terms (knob extra_dyn)",
+  "harness: LLM mode runs analyze_round.py + quant_report.py automatically at the end of a round; refuses a decision without the quantitative report, the LLM analysis and all frame sheets reviewed",
+  "no new reward code: flip_root_ori / stand_still (all joints) / stand_quiet / waist termination and the library fixes are trained for the first time"
+ ],
+ "expect": {
+  "waist_yaw_stand_max_rad": "< 0.4 (r08 1.86)",
+  "stand_action_change": "< 0.2 (r08 0.30)",
+  "shoulder_yaw_asym_flight_deg": "< 60 (r08 138)",
+  "hip_pitch_step105": "<= -1.0 (r08 -0.6, ref -1.53)",
+  "rotation_deg": ">= 340 (r08 344)",
+  "plane_dev_max_deg": "< 15 (r08 18.5)"
+ },
+ "rollback_if": "no upright landing or rotation < 300: r10 starts again from r08 model_5500 and the arm terms are halved"
+}

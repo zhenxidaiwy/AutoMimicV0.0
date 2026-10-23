@@ -1,0 +1,609 @@
+{
+ "policy": "backflip_r13_fid1",
+ "mujoco": "3.5.0",
+ "model": "models/flip.mjb",
+ "runs_per_scenario": 100,
+ "success_rule": "|cumulative torso rotation| >= 330 deg AND over the last 0.5 s: torso tilt < 30 deg AND pelvis z > 0.6 m",
+ "warp_clamp_emulation": true,
+ "start_jitter": {
+  "root_xy_m": 0.02,
+  "roll_pitch_rad": 0.02,
+  "yaw_rad": 0.05,
+  "joint_pos_rad": 0.02
+ },
+ "push_range_lo": [
+  -0.25,
+  -0.25,
+  -0.1,
+  -0.26,
+  -0.26,
+  -0.39
+ ],
+ "push_range_hi": [
+  0.25,
+  0.25,
+  0.1,
+  0.26,
+  0.26,
+  0.39
+ ],
+ "scenarios": [
+  {
+   "name": "nominal",
+   "description": "no perturbation",
+   "runs": 100,
+   "success_rate": 1.0,
+   "falls": 0,
+   "early_falls": 0,
+   "rotation_deg_p5_50_95": [
+    360.89,
+    363.1,
+    365.01
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    1.12,
+    1.14,
+    1.16
+   ],
+   "airborne_s_p5_50_95": [
+    0.56,
+    0.58,
+    0.58
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.52,
+    0.54,
+    0.54
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    2.3,
+    2.9,
+    3.5
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.78,
+    0.78,
+    0.78
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.0013,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": true,
+    "rotation_deg": 363.9,
+    "rotation_max_abs_deg": 364.5,
+    "peak_pelvis_m": 1.15,
+    "airborne_s": 0.58,
+    "airborne_no_contact_s": 0.54,
+    "takeoff_step": 96,
+    "landing_step": 123,
+    "takeoff_offset_steps": -3,
+    "landing_offset_steps": 1,
+    "landing_tilt_deg": 33.2,
+    "landing_tilt_max_0p5s_deg": 33.2,
+    "pelvis_min_after_landing_m": 0.742,
+    "end_tilt_deg": 1.3,
+    "tail_tilt_max_deg": 3.4,
+    "end_pelvis_m": 0.782,
+    "tail_pelvis_min_m": 0.78,
+    "fell": false,
+    "early_fall": false,
+    "steps": 189,
+    "knee_torque_max_Nm": 120.0,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.004,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 130.3,
+    "ncon_max": 28
+   }
+  },
+  {
+   "name": "lat20",
+   "description": "position targets delayed by 4 physics steps = 20 ms (fixed lag, DelayedActuator semantics)",
+   "runs": 100,
+   "success_rate": 0.72,
+   "falls": 17,
+   "early_falls": 0,
+   "rotation_deg_p5_50_95": [
+    345.8,
+    362.75,
+    442.35
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    1.04,
+    1.06,
+    1.08
+   ],
+   "airborne_s_p5_50_95": [
+    0.52,
+    0.54,
+    0.54
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.48,
+    0.5,
+    0.52
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    3.7,
+    12.75,
+    99.18
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.1,
+    0.77,
+    0.78
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.0428,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": false,
+    "rotation_deg": 367.8,
+    "rotation_max_abs_deg": 372.5,
+    "peak_pelvis_m": 1.053,
+    "airborne_s": 0.52,
+    "airborne_no_contact_s": 0.48,
+    "takeoff_step": 97,
+    "landing_step": 121,
+    "takeoff_offset_steps": -2,
+    "landing_offset_steps": -1,
+    "landing_tilt_deg": 46.0,
+    "landing_tilt_max_0p5s_deg": 46.0,
+    "pelvis_min_after_landing_m": 0.645,
+    "end_tilt_deg": 24.5,
+    "tail_tilt_max_deg": 27.0,
+    "end_pelvis_m": 0.508,
+    "tail_pelvis_min_m": 0.508,
+    "fell": false,
+    "early_fall": false,
+    "steps": 189,
+    "knee_torque_max_Nm": 120.0,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.0794,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 352.9,
+    "ncon_max": 32
+   }
+  },
+  {
+   "name": "lat40",
+   "description": "position targets delayed by 8 physics steps = 40 ms (fixed lag, DelayedActuator semantics)",
+   "runs": 100,
+   "success_rate": 0.0,
+   "falls": 87,
+   "early_falls": 91,
+   "rotation_deg_p5_50_95": [
+    164.91,
+    461.85,
+    1011.15
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    0.8,
+    0.83,
+    21.01
+   ],
+   "airborne_s_p5_50_95": [
+    0.2,
+    0.4,
+    0.76
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.18,
+    0.34,
+    0.6
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    96.39,
+    130.9,
+    167.05
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.08,
+    0.22,
+    0.59
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.2343,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": false,
+    "rotation_deg": 369.5,
+    "rotation_max_abs_deg": 369.5,
+    "peak_pelvis_m": 0.862,
+    "airborne_s": 0.34,
+    "airborne_no_contact_s": 0.32,
+    "takeoff_step": 28,
+    "landing_step": 44,
+    "takeoff_offset_steps": -71,
+    "landing_offset_steps": -78,
+    "landing_tilt_deg": 26.9,
+    "landing_tilt_max_0p5s_deg": 114.1,
+    "pelvis_min_after_landing_m": 0.244,
+    "end_tilt_deg": 69.4,
+    "tail_tilt_max_deg": 125.6,
+    "end_pelvis_m": 0.653,
+    "tail_pelvis_min_m": 0.396,
+    "fell": true,
+    "early_fall": true,
+    "steps": 189,
+    "knee_torque_max_Nm": 120.0,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.2249,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 488.5,
+    "ncon_max": 32
+   }
+  },
+  {
+   "name": "fric0.5",
+   "description": "foot geom friction 0.5 (nominal 0.6)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "falls": 0,
+   "early_falls": 0,
+   "rotation_deg_p5_50_95": [
+    360.8,
+    362.9,
+    364.81
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    1.11,
+    1.14,
+    1.17
+   ],
+   "airborne_s_p5_50_95": [
+    0.56,
+    0.58,
+    0.58
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.52,
+    0.54,
+    0.56
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    2.4,
+    3.0,
+    3.8
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.78,
+    0.78,
+    0.78
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.0013,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": true,
+    "rotation_deg": 362.4,
+    "rotation_max_abs_deg": 363.9,
+    "peak_pelvis_m": 1.147,
+    "airborne_s": 0.58,
+    "airborne_no_contact_s": 0.56,
+    "takeoff_step": 95,
+    "landing_step": 123,
+    "takeoff_offset_steps": -4,
+    "landing_offset_steps": 1,
+    "landing_tilt_deg": 33.8,
+    "landing_tilt_max_0p5s_deg": 33.8,
+    "pelvis_min_after_landing_m": 0.741,
+    "end_tilt_deg": 2.1,
+    "tail_tilt_max_deg": 2.9,
+    "end_pelvis_m": 0.78,
+    "tail_pelvis_min_m": 0.779,
+    "fell": false,
+    "early_fall": false,
+    "steps": 189,
+    "knee_torque_max_Nm": 120.0,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.004,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 131.5,
+    "ncon_max": 28
+   }
+  },
+  {
+   "name": "fric1.0",
+   "description": "foot geom friction 1.0 (nominal 0.6)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "falls": 0,
+   "early_falls": 0,
+   "rotation_deg_p5_50_95": [
+    359.99,
+    362.25,
+    364.11
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    1.15,
+    1.15,
+    1.16
+   ],
+   "airborne_s_p5_50_95": [
+    0.58,
+    0.58,
+    0.58
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.52,
+    0.56,
+    0.56
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    1.9,
+    2.6,
+    3.2
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.78,
+    0.78,
+    0.78
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.0025,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": true,
+    "rotation_deg": 361.1,
+    "rotation_max_abs_deg": 363.1,
+    "peak_pelvis_m": 1.158,
+    "airborne_s": 0.58,
+    "airborne_no_contact_s": 0.56,
+    "takeoff_step": 95,
+    "landing_step": 123,
+    "takeoff_offset_steps": -4,
+    "landing_offset_steps": 1,
+    "landing_tilt_deg": 31.6,
+    "landing_tilt_max_0p5s_deg": 31.6,
+    "pelvis_min_after_landing_m": 0.742,
+    "end_tilt_deg": 2.4,
+    "tail_tilt_max_deg": 2.4,
+    "end_pelvis_m": 0.781,
+    "tail_pelvis_min_m": 0.78,
+    "fell": false,
+    "early_fall": false,
+    "steps": 189,
+    "knee_torque_max_Nm": 108.74,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.0,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 108.7,
+    "ncon_max": 28
+   }
+  },
+  {
+   "name": "kp085",
+   "description": "PD stiffness x0.85 on every actuator (damping unchanged)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "falls": 0,
+   "early_falls": 0,
+   "rotation_deg_p5_50_95": [
+    359.3,
+    361.7,
+    363.2
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    1.02,
+    1.03,
+    1.04
+   ],
+   "airborne_s_p5_50_95": [
+    0.56,
+    0.56,
+    0.56
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.52,
+    0.52,
+    0.52
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    4.2,
+    4.8,
+    5.3
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.78,
+    0.78,
+    0.78
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.0018,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": true,
+    "rotation_deg": 361.4,
+    "rotation_max_abs_deg": 365.3,
+    "peak_pelvis_m": 1.029,
+    "airborne_s": 0.56,
+    "airborne_no_contact_s": 0.52,
+    "takeoff_step": 96,
+    "landing_step": 122,
+    "takeoff_offset_steps": -3,
+    "landing_offset_steps": 0,
+    "landing_tilt_deg": 47.7,
+    "landing_tilt_max_0p5s_deg": 47.7,
+    "pelvis_min_after_landing_m": 0.669,
+    "end_tilt_deg": 3.9,
+    "tail_tilt_max_deg": 4.5,
+    "end_pelvis_m": 0.778,
+    "tail_pelvis_min_m": 0.778,
+    "fell": false,
+    "early_fall": false,
+    "steps": 189,
+    "knee_torque_max_Nm": 120.0,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.0026,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 123.7,
+    "ncon_max": 30
+   }
+  },
+  {
+   "name": "push_pre",
+   "description": "one random root-velocity push during the initial stand (step 10..60)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "falls": 0,
+   "early_falls": 0,
+   "rotation_deg_p5_50_95": [
+    360.58,
+    363.0,
+    365.0
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    1.12,
+    1.14,
+    1.17
+   ],
+   "airborne_s_p5_50_95": [
+    0.56,
+    0.58,
+    0.58
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.52,
+    0.54,
+    0.56
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    2.4,
+    3.0,
+    3.6
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.78,
+    0.78,
+    0.78
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.0014,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": true,
+    "rotation_deg": 364.1,
+    "rotation_max_abs_deg": 364.5,
+    "peak_pelvis_m": 1.132,
+    "airborne_s": 0.56,
+    "airborne_no_contact_s": 0.52,
+    "takeoff_step": 96,
+    "landing_step": 122,
+    "takeoff_offset_steps": -3,
+    "landing_offset_steps": 0,
+    "landing_tilt_deg": 40.3,
+    "landing_tilt_max_0p5s_deg": 40.3,
+    "pelvis_min_after_landing_m": 0.737,
+    "end_tilt_deg": 1.5,
+    "tail_tilt_max_deg": 2.9,
+    "end_pelvis_m": 0.781,
+    "tail_pelvis_min_m": 0.779,
+    "fell": false,
+    "early_fall": false,
+    "steps": 189,
+    "knee_torque_max_Nm": 111.3,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.0,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 111.3,
+    "ncon_max": 28
+   }
+  },
+  {
+   "name": "push_post",
+   "description": "one random root-velocity push during the final stand (step 156..162)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "falls": 0,
+   "early_falls": 0,
+   "rotation_deg_p5_50_95": [
+    360.0,
+    362.1,
+    364.12
+   ],
+   "peak_pelvis_m_p5_50_95": [
+    1.12,
+    1.14,
+    1.16
+   ],
+   "airborne_s_p5_50_95": [
+    0.56,
+    0.58,
+    0.58
+   ],
+   "airborne_no_contact_s_p5_50_95": [
+    0.52,
+    0.54,
+    0.54
+   ],
+   "tail_tilt_max_deg_p5_50_95": [
+    1.99,
+    3.1,
+    4.01
+   ],
+   "tail_pelvis_min_m_p5_50_95": [
+    0.78,
+    0.78,
+    0.78
+   ],
+   "knee_torque_max_Nm": 120.0,
+   "knee_at_limit_frac_mean": 0.0013,
+   "knee_limit_respected_all": true,
+   "exact_start": {
+    "success": true,
+    "rotation_deg": 362.1,
+    "rotation_max_abs_deg": 364.7,
+    "peak_pelvis_m": 1.15,
+    "airborne_s": 0.58,
+    "airborne_no_contact_s": 0.54,
+    "takeoff_step": 96,
+    "landing_step": 123,
+    "takeoff_offset_steps": -3,
+    "landing_offset_steps": 1,
+    "landing_tilt_deg": 33.2,
+    "landing_tilt_max_0p5s_deg": 33.2,
+    "pelvis_min_after_landing_m": 0.742,
+    "end_tilt_deg": 1.3,
+    "tail_tilt_max_deg": 2.6,
+    "end_pelvis_m": 0.783,
+    "tail_pelvis_min_m": 0.782,
+    "fell": false,
+    "early_fall": false,
+    "steps": 189,
+    "knee_torque_max_Nm": 120.0,
+    "knee_torque_limit_Nm": [
+     120.0,
+     120.0
+    ],
+    "knee_at_limit_frac": 0.004,
+    "knee_torque_respects_limit": true,
+    "knee_pd_demand_max_Nm": 130.3,
+    "ncon_max": 28
+   }
+  }
+ ],
+ "wall_s": 72.3
+}
