@@ -10,9 +10,13 @@
 
 ### From one internet video to the robot
 
-| backflip | 闪身步 (dance) | 狗熊哆嗦毛 (dance) |
-|---|---|---|
-| <img src="docs/media/backflip_3_human_to_robot.gif" width="100%"/> | <img src="docs/media/bda_zhao_sss_human_to_robot.gif" width="100%"/> | <img src="docs/media/bda2_gxdsm_full_human_to_robot.gif" width="100%"/> |
+| backflip | cartwheel (侧手翻) |
+|---|---|
+| <img src="docs/media/backflip_3_human_to_robot.gif" width="100%"/> | <img src="docs/media/cartwheel_2_human_to_robot.gif" width="100%"/> |
+
+| 闪身步 (dance) | 狗熊哆嗦毛 (dance) |
+|---|---|
+| <img src="docs/media/bda_zhao_sss_human_to_robot.gif" width="100%"/> | <img src="docs/media/bda2_gxdsm_full_human_to_robot.gif" width="100%"/> |
 
 <p align="center"><img src="docs/media/backflip_human_to_robot_strip.png" width="100%"/><br/>
 <sub>Left / top: the monocular internet clip the skill was learned from (faces mosaicked, third-party footage used for
@@ -68,6 +72,45 @@ The native MuJoCo port re-implements observation, action and actor without mjlab
 the closed-loop gap was traced to how MuJoCo C vs. MuJoCo-Warp integrate damping of torque-saturated actuators
 ([`sim2sim/results_flip.md`](sim2sim/results_flip.md)). Round 15 trains with randomised control latency.
 
+### Cartwheel — the second skill, hand-supported, 13 rounds without human input
+
+<p align="center">
+  <img src="docs/media/cartwheel_evolution.gif" width="100%" alt="Cartwheel evolution across harness rounds"/>
+  <br/><sub>Rounds 1, 2 (falls sideways, lies down) → 3 (first upright landing) → 7 (best score) → 11 (every gate passed).</sub>
+</p>
+
+The same harness, with a per-task configuration (`rl/flip_auto/taskcfg.py`) and a new *hand-support* family in the
+library. Most fixes were found in the **reference**, not in the reward:
+
+| round | rotation | lands | what the decider found / fixed |
+|---|---|---|---|
+| 1 | 231° | no | two aerial landing terminations fire on the reference's own wide-stance landing |
+| 2 | 233° | no | those terminations off; rewards the reference itself scores low on set to 0; feet planted in the reference |
+| 3 | 255° | **yes** | reference repair: palms planted on the floor by the arm joints only + smooth root grounding (no 2 g drop) |
+| 4 | 259° | yes | robot went over on head and forearms → new termination *below reference* → straight-arm support |
+| 5–8 | 252–264° | yes | first-stand foot lift (new generic termination), hold stillness, train the judged 7.5 s hold window, return-to-spot after pushes |
+| 9–10 | 262–263° | yes | randomised 0–40 ms control latency; landing wrist jitter |
+| **11** | 291° | yes | rollback to r9 + wrist fix → **every gate passes** (two settle / landing jitter checks waived with reasons) |
+| 12–13 | 256–261° | yes | asymmetry / quietness fixes made the landing worse → rollback rule fired; r11 kept |
+
+**Round 11 policy** (`policies/cartwheel_r11`, 17.5 GPU-h to this round, 20.7 GPU-h for all 13):
+
+| scenario | mjlab, 256 envs | native MuJoCo (CPU), 100 runs |
+|---|---|---|
+| nominal | 100 % | 100 % |
+| training randomisation | 99.2 % | – |
+| control latency 20 ms | 96.1 % | 100 % |
+| control latency 40 ms | 45.3 % | 100 % |
+| PD stiffness × 0.85 | 98.8 % | 100 % |
+| foot friction 0.5 / 1.0 | – | 100 % / 100 % |
+| push before / after the move | – | 100 % / 100 % |
+
+Both columns use the same success rule (`rl/eval_flip_robust.py` v2), but mjlab adds the training randomisation
+(pushes, friction, CoM, encoder bias, observation noise) on top of each scenario; the native runs perturb only the
+named factor plus a small start jitter — hence 40 ms: 45 % vs. 100 %.
+
+Decisions and analyses: [`rl/flip_auto/tasks/cartwheel_2/`](rl/flip_auto/tasks/cartwheel_2/).
+
 ---
 
 ## Gallery
@@ -75,6 +118,7 @@ the closed-loop gap was traced to how MuJoCo C vs. MuJoCo-Warp integrate damping
 | | |
 |---|---|
 | <img src="docs/media/backflip_r14_fidelity.gif" width="100%"/><br/><sub>Backflip, round 14 (mjlab, HD eval)</sub> | <img src="docs/media/sim2sim_backflip_r14.gif" width="100%"/><br/><sub>Sim-to-sim: mjlab (left) vs. native MuJoCo CPU (right)</sub> |
+| <img src="docs/media/cartwheel_r11_converged.gif" width="100%"/><br/><sub>Cartwheel, round 11 (all gates passed)</sub> | <img src="docs/media/sim2sim_cartwheel_r11.gif" width="100%"/><br/><sub>Cartwheel sim-to-sim: mjlab (left) vs. native MuJoCo CPU (right)</sub> |
 | <img src="docs/media/backflip_r01_first_flip.gif" width="100%"/><br/><sub>Round 1: first full rotation, no landing</sub> | <img src="docs/media/backflip_r04_upright_landing.gif" width="100%"/><br/><sub>Round 4: first upright landing</sub> |
 | <img src="docs/media/sim2sim_dance_sss.gif" width="100%"/><br/><sub>Dance specialist (闪身步) in both simulators</sub> | <img src="docs/media/getup_recovery.gif" width="100%"/><br/><sub>Get-up from four lying poses (harness-tuned rewards)</sub> |
 
@@ -106,10 +150,11 @@ Rule-based adjustments still run, but only as *suggestions* in the report — `-
 | [`rl/train_dance.py`](rl/train_dance.py) | BeyondMimic-style tracking training on mjlab / MuJoCo-Warp (phase-weighted start states, real torque limits, latency) |
 | [`rl/mimic_generic.py`](rl/mimic_generic.py) | generic (L0) reward templates and real-robot constraints |
 | [`rl/flip_rewards.py`](rl/flip_rewards.py) | aerial-family (L1) and backflip-specific (L2) technique rewards and terminations |
-| [`rl/flip_auto/`](rl/flip_auto/) | **the harness**: `harness.py`, `critic.py`, `quant_report.py`, `library.py` (diagnostic library), decisions, analyses |
+| [`rl/flip_auto/`](rl/flip_auto/) | **the harness**: `harness.py`, `critic.py`, `quant_report.py`, `library.py` (diagnostic library), `taskcfg.py` (per-task paths), `tasks/<task>/` (decisions, analyses, state per skill), reference audit, segment probe |
+| [`rl/wm/`](rl/wm/) | world-model inner trainer (SuperMimic-style online Dyna loop: learned dynamics + short-horizon analytic gradients), selectable as `harness.py --trainer wm` |
 | [`rl/eval_flip.py`](rl/eval_flip.py), [`rl/eval_flip_robust.py`](rl/eval_flip_robust.py) | full-rollout evaluation and 256-env robustness evaluation |
 | [`sim2sim/`](sim2sim/) | native MuJoCo (CPU) re-implementation, exported models (`models/*.mjb`), equivalence and closed-loop reports |
-| [`policies/`](policies/) | trained policies with their reference motion, labels and eval videos (backflip r04/r12/r13/r14, get-up, two dances) |
+| [`policies/`](policies/) | trained policies with their reference motion, labels and eval videos (backflip r04/r12/r13/r14, cartwheel r11, get-up, two dances) |
 | [`live/`](live/), [`vla/`](vla/), [`artifacts/vla/`](artifacts/vla/) | live follow-dance demo: skeleton-based action recognition (models + keypoint data) → policy replay |
 | [`paper/`](paper/) | figures (v1–v8, every version kept), captions, related-work and MimicX comparison |
 
@@ -136,5 +181,7 @@ original sources under their licenses). The pose model `yolov8n-pose.pt` comes f
 
 ## Status
 
-Research in progress (backflip: development skill; next: side flip and cartwheel with a frozen harness, MimicX-rules
-baseline, multi-seed evaluation, sim-to-sim for every skill). Code under the Apache-2.0 license (see LICENSE); third-party footage keeps its original copyright.
+Research in progress. Backflip (development skill) and cartwheel (second skill, 13 rounds, sim-to-sim exam passed)
+are done. In progress: the harness with a different inner trainer — a world-model trainer instead of PPO (run-through
+stage, not yet a result) — to test that the loop, not the trainer, is what shortens the total time. Next: more skills
+with a frozen harness, base-model comparison of the LLM decider, multi-seed evaluation. Code under the Apache-2.0 license (see LICENSE); third-party footage keeps its original copyright.

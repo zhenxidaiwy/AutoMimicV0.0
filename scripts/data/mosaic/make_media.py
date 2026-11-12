@@ -19,6 +19,9 @@ CLIPS = {
                 r=f'{P}/policies/sss_bda_v1/eval/policy.mp4', rc=(70, 60, 270, 240)),
     'gxdsm': dict(h=f'{P}/data/source_clips_mosaic/bda2_gxdsm_full.mp4', hc=(110, 60, 610, 576),
                   r=f'{P}/policies/gxdsm_full_v1/eval/policy.mp4', rc=(50, 50, 290, 240)),
+    # T: GIF length (s); the 2.6 s human clip then holds its last frame while the robot lands and settles
+    'cartwheel': dict(h=f'{P}/data/source_clips_mosaic/cartwheel_2.mp4', hc=(0, 0, 402, 424),
+                      r=f'{P}/docs/media/cartwheel_r11_converged.mp4', rc=(300, 110, 860, 700), T=3.4),
 }
 
 
@@ -71,7 +74,7 @@ def make_gif(name, fps, colors, out, max_ph=450, max_w=960, bayer=4):
     cfg = CLIPS[name]
     hfr, hfps = read(cfg['h']); rfr, rfps = read(cfg['r'])
     ph, hw, rw = compose(cfg, hfr, rfr, max_w=max_w, max_ph=max_ph)
-    T = max(len(hfr) / hfps, len(rfr) / rfps)
+    T = cfg.get('T', max(len(hfr) / hfps, len(rfr) / rfps))
     tmp = f'{W_}/gif_{name}'; shutil.rmtree(tmp, ignore_errors=True); os.makedirs(tmp)
     n = int(T * fps)
     for k in range(n):

@@ -1,0 +1,25 @@
+{
+ "platform": "xiaohongshu (screen recording of the app)",
+ "uploader": "小支毯技-空翻课堂",
+ "title": "五步在家学会侧手翻",
+ "url": null,
+ "frames": 78,
+ "fps": 30,
+ "note": "The note URL was not recorded when the clip was cut (2026-10-25). The kept clip is the 78-frame, 402x720 clip GVHMR used, cropped to rows 150-573 so that no app UI remains (title band above, uploader avatar / name / caption / chapter bar below); the zooming camera cuts the feet in the last frames. Frames 44-58 (fast inverted-to-upright phase, head lost by the detector) got extra hand-set head boxes (scripts/data/mosaic/patch_cartwheel_2.py).",
+ "policies": [
+  "policies/cartwheel_r11"
+ ],
+ "motion": "dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+ "clip_id": "cartwheel_2",
+ "video": {
+  "file": "cartwheel_2.mp4",
+  "codec": "h264",
+  "width": 402,
+  "height": 424,
+  "fps": "30/1",
+  "frames": 78,
+  "audio": false
+ },
+ "face_mosaic": "yolov8n-pose (ultralytics 8.2.42) per frame, plus a 180-degree-rotated pass when the head keypoints are missing (inverted bodies); face box from nose/eyes/ears (1.6x their span, >= 6% of frame height and >= 0.2 x the clip person size), shoulder/box-top fallback, union over +-3 frames, last box reused when nothing is detected; pixelated with block size = box/7. Every person detected (conf >= 0.15) is mosaicked.",
+ "license_note": "Third-party internet video, faces mosaicked; for research illustration only."
+}

@@ -27,6 +27,15 @@ meta = {
         note='Cut from data/clips/bda2_gxdsm_full.mp4 (the exact 232-frame clip GVHMR used; the raw download is no longer kept). '
              'Resolution 768x576 as in that clip.',
         policies=['policies/gxdsm_full_v1'], motion='dataset/bda2_gxdsm_full/g1_lock_vlm_50fps.npz'),
+    'cartwheel_2': dict(
+        platform='xiaohongshu (screen recording of the app)', uploader='小支毯技-空翻课堂', title='五步在家学会侧手翻',
+        url=None, frames=78, fps=30,
+        note='The note URL was not recorded when the clip was cut (2026-10-25). The kept clip is the 78-frame, 402x720 '
+             'clip GVHMR used, cropped to rows 150-573 so that no app UI remains (title band above, uploader avatar / '
+             'name / caption / chapter bar below); the zooming camera cuts the feet in the last frames. Frames 44-58 '
+             '(fast inverted-to-upright phase, head lost by the detector) got extra hand-set head boxes '
+             '(scripts/data/mosaic/patch_cartwheel_2.py).',
+        policies=['policies/cartwheel_r11'], motion='dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz'),
 }
 for c, m in meta.items():
     f = f'{O}/{c}.mp4'

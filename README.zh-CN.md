@@ -10,9 +10,13 @@
 
 ### 从一段网络视频到机器人
 
-| 后空翻 | 闪身步（舞蹈） | 狗熊哆嗦毛（舞蹈） |
-|---|---|---|
-| <img src="docs/media/backflip_3_human_to_robot.gif" width="100%"/> | <img src="docs/media/bda_zhao_sss_human_to_robot.gif" width="100%"/> | <img src="docs/media/bda2_gxdsm_full_human_to_robot.gif" width="100%"/> |
+| 后空翻 | 侧手翻 |
+|---|---|
+| <img src="docs/media/backflip_3_human_to_robot.gif" width="100%"/> | <img src="docs/media/cartwheel_2_human_to_robot.gif" width="100%"/> |
+
+| 闪身步（舞蹈） | 狗熊哆嗦毛（舞蹈） |
+|---|---|
+| <img src="docs/media/bda_zhao_sss_human_to_robot.gif" width="100%"/> | <img src="docs/media/bda2_gxdsm_full_human_to_robot.gif" width="100%"/> |
 
 <p align="center"><img src="docs/media/backflip_human_to_robot_strip.png" width="100%"/><br/>
 <sub>左 / 上：学习所用的单目网络视频片段（人脸已打码，第三方视频，仅用于研究）；右 / 下：在仿真中学到的 Unitree G1 策略。</sub></p>
@@ -64,6 +68,44 @@
 闭环轨迹的差异被定位到 MuJoCo C 与 MuJoCo-Warp 对"扭矩饱和执行器的阻尼"的积分方式不同
 （[`sim2sim/results_flip.md`](sim2sim/results_flip.md)）。第 15 轮加入了随机控制延迟训练（20 ms 成功率提升到 99 %）。
 
+### 侧手翻：第二个技能，需要手撑地，13 轮全程无人工介入
+
+<p align="center">
+  <img src="docs/media/cartwheel_evolution.gif" width="100%" alt="侧手翻在各轮 harness 迭代中的进化"/>
+  <br/><sub>第 1、2 轮（侧倒、躺在地上）→ 第 3 轮（第一次直立落地）→ 第 7 轮（分数最高）→ 第 11 轮（全部判定通过）。</sub>
+</p>
+
+还是同一套 harness，只是增加了按任务区分的配置（`rl/flip_auto/taskcfg.py`），诊断库里也多了一个*手撑地*动作族。
+大部分问题最后都是在**参考动作**里找到的，而不是在 reward 里：
+
+| 轮次 | 旋转 | 落地 | decider 发现 / 修复了什么 |
+|---|---|---|---|
+| 1 | 231° | 否 | 两个空翻落地类 termination 在参考动作自己的宽站姿落地上就会触发 |
+| 2 | 233° | 否 | 关掉这两个 termination；参考动作本身得分就很低的 reward 设为 0；参考动作的双脚踩实地面 |
+| 3 | 255° | **是** | 修复参考动作：只用手臂关节让手掌贴地，躯干平滑落地（不再有 2 g 的突降） |
+| 4 | 259° | 是 | 机器人用头和前臂撑地翻过去 → 新增"低于参考动作"termination → 改为直臂撑地 |
+| 5–8 | 252–264° | 是 | 起始站立时抬脚（新增通用 termination）、站稳不晃、训练被判定的 7.5 s 保持窗口、被推后回到原位 |
+| 9–10 | 262–263° | 是 | 训练时随机加入 0–40 ms 控制延迟；落地时手腕抖动 |
+| **11** | 291° | 是 | 回滚到第 9 轮 + 手腕修复 → **全部判定通过**（两项落地 / 缓冲阶段的抖动检查附理由豁免） |
+| 12–13 | 256–261° | 是 | 对称性 / 安静度修复让落地变差 → 触发回滚规则；保留第 11 轮 |
+
+**第 11 轮策略**（`policies/cartwheel_r11`；到这一轮共用 17.5 GPU 小时，13 轮合计 20.7 GPU 小时）：
+
+| 场景 | mjlab，256 个环境 | 原生 MuJoCo（CPU），100 次 |
+|---|---|---|
+| 无扰动 | 100 % | 100 % |
+| 训练时的随机化 | 99.2 % | – |
+| 控制延迟 20 ms | 96.1 % | 100 % |
+| 控制延迟 40 ms | 45.3 % | 100 % |
+| PD 刚度 × 0.85 | 98.8 % | 100 % |
+| 脚底摩擦 0.5 / 1.0 | – | 100 % / 100 % |
+| 动作前 / 后各推一下 | – | 100 % / 100 % |
+
+两列用的是同一条成功判定（`rl/eval_flip_robust.py` v2），但 mjlab 的每个场景都在训练随机化（推力、摩擦、质心、
+编码器偏置、观测噪声）之上再加该项扰动；原生 MuJoCo 只扰动表中这一项，外加很小的起始抖动。所以 40 ms 一项是 45 % 对 100 %。
+
+决策和分析记录见 [`rl/flip_auto/tasks/cartwheel_2/`](rl/flip_auto/tasks/cartwheel_2/)。
+
 ---
 
 ## 动图展示
@@ -71,6 +113,7 @@
 | | |
 |---|---|
 | <img src="docs/media/backflip_r14_fidelity.gif" width="100%"/><br/><sub>后空翻，第 14 轮（mjlab，高清评测）</sub> | <img src="docs/media/sim2sim_backflip_r14.gif" width="100%"/><br/><sub>Sim-to-sim：mjlab（左） vs 原生 MuJoCo CPU（右）</sub> |
+| <img src="docs/media/cartwheel_r11_converged.gif" width="100%"/><br/><sub>侧手翻，第 11 轮（全部判定通过）</sub> | <img src="docs/media/sim2sim_cartwheel_r11.gif" width="100%"/><br/><sub>侧手翻 sim-to-sim：mjlab（左） vs 原生 MuJoCo CPU（右）</sub> |
 | <img src="docs/media/backflip_r01_first_flip.gif" width="100%"/><br/><sub>第 1 轮：第一次完成整圈旋转，但没能落地</sub> | <img src="docs/media/backflip_r04_upright_landing.gif" width="100%"/><br/><sub>第 4 轮：第一次直立落地</sub> |
 | <img src="docs/media/sim2sim_dance_sss.gif" width="100%"/><br/><sub>舞蹈专项策略（闪身步）在两个模拟器中</sub> | <img src="docs/media/getup_recovery.gif" width="100%"/><br/><sub>从四种躺姿起身（reward 由 harness 调优）</sub> |
 
@@ -102,10 +145,11 @@
 | [`rl/train_dance.py`](rl/train_dance.py) | 基于 mjlab / MuJoCo-Warp 的 BeyondMimic 式跟踪训练（按阶段加权的起始状态、真机扭矩限制、控制延迟） |
 | [`rl/mimic_generic.py`](rl/mimic_generic.py) | 通用层（L0）reward 模板和真机约束 |
 | [`rl/flip_rewards.py`](rl/flip_rewards.py) | 腾空翻转族（L1）与后空翻专用（L2）的技术 reward 和 termination |
-| [`rl/flip_auto/`](rl/flip_auto/) | **harness 本体**：`harness.py`、`critic.py`、`quant_report.py`、`library.py`（诊断库）、`stop_criteria.py`、决策和分析记录 |
+| [`rl/flip_auto/`](rl/flip_auto/) | **harness 本体**：`harness.py`、`critic.py`、`quant_report.py`、`library.py`（诊断库）、`stop_criteria.py`、`taskcfg.py`（按任务的路径配置）、`tasks/<任务>/`（每个技能的决策、分析和状态）、参考动作审计、分段测试 |
+| [`rl/wm/`](rl/wm/) | 世界模型内核训练器（SuperMimic 式在线 Dyna 循环：学到的动力学 + 短时域解析梯度），用 `harness.py --trainer wm` 选择 |
 | [`rl/eval_flip.py`](rl/eval_flip.py)、[`rl/eval_flip_robust.py`](rl/eval_flip_robust.py) | 完整动作评测和 256 环境鲁棒性评测 |
 | [`sim2sim/`](sim2sim/) | 原生 MuJoCo（CPU）重新实现、导出的模型（`models/*.mjb`）、等价性与闭环报告 |
-| [`policies/`](policies/) | 训练好的策略，附参考动作、阶段标签和评测视频（后空翻 r04/r12/r13/r14、起身、两段舞蹈） |
+| [`policies/`](policies/) | 训练好的策略，附参考动作、阶段标签和评测视频（后空翻 r04/r12/r13/r14、侧手翻 r11、起身、两段舞蹈） |
 | [`live/`](live/)、[`vla/`](vla/)、[`artifacts/vla/`](artifacts/vla/) | 实时跟跳 demo：基于骨架的动作识别（模型 + 关键点数据）→ 策略回放 |
 | [`paper/`](paper/) | 论文图和图注 |
 
@@ -131,4 +175,6 @@ bash rl/flip_auto/launch_llm.sh <轮次>
 
 ## 当前状态
 
-研究进行中（后空翻：开发用技能；下一步：用冻结的 harness 做侧空翻和侧手翻、MimicX 规则基线、多种子评测、每个技能都做 sim-to-sim）。本仓库目前为私有。
+研究进行中。后空翻（开发用技能）和侧手翻（第二个技能，13 轮，通过 sim-to-sim 测试）已完成。进行中：把 harness 的内核
+换成另一种训练方法——用世界模型训练器代替 PPO（目前在跑通阶段，还不是结果），以验证缩短总耗时的是这套循环本身，而不是某个特定的
+训练方法。下一步：用冻结的 harness 做更多技能、对比不同基座大模型作为 decider 的能力、多种子评测。代码采用 Apache-2.0 许可证（见 LICENSE）；第三方视频的版权归原作者所有。
