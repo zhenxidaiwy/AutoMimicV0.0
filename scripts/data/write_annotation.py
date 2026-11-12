@@ -27,7 +27,9 @@ import numpy as np
 PHASE_WEIGHT = {"ready": 0.3, "stand": 0.3, "prep": 1.0, "flash": 3.0, "hold": 2.0, "recover": 3.0,
                 "settle": 1.5, "shake": 2.5, "other": 1.0,
                 # backflip (capability probe): counter-movement squat, push-off, flight (both feet off), landing
-                "crouch": 1.5, "takeoff": 4.0, "flight": 4.0, "land": 3.0}
+                "crouch": 1.5, "takeoff": 4.0, "flight": 4.0, "land": 3.0,
+                # hand-supported skills (cartwheel, round-off, handspring): step into the move, hands on the floor
+                "lunge": 1.5, "support": 4.0}
 
 if __name__ == "__main__":
     cid = sys.argv[1]
@@ -51,6 +53,12 @@ if __name__ == "__main__":
     w = np.array([PHASE_WEIGHT[p] for p in phase], float)
     w /= w.sum()
     out = dict(ev)
+    # optional hand contact channels (hand-supported skills): 1 planted, 0 free
+    for side in ("L", "R"):
+        h = np.zeros(T, int)
+        for s, e in ev.get("hand_contact", {}).get(side, []):
+            h[s:e + 1] = 1
+        out[f"hand_{side}"] = h.tolist()
     out.update({"phase": phase, "contact_L": cl.tolist(), "contact_R": cr.tolist(),
                 "rsi_weight": np.round(w, 6).tolist(),
                 "label_convention": "L/R = performer's own left/right; contact 1 planted, 0 air, -1 unsure"})

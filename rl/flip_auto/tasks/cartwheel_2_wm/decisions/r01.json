@@ -1,0 +1,37 @@
+{
+ "round": 1,
+ "task": "cartwheel_2_wm",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "purpose": "RUN-THROUGH of the harness with the world-model inner trainer (user 2026-11-04: first make the framework run with the world model and see whether it trains to an effect; not the formal experiment, fairness settings decided later)",
+ "trainer": "wm: rl/wm/speedup/online.py via harness --trainer wm --wm-minutes 60 (SuperMimic-style online loop: collect -> fit -> BPTT through the model; CuboiLeo e8 pretrained world model, learned reward-residual and termination heads, harness reset prior, TF32 + compiled model, 2048 rollouts)",
+ "human_input": [
+  "user 2026-11-04: run the world model inside the PPO harness framework, one round per hour; keep the PPO path unchanged"
+ ],
+ "protocol": "first round of the task: knobs copied from cartwheel_2 r01 (PPO), from scratch",
+ "knobs": {
+  "hand_friction": 0.6,
+  "delay_ms": 25.0,
+  "terms.term_stand_fail": {"max_d": 0.85, "max_tilt": 40.0, "max_waist": 0.6},
+  "weights.flip_stand_still": 3.0,
+  "weights.flip_stand_quiet": 3.0,
+  "terms.term_flight_spread": null,
+  "terms.term_leg_twist": null,
+  "extra_dyn": []
+ },
+ "ref_audit_fix": "first launch refused by the harness guard: term_flight_spread and term_leg_twist fire on 10 frames of the reference itself (g1_lock_vlm_hold). Switched off as the PPO run did in its r02 (the guard did not exist at PPO r01).",
+ "library": {},
+ "library_params": {},
+ "init": "scratch",
+ "known_differences_vs_ppo_r01": [
+  "inner trainer (the point of the run)",
+  "round length 60 min (PPO r01: 1500 iterations, 95 min)",
+  "the shared library now holds cartwheel_2 checks grown in the PPO rounds; their active template fixes are switched on automatically (left untouched here to not alter cartwheel_2's library state)",
+  "harness / reward / termination code is today's version (PPO r01 ran at commit aee08c2)",
+  "the decider knows the PPO run's outcome"
+ ],
+ "expect": {
+  "run-through": "the round trains, exports model_<it>.pt + state_<it>.pt, and the harness evaluates, critiques and reports it like a PPO round",
+  "learning signal": "mean episode length grows over the round"
+ },
+ "rollback_if": "n/a (first round)"
+}

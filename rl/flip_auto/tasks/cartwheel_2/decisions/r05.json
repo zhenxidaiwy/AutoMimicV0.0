@@ -1,0 +1,39 @@
+{
+ "round": 5,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r04_quant.md -> step 2 analysis/r04_llm.md (sheets + close-ups 0-131 + floor contacts) -> step 3 this file -> train",
+ "based_on": "r04: straight-arm cartwheel, lands and holds; open: lifted left foot in the first stand, hold gates (speed 0.213, sway 0.056), robustness (dr 0.76, 20 ms 0.45, kp 0.66), weak land segment (0.36)",
+ "init": {"run": "2026-10-26_02-43-10_cw2auto_r04", "ckpt": "model_4497.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (every frame 0-131)"],
+ "human_input": [],
+ "priorities": [
+  "P1 left foot on the floor in the first stand: library fix contact:left_foot:stand on (weight 1)",
+  "P2 hold stillness: generic dyn_base_still in stand_after",
+  "P3 landing robustness: start-state weight land 1 -> 2",
+  "keep: straight-arm support (term_below_reference stays), landing, hold"
+ ],
+ "knobs": {
+  "prior.land": 2.0,
+  "extra_dyn": [
+   {"name": "agent_r05_base_still", "func": "dyn_base_still", "weight": 2.0,
+    "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}}
+  ]
+ },
+ "library": {"contact:left_foot:stand": 1.0},
+ "library_params": {},
+ "waive": [],
+ "lessons_used": ["no-lower-than-reference", "closeup-review", "segment-probe", "hold-final-pose-2s", "quiet-stance"],
+ "code_changes": [],
+ "expect": {
+  "critic contact:left_foot:stand": "< 2 (r04 4.7)",
+  "hold_pelvis_speed_max": "<= 0.15 (r04 0.213)",
+  "hold_sway_m": "<= 0.03 (r04 0.056)",
+  "segment start 81 never lost": "> 0.5 (r04 0.36)",
+  "robust dr": "> 0.8 (r04 0.76)",
+  "floor contacts in support": "wrists and feet only (kept)"
+ },
+ "rollback_if": "head / forearm support returns or landed_upright lost: r06 from r04 model_4497 with only the contact fix"
+}

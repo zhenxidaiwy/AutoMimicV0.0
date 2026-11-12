@@ -1,0 +1,33 @@
+{
+ "round": 4,
+ "task": "cartwheel_2_wm",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "purpose": "run-through of the harness with the world-model inner trainer (not the formal experiment)",
+ "protocol": "step 1 analysis/r03_quant.md (automatic) -> step 2 analysis/r03_llm.md -> step 3 this file -> train",
+ "based_on": "r03 model_1812: lunge tracked, never gets onto the hands (tips backwards at 44-52), lies still; same failure as PPO r02 (entry onto the hands)",
+ "init": {"run": "2026-11-04_18-41-06_cw2wm_r03", "ckpt": "model_1812.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_note": "0-39 lunge ok, 40-47 stays upright arms out, 48-55 falls backwards, 56-80 on the back leg raised, 81-487 lies still",
+ "human_input": [],
+ "priorities": [
+  "P1 reference entry onto the hands physically consistent: reachqp_vlm_hold (as the PPO run's r03)",
+  "P2 more start states in the failing segment: prior lunge 3, support 2 (as the PPO run's r03)",
+  "keep: the r03 policy (warm start with the full trainer state)"
+ ],
+ "knobs": {
+  "reference": {"variant": "reachqp_vlm_hold", "labels": "labels_hold_50fps.npz"},
+  "prior.lunge": 3.0,
+  "prior.support": 2.0
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "code_changes": [],
+ "expect": {
+  "video": "hands reach the floor in front at 44-52; no backwards fall",
+  "mean episode length end": "> 39 (r03)",
+  "train log": "no NaN; guard counters reported"
+ },
+ "rollback_if": "worse full-run rotation and earlier fall than r03: r05 from r03 model_1812 with the plant_vlm_hold reference and only the prior change"
+}

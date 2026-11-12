@@ -16,7 +16,9 @@ from pathlib import Path
 REPO = Path.home() / "projects" / "unitree_rl_mjlab"
 HERE = Path(__file__).resolve().parent
 
-if __name__ == "__main__":
+def build_args(argv=None):
+  """-> (ours, args): our options and the full TrainConfig (env + agent) with every harness knob applied. Shared by
+  the PPO launch below and by the world-model trainer (rl/wm/speedup/online.py), so both train on the same env."""
   ap = argparse.ArgumentParser()
   ap.add_argument("--rsi", required=True, choices=["uniform", "adaptive", "phase", "phase_adaptive"])
   ap.add_argument("--labels", default=None, help="labels_50fps.npz with rsi_weight (needed for phase*)")
@@ -46,9 +48,11 @@ if __name__ == "__main__":
   ap.add_argument("--knee-limit", type=float, default=None,
                   help="real-robot knee effort limit (N.m): the open-source cfg uses 139, G1 spec sheets give 90 (base) "
                        "/ 120 (EDU); hip roll keeps its value")
+  ap.add_argument("--hand-friction", type=float, default=0.0,
+                  help="> 0: hand collision geoms get condim 3 and this friction (hand-supported skills)")
   ap.add_argument("--delay-ms", type=float, default=0.0,
                   help="randomise actuator command delay 0..delay-ms per env (sim-to-real: control latency)")
-  ours, rest = ap.parse_known_args()
+  ours, rest = ap.parse_known_args(argv)
   if rest and rest[0] == "--":
     rest = rest[1:]
   if ours.rsi.startswith("phase") and not ours.labels:
@@ -105,6 +109,10 @@ if __name__ == "__main__":
     from flip_rewards import add_action_delay
     lag = add_action_delay(args.env.scene.entities["robot"].articulation, ours.delay_ms, args.env.sim.mujoco.timestep)
     print(f"[train_dance] action delay 0..{ours.delay_ms} ms ({lag} physics steps), random per env")
+  if ours.hand_friction > 0:
+    from mimic_generic import set_hand_friction
+    set_hand_friction(args.env.scene.entities["robot"], ours.hand_friction)
+    print(f"[train_dance] hand collision geoms: condim 3, friction {ours.hand_friction}")
   if ours.flip_rewards > 0:
     import json as _json
 
@@ -146,7 +154,11 @@ if __name__ == "__main__":
     else:
       args.env.terminations["ee_body_pos"].params["threshold"] = ours.ee_threshold
     print(f"[train_dance] ee_body_pos termination: {args.env.terminations.get('ee_body_pos')}")
+  return ours, args, T
 
+
+if __name__ == "__main__":
+  ours, args, T = build_args()
   run_root = Path.home() / "projects" / "dance" / "runs"
   run_root.mkdir(parents=True, exist_ok=True)
   os.chdir(run_root)  # train.py writes logs/rsl_rl/... relative to cwd

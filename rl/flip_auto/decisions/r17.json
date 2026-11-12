@@ -1,0 +1,53 @@
+{
+ "round": 17,
+ "status": "DRAFT - not launched (user stopped for the weekend 2026-10-23; launch only after the user says so)",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r16_quant.md (automatic; first round recorded 5 s past the reference) -> step 2 analysis/r16_llm.md -> step 3 this file -> train",
+ "based_on": "r16 model_14998 (score 9.576): delay-buffer fix restored quietness; flight plane 5.8 deg; hold not trained (0.66 s), creeps forward 9.5 cm in 5 s, robustness 27-42 % under the new stay-up criterion",
+ "init": {"run": "2026-10-23_18-23-14_flipauto_r16", "ckpt": "model_14998.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319", "320-359", "360-399", "400-437"],
+ "human_input": [
+  "(dev) user 2026-10-23: generic harness rule - after the motion stay stable >= 2 s in the final pose (standing or not), no sway, good posture",
+  "(dev) user 2026-10-23: playback videos must run >= 5 s past the reference",
+  "(dev) user 2026-10-23 on the r15 +5 s video: \"其实还可以，就是站住之后前后移动，各个部分稍微有点晃\""
+ ],
+ "priorities": [
+  "P1 train the held final pose: reference ballistic_hold (2.5 s held final frame)",
+  "P2 pay for not moving in the final pose: dyn_base_still (pelvis speed, torso rate) + joint velocity std matched to the measured 0.4-0.7 rad/s",
+  "P3 keep the flip: no change to flight terms",
+  "- wrists still waived for tracking (GVHMR); their hold velocity is covered by P2"
+ ],
+ "knobs": {
+  "reference": {"variant": "ballistic_hold", "labels": "labels_hold_50fps.npz"},
+  "extra_dyn": [
+   {"name": "agent_r09_hip_tuck", "func": "dyn_joint", "weight": 3.0, "params": {"joints": ["left_hip_pitch_joint", "right_hip_pitch_joint"], "phases": ["flight"], "std": 0.6}},
+   {"name": "agent_r09_arms_air", "func": "dyn_joint", "weight": 2.0, "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint", "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint", "left_elbow_joint", "right_elbow_joint"], "phases": ["takeoff", "flight", "land"], "std": 0.8}},
+   {"name": "agent_r10_arms_stand", "func": "dyn_joint", "weight": 3.0, "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint", "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint", "left_elbow_joint", "right_elbow_joint"], "phases": ["settle", "stand_after"], "std": 1.0}},
+   {"name": "agent_r11_legs_stand", "func": "dyn_joint", "weight": 3.0, "params": {"joints": ["left_knee_joint", "right_knee_joint", "left_hip_pitch_joint", "right_hip_pitch_joint", "left_ankle_pitch_joint", "right_ankle_pitch_joint"], "phases": ["stand_after"], "std": 0.4}},
+   {"name": "agent_r13_arms_prestand", "func": "dyn_joint", "weight": 2.0, "params": {"joints": ["left_shoulder_pitch_joint", "right_shoulder_pitch_joint", "left_shoulder_roll_joint", "right_shoulder_roll_joint", "left_shoulder_yaw_joint", "right_shoulder_yaw_joint", "left_elbow_joint", "right_elbow_joint"], "phases": ["stand"], "std": 0.8}},
+   {"name": "agent_r17_base_still", "func": "dyn_base_still", "weight": 4.0, "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}}
+  ]
+ },
+ "library": {},
+ "library_params": {
+  "backflip_3/jitter:all:stand_after": {"std": 0.3}
+ },
+ "code_changes": [
+  "scripts/data/hold_tail.py: generic held-final-pose tail -> dataset/backflip_3/g1_ballistic_hold_50fps.npz + labels_hold_50fps.npz (190 -> 280 frames)",
+  "rl/eval_flip.py, rl/eval_flip_robust.py: --post_s 5 default (record 5 s past the reference), hold_* / post_* metrics; robust success requires staying up with drift < 0.3 m",
+  "rl/mimic_generic.py: hold_pad_npz, dyn_base_still",
+  "stop_criteria.json: generic hold_* / post_* gates; harness knob reference.variant / labels; library lesson hold-final-pose-2s"
+ ],
+ "expect": {
+  "hold_window_s": ">= 2.0 (r16 0.66)",
+  "hold_pelvis_speed_max": "<= 0.15 (r16 0.26)",
+  "hold_sway_m": "<= 0.03 (r16 0.036)",
+  "hold_torso_angvel_rms": "<= 0.2 (r16 0.56)",
+  "hold_pose_err_rad": "<= 0.15 (r16 0.155)",
+  "post_drift_m": "<= 0.05 (r16 0.114)",
+  "robust_dr / delay1 / kp085 (new criterion)": ">= 0.8 (r16 0.42 / 0.27 / 0.35)",
+  "rotation_deg": ">= 350 (r16 363)",
+  "plane_dev_max_deg": "<= 10 (r16 5.8)"
+ },
+ "rollback_if": "rotation < 340 or plane_dev_max > 12 deg: r18 from r16 model_14998 with agent_r17_base_still and the jitter std change halved"
+}

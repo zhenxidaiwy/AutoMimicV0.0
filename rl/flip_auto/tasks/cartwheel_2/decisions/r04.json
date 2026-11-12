@@ -1,0 +1,36 @@
+{
+ "round": 4,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r03_quant.md (automatic, A3 segment probe) -> step 2 analysis/r03_llm.md (sheets + full-resolution close-ups 0-131 + floor contacts) -> step 3 this file -> train",
+ "based_on": "r03 model_2998: whole cartwheel from frame 0, lands upright and holds 2 s + 5 s quietly; but goes over on HEAD + FOREARMS (elbows bent before touch-down, body ~0.2 m below the reference) instead of straight arms",
+ "init": {"run": "2026-10-26_00-55-49_cw2auto_r03", "ckpt": "model_2998.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (full resolution, every frame 0-131)"],
+ "human_input": [],
+ "priorities": [
+  "P1 support on straight arms, head / forearms / shoulders off the floor: termination term_below_reference (margin 0.12 m)",
+  "keep: the learned chain, landing and the quiet hold (warm start r03 model_2998)",
+  "later: robustness (dr 0.75, delay 20 ms 0.65, kp x0.85 0.66 vs gate 0.95), left foot lifted in the first stand, lateral offset in support"
+ ],
+ "knobs": {
+  "terms.term_below_reference": {"margin": 0.12, "min_clear": 0.05}
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "lessons_seeded": "library.LESSONS: generic no-lower-than-reference, closeup-review",
+ "lessons_used": ["segment-probe", "arm-reach", "smooth-root-grounding", "ref-passes-terminations", "hold-final-pose-2s"],
+ "code_changes": [
+  "rl/mimic_generic.term_below_reference (new, generic termination from the reference's own per-body minimum height); re-exported by flip_rewards so terms.* can switch it on",
+  "rl/flip_auto/closeup.sh (full-resolution frame tiles), floor_contacts.py + contacts_round.sh (bodies touching the floor, robot vs reference), body_min_z.py"
+ ],
+ "expect": {
+  "floor contacts in support": "only wrists (and feet), no torso / elbow / shoulder (r03: torso 7, elbows 14 / 10 steps)",
+  "elbow in support": "near the reference (~1.3 rad; r03 down to -0.46)",
+  "segment probe start 0": "never lost >= 0.6 (r03 0.78; may drop first while the new support is learned)",
+  "landed_upright / hold": "kept"
+ },
+ "rollback_if": "landed_upright False and start-0 never-lost < 0.3: r05 from r03 model_2998 with margin 0.2 (looser)"
+}

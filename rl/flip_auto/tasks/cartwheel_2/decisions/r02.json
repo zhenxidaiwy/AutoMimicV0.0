@@ -1,0 +1,47 @@
+{
+ "round": 2,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r01_quant.md (automatic) -> step 2 analysis/r01_llm.md -> step 3 this file -> train",
+ "based_on": "r01 model_1000 (aerial score 1.93): fell sideways at step 48 instead of going over, lay on the floor; two aerial landing terminations fire on the reference's own landing",
+ "init": "scratch",
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "human_input": [],
+ "priorities": [
+  "P1 no termination may fire on the reference: term_flight_spread / term_leg_twist off (fire on all 10 frames 81-90 of the reference's landing window)",
+  "P2 no absolute reward that the reference itself scores low on: flip_leg_sym (reference earns 0.04) and flip_land_balance (0.62) -> 0",
+  "P3 reference with both feet on the floor in the still stances (feet_plant: one straight leg's sole 2.4-3.8 cm up in the first stand and the whole final hold)",
+  "watch: ee_body_pos termination storm and the arms-back strategy (re-measure once P1-P3 are fixed)"
+ ],
+ "knobs": {
+  "reference": {"variant": "plant_vlm_hold", "labels": "labels_hold_50fps.npz"},
+  "terms.term_flight_spread": null,
+  "terms.term_leg_twist": null,
+  "weights.flip_leg_sym": 0.0,
+  "weights.flip_land_balance": 0.0
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "lessons_seeded": "library.LESSONS (seed_lessons.py): generic ref-passes-terminations, rewards-pay-the-reference, planted-feet-on-floor, family-score; family:hand_support arms-by-position, palms-down, hand-grounding, hand-friction, wide-stance-termination",
+ "lessons_used": ["hold-final-pose-2s", "control-latency", "quiet-stance", "stand-still-velocity-scale", "unstable-stance",
+                  "walk-to-reference", "waist-twist-heading", "fix-std-no-gradient", "config-audit",
+                  "knobs-truth-from-logs", "best-score-not-best-policy"],
+ "code_changes": [
+  "rl/flip_auto/ref_term_audit.py (new, generic): terminations and absolute rewards evaluated on the reference itself; AUDIT json line",
+  "rl/flip_auto/harness.py: ref_audit guard before training (refuses the round if an active termination fires on the reference; waive 'ref_term:<name>'), audit stored per round; init 'scratch'; family-aware score (non-aerial: rotation relative to the reference, landed, stand stable, no fall in the hold)",
+  "rl/flip_rewards.add_flip_terminations: params null = termination off",
+  "scripts/data/feet_plant.py (new, generic): planted feet level on the floor in still stances, legs + root height only; plant_pipeline.sh; dataset/cartwheel_2/g1_plant_vlm_hold_50fps.npz",
+  "library: 4 generic + 5 family:hand_support lessons",
+  "tools: round_dig.sh, log_terms.sh, eval_files.sh, ref_audit.sh, ref_selfcollide.py/.sh, ref_feet_z.py, stance_check.py, csv_diff.py, dryrun_round.py"
+ ],
+ "expect": {
+  "term_flight_spread / term_leg_twist terminations": "absent from the training log",
+  "reference audit": "fires 0 for every active termination",
+  "mean episode length end": "> 146 (r01)",
+  "video": "the robot reaches the hand support (no sideways fall at step 48)",
+  "landed_upright": "may still be False after one round from scratch"
+ },
+ "rollback_if": "still falls sideways before the support phase and episode length does not grow: r03 examines the ee_body_pos termination (threshold 0.6) and the RSI prior of lunge / support"
+}

@@ -1,0 +1,38 @@
+{
+ "round": 2,
+ "task": "cartwheel_2_wm",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "purpose": "run-through of the harness with the world-model inner trainer (not the formal experiment)",
+ "protocol": "step 1 analysis/r01_quant.md (automatic) -> step 2 analysis/r01_llm.md -> step 3 this file -> train",
+ "based_on": "r01 model_1809: reaches the hand support, slides sideways on the knees, falls, lies on the floor (same failure as the PPO run's r01)",
+ "init": "scratch",
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_note": "80-103 lying on the side kicking, 104-199 on the back with small limb jerks, 200-487 prone with one leg lifting and dropping; never tries to get up",
+ "human_input": [],
+ "priorities": [
+  "P1 reference with both feet planted in the still stances: plant_vlm_hold (as the PPO run's r02)",
+  "P2 no absolute reward that the reference itself scores low on: flip_leg_sym (0.04) and flip_land_balance (0.62) -> 0",
+  "P3 (kept from r01) terminations that fire on the reference stay off",
+  "watch: WM-specific jitter (post action change 0.64)"
+ ],
+ "knobs": {
+  "reference": {"variant": "plant_vlm_hold", "labels": "labels_hold_50fps.npz"},
+  "terms.term_flight_spread": null,
+  "terms.term_leg_twist": null,
+  "weights.flip_leg_sym": 0.0,
+  "weights.flip_land_balance": 0.0
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "code_changes": [
+  "rl/wm/speedup/online.py: rsl_rl-style Episode_Reward/<term> lines in the train log (quant_report F audit)"
+ ],
+ "expect": {
+  "mean episode length end": "> 70 (r01)",
+  "video": "the robot gets its legs over the hands (no sideways slide at steps 56-71)",
+  "landed_upright": "may still be False after one round from scratch"
+ },
+ "rollback_if": "still slides sideways before the support phase and episode length does not grow: r03 examines the ee_body_pos termination and the reset prior of lunge / support"
+}

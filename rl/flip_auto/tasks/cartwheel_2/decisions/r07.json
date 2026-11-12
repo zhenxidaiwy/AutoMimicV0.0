@@ -1,0 +1,37 @@
+{
+ "round": 7,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r06_quant.md -> step 2 analysis/r06_llm.md (sheets + close-ups + robust_why + corrected probe) -> step 3 this file -> train",
+ "based_on": "r06: first stand fixed, hold sway/drift pass; robustness fails by drift in the untrained 5 s past the reference; land-segment weakness was a probe artifact",
+ "init": {"run": "2026-10-26_06-16-00_cw2auto_r06", "ckpt": "model_7495.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (every frame 0-131)"],
+ "human_input": [],
+ "priorities": [
+  "P1 robustness = no drift under pushes / latency after the motion: train the judged window (7.5 s held final pose)",
+  "undo: prior.land 3 -> 1 (its reason was a probe artifact)"
+ ],
+ "knobs": {
+  "reference": {"variant": "reachqp_vlm_hold8", "labels": "labels_hold8_50fps.npz"},
+  "prior.land": 1.0
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "lessons_seeded": "library.LESSONS: generic train-the-judged-window, probe-heading-after-event, contact-check-ref-relative",
+ "lessons_used": ["no-lower-than-reference", "planted-foot-stays-down", "closeup-review", "hold-final-pose-2s"],
+ "code_changes": [
+  "rl/eval_segments.py: after the main event the probe counts tilt only (heading free, as in training)",
+  "rl/flip_auto/critic.py: contact checks only on steps where the reference has that foot down",
+  "scripts/data/hold_long.sh (7.5 s held tail variant), rl/flip_auto/robust_why.py, round_look.sh"
+ ],
+ "expect": {
+  "robust drift p95": "< 0.3 m in dr / delay1 / kp085 (r06 0.48 / 0.81 / 0.67)",
+  "robust dr / delay1 / kp085 success": "> 0.9 (r06 0.81 / 0.65 / 0.73)",
+  "hold sway / drift": "within gates (kept)",
+  "cartwheel": "rotation >= 230, support on wrists only (kept)"
+ },
+ "rollback_if": "cartwheel regresses: r08 from r06 model_7495 on reachqp_vlm_hold"
+}

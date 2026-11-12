@@ -1,0 +1,41 @@
+{
+ "round": 3,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r02_quant.md (automatic, + A3 segment probe) -> step 2 analysis/r02_llm.md -> step 3 this file -> train",
+ "based_on": "r02 model_1499: second half learned (start at frame 60: 75 % complete and stand), entry onto the hands lost within 5 steps; reference there: hands 6-25 cm above the floor (~0.25 s late) and a 2 g root drop at the foot -> hand switch",
+ "init": {"run": "2026-10-25_23-01-01_cw2auto_r02", "ckpt": "model_1499.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "human_input": [],
+ "priorities": [
+  "P1 reference entry onto the hands physically consistent: smooth root grounding (no 2 g drop) + palms on the floor when the human's are (arm joints only)",
+  "P2 more start states in the failing segment: prior lunge 3, support 2",
+  "keep: the learned second half (warm start from r02 model_1499)"
+ ],
+ "knobs": {
+  "reference": {"variant": "reachqp_vlm_hold", "labels": "labels_hold_50fps.npz"},
+  "prior.lunge": 3.0,
+  "prior.support": 2.0
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "lessons_seeded": "library.LESSONS: generic segment-probe, smooth-root-grounding; family:hand_support arm-reach",
+ "lessons_used": ["ref-passes-terminations", "rewards-pay-the-reference", "planted-feet-on-floor", "hold-final-pose-2s",
+                  "control-latency", "best-score-not-best-policy"],
+ "code_changes": [
+  "scripts/data/ground_fix.py --qp W --out: root offset by bounded least squares (planted contacts on the floor, no penetration, vertical-acceleration penalty); default behaviour unchanged",
+  "scripts/data/arm_reach.py (new): planted palms on the floor by the arm joints only; reach_pipeline.sh / qp_pipeline.sh; foot_lock.py --src/--out, feet_plant.py --out (defaults unchanged)",
+  "dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz (r02's g1_plant_vlm_hold kept)",
+  "rl/eval_segments.py + rl/flip_auto/segments.sh (new): segment probe; harness runs it on the last checkpoint each round; quant_report section A3",
+  "rl/flip_auto/ref_pd_track.py, ref_zmp.py, zmp_compare.sh, scripts/data/root_z_compare.py (new diagnostics)"
+ ],
+ "expect": {
+  "segment probe start 46": "lost later than frame 51 (r02: 51)",
+  "segment probe start 30": "lost later than frame 39 (r02: 39)",
+  "segment probe start 60": "never lost >= 0.7 (r02: 0.75)",
+  "video": "hands reach the floor; no sideways fall before the support phase"
+ },
+ "rollback_if": "start-60 never-lost < 0.5: r04 from r02 model_1499 with the plant_vlm_hold reference and only the prior change"
+}

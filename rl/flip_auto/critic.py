@@ -23,9 +23,10 @@ import library as libm  # noqa: E402
 def measure(R, L):
   jn = [str(x) for x in R["joint_names"]]
   bn = [str(x) for x in R["body_names"]]
-  q, qr, act, bp, bpr, fz = R["q"], R["qr"], R["act"], R["bp"], R["bpr"], R["foot_z"]
+  # the record runs post_s past the reference (eval_flip --post_s); the checks compare with the reference only
+  T = min(len(R["q"]), len(L["phase"]))
+  q, qr, act, bp, bpr, fz = (R[k][:T] for k in ("q", "qr", "act", "bp", "bpr", "foot_z"))
   dt = float(R["dt"])
-  T = len(q)
   names = libm.phase_names({"phase_names": L["phase_names"], "phase": L["phase"][:T]})
   phases = {p: np.array([i for i in range(T) if names[i] == p]) for p in dict.fromkeys(names)}
   V = {}  # (kind, target, phase) -> (value, tol, frames, detail)
@@ -73,9 +74,13 @@ def measure(R, L):
           f"left/right differ {np.degrees(a.mean()):.0f} deg vs reference {np.degrees(ar.mean()):.0f} deg")
     if p in ("crouch", "land", "settle", "stand_after", "stand"):
       for f, side in ((0, "left_foot"), (1, "right_foot")):
-        bad = ii[fz[ii, f] > 0.06]
+        # only steps where the REFERENCE has this foot down (its ankle origin < 7 cm): a cartwheel lands one foot
+        # after the other (cartwheel_2 r06 flagged the left foot 'off the floor' in land while the reference's left
+        # foot was still 8-60 cm up); the backflip lands both together, so its checks are unchanged
+        down = bpr[ii, bn.index(f"{side.split('_')[0]}_ankle_roll_link"), 2] < 0.07
+        bad = ii[down & (fz[ii, f] > 0.06)]
         put("contact", side, p, float(len(bad)), bad[:1] if len(bad) else [ii[0]],
-            f"{side} off the floor for {len(bad)} of {len(ii)} steps")
+            f"{side} off the floor for {len(bad)} of {int(down.sum())} steps the reference has it down")
   dyn = np.array([i for i in range(T) if names[i] in ("crouch", "takeoff", "flight", "land")])
   if len(dyn) > 20:
     lags = []

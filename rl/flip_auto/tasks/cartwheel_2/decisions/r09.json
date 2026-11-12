@@ -1,0 +1,41 @@
+{
+ "round": 9,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r08_quant.md -> step 2 analysis/r08_llm.md (19 sheets + close-ups + robust_why) -> step 3 this file -> train",
+ "based_on": "r08: nominal perfect; robustness dr 0.87 / 20 ms 0.66 / kp 0.83, failures = drift after pushes (+ some under-rotation at 20 ms); hold_spot too weak; 20 ms at the tail of the trained 0-25 ms delay",
+ "init": {"run": "2026-10-26_09-59-11_cw2auto_r08", "ckpt": "model_10493.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-519", "520-559", "560-599", "600-639",
+                     "640-679", "680-719", "720-737"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (every frame 0-131)"],
+ "human_input": [],
+ "priorities": [
+  "P1 latency robustness: train with 0..40 ms delay (20 ms mid-range)",
+  "P2 drift after pushes: dyn_hold_spot weight 4, std 0.10"
+ ],
+ "knobs": {
+  "delay_ms": 40.0,
+  "extra_dyn": [
+   {"name": "agent_r05_base_still", "func": "dyn_base_still", "weight": 3.0,
+    "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}},
+   {"name": "agent_r08_hold_spot", "func": "dyn_hold_spot", "weight": 4.0,
+    "params": {"phases": ["stand_after"], "std": 0.10}}
+  ]
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "lessons_used": ["control-latency", "hold-on-the-spot", "train-the-judged-window"],
+ "code_changes": [
+  "robustness success v2 (decided by the agent, user delegated 2026-10-26): drift < 0.5 m under pushes (v1 0.3 m kept and reported); stop gates robust.* use v2, robust_v1.* recorded; nominal post-drift gate unchanged"
+ ],
+ "note": "r09 first attempt stopped at iteration ~10740 for a user shutdown (2026-10-26 ~12:20); rerun from the same init",
+ "expect": {
+  "robust delay1": "> 0.8, rotation p5 >= 230 (r08 0.66, 227)",
+  "robust dr / kp085": "> 0.9 (r08 0.87 / 0.83)",
+  "post drift p95": "< 0.3 m",
+  "nominal": "unchanged (all hold / post / family gates pass)"
+ },
+ "rollback_if": "any nominal hold gate fails or landing lost: r10 from r08 model_10493 with only the hold_spot change"
+}

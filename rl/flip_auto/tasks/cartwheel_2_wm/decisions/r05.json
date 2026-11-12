@@ -1,0 +1,32 @@
+{
+ "round": 5,
+ "task": "cartwheel_2_wm",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "purpose": "run-through of the harness with the world-model inner trainer (not the formal experiment)",
+ "protocol": "step 1 analysis/r04_quant.md (completed by hand after a CUDA 999 fault, same commands) -> step 2 analysis/r04_llm.md -> step 3 this file -> train",
+ "based_on": "r04: hands reach the floor for the first time (40-50), legs do not go over, tips sideways at 52-56, lies still; training cut at min 50.8 by a GPU fault",
+ "init": {"run": "2026-11-04_19-49-26_cw2wm_r04", "ckpt": "model_2940.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_note": "0-39 lunge ok, 40-50 both hands on the floor, 51-56 tips sideways, 57-100 on the side leg up, 101-487 prone still",
+ "human_input": [],
+ "priorities": [
+  "P1 keep the r04 reference / priors (the hands-on-floor entry appeared)",
+  "P2 more training time on the support phase: warm start from the last r04 checkpoint, full 60 min",
+  "watch: GPU faults (CUDA 999), guard counters, support-phase probe (starts 46 / 60)"
+ ],
+ "knobs": {},
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "code_changes": [
+  "rl/flip_auto/harness.py: segment probe called with TASK (was CLIP: probed the PPO run for cartwheel_2_wm)",
+  "rl/flip_auto/quant_report.py: reads segments_<TASK>_*.json"
+ ],
+ "expect": {
+  "segment probe start 46": "lost later than frame 58 (r04: 58)",
+  "video": "legs rise over the hands after the support entry; no sideways tip at 52-56",
+  "landed_upright": "may still be False"
+ },
+ "rollback_if": "hands no longer reach the floor at 40-50: r06 from r04 model_2294 with the r04 knobs"
+}

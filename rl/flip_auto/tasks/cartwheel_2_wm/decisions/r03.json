@@ -1,0 +1,37 @@
+{
+ "round": 3,
+ "task": "cartwheel_2_wm",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "purpose": "run-through of the harness with the world-model inner trainer (not the formal experiment)",
+ "protocol": "step 1 analysis/r02_quant.md (automatic) -> step 2 analysis/r02_llm.md -> step 3 this file -> train",
+ "based_on": "r02 invalid: trainer NaN at minute 17 (wm/critic/policy/heads), exported policies output NaN; knobs untested",
+ "init": "scratch",
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_note": "0-2 standing, 3-60 flung up and tumbling away from the reference, 61-487 empty frames (NaN state)",
+ "human_input": [],
+ "priorities": [
+  "P0 rerun the r02 knobs with the numerically guarded trainer (the r02 knobs were never tested)",
+  "watch: guard counters bad_state / skip_* / nonfinite_rollouts; WM-specific jitter"
+ ],
+ "knobs": {
+  "reference": {"variant": "plant_vlm_hold", "labels": "labels_hold_50fps.npz"},
+  "terms.term_flight_spread": null,
+  "terms.term_leg_twist": null,
+  "weights.flip_leg_sym": 0.0,
+  "weights.flip_land_balance": 0.0
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "code_changes": [
+  "rl/wm/speedup/online.py: non-finite / fp16-overflow states masked out of the ring, finite-only normaliser, nan_to_num actions, skip non-finite wm/heads steps, guard counters in the log",
+  "rl/wm/speedup/shac_paper.py: diverged imagined rollouts dropped from the actor loss, skip non-finite actor/critic steps, finite critic targets"
+ ],
+ "expect": {
+  "train log": "no NaN for the full 60 min; mean episode length end > 70 (r01)",
+  "video": "the robot gets its legs over the hands (no sideways slide at steps 56-71)",
+  "landed_upright": "may still be False"
+ },
+ "rollback_if": "NaN again despite the guards: stop the WM run-through and debug offline with the guard counters before another round"
+}

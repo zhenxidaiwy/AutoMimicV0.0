@@ -1,0 +1,1095 @@
+[
+ {
+  "run": "2026-10-20_22-43-59_auto_r00",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-20_22-43-59_auto_r00/model_21100.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r00/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-20_22-43-59_auto_r00",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-20_22-43-59_auto_r00/model_22597.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r00/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-20_23-27-29_auto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-20_23-27-29_auto_r01/model_22600.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r01/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-20_23-27-29_auto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-20_23-27-29_auto_r01/model_24096.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r01/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_00-13-24_auto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_00-13-24_auto_r02/model_19500.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r02/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_00-13-24_auto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_00-13-24_auto_r02/model_20999.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r02/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_12-08-06_auto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_12-08-06_auto_r03/model_21000.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r03/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_12-08-06_auto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_12-08-06_auto_r03/model_22498.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r03/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_12-55-41_auto_r04",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_12-55-41_auto_r04/model_21000.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r04/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_12-55-41_auto_r04",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_12-55-41_auto_r04/model_22498.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r04/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_13-42-18_auto_r05",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_13-42-18_auto_r05/model_22000.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r05/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_13-42-18_auto_r05",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_13-42-18_auto_r05/model_23499.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r05/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_15-06-53_auto_r06",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-06-53_auto_r06/model_23500.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r06/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_15-06-53_auto_r06",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-06-53_auto_r06/model_24000.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r06/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_15-23-50_auto_r07",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-23-50_auto_r07/model_23500.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r07/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_15-23-50_auto_r07",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-23-50_auto_r07/model_24000.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r07/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_15-59-18_auto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-59-18_auto_r08/model_23500.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r08/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_15-59-18_auto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_15-59-18_auto_r08/model_24998.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r08/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_16-40-30_auto_r09_part1",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_16-40-30_auto_r09_part1/model_23500.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r09_part1/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_16-40-30_auto_r09_part1",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_16-40-30_auto_r09_part1/model_24100.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r09_part1/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_18-04-52_auto_r09_part1",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_18-04-52_auto_r09_part1/model_24100.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r09_part1/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-21_18-04-52_auto_r09_part1",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_recovery/2026-10-21_18-04-52_auto_r09_part1/model_24850.pt",
+  "motion": "",
+  "skill": "getup",
+  "task": "Dance-Recovery-G1-auto",
+  "getup_knobs": "/home/user/projects/dance_logs/auto/r09_part1/knobs.json",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_15-30-18_bda_zhao_sss_lock_vlm_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_15-30-18_bda_zhao_sss_lock_vlm_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/bda_zhao_sss/g1_lock_vlm_50fps.npz",
+  "skill": "shanshenbu",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_15-44-13_bda_zhao_sss_lock_vlm_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_15-44-13_bda_zhao_sss_lock_vlm_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/bda_zhao_sss/g1_lock_vlm_50fps.npz",
+  "skill": "shanshenbu",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_15-44-13_bda_zhao_sss_lock_vlm_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_15-44-13_bda_zhao_sss_lock_vlm_adaptive_n4096/model_1000.pt",
+  "motion": "/home/user/projects/dance/dataset/bda_zhao_sss/g1_lock_vlm_50fps.npz",
+  "skill": "shanshenbu",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_16-58-23_bda_ming_gxdsm_a_lock_vlm_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_16-58-23_bda_ming_gxdsm_a_lock_vlm_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/bda_ming_gxdsm_a/g1_lock_vlm_50fps.npz",
+  "skill": "gouxiong",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_16-58-23_bda_ming_gxdsm_a_lock_vlm_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_16-58-23_bda_ming_gxdsm_a_lock_vlm_adaptive_n4096/model_500.pt",
+  "motion": "/home/user/projects/dance/dataset/bda_ming_gxdsm_a/g1_lock_vlm_50fps.npz",
+  "skill": "gouxiong",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_17-23-05_bda2_gxdsm_full_lock_vlm_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_17-23-05_bda2_gxdsm_full_lock_vlm_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/bda2_gxdsm_full/g1_lock_vlm_50fps.npz",
+  "skill": "gouxiong",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_17-23-05_bda2_gxdsm_full_lock_vlm_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_17-23-05_bda2_gxdsm_full_lock_vlm_adaptive_n4096/model_999.pt",
+  "motion": "/home/user/projects/dance/dataset/bda2_gxdsm_full/g1_lock_vlm_50fps.npz",
+  "skill": "gouxiong",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_18-35-12_multi_train_v1_adaptive_n512",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_18-35-12_multi_train_v1_adaptive_n512/model_0.pt",
+  "motion": "/home/user/projects/dance/multi/train_v1.npz",
+  "skill": "multi_train_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_18-35-12_multi_train_v1_adaptive_n512",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_18-35-12_multi_train_v1_adaptive_n512/model_14.pt",
+  "motion": "/home/user/projects/dance/multi/train_v1.npz",
+  "skill": "multi_train_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_18-35-57_multi_train_v1_adaptive_n512",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_18-35-57_multi_train_v1_adaptive_n512/model_0.pt",
+  "motion": "/home/user/projects/dance/multi/train_v1.npz",
+  "skill": "multi_train_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_18-35-57_multi_train_v1_adaptive_n512",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_18-35-57_multi_train_v1_adaptive_n512/model_14.pt",
+  "motion": "/home/user/projects/dance/multi/train_v1.npz",
+  "skill": "multi_train_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_18-37-23_multi_train_v1_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_18-37-23_multi_train_v1_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/multi/train_v1.npz",
+  "skill": "multi_train_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_18-37-23_multi_train_v1_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_18-37-23_multi_train_v1_adaptive_n4096/model_999.pt",
+  "motion": "/home/user/projects/dance/multi/train_v1.npz",
+  "skill": "multi_train_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_20-34-09_multi_canon_v1_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_20-34-09_multi_canon_v1_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/multi/canon_v1.npz",
+  "skill": "multi_canon_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-18_20-34-09_multi_canon_v1_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-18_20-34-09_multi_canon_v1_adaptive_n4096/model_999.pt",
+  "motion": "/home/user/projects/dance/multi/canon_v1.npz",
+  "skill": "multi_canon_v1",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_11-53-15_backflip_2_lock_vlm_phase_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_11-53-15_backflip_2_lock_vlm_phase_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_2/g1_lock_vlm_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_11-58-15_backflip_3_lock_vlm_phase_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_11-58-15_backflip_3_lock_vlm_phase_adaptive_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_lock_vlm_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_11-58-15_backflip_3_lock_vlm_phase_adaptive_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_11-58-15_backflip_3_lock_vlm_phase_adaptive_n4096/model_500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_lock_vlm_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_12-29-06_backflip_3_lock_vlm_phase_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_12-29-06_backflip_3_lock_vlm_phase_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_lock_vlm_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_12-29-06_backflip_3_lock_vlm_phase_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_12-29-06_backflip_3_lock_vlm_phase_n4096/model_999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_lock_vlm_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_13-10-26_backflip_3_ballistic_phase_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_13-10-26_backflip_3_ballistic_phase_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_13-10-26_backflip_3_ballistic_phase_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_13-10-26_backflip_3_ballistic_phase_n4096/model_999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_14-03-38_backflip_3_lock_vlm_phase_effort1.5_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_14-03-38_backflip_3_lock_vlm_phase_effort1.5_n4096/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_lock_vlm_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_14-03-38_backflip_3_lock_vlm_phase_effort1.5_n4096",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_14-03-38_backflip_3_lock_vlm_phase_effort1.5_n4096/model_999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_lock_vlm_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_14-46-19_backflip_3_ballistic_flipA",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_14-46-19_backflip_3_ballistic_flipA/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_14-51-15_backflip_3_ballistic_flipA2",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_14-51-15_backflip_3_ballistic_flipA2/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_14-54-58_backflip_3_ballistic_flipB3k",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_14-54-58_backflip_3_ballistic_flipB3k/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_14-54-58_backflip_3_ballistic_flipB3k",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_14-54-58_backflip_3_ballistic_flipB3k/model_2999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_16-57-36_backflip_3_ballistic_flipC3k",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_16-57-36_backflip_3_ballistic_flipC3k/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_17-01-57_backflip_3_ballistic_flipB4",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_17-01-57_backflip_3_ballistic_flipB4/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_17-13-34_flipauto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_17-13-34_flipauto_r01/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_17-13-34_flipauto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_17-13-34_flipauto_r01/model_19.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_17-16-24_flipauto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_17-16-24_flipauto_r02/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_17-16-24_flipauto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_17-16-24_flipauto_r02/model_19.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_17-19-08_flipauto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_17-19-08_flipauto_r01/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_17-19-08_flipauto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_17-19-08_flipauto_r01/model_1000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_18-23-12_flipauto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_18-23-12_flipauto_r02/model_1000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_18-23-12_flipauto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_18-23-12_flipauto_r02/model_2499.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_19-31-39_flipauto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_19-31-39_flipauto_r03/model_2500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_19-36-12_flipauto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_19-36-12_flipauto_r03/model_2500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_19-45-18_flipauto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_19-45-18_flipauto_r03/model_2500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_19-45-18_flipauto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_19-45-18_flipauto_r03/model_3998.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_20-52-20_flipauto_r04",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_20-52-20_flipauto_r04/model_3500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_20-52-20_flipauto_r04",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_20-52-20_flipauto_r04/model_4999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_22-00-11_flipauto_r05",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_22-00-11_flipauto_r05/model_4000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_22-00-11_flipauto_r05",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_22-00-11_flipauto_r05/model_5499.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_23-08-44_flipauto_r06",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_23-08-44_flipauto_r06/model_4500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-22_23-08-44_flipauto_r06",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-22_23-08-44_flipauto_r06/model_5999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_00-20-46_flipauto_r07",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_00-20-46_flipauto_r07/model_4500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_00-20-46_flipauto_r07",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_00-20-46_flipauto_r07/model_5999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_01-33-33_flipauto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_01-33-33_flipauto_r08/model_5000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_01-33-59_flipauto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_01-33-59_flipauto_r08/model_5000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_01-36-03_flipauto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_01-36-03_flipauto_r08/model_5000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_01-39-50_flipauto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_01-39-50_flipauto_r08/model_5000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_01-39-50_flipauto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_01-39-50_flipauto_r08/model_6499.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_02-58-49_flipauto_r09_aborted_skipped_review",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_02-58-49_flipauto_r09_aborted_skipped_review/model_5500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_03-07-12_flipauto_r09",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_03-07-12_flipauto_r09/model_5500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_03-07-12_flipauto_r09",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_03-07-12_flipauto_r09/model_6999.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_04-30-18_flipauto_r10",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_04-30-18_flipauto_r10/model_7000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_04-30-18_flipauto_r10",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_04-30-18_flipauto_r10/model_8498.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_05-54-33_flipauto_r11",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_05-54-33_flipauto_r11/model_8000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_05-54-33_flipauto_r11",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_05-54-33_flipauto_r11/model_9499.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_07-20-15_flipauto_r12",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_07-20-15_flipauto_r12/model_9500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_07-20-15_flipauto_r12",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_07-20-15_flipauto_r12/model_10998.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_08-45-13_flipauto_r13",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_08-45-13_flipauto_r13/model_10000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_08-45-13_flipauto_r13",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_08-45-13_flipauto_r13/model_11499.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_10-10-11_flipauto_r14",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_10-10-11_flipauto_r14/model_11500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_10-10-11_flipauto_r14",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_10-10-11_flipauto_r14/model_12998.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_11-39-43_flipauto_r15",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_11-39-43_flipauto_r15/model_12000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_11-39-43_flipauto_r15",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_11-39-43_flipauto_r15/model_13499.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_18-23-14_flipauto_r16",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_18-23-14_flipauto_r16/model_13500.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_18-23-14_flipauto_r16",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_18-23-14_flipauto_r16/model_14998.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-23_20-11-47_flipauto_r17_aborted_paused_by_user",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-23_20-11-47_flipauto_r17_aborted_paused_by_user/model_15000.pt",
+  "motion": "/home/user/projects/dance/dataset/backflip_3/g1_ballistic_hold_50fps.npz",
+  "skill": "backflip",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.0,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-25_20-55-55_cw2auto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-25_20-55-55_cw2auto_r01/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_lock_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-25_20-55-55_cw2auto_r01",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-25_20-55-55_cw2auto_r01/model_1499.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_lock_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-25_23-01-01_cw2auto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-25_23-01-01_cw2auto_r02/model_0.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_plant_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-25_23-01-01_cw2auto_r02",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-25_23-01-01_cw2auto_r02/model_1499.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_plant_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_00-55-49_cw2auto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_00-55-49_cw2auto_r03/model_1500.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_00-55-49_cw2auto_r03",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_00-55-49_cw2auto_r03/model_2998.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_02-43-10_cw2auto_r04",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_02-43-10_cw2auto_r04/model_3000.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_02-43-10_cw2auto_r04",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_02-43-10_cw2auto_r04/model_4497.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_04-28-42_cw2auto_r05",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_04-28-42_cw2auto_r05/model_4500.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_04-28-42_cw2auto_r05",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_04-28-42_cw2auto_r05/model_5996.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_06-16-00_cw2auto_r06",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_06-16-00_cw2auto_r06/model_6000.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_06-16-00_cw2auto_r06",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_06-16-00_cw2auto_r06/model_7495.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_08-05-57_cw2auto_r07",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_08-05-57_cw2auto_r07/model_7500.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_08-05-57_cw2auto_r07",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_08-05-57_cw2auto_r07/model_8994.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_09-59-11_cw2auto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_09-59-11_cw2auto_r08/model_9000.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_09-59-11_cw2auto_r08",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_09-59-11_cw2auto_r08/model_10493.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_11-52-50_cw2auto_r09",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_11-52-50_cw2auto_r09/model_10500.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_18-51-42_cw2auto_r09",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_18-51-42_cw2auto_r09/model_10500.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_18-51-42_cw2auto_r09",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_18-51-42_cw2auto_r09/model_11992.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-26_20-37-43_cw2auto_r10",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-26_20-37-43_cw2auto_r10/model_12000.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-28_15-30-50_cw2auto_r10",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-28_15-30-50_cw2auto_r10/model_12000.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-28_15-30-50_cw2auto_r10",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-28_15-30-50_cw2auto_r10/model_13491.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-10-28_17-19-28_cw2auto_r11",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-10-28_17-19-28_cw2auto_r11/model_12000.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ },
+ {
+  "run": "2026-11-02_00-12-37_cw2auto_r11",
+  "ckpt": "/home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-11-02_00-12-37_cw2auto_r11/model_12000.pt",
+  "motion": "/home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz",
+  "skill": "cartwheel",
+  "task": "Unitree-G1-Tracking-No-State-Estimation",
+  "hand_friction": 0.6,
+  "knee_limit": 120.0
+ }
+]

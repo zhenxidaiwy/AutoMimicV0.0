@@ -62,9 +62,11 @@ if __name__ == "__main__":
     ap.add_argument("clip_id")
     ap.add_argument("--contacts", default="vlm", choices=["vlm", "heuristic"])
     ap.add_argument("--iters", type=int, default=20)
+    ap.add_argument("--src", default="ground", help="input stem: g1_<src>_<contacts>.csv")
+    ap.add_argument("--out", default="lock", help="output stem: g1_<out>_<contacts>.csv")
     a = ap.parse_args()
     g = f"{H}/projects/dance/data/g1/{a.clip_id}"
-    csv = np.loadtxt(f"{g}/g1_ground_{a.contacts}.csv", delimiter=",")
+    csv = np.loadtxt(f"{g}/g1_{a.src}_{a.contacts}.csv", delimiter=",")
     qpos = np.concatenate([csv[:, :3], csv[:, [6, 3, 4, 5]], csv[:, 7:]], 1)
     T = len(qpos)
     model = mujoco.MjModel.from_xml_path(XML)
@@ -120,7 +122,7 @@ if __name__ == "__main__":
 
     pos_new, _ = fk_poses(model, out, names)
     fixed = np.concatenate([out[:, :3], out[:, [4, 5, 6, 3]], out[:, 7:]], 1)
-    dst = f"{g}/g1_lock_{a.contacts}.csv"
+    dst = f"{g}/g1_{a.out}_{a.contacts}.csv"
     np.savetxt(dst, fixed.astype(np.float32), delimiter=",")
     rep = {"clip": a.clip_id, "contacts": a.contacts, "frames": T,
            "planted_foot_speed_mps(mean,p95) before": planted_speed(pos[:, :2], c_vlm),

@@ -1,0 +1,44 @@
+{
+ "round": 12,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r11_quant.md -> step 2 analysis/r11_llm.md (close-ups 36-107 + all 19 sheets) -> step 3 this file -> train",
+ "based_on": "r11: every gate passes except critic_clean (3.86, asymmetry:wrist_roll:support) and sim2sim (pending); robust v2 dr 0.992 / 20 ms 0.961 / kp 0.988; hold tilt 4.9",
+ "init": {"run": "2026-11-02_00-12-37_cw2auto_r11", "ckpt": "model_12500.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-519", "520-559", "560-599", "600-639",
+                     "640-679", "680-719", "720-737"],
+ "reviewed_closeups": ["close/c_036-047", "c_048-059", "c_060-071", "c_072-083", "c_084-095", "c_096-107"],
+ "human_input": [],
+ "priorities": [
+  "critic checks above 3, all in support / land / settle (none in stand_after, where r10 showed pinning terms cost robustness)",
+  "give the two asymmetry fixes a std at which the measured error still has a gradient (std 0.2 -> signal 0.03-0.06)"
+ ],
+ "knobs": {
+  "extra_dyn": [
+   {"name": "agent_r05_base_still", "func": "dyn_base_still", "weight": 3.0,
+    "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}},
+   {"name": "agent_r08_hold_spot", "func": "dyn_hold_spot", "weight": 4.0,
+    "params": {"phases": ["stand_after"], "std": 0.10}}
+  ]
+ },
+ "library": {
+  "jitter:wrist_roll:land": 2.0,
+  "asymmetry:wrist_roll:support": 1.0,
+  "asymmetry:hip_yaw:support": 1.0,
+  "jitter:all:settle": 1.0
+ },
+ "library_params": {
+  "asymmetry:wrist_roll:support": {"std": 0.6},
+  "asymmetry:hip_yaw:support": {"std": 0.5}
+ },
+ "waive": [],
+ "lessons_used": ["control-latency", "hold-on-the-spot", "robust-drift-v2"],
+ "code_changes": [],
+ "expect": {
+  "critic max unwaived": "<= 3 (r11 3.86)",
+  "robust dr / 20 ms / kp v2": ">= 0.95 (r11 0.992 / 0.961 / 0.988)",
+  "hold gates": "all pass (r11 tilt 4.9)"
+ },
+ "rollback_if": "any robust v2 gate < 0.95 or any hold gate fails -> r11 model_12500 stays the candidate; critic still > 3 with all five fixes active -> review the remaining checks one by one for a waiver instead of adding reward terms"
+}

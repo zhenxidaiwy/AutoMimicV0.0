@@ -1,0 +1,43 @@
+{
+ "round": 10,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r09_quant.md -> step 2 analysis/r09_llm.md (19 sheets + close-ups) -> step 3 this file -> train",
+ "based_on": "r09: robust v2 dr 0.992 / 20 ms 0.941 / kp 0.996; remaining gates: 20 ms 0.941, hold tilt 6.1, critic 4.98 (left wrist roll jitter on landing)",
+ "init": {"run": "2026-10-26_18-51-42_cw2auto_r09", "ckpt": "model_11992.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-519", "520-559", "560-599", "600-639",
+                     "640-679", "680-719", "720-737"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (every frame 0-131)"],
+ "human_input": ["user 2026-10-26: delegated the robustness drift criterion to the agent (decided in r09: v2 = drift < 0.5 m under pushes)"],
+ "priorities": [
+  "P1 wrist jitter on landing: library fix jitter:wrist_roll:land on",
+  "P2 hold posture: dyn_joint waist + legs in stand_after",
+  "keep: delay 40 ms, hold_spot, everything else"
+ ],
+ "knobs": {
+  "extra_dyn": [
+   {"name": "agent_r05_base_still", "func": "dyn_base_still", "weight": 3.0,
+    "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}},
+   {"name": "agent_r08_hold_spot", "func": "dyn_hold_spot", "weight": 4.0,
+    "params": {"phases": ["stand_after"], "std": 0.10}},
+   {"name": "agent_r10_hold_posture", "func": "dyn_joint", "weight": 1.0,
+    "params": {"joints": ["waist_yaw_joint", "waist_roll_joint", "waist_pitch_joint",
+                          "left_hip_pitch_joint", "right_hip_pitch_joint", "left_hip_roll_joint", "right_hip_roll_joint",
+                          "left_knee_joint", "right_knee_joint", "left_ankle_pitch_joint", "right_ankle_pitch_joint"],
+               "phases": ["stand_after"], "std": 0.15}}
+  ]
+ },
+ "library": {"jitter:wrist_roll:land": 1.0},
+ "library_params": {},
+ "waive": [],
+ "lessons_used": ["control-latency", "hold-on-the-spot", "robust-drift-v2", "quiet-stance"],
+ "code_changes": [],
+ "expect": {
+  "robust delay1 v2": ">= 0.95 (r09 0.941)",
+  "hold_tilt_err_max_deg": "<= 5 (r09 6.1)",
+  "critic max unwaived": "<= 3 (r09 4.98)",
+  "robust dr / kp v2": ">= 0.95 (kept)"
+ },
+ "rollback_if": "dr v2 < 0.95: r11 from r09 model_11992 with only the wrist fix"
+}

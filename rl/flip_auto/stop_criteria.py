@@ -13,6 +13,7 @@ import numpy as np
 HERE = Path(__file__).resolve().parent
 sys.path.insert(0, str(HERE))
 import library as libm  # noqa: E402
+from taskcfg import ANALYSIS, CLIP, DECISIONS, DS as TDS, LABELS, STATE, VID, train_log  # noqa: E402
 
 H = Path.home()
 LOGS = H / "projects/dance/runs/logs/rsl_rl/g1_tracking"
@@ -21,36 +22,42 @@ OPS = {"<=": operator.le, ">=": operator.ge, "==": operator.eq, "<": operator.lt
 
 def waivers():
   out = []
-  for p in sorted((HERE / "decisions").glob("r*.json")):
+  for p in sorted(DECISIONS.glob("r*.json")):
     out += json.loads(p.read_text()).get("waive", [])
   return out
 
 
 def task_gates_added():
   out = []
-  for p in sorted((HERE / "decisions").glob("r*.json")):
+  for p in sorted(DECISIONS.glob("r*.json")):
     out += json.loads(p.read_text()).get("stop_gates_add", [])
   return out
 
 
-def evaluate(k, task="backflip_3", ds=None):
+def evaluate(k, task=CLIP, ds=None):
   cfg = json.loads((HERE / "stop_criteria.json").read_text())
   lib = libm.load()
   fam = libm.family_of(lib, task)
-  st = json.loads((HERE / "state.json").read_text())
+  st = json.loads(STATE.read_text())
   rd = st["rounds"][k - 1]
   best = max(rd["evals"], key=lambda e: e.get("score", -1))
   ck = best["ckpt"][:-3]
   ev = LOGS / rd["run"] / "eval"
   ds = ds or H / "projects/dance/dataset" / task
-  L = np.load(ds / "labels_50fps.npz")
+  L = np.load(ds / rd.get("knobs", {}).get("reference", {}).get("labels", LABELS))
+  ej = ev / f"flip_auto_{ck}.json"  # full eval json (hold_*, post_* are not kept in the state by older harnesses)
+  if ej.exists():
+    for key, v in json.loads(ej.read_text()).items():
+      best.setdefault(key, v)
   names = [str(x) for x in L["phase_names"]]
   ref_flight_s = float((L["phase"] == names.index("flight")).sum()) / 50.0 if "flight" in names else 0.0
   M = {f"eval.{a}": b for a, b in best.items() if not isinstance(b, (list, dict))}
   rp = ev / f"robust_{ck}.json"
   if rp.exists():
     for r in json.loads(rp.read_text()):
-      M[f"robust.{r['scenario']}"] = r["success"]
+      # v2 success (drift < 0.5 m under pushes) once the robustness json has it; v1 stays as robust_v1.*
+      M[f"robust.{r['scenario']}"] = r.get("success_v2", r["success"])
+      M[f"robust_v1.{r['scenario']}"] = r["success"]
   sp = ev / f"sim2sim_{ck}.json"  # written by the sim2sim exam (native_flip.py) when it is run on this checkpoint
   if sp.exists():
     for name, v in json.loads(sp.read_text()).get("success", {}).items():
@@ -75,7 +82,8 @@ def evaluate(k, task="backflip_3", ds=None):
     v = M.get(g["metric"])
     thr = g.get("value")
     if "value_ref" in g:
-      thr = eval(g["value_ref"], {}, {"ref_flight_s": ref_flight_s})  # noqa: S307 (own config)
+      thr = eval(g["value_ref"], {}, {"ref_flight_s": ref_flight_s,  # noqa: S307 (own config)
+                                      "ref_rotation": abs(float(M.get("eval.ref_rotation_deg") or 0.0))})
     status = "pending" if v is None else ("pass" if OPS[g["op"]](v, thr) else "FAIL")
     rows.append({"id": g["id"], "metric": g["metric"], "value": v, "op": g["op"], "threshold": thr, "status": status})
   # convergence over the last rounds
@@ -97,7 +105,7 @@ def evaluate(k, task="backflip_3", ds=None):
          "convergence_rel_improvement": [round(x, 4) for x in rel], "rounds_used": rounds_used,
          "gpu_hours": round(gpu_h, 1), "over_budget": over and not done, "gates": rows,
          "n_waivers": len(W), "worst_unwaived_check": M.get("critic.worst_unwaived")}
-  (HERE / "analysis" / f"r{k:02d}_stop.json").write_text(json.dumps(out, indent=1))
+  (ANALYSIS / f"r{k:02d}_stop.json").write_text(json.dumps(out, indent=1))
   return out
 
 

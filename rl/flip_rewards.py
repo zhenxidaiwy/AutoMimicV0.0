@@ -420,7 +420,8 @@ def flip_root_ori(env, labels: str, command_name: str = "motion", std: float = 0
 # --- generic (L0) layer: fix templates, phase gate, real-robot constraints live in rl/mimic_generic.py; re-exported
 # here so every existing caller (train_dance.py, eval_flip*.py, library fixes 'dyn_*') keeps working.
 from mimic_generic import (TEMPLATES, add_action_delay, dyn_body, dyn_contact, dyn_joint, dyn_quiet,  # noqa: E402,F401
-                           dyn_sym, jidx as _jidx, phase_gate as _phase_gate, set_knee_limit)
+                           dyn_sym, jidx as _jidx, phase_gate as _phase_gate, set_knee_limit, term_below_reference,
+                           term_foot_lifted)
 import mimic_generic as _mg  # noqa: E402
 
 
@@ -435,9 +436,12 @@ TERMS = {"term_flight_spread": {"max_d": 0.6}, "term_hip_extended": {"max_hip": 
 
 
 def add_flip_terminations(terminations, labels, terms):
-  """terms: {name: params} (thresholds) -> TerminationTermCfg entries."""
+  """terms: {name: params} (thresholds) -> TerminationTermCfg entries; params null = that termination is off
+  (cartwheel_2 r01: the aerial-family landing terminations fired on the reference's own wide landing)."""
   from mjlab.managers.termination_manager import TerminationTermCfg
   for name, params in terms.items():
+    if params is None:
+      continue
     terminations[name] = TerminationTermCfg(func=globals()[name], params={"labels": labels, **params})
   return terminations
 

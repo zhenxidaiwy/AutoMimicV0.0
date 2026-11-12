@@ -40,12 +40,9 @@ def _joint_names():
 
 JOINTS = _joint_names()
 RL = HERE.parent
-STATE = HERE / "state.json"
-CLIP, VAR, FAMILY = "backflip_3", "ballistic", "aerial"  # task = clip; family scope of the diagnostic library
-DS = H / "projects/dance/dataset" / CLIP
+# task selection (AUTOMIMIC_TASK, rl/flip_auto/taskcfg.py): clip, reference, family, state / decision / video dirs
+from taskcfg import ANALYSIS, CLIP, DECISIONS, DL, DS, FAMILY, LABELS, REPORT, STATE, TASK, VAR, VID, run_name as _run_name, train_log  # noqa: E402,E501
 LOGS = H / "projects/dance/runs/logs/rsl_rl/g1_tracking"
-DL = H / "projects/dance_logs"
-VID = H / "dance_win/videos/backflip/auto"
 DEFAULT = {"flip_rewards": 2.0, "knee_limit": 120.0, "ee_threshold": 0.6, "anchor_pos_threshold": 0.4,
            "weights": {"flip_pushoff": 2.0, "flip_lean": 1.0, "flip_spin": 3.0, "flip_airborne": 1.5,
                        "flip_height": 1.0, "flip_land": 1.0, "flip_plane_axis": 1.5, "flip_plane_rate": 1.0,
@@ -68,18 +65,28 @@ def sh(cmd, log=None):
                           text=True)
 
 
-def write_prior(prior, path):
-  z = np.load(DS / "labels_50fps.npz")
+def ref_paths(k):
+  """(motion npz, labels npz) of the reference a round trains on. Knob 'reference': {"variant", "labels"} lets the
+  decider switch to a repaired reference, e.g. the held final pose of scripts/data/hold_tail.py (user 2026-10-23:
+  stay stable >= 2 s after the motion) - older rounds keep the defaults."""
+  r = k.get("reference", {})
+  return DS / f"g1_{r.get('variant', VAR)}_50fps.npz", DS / r.get("labels", LABELS)
+
+
+def write_prior(prior, path, labels=None):
+  z = np.load(labels or DS / LABELS)
   names = [str(x) for x in z["phase_names"]]
-  w = np.array([prior[names[p]] for p in z["phase"]], np.float64)
+  w = np.array([prior.get(names[p], 1.0) for p in z["phase"]], np.float64)  # phases a task adds default to 1
   np.savez(path, rsi_weight=w / w.sum())
 
 
-def evaluate(run, ck):
+def evaluate(run, ck, k=None):
+  motion, labels = ref_paths(k or {})
+  # eval_flip records 5 s past the reference by default (--post_s 5, user 2026-10-23)
   cmd = (f"source ~/miniforge3/etc/profile.d/conda.sh; conda activate unitree_rl_mjlab; "
          f"export MUJOCO_GL=egl MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA; "
-         f"python {RL}/eval_flip.py --ckpt {LOGS}/{run}/{ck} --motion {DS}/g1_{VAR}_50fps.npz --tag auto_{ck[:-3]} "
-         f"--knee-limit 120 --labels {DS}/labels_50fps.npz --size 960 720 2>&1 | grep -E '^\\{{'")
+         f"python {RL}/eval_flip.py --ckpt {LOGS}/{run}/{ck} --motion {motion} --tag auto_{ck[:-3]} "
+         f"--knee-limit 120 --hand-friction {(k or {}).get('hand_friction', 0)} --labels {labels} --size 960 720 2>&1 | grep -E '^\\{{'")
   r = sh(cmd)
   try:
     return json.loads(r.stdout.strip().splitlines()[-1])
@@ -97,8 +104,12 @@ def extra_metrics(res):
 
 def score(r):
   rise = max(r["pelvis_rise_m"], 0.0)
-  s = (min(r["robot_airborne_s"] / 0.35, 1) + 2 * min(max(r["robot_rotation_deg"], 0) / 300, 1)
-       + float(r["landed_upright"]) + 2 * float(r.get("stand_stable", False)) + min(rise / 0.15, 1))
+  if FAMILY == "aerial":
+    s = (min(r["robot_airborne_s"] / 0.35, 1) + 2 * min(max(r["robot_rotation_deg"], 0) / 300, 1)
+         + float(r["landed_upright"]) + 2 * float(r.get("stand_stable", False)) + min(rise / 0.15, 1))
+  else:  # other families (cartwheel_2 r01): no flight / jump terms, rotation relative to the reference's own
+    s = (2 * min(max(r["robot_rotation_deg"], 0) / max(r.get("ref_rotation_deg") or 300, 1), 1)
+         + 2 * float(r["landed_upright"]) + 2 * float(r.get("stand_stable", False)) + float(not r.get("hold_fell", True)))
   if r.get("plane_dev_mean_deg") is not None:  # in-plane flip (user): 1 at 0 deg mean deviation, 0 at >= 45 deg
     s += 1 - min(r["plane_dev_mean_deg"] / 45, 1)
   if r.get("leg_asym_deg") is not None:  # legs symmetric in the air (user): 1 at 0 deg, 0 at >= 30 deg
@@ -217,14 +228,14 @@ def apply_decision(st, rnd):
    "code_changes": ["..."], "new_checks": [{"kind", "target", "phase", "note"}]}"""
   import copy
   import library as libm
-  p = HERE / "decisions" / f"r{rnd:02d}.json"
+  p = DECISIONS / f"r{rnd:02d}.json"
   if not p.exists():
     return None
   d = json.loads(p.read_text())
   # protocol (user 2026-10-23): quantify -> LLM analysis -> solution -> train. Refuse a decision that skips a step.
   if rnd > 1:
     prev = f"r{rnd - 1:02d}"
-    quant, ana = HERE / "analysis" / f"{prev}_quant.md", HERE / "analysis" / f"{prev}_llm.md"
+    quant, ana = ANALYSIS / f"{prev}_quant.md", ANALYSIS / f"{prev}_llm.md"
     sheets = sorted((VID / prev).glob("sheet_*.jpg"))
     missing = [str(x) for x in (quant, ana) if not x.exists()]
     unseen = [s.stem.replace("sheet_", "") for s in sheets
@@ -234,7 +245,7 @@ def apply_decision(st, rnd):
       return None
     # stop criteria (stop_criteria.py, layered generic / family / task): a finished skill is not trained further
     # unless the decider states why; a skill over budget stops unless the decision overrides the budget
-    sp = HERE / "analysis" / f"{prev}_stop.json"
+    sp = ANALYSIS / f"{prev}_stop.json"
     if sp.exists():
       stop = json.loads(sp.read_text())
       if stop.get("done") and not d.get("continue_reason"):
@@ -322,30 +333,74 @@ def grow_library(crit, rnd, apply=True):
   return changes, escalate
 
 
-def train(rnd, k, init, iters):
-  run_name = f"flipauto_r{rnd:02d}"
-  prior = DS / f"auto_prior_r{rnd:02d}.npz"
-  write_prior(k["prior"], prior)
+WM_TEMPLATE = LOGS / "2026-10-26_02-43-10_cw2auto_r04/model_4497.pt"  # rsl_rl layout for the world-model exports
+CUBOI = H / "third_party/cuboi_ckpt/e8_boneseed_ckpt_0100000.pt"
+
+
+def train_wm(run_name, ppo_cmd, init, minutes):
+  """--trainer wm: the SuperMimic-style loop (rl/wm/speedup/online.py) on exactly the env of the PPO command: the
+  train_dance.py arguments are cut out of ppo_cmd (so both trainers get the same knobs), everything after the
+  TrainConfig separator that is not env (agent options) is dropped. The warm start is the previous round's
+  state_<it>.pt (policy, world model, critic, heads); a fresh run starts from the CuboiLeo e8 world model."""
+  import shlex
+  argv = shlex.split(ppo_cmd.split(f"python {RL}/train_dance.py ", 1)[1])
+  argv = [x for i, x in enumerate(argv) if not (x.startswith("--agent.") or (i and argv[i - 1].startswith("--agent.")))]
+  args_file = DL / f"wmargs_{run_name}.json"
+  args_file.write_text(json.dumps(argv))
+  out = LOGS / f"{time.strftime('%Y-%m-%d_%H-%M-%S')}_{run_name}"
+  if init:
+    st = LOGS / init[0] / f"state_{init[1][6:-3]}.pt"
+    if not st.exists():
+      raise SystemExit(f"--trainer wm: no trainer state {st} for the warm start (PPO checkpoint?)")
+    start = f"--resume {st} --wm-init cuboi:{CUBOI}"
+  else:
+    start = f"--wm-init cuboi:{CUBOI}"
+  return (f"source ~/miniforge3/etc/profile.d/conda.sh; conda activate unitree_rl_mjlab; "
+          f"export MUJOCO_GL=egl MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA WANDB_CONSOLE=off; "
+          f"cd {RL}/wm/speedup && python online.py --harness-args {args_file} --out {out} --template {WM_TEMPLATE} "
+          f"--minutes {minutes} --export-min {minutes / 3:.1f} --resets harness --heads 1 --tf32 1 "
+          f"--compile-model 1 --rollouts 2048 --log-every 20 {start}")
+
+
+def train(rnd, k, init, iters, trainer="ppo", wm_minutes=60.0):
+  run_name = _run_name(rnd)
+  prior = DS / f"auto_prior_{_run_name(rnd)}.npz"
+  motion, labels = ref_paths(k)
+  write_prior(k["prior"], prior, labels)
   import library as libm
-  dyn_file = DL / f"dyn_r{rnd:02d}.json"
+  dyn_file = DL / f"dyn_{_run_name(rnd)}.json"
   # library fixes + terms the decider composed itself (knob extra_dyn: [{"name", "func", "weight", "params"}])
   dyn_file.write_text(json.dumps(libm.active_fixes(libm.load(), CLIP) + k.get("extra_dyn", [])))
   resume = f"--agent.resume True --agent.load-run {init[0]} --agent.load-checkpoint {init[1]}" if init else ""
   cmd = (f"source ~/miniforge3/etc/profile.d/conda.sh; conda activate unitree_rl_mjlab; "
          f"export MUJOCO_GL=egl MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA WANDB_CONSOLE=off; "
-         f"python {RL}/train_dance.py --rsi phase --labels {DS}/labels_50fps.npz --prior {prior} "
+         f"python {RL}/train_dance.py --rsi phase --labels {labels} --prior {prior} "
          f"--flip-rewards {k['flip_rewards']} --flip-weights '{json.dumps(k['weights'])}' "
          f"--flip-terms '{json.dumps(k.get('terms', {}))}' --dyn-rewards {dyn_file} "
          f"--tracking-scale {k.get('tracking', {}).get('scale', 1.0)} "
          f"--tracking-std-scale {k.get('tracking', {}).get('std_scale', 1.0)} "
          f"--knee-limit {k['knee_limit']} --ee-threshold {k['ee_threshold']} --delay-ms {k.get('delay_ms', 0)} "
-         f"--anchor-pos-threshold {k['anchor_pos_threshold']} -- --motion-file {DS}/g1_{VAR}_50fps.npz "
+         f"--hand-friction {k.get('hand_friction', 0)} "
+         f"--anchor-pos-threshold {k['anchor_pos_threshold']} -- --motion-file {motion} "
          f"--env.scene.num-envs 4096 --agent.max-iterations {iters} --agent.algorithm.learning-rate 0.0003 "
          f"--agent.run-name {run_name} --agent.logger tensorboard {resume}")
+  if trainer == "wm":  # same knobs, other inner trainer; the PPO command above stays the reference
+    cmd = train_wm(run_name, cmd, init, wm_minutes)
   t0 = time.time()
   sh(cmd, DL / f"train_{run_name}.log")
   run = sorted(p.name for p in LOGS.glob(f"*_{run_name}"))[-1]
   return run, round((time.time() - t0) / 60, 1)
+
+
+def ref_audit(k):
+  """Guard (generic): the reference itself must pass every active termination; also what the family's absolute
+  rewards pay the reference (ref_term_audit.py). cartwheel_2 r01: two aerial landing terminations fired on all 10
+  frames of the reference's own landing window, so every correct cartwheel was cut off at touch-down."""
+  motion, labels = ref_paths(k)
+  r = sh(f"source ~/miniforge3/etc/profile.d/conda.sh; conda activate unitree_rl_mjlab; "
+         f"python {HERE}/ref_term_audit.py {motion} {labels} '{json.dumps(k.get('terms', {}))}'")
+  line = [x for x in (r.stdout or "").splitlines() if x.startswith("AUDIT ")]
+  return json.loads(line[-1][6:]) if line else None
 
 
 def ep_len(log):
@@ -360,6 +415,9 @@ def main():
   ap.add_argument("--mode", choices=("llm", "rules"), default="llm",
                   help="llm: rules/templates only suggest, the agent decides each round (decisions/rNN.json); "
                        "rules: the rule-based adjust() changes the knobs (ablation baseline)")
+  ap.add_argument("--trainer", choices=("ppo", "wm"), default="ppo",
+                  help="inner trainer: ppo (train_dance.py, default) or wm (rl/wm/speedup/online.py, same env/knobs)")
+  ap.add_argument("--wm-minutes", type=float, default=60.0, help="--trainer wm: training minutes per round")
   a = ap.parse_args()
   st = json.loads(STATE.read_text()) if STATE.exists() else {"rounds": [], "knobs": DEFAULT, "best": None}
   for key in ("weights", "prior", "terms", "tracking"):  # knobs added mid-run get their defaults (no KeyError)
@@ -376,14 +434,24 @@ def main():
       break
     k = st["knobs"]
     init = (st["best"]["run"], st["best"]["ckpt"]) if st["best"] else None
-    if decision and decision.get("init"):  # the decider picks the start (r10: best score != best policy)
+    if decision and decision.get("init") == "scratch":  # reward / termination set changed: no warm start
+      init = None
+    elif decision and decision.get("init"):  # the decider picks the start (r10: best score != best policy)
       init = (decision["init"]["run"], decision["init"]["ckpt"])
     print(f"=== round {rnd} knobs {json.dumps(k)} init {init}", flush=True)
-    run, mins = train(rnd, k, init, a.iters)
+    audit = ref_audit(k)
+    print(f"=== round {rnd} reference audit {json.dumps(audit)}", flush=True)
+    waived = {w["check"] if isinstance(w, dict) else w for w in (decision or {}).get("waive", [])}
+    bad = [t for t, n in ((audit or {}).get("fires") or {}).items() if n > 0 and f"ref_term:{t}" not in waived]
+    if bad:
+      print(f"=== round {rnd}: refused - terminations {bad} fire on the reference itself (switch them off / "
+            f"relax them, or waive 'ref_term:<name>')", flush=True)
+      break
+    run, mins = train(rnd, k, init, a.iters, a.trainer, a.wm_minutes)
     cks = sorted((p.name for p in (LOGS / run).glob("model_*.pt")), key=lambda s: int(s[6:-3]))
     evals = []
     for ck in cks[-3:]:  # the last three saved checkpoints of the round
-      r = evaluate(run, ck)
+      r = evaluate(run, ck, k)
       if r:
         r = extra_metrics(r)
         r["ckpt"], r["score"] = ck, score(r)
@@ -397,8 +465,8 @@ def main():
       ev = LOGS / run / "eval"
       tag = f"auto_{best_r['ckpt'][:-3]}"
       sh(f"source ~/miniforge3/etc/profile.d/conda.sh; conda activate unitree_rl_mjlab; "
-         f"python {HERE}/critic.py {ev}/flip_{tag}_record.npz {DS}/labels_50fps.npz {ev}/flip_{tag}.mp4 "
-         f"--round {rnd} --task {CLIP}", DL / f"critic_r{rnd:02d}.log")
+         f"python {HERE}/critic.py {ev}/flip_{tag}_record.npz {ref_paths(k)[1]} {ev}/flip_{tag}.mp4 "
+         f"--round {rnd} --task {CLIP}", DL / f"critic_{_run_name(rnd)}.log")
       cj = ev / f"flip_{tag}_critic.json"
       if cj.exists():
         crit = json.loads(cj.read_text())
@@ -414,8 +482,9 @@ def main():
     suspicious = bool(best_r and best_r["robot_airborne_s"] > 0.2 and best_r["pelvis_rise_m"] < 0.03)
     if best_r and not suspicious and (st["best"] is None or best_r["score"] > st["best"]["score"]):
       st["best"] = {"run": run, "ckpt": best_r["ckpt"], "score": best_r["score"], "round": rnd}
-    st["rounds"].append({"round": rnd, "run": run, "minutes": mins, "knobs": k, "ep_len_end": ep_len(DL / f"train_flipauto_r{rnd:02d}.log"),
-                         "evals": [{x: e[x] for x in ("ckpt", "score", "robot_rotation_deg", "robot_max_rotation_deg",
+    st["rounds"].append({"round": rnd, "run": run, "minutes": mins, "knobs": k, "ref_audit": audit,
+                         "ep_len_end": ep_len(train_log(rnd)),
+                         "evals": [{x: e[x] for x in e if x in ("ckpt", "score", "robot_rotation_deg", "robot_max_rotation_deg",
                                                       "robot_peak_pelvis_m", "pelvis_rise_m", "robot_airborne_s",
                                                       "landed_upright", "end_tilt_deg", "early_fall",
                                                       "plane_dev_max_deg", "plane_dev_mean_deg", "leg_asym_deg",
@@ -429,8 +498,8 @@ def main():
                                                       "knee_sep_max_m", "flight_hip_roll_max_rad",
                                                       "flight_hip_yaw_max_rad", "stand_arm_vel_rms",
                                                       "stand_action_change", "stand_pelvis_speed",
-                                                      "stand_torso_angvel")
-                                                if x in e} for e in evals],
+                                                      "stand_torso_angvel", "post_s", "clip_s")
+                                                or x.startswith(("hold_", "post_"))} for e in evals],
                          "adjust": why,
                          "critic_top": [{x: c[x] for x in ("severity", "kind", "what", "phase", "detail")}
                                         for c in critic_top],
@@ -440,9 +509,12 @@ def main():
     report(st)
     if a.mode == "llm":  # protocol step 1 runs automatically: frame sheets, robustness, quantitative report
       if best_r:
-        sh(f"bash {HERE}/robust.sh {run} {best_r['ckpt']}", DL / f"robust_r{rnd:02d}.log")
+        sh(f"MOTION={ref_paths(k)[0]} HAND_FRICTION={k.get('hand_friction', 0)} bash {HERE}/robust.sh {run} {best_r['ckpt']}", DL / f"robust_{_run_name(rnd)}.log")
+      # segment probe of the last checkpoint (the warm-start candidate): which parts of the reference are learned
+      # (cartwheel_2 r02: from frame 60 on 75 % complete, the entry onto the hands lost within 5 steps)
+      sh(f"bash {HERE}/segments.sh {TASK} {rnd} {cks[-1][:-3]}", DL / f"segments_{_run_name(rnd)}.log")
       sh(f"source ~/miniforge3/etc/profile.d/conda.sh; conda activate unitree_rl_mjlab; cd {HERE}; "
-         f"python analyze_round.py {rnd}; python quant_report.py {rnd}", DL / f"analysis_r{rnd:02d}.log")
+         f"python analyze_round.py {rnd}; python quant_report.py {rnd}", DL / f"analysis_{_run_name(rnd)}.log")
     print(f"=== round {rnd} done: best {best_r and {x: best_r[x] for x in ('ckpt', 'score', 'robot_rotation_deg', 'pelvis_rise_m', 'robot_airborne_s', 'landed_upright')}} | {why}", flush=True)
 
 
@@ -478,7 +550,7 @@ def report(st):
           "| severity | kind | what | phase | detail |", "|---|---|---|---|---|"]
     L += [f"| {c['severity']} | {c['kind']} | {c['what']} | {c['phase']} | {c['detail']} |" for c in last["critic_top"]]
   L += ["", f"best so far: {st['best']}", "", "knobs now: `" + json.dumps(st["knobs"]) + "`"]
-  (HERE / "REPORT.md").write_text("\n".join(L) + "\n")
+  REPORT.write_text("\n".join(L) + "\n")
 
 
 if __name__ == "__main__":

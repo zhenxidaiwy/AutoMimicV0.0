@@ -1,0 +1,42 @@
+{
+ "round": 6,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r05_quant.md -> step 2 analysis/r05_llm.md (sheets + close-ups 0-131 + ankle heights) -> step 3 this file -> train",
+ "based_on": "r05: clean straight-arm cartwheel, still hold; open: deliberate left-foot lift (0.138 m) in the first stand, hold sway 0.042 / drift 0.051, robustness dr 0.78 / 20 ms 0.73 / kp 0.75, land segment 0.47",
+ "init": {"run": "2026-10-26_04-28-42_cw2auto_r05", "ckpt": "model_5996.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-487"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (every frame 0-131)"],
+ "human_input": [],
+ "priorities": [
+  "P1 planted foot stays down in the first stand: new generic termination term_foot_lifted (max_lift 0.05 m)",
+  "P2 hold sway / drift: dyn_base_still weight 2 -> 3",
+  "P3 landing robustness: prior land 2 -> 3"
+ ],
+ "knobs": {
+  "terms.term_foot_lifted": {"phases": ["stand"], "max_lift": 0.05, "planted_z": 0.06},
+  "prior.land": 3.0,
+  "extra_dyn": [
+   {"name": "agent_r05_base_still", "func": "dyn_base_still", "weight": 3.0,
+    "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}}
+  ]
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "lessons_seeded": "library.LESSONS: generic planted-foot-stays-down",
+ "lessons_used": ["no-lower-than-reference", "closeup-review", "segment-probe", "hold-final-pose-2s"],
+ "code_changes": [
+  "rl/mimic_generic.term_foot_lifted (new generic termination, thresholds from the reference ankle heights); re-exported by flip_rewards",
+  "rl/flip_auto/ankle_z.py (ankle heights / knees robot vs reference)"
+ ],
+ "expect": {
+  "critic contact:left_foot:stand": "< 2 (r05 4.3)",
+  "hold_sway_m": "<= 0.03 (r05 0.042)",
+  "hold_drift_m": "<= 0.05 (r05 0.051)",
+  "segment start 81 never lost": "> 0.5 (r05 0.47)",
+  "support": "wrists and feet only (kept)"
+ },
+ "rollback_if": "segment start 0 never lost < 0.7: r07 from r05 model_5996 with max_lift 0.08"
+}

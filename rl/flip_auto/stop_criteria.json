@@ -1,9 +1,20 @@
 {
- "_doc": "Layered stop criteria (user 2026-10-23). A skill is DONE when every gate in generic + its family + its task passes AND tracking fidelity has converged. Gates the decider adds while iterating go to the task scope (decision field stop_gates_add). Metrics: eval.* = best checkpoint's eval json; robust.* = robustness json success rate; sim2sim.* = native MuJoCo success rate; critic.max_unwaived_severity = worst library check of the task after waivers (decision field waive: [{check, reason}]). value_ref may use ref_flight_s (reference flight duration).",
+ "_doc": "Layered stop criteria (user 2026-10-23). A skill is DONE when every gate in generic + its family + its task passes AND tracking fidelity has converged. Gates the decider adds while iterating go to the task scope (decision field stop_gates_add). Metrics: eval.* = best checkpoint's eval json; robust.* = robustness success rate (flip + the 5 s run past the reference); sim2sim.* = native MuJoCo success rate; critic.max_unwaived_severity = worst library check of the task after waivers (decision field waive: [{check, reason}]). value_ref may use ref_flight_s (reference flight duration). hold_* = the last 2 s of the reference (its final pose held, scripts/data/hold_tail.py), post_* = the 5 s recorded past the reference (eval_flip.py --post_s).",
  "generic": [
-  {"id": "quiet_after_event", "metric": "eval.stand_action_change", "op": "<=", "value": 0.1, "why": "quiet stance after the motion (trembling)"},
-  {"id": "still_after_event", "metric": "eval.stand_pelvis_speed", "op": "<=", "value": 0.1, "why": "no drifting / walking off"},
-  {"id": "feet_down_after_event", "metric": "after.feet_off_steps", "op": "<=", "value": 0, "why": "no stepping in the final rest pose"},
+  {"id": "hold_window_2s", "metric": "eval.hold_window_s", "op": ">=", "value": 2.0, "why": "user: stay stable >= 2 s after the motion; the reference must end with >= 2 s of its held final pose"},
+  {"id": "hold_no_fall", "metric": "eval.hold_fell", "op": "==", "value": false},
+  {"id": "hold_still_speed", "metric": "eval.hold_pelvis_speed_max", "op": "<=", "value": 0.15, "why": "no stepping / sliding in the final pose"},
+  {"id": "hold_no_drift", "metric": "eval.hold_drift_m", "op": "<=", "value": 0.05},
+  {"id": "hold_no_sway", "metric": "eval.hold_sway_m", "op": "<=", "value": 0.03, "why": "user: 不乱晃"},
+  {"id": "hold_torso_calm", "metric": "eval.hold_torso_angvel_rms", "op": "<=", "value": 0.2, "why": "rad/s, wobbling torso"},
+  {"id": "hold_quiet", "metric": "eval.hold_action_change", "op": "<=", "value": 0.1, "why": "trembling"},
+  {"id": "hold_posture_tilt", "metric": "eval.hold_tilt_err_max_deg", "op": "<=", "value": 5, "why": "user: 姿态好 - torso tilt vs the reference's final pose"},
+  {"id": "hold_posture_joints", "metric": "eval.hold_pose_err_rad", "op": "<=", "value": 0.15, "why": "mean joint error vs the reference's final pose"},
+  {"id": "hold_posture_height", "metric": "eval.hold_height_err_m", "op": "<=", "value": 0.05},
+  {"id": "hold_feet_down", "metric": "eval.hold_feet_off_steps", "op": "<=", "value": 0, "why": "feet the reference keeps on the ground stay down"},
+  {"id": "post_no_fall", "metric": "eval.post_fell", "op": "==", "value": false, "why": "still up 5 s past the reference"},
+  {"id": "post_no_drift", "metric": "eval.post_drift_m", "op": "<=", "value": 0.15},
+  {"id": "post_posture", "metric": "eval.post_tilt_err_max_deg", "op": "<=", "value": 10},
   {"id": "critic_clean", "metric": "critic.max_unwaived_severity", "op": "<=", "value": 3.0, "why": "no large unexplained deviation from the reference"},
   {"id": "robust_training_dr", "metric": "robust.dr", "op": ">=", "value": 0.95, "why": "pushes, friction, CoM, encoder bias, noise"},
   {"id": "robust_latency_20ms", "metric": "robust.delay1", "op": ">=", "value": 0.95, "why": "control latency of a real robot"},
@@ -20,6 +31,10 @@
   {"id": "no_early_fall", "metric": "eval.early_fall", "op": "==", "value": false},
   {"id": "airborne_enough", "metric": "eval.robot_airborne_s", "op": ">=", "value_ref": "0.7*ref_flight_s"},
   {"id": "in_plane", "metric": "eval.plane_dev_max_deg", "op": "<=", "value": 10, "why": "flip stays in its plane"}
+ ],
+ "family:hand_support": [
+  {"id": "rotation_complete", "metric": "eval.robot_rotation_deg", "op": ">=", "value_ref": "0.9*ref_rotation", "why": "the whole hand-supported rotation (relative to the reference's own rotation)"},
+  {"id": "landed_upright", "metric": "eval.landed_upright", "op": "==", "value": true}
  ],
  "task:backflip_3": []
 }

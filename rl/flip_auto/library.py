@@ -217,6 +217,89 @@ LESSONS = [
    "global orientation: tilt only after the event (r7 waist 115 deg)", None, "flip_rewards.flip_root_ori"),
   ("no-rest-tail", "generic", "reference", "rest_after", "reference padded with a rest-pose tail", None,
    "scripts/data/pad_landing.py"),
+  ("hold-final-pose-2s", "generic", "reference", "rest_after",
+   "user 2026-10-23: after the motion stay stable >= 2 s in the reference's final pose (standing or not), no sway, "
+   "good posture. The reference must end with >= 2.5 s of its held final frame (hold_tail.py); every evaluation "
+   "records 5 s past the reference (eval_flip --post_s 5); gates hold_* / post_* in stop_criteria.json.",
+   "reference.variant", "scripts/data/hold_tail.py"),
+  ("ref-passes-terminations", "generic", "termination", "any",
+   "the reference itself must pass every active termination (cartwheel_2 r01: the aerial landing terminations "
+   "term_flight_spread / term_leg_twist fired on all 10 frames of the reference's own wide landing, so every correct "
+   "cartwheel was cut off at touch-down). Guard: harness.ref_audit refuses the round.", "terms.*",
+   "rl/flip_auto/ref_term_audit.py"),
+  ("rewards-pay-the-reference", "generic", "lesson", "any",
+   "an absolute (not reference-relative) reward must pay the reference itself >= 0.8 inside its gate, else it pulls "
+   "the policy away from the skill (cartwheel_2 r01: flip_leg_sym 0.04, flip_land_balance 0.62). Detect: "
+   "ref_term_audit 'reference_pays' (logged per round as ref_audit).", "weights.*", "rl/flip_auto/ref_term_audit.py"),
+  ("planted-feet-on-floor", "generic", "reference", "stand",
+   "planted feet level and on the floor in still stances: ground_fix moves only the root, so an uneven monocular "
+   "stance left one STRAIGHT leg's sole 2.4-3.8 cm up for the whole held final pose (cartwheel_2). Fix: legs + root "
+   "height only, knees >= 0.1 rad.", "reference.variant", "scripts/data/feet_plant.py"),
+  ("segment-probe", "generic", "metric", "any",
+   "a from-frame-0 failure does not say WHICH part is not learned: start the policy at several reference frames "
+   "(cartwheel_2 r02: from frame 60 on 75 % complete and stand, the entry onto the hands lost within 5 steps). "
+   "Automatic each round (quant A3); put start-state weight on the failing segments.", "prior.*",
+   "rl/eval_segments.py"),
+  ("no-lower-than-reference", "generic", "termination", "any",
+   "tracking rewards tolerate a shortcut posture: cartwheel_2 r03 bent the elbows BEFORE the hands touched and went "
+   "over on head + forearms (pelvis / torso / shoulders / elbows ~0.2 m below the reference's own minimum). Terminate "
+   "when a tracked body goes lower than the reference ever does minus a margin (thresholds from the reference, "
+   "contact bodies excluded). Detect: floor_contacts.py / body_min_z.py on the eval record.",
+   "terms.term_below_reference", "rl/mimic_generic.term_below_reference"),
+  ("planted-foot-stays-down", "generic", "termination", "stand",
+   "a contact reward at weight 1 did not stop a pointless 10-14 cm step in the first stand (cartwheel_2 r04, r05): "
+   "terminate when a foot the reference has planted is > 5 cm above the reference's ankle in still-stance phases.",
+   "terms.term_foot_lifted", "rl/mimic_generic.term_foot_lifted"),
+  ("train-the-judged-window", "generic", "reference", "rest_after",
+   "robustness failed by DRIFT (> 0.3 m under pushes / latency) in the 5 s past the reference, which training never "
+   "saw (episodes resample at the reference end; only 2.5 s of hold were trained). Reference hold >= the judged "
+   "window (7.5 s, still < the 10 s episode).", "reference.variant", "scripts/data/hold_long.sh"),
+  ("robust-drift-v2", "generic", "metric", "rest_after",
+   "robustness success under pushes (0.5 m/s every 1-3 s): drift < 0.5 m over the 5 s past the reference (v2), v1 "
+   "0.3 m kept alongside; decided by the agent 2026-10-26 (user delegated). Nominal post drift gate unchanged.",
+   None, "rl/eval_flip_robust.py"),
+  ("hold-on-the-spot", "generic", "quiet", "rest_after",
+   "after a push the robot stepped away and stayed (only speed was penalised, global position is free after the "
+   "event): reward the pelvis staying at its own first hold position, per episode.", "extra_dyn",
+   "rl/mimic_generic.dyn_hold_spot"),
+  ("probe-heading-after-event", "generic", "metric", "rest_after",
+   "after the main event the heading is free (flip_root_ori): a segment probe counting full orientation error marked a "
+   "standing robot 'lost' (cartwheel_2 r04-r06 land start 0.2-0.47 -> 1.0 with tilt only). Two rounds of start-state "
+   "weight on 'land' were spent on this artifact.", None, "rl/eval_segments.py"),
+  ("contact-check-ref-relative", "generic", "metric", "land",
+   "contact checks must only count steps where the REFERENCE has the foot down (a cartwheel lands one foot after the "
+   "other).", None, "rl/flip_auto/critic.py"),
+  ("closeup-review", "generic", "lesson", "any",
+   "sheet tiles (~250 px) hide hand / head contacts: r03 'cartwheel completed' was a head-and-forearm support only "
+   "visible in full-resolution frames (closeup.sh) and confirmed by floor_contacts.py.", None,
+   "rl/flip_auto/closeup.sh"),
+  ("smooth-root-grounding", "generic", "reference", "any",
+   "grounding the root per frame on whichever contact is planted jumps when the contact switches (cartwheel_2: foot "
+   "-> hand, root -7 cm in 2 frames, ~2 g down with a foot on the floor): root offset by bounded least squares (no "
+   "penetration) with a vertical-acceleration penalty.", "reference.variant", "scripts/data/ground_fix.py --qp"),
+  ("family-score", "generic", "metric", "any",
+   "the round score must fit the family: the aerial score pays airborne time / pelvis rise / 300 deg, meaningless "
+   "for a cartwheel (rotation then relative to the reference's own).", None, "rl/flip_auto/harness.score"),
+  # family 'hand_support' (cartwheels, round-offs, handstands)
+  ("arms-by-position", "family:hand_support", "reference", "support",
+   "GMR smplx_to_g1 left-arm rotation offsets are wrong (left elbow locked at -1.05): arms matched by position "
+   "(--arm_pos 50) + elbow branch escape; left hand error 22 -> 1.3 cm.", None, "scripts/data/retarget_headless.py"),
+  ("palms-down", "family:hand_support", "reference", "support",
+   "palm (not fingertips) on the floor while a hand is planted: wrist joints only, multi-start.", None,
+   "scripts/data/wrist_flat.py"),
+  ("hand-grounding", "family:hand_support", "reference", "support",
+   "hand contacts count for the root height (G1 arms scaled 0.8 vs legs 0.9 left the palms 4-12 cm up).", None,
+   "scripts/data/ground_fix.py --hands"),
+  ("arm-reach", "family:hand_support", "reference", "support",
+   "the G1 arm is short relative to the body: with a smooth root the palm stayed 6-25 cm up while the human's was "
+   "planted, the reference hovered over one foot for ~0.25 s. Arm joints only (7 per arm) put the planted palm on the "
+   "floor (straight arms, as in the video).", "reference.variant", "scripts/data/arm_reach.py"),
+  ("hand-friction", "family:hand_support", "physics", "support",
+   "stock G1 non-foot collision geoms have condim 1 (frictionless): hands need condim 3, friction 0.6.",
+   "hand_friction", "rl/mimic_generic.set_hand_friction"),
+  ("wide-stance-termination", "family:hand_support", "termination", "rest_after",
+   "stance limits relative to the reference's own landing stance (cartwheel_2 ankles 0.68 m apart vs 0.23 m "
+   "backflip).", "terms.term_stand_fail", "flip_rewards.term_stand_fail"),
   # family 'aerial' (flips, aerials, cartwheels)
   ("airborne-while-lying", "family:aerial", "metric", "flight",
    "_airborne: whole body > 5 cm and pelvis > 0.45 m (r2: lying + kicking counted as airborne)", None,

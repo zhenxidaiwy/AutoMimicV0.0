@@ -9,6 +9,8 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
+import sys as _s; _s.path.insert(0, str(HERE))
+from taskcfg import ANALYSIS, CLIP, DECISIONS, DS as TDS, LABELS, STATE, VID, train_log  # noqa: E402
 H = Path.home()
 LOGS = H / "projects/dance/runs/logs/rsl_rl/g1_tracking"
 KEYS = ["score", "robot_rotation_deg", "robot_airborne_s", "pelvis_rise_m", "landed_upright", "stand_stable",
@@ -17,13 +19,13 @@ KEYS = ["score", "robot_rotation_deg", "robot_airborne_s", "pelvis_rise_m", "lan
         "stand_action_change", "stand_pelvis_speed", "stand_torso_angvel", "takeoff_offset_steps",
         "landing_offset_steps"]
 
-st = json.loads((HERE / "state.json").read_text())
+st = json.loads(STATE.read_text())
 k = int(sys.argv[1]) if len(sys.argv) > 1 else len(st["rounds"])
 rd = st["rounds"][k - 1]
 best = max(rd["evals"], key=lambda e: e.get("score", -1))
 ck = best["ckpt"][:-3]
 ev = LOGS / rd["run"] / "eval"
-out = H / "dance_win/videos/backflip/auto" / f"r{k:02d}"
+out = VID / f"r{k:02d}"
 out.mkdir(parents=True, exist_ok=True)
 vid = ev / f"flip_auto_{ck}.mp4"
 dst = out / f"r{k:02d}_{ck}.mp4"

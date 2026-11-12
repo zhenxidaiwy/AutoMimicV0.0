@@ -1,0 +1,105 @@
+{
+ "policy": "cartwheel_r11",
+ "model": "models/cartwheel.mjb",
+ "mujoco": "3.5.0",
+ "hand_friction": 0.6,
+ "knee_limit": 120.0,
+ "runs_per_scenario": 100,
+ "frames_reference": 490,
+ "frames_with_hold": 740,
+ "ref_rotation_deg": 255.5,
+ "success_rule": "rl/eval_flip_robust.py v2 (nominal: v1)",
+ "start_jitter": {
+  "root_xy_m": 0.02,
+  "roll_pitch_rad": 0.02,
+  "yaw_rad": 0.05,
+  "joint_pos_rad": 0.02
+ },
+ "push_range_lo": [
+  -0.25,
+  -0.25,
+  -0.1,
+  -0.26,
+  -0.26,
+  -0.39
+ ],
+ "push_range_hi": [
+  0.25,
+  0.25,
+  0.1,
+  0.26,
+  0.26,
+  0.39
+ ],
+ "scenarios": [
+  {
+   "name": "nominal",
+   "description": "no perturbation",
+   "runs": 100,
+   "success_rate": 1.0,
+   "success_rate_v1": 1.0,
+   "falls": 0,
+   "rotation_deg_p5_50_95": [
+    268.495,
+    270.8,
+    273.915
+   ],
+   "hold_tilt_max_deg_p5_50_95": [
+    15.6,
+    15.6,
+    15.7
+   ],
+   "hold_drift_m_p5_50_95": [
+    0.001,
+    0.002,
+    0.005
+   ],
+   "knee_torque_max_Nm": 102.84,
+   "exact_start": {
+    "success": true,
+    "success_v1": true,
+    "rotation_deg": 273.7,
+    "hold_tilt_max_deg": 15.7,
+    "hold_pelvis_min_m": 0.718,
+    "hold_drift_m": 0.004,
+    "fell": false,
+    "knee_torque_max_Nm": 92.97
+   }
+  },
+  {
+   "name": "lat20",
+   "description": "position targets delayed by 4 physics steps = 20 ms (fixed lag, DelayedActuator semantics)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "success_rate_v1": 1.0,
+   "falls": 0,
+   "rotation_deg_p5_50_95": [
+    268.6,
+    272.1,
+    275.3
+   ],
+   "hold_tilt_max_deg_p5_50_95": [
+    15.6,
+    15.9,
+    16.105
+   ],
+   "hold_drift_m_p5_50_95": [
+    0.006,
+    0.007,
+    0.009
+   ],
+   "knee_torque_max_Nm": 105.72,
+   "exact_start": {
+    "success": true,
+    "success_v1": true,
+    "rotation_deg": 273.2,
+    "hold_tilt_max_deg": 15.9,
+    "hold_pelvis_min_m": 0.72,
+    "hold_drift_m": 0.008,
+    "fell": false,
+    "knee_torque_max_Nm": 96.94
+   }
+  }
+ ],
+ "wall_s": 46.6
+}

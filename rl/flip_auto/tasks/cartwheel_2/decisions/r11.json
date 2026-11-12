@@ -1,0 +1,38 @@
+{
+ "round": 11,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r10_quant.md -> step 2 analysis/r10_llm.md (close-ups 0-131 + hold sheet) -> step 3 this file -> train",
+ "based_on": "r10: robust v2 dr 0.879 / 20 ms 0.707 / kp 0.871 (r09 0.992 / 0.941 / 0.996); hold tilt 6.7 (r09 6.1) although joint pose error fell 0.072 -> 0.054; wrist jitter on land fixed (4.98 -> 2.3). r10 rollback rule (dr v2 < 0.95) triggered",
+ "init": {"run": "2026-10-26_18-51-42_cw2auto_r09", "ckpt": "model_11992.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-519", "520-559", "560-599", "600-639",
+                     "640-679", "680-719", "720-737"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (every frame 0-131)"],
+ "human_input": [],
+ "priorities": [
+  "rollback to r09 model_11992",
+  "keep the wrist fix jitter:wrist_roll:land (worked in r10)",
+  "drop agent_r10_hold_posture (joint term pins the legs in stand_after: robustness -0.11..-0.23, tilt not improved)"
+ ],
+ "knobs": {
+  "extra_dyn": [
+   {"name": "agent_r05_base_still", "func": "dyn_base_still", "weight": 3.0,
+    "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}},
+   {"name": "agent_r08_hold_spot", "func": "dyn_hold_spot", "weight": 4.0,
+    "params": {"phases": ["stand_after"], "std": 0.10}}
+  ]
+ },
+ "library": {"jitter:wrist_roll:land": 1.0},
+ "library_params": {},
+ "waive": [],
+ "lessons_used": ["control-latency", "hold-on-the-spot", "robust-drift-v2"],
+ "code_changes": [],
+ "expect": {
+  "robust dr / kp v2": ">= 0.95 (r09 0.992 / 0.996)",
+  "robust delay1 v2": ">= 0.94 (r09 0.941)",
+  "critic max unwaived": "<= 3 (r10 wrist fix kept)",
+  "hold_tilt_err_max_deg": "~6 (open; next: measure the source of the tilt, not another joint term)"
+ },
+ "rollback_if": "robustness still < r09: the wrist fix also costs robustness -> keep r09 model_11992 as the candidate and test it in sim2sim"
+}

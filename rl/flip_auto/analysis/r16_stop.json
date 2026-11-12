@@ -1,0 +1,218 @@
+{
+ "round": 16,
+ "task": "backflip_3",
+ "family": "aerial",
+ "done": false,
+ "converged": true,
+ "convergence_rel_improvement": [
+  -0.094,
+  -0.0014
+ ],
+ "rounds_used": 16,
+ "gpu_hours": 19.1,
+ "over_budget": false,
+ "gates": [
+  {
+   "id": "hold_window_2s",
+   "metric": "eval.hold_window_s",
+   "value": 0.66,
+   "op": ">=",
+   "threshold": 2.0,
+   "status": "FAIL"
+  },
+  {
+   "id": "hold_no_fall",
+   "metric": "eval.hold_fell",
+   "value": false,
+   "op": "==",
+   "threshold": false,
+   "status": "pass"
+  },
+  {
+   "id": "hold_still_speed",
+   "metric": "eval.hold_pelvis_speed_max",
+   "value": 0.263,
+   "op": "<=",
+   "threshold": 0.15,
+   "status": "FAIL"
+  },
+  {
+   "id": "hold_no_drift",
+   "metric": "eval.hold_drift_m",
+   "value": 0.048,
+   "op": "<=",
+   "threshold": 0.05,
+   "status": "pass"
+  },
+  {
+   "id": "hold_no_sway",
+   "metric": "eval.hold_sway_m",
+   "value": 0.036,
+   "op": "<=",
+   "threshold": 0.03,
+   "status": "FAIL"
+  },
+  {
+   "id": "hold_torso_calm",
+   "metric": "eval.hold_torso_angvel_rms",
+   "value": 0.561,
+   "op": "<=",
+   "threshold": 0.2,
+   "status": "FAIL"
+  },
+  {
+   "id": "hold_quiet",
+   "metric": "eval.hold_action_change",
+   "value": 0.0902,
+   "op": "<=",
+   "threshold": 0.1,
+   "status": "pass"
+  },
+  {
+   "id": "hold_posture_tilt",
+   "metric": "eval.hold_tilt_err_max_deg",
+   "value": 2.3,
+   "op": "<=",
+   "threshold": 5,
+   "status": "pass"
+  },
+  {
+   "id": "hold_posture_joints",
+   "metric": "eval.hold_pose_err_rad",
+   "value": 0.155,
+   "op": "<=",
+   "threshold": 0.15,
+   "status": "FAIL"
+  },
+  {
+   "id": "hold_posture_height",
+   "metric": "eval.hold_height_err_m",
+   "value": 0.015,
+   "op": "<=",
+   "threshold": 0.05,
+   "status": "pass"
+  },
+  {
+   "id": "hold_feet_down",
+   "metric": "eval.hold_feet_off_steps",
+   "value": 0,
+   "op": "<=",
+   "threshold": 0,
+   "status": "pass"
+  },
+  {
+   "id": "post_no_fall",
+   "metric": "eval.post_fell",
+   "value": false,
+   "op": "==",
+   "threshold": false,
+   "status": "pass"
+  },
+  {
+   "id": "post_no_drift",
+   "metric": "eval.post_drift_m",
+   "value": 0.114,
+   "op": "<=",
+   "threshold": 0.15,
+   "status": "pass"
+  },
+  {
+   "id": "post_posture",
+   "metric": "eval.post_tilt_err_max_deg",
+   "value": 3.4,
+   "op": "<=",
+   "threshold": 10,
+   "status": "pass"
+  },
+  {
+   "id": "critic_clean",
+   "metric": "critic.max_unwaived_severity",
+   "value": 5.51,
+   "op": "<=",
+   "threshold": 3.0,
+   "status": "FAIL"
+  },
+  {
+   "id": "robust_training_dr",
+   "metric": "robust.dr",
+   "value": 0.422,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "FAIL"
+  },
+  {
+   "id": "robust_latency_20ms",
+   "metric": "robust.delay1",
+   "value": 0.27,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "FAIL"
+  },
+  {
+   "id": "robust_stiffness",
+   "metric": "robust.kp085",
+   "value": 0.348,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "FAIL"
+  },
+  {
+   "id": "sim2sim_nominal",
+   "metric": "sim2sim.nominal",
+   "value": null,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "pending"
+  },
+  {
+   "id": "sim2sim_latency_20ms",
+   "metric": "sim2sim.delay20",
+   "value": null,
+   "op": ">=",
+   "threshold": 0.95,
+   "status": "pending"
+  },
+  {
+   "id": "rotation_complete",
+   "metric": "eval.robot_rotation_deg",
+   "value": 363.1,
+   "op": ">=",
+   "threshold": 330,
+   "status": "pass"
+  },
+  {
+   "id": "landed_upright",
+   "metric": "eval.landed_upright",
+   "value": true,
+   "op": "==",
+   "threshold": true,
+   "status": "pass"
+  },
+  {
+   "id": "no_early_fall",
+   "metric": "eval.early_fall",
+   "value": false,
+   "op": "==",
+   "threshold": false,
+   "status": "pass"
+  },
+  {
+   "id": "airborne_enough",
+   "metric": "eval.robot_airborne_s",
+   "value": 0.6,
+   "op": ">=",
+   "threshold": 0.322,
+   "status": "pass"
+  },
+  {
+   "id": "in_plane",
+   "metric": "eval.plane_dev_max_deg",
+   "value": 5.8,
+   "op": "<=",
+   "threshold": 10,
+   "status": "pass"
+  }
+ ],
+ "n_waivers": 1,
+ "worst_unwaived_check": "backflip_3/joint:shoulder_yaw:takeoff"
+}

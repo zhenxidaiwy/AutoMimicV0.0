@@ -9,8 +9,8 @@ Contact sources (ablation):
   vlm        labels from data/annotations/<clip>.json (VLM, 1 planted / 0 air / -1 unsure)
   heuristic  foot horizontal speed < 0.25 m/s  (no VLM; typical kinematic baseline)
 
-Usage (gmr env): python ground_fix.py <clip_id> [--contacts vlm|heuristic] [--sigma 1.5]
-Writes data/g1/<clip>/g1_ground_<src>.csv (+ .json report)
+Usage (gmr env): python ground_fix.py <clip_id> [--contacts vlm|heuristic] [--sigma 1.5] [--qp W] [--out ground]
+Writes data/g1/<clip>/g1_<out>_<contacts>.csv (+ .json report)
 """
 import argparse
 import json
@@ -55,9 +55,20 @@ if __name__ == "__main__":
     ap.add_argument("clip_id")
     ap.add_argument("--contacts", default="vlm", choices=["vlm", "heuristic"])
     ap.add_argument("--sigma", type=float, default=1.5)
+    ap.add_argument("--hands", action="store_true",
+                    help="also ground the planted HANDS (hand_L/R labels; lowest point of the hand collision capsule): "
+                         "hand-supported skills. cartwheel_2: the palms are on the floor in the GVHMR result but the G1 "
+                         "hands stayed 4-12 cm up (G1 arms are scaled 0.8 vs legs 0.9). Root height only, no joint change")
+    ap.add_argument("--src", default="g1", help="input csv stem in data/g1/<clip>/ (default g1)")
+    ap.add_argument("--qp", type=float, default=0.0,
+                    help="> 0: root offset = bounded least squares (planted contacts on the floor, NO point below it) "
+                         "+ this weight x its second difference (vertical acceleration). cartwheel_2: the per-frame "
+                         "offset switched from the foot to the hand when the foot lifted -> root -7 cm in 2 frames "
+                         "(-21.5 m/s^2, ~2 g down with a foot on the floor), the reference got infeasible there")
+    ap.add_argument("--out", default="ground", help="output stem: g1_<out>_<contacts>.csv")
     a = ap.parse_args()
     g = f"{H}/projects/dance/data/g1/{a.clip_id}"
-    csv = np.loadtxt(f"{g}/g1.csv", delimiter=",")
+    csv = np.loadtxt(f"{g}/{a.src}.csv", delimiter=",")
     qpos = np.concatenate([csv[:, :3], csv[:, [6, 3, 4, 5]], csv[:, 7:]], 1)  # csv quat xyzw -> mujoco wxyz
     model = mujoco.MjModel.from_xml_path(XML)
     sole, xy = sole_heights(model, qpos)
@@ -71,6 +82,16 @@ if __name__ == "__main__":
     else:
         contact = (speed < 0.25).astype(int)
 
+    if a.hands:  # hand contacts as two more "feet": lowest hand-capsule point, labels hand_L / hand_R
+        import sys as _sys
+        _sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+        from contact_lock import EFF, Geo
+        geo = Geo(model)
+        hand_low = np.array([[geo.frame(q)[n][2] for n in EFF[2:]] for q in qpos])
+        ann_h = json.load(open(f"{H}/dance_win/data/annotations/{a.clip_id}.json", encoding="utf-8"))
+        hand_c = np.stack([ann_h.get("hand_L", [0] * T), ann_h.get("hand_R", [0] * T)], 1)[:T]
+        sole = np.concatenate([sole, hand_low], 1)
+        contact = np.concatenate([contact, hand_c], 1)
     known = (contact == 1).any(axis=1)
     off = np.full(T, np.nan)
     for t in np.where(known)[0]:
@@ -80,12 +101,24 @@ if __name__ == "__main__":
     off = gaussian_filter1d(off, a.sigma) if a.sigma > 0 else off
     # hard constraint for both contact sources: no sole point below the floor
     floor_clamp = -sole.min(axis=1)
+    if a.qp > 0:
+        from scipy.optimize import lsq_linear
+        from scipy.sparse import diags, eye, vstack
+        tgt = np.full(T, np.nan)
+        for t in np.where(known)[0]:
+            tgt[t] = -sole[t][contact[t] == 1].min()
+        w = np.where(known, 1.0, 0.0)
+        tgt = np.where(known, tgt, 0.0)
+        D2 = diags([1.0, -2.0, 1.0], [0, 1, 2], shape=(T - 2, T))
+        A = vstack([diags(w), np.sqrt(a.qp) * D2]).tocsr()
+        rhs = np.concatenate([w * tgt, np.zeros(T - 2)])
+        off = lsq_linear(A, rhs, bounds=(floor_clamp, np.full(T, np.inf)), lsmr_tol="auto").x
     clamped = off < floor_clamp - 0.002  # count only real conflicts (>2 mm), not smoothing noise
     off = np.maximum(off, floor_clamp)
 
     fixed = csv.copy()
     fixed[:, 2] += off
-    out = f"{g}/g1_ground_{a.contacts}.csv"
+    out = f"{g}/g1_{a.out}_{a.contacts}.csv"
     np.savetxt(out, fixed.astype(np.float32), delimiter=",")
     sole_after = sole + off[:, None]
     # evaluate against the VLM labels in both cases (they are the reference annotation)
@@ -95,7 +128,13 @@ if __name__ == "__main__":
            "root_offset_cm": {"mean": round(float(off.mean() * 100), 2), "min": round(float(off.min() * 100), 2),
                               "max": round(float(off.max() * 100), 2)},
            "frames_clamped_by_no_penetration": int(clamped.sum()),
-           "before": float_stats(sole, c_eval), "after": float_stats(sole_after, c_eval),
+           "before": float_stats(sole[:, :2], c_eval), "after": float_stats(sole_after[:, :2], c_eval),
+           **({"hands_planted_z_cm_mean before/after": [
+               round(float(sole[:, 2:][contact[:, 2:] == 1].mean() * 100), 1),
+               round(float(sole_after[:, 2:][contact[:, 2:] == 1].mean() * 100), 1)]} if a.hands else {}),
+           "root_az_max_abs_mps2 before/after": [round(float(np.abs(np.gradient(np.gradient(csv[:, 2], 1 / 30), 1 / 30)).max()), 1),
+                                                 round(float(np.abs(np.gradient(np.gradient(fixed[:, 2], 1 / 30), 1 / 30)).max()), 1)],
+           "planted_contact_z_cm_max": round(float(np.where(contact == 1, sole_after, -np.inf).max() * 100), 2),
            "planted_foot_speed_mps_mean(vlm labels)": round(float(speed[c_eval == 1].mean()), 3),
            "heuristic_vs_vlm_contact_agreement": round(float(((speed < 0.25).astype(int) == c_eval)[c_eval >= 0].mean()), 3)}
     json.dump(rep, open(out.replace(".csv", ".json"), "w"), indent=1)

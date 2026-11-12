@@ -19,15 +19,58 @@ GMR_ROOT = pathlib.Path.home() / "projects" / "GMR"
 FOOT_BODIES = ("left_ankle_roll_link", "right_ankle_roll_link")
 
 
-def retarget(pred_file):
+ELBOWS = (18, 25)  # dof index of left / right elbow in the G1 29-dof order
+
+
+ARM_LINKS = ("shoulder_yaw_link", "elbow_link", "wrist_yaw_link")
+
+
+def arms_by_position(gmr, w):
+    """Match the arms by POSITION only (rotation weights of shoulder / elbow / wrist 0 in both stages, position weight w
+    in stage 2). cartwheel_2 (2026-10-25): the stock smplx_to_g1 rotation offsets of the LEFT arm are not the mirror of
+    the right arm's; the left hand ended 22-40 cm from its human target (elbow 8-32 cm) and the user saw a bent left
+    arm, while with position-only arms both hands are within ~1.3 cm and both elbows within ~3.7 cm."""
+    for tab, pw in ((gmr.ik_match_table1, 0.0), (gmr.ik_match_table2, w)):
+        for s in ("left", "right"):
+            for b in ARM_LINKS:
+                e = tab[f"{s}_{b}"]
+                e[1], e[2] = pw, 0.0
+    gmr.setup_retarget_configuration()
+
+
+def retarget(pred_file, escape=True, arm_pos=0.0):
+    """GMR retargeting, frame by frame (warm-started). Branch escape (cartwheel_2, 2026-10-25): the warm start can lock
+    an elbow at its lower limit (-1.05 rad = fully bent, 133 deg) for the whole clip while the human elbow bends
+    20-54 deg; when an elbow sits at the limit we re-solve the same frame from a straight elbow (q 1.0) and keep the
+    solution with the lower IK error."""
     from general_motion_retargeting import GeneralMotionRetargeting as GMR
     from general_motion_retargeting.utils.smpl import load_gvhmr_pred_file, get_gvhmr_data_offline_fast
 
     smplx_data, body_model, smplx_output, height = load_gvhmr_pred_file(pred_file, GMR_ROOT / "assets" / "body_models")
     frames, fps = get_gvhmr_data_offline_fast(smplx_data, body_model, smplx_output, tgt_fps=30)
     gmr = GMR(actual_human_height=height, src_human="smplx", tgt_robot="unitree_g1")
-    qpos = np.array([gmr.retarget(f) for f in frames])
-    return qpos, fps, float(height)
+    if arm_pos > 0:
+        arms_by_position(gmr, arm_pos)
+    lo = gmr.model.jnt_range[1:, 0]
+    out, n_escape = [], 0
+    for f in frames:
+        q = gmr.retarget(f).copy()
+        e = gmr.error1() + gmr.error2()
+        bad = [j for j in ELBOWS if q[7 + j] < lo[j] + 0.05]
+        if escape and bad:
+            q_try = q.copy()
+            for j in bad:
+                q_try[7 + j] = 1.0
+            gmr.configuration.update(q_try)
+            q2 = gmr.retarget(f).copy()
+            e2 = gmr.error1() + gmr.error2()
+            if e2 < e:
+                q, n_escape = q2, n_escape + 1
+            else:
+                gmr.configuration.update(q)
+        out.append(q)
+    print(f"elbow branch escapes kept: {n_escape} of {len(frames)} frames")
+    return np.array(out), fps, float(height)
 
 
 def foot_metrics(model, qpos, fps):
@@ -95,13 +138,15 @@ if __name__ == "__main__":
     ap.add_argument("out_dir")
     ap.add_argument("--clip", default=None)
     ap.add_argument("--no_render", action="store_true")
+    ap.add_argument("--arm_pos", type=float, default=0.0,
+                    help="> 0: match the arms by position only with this weight (fixes the stock left-arm offsets)")
     a = ap.parse_args()
     os.makedirs(a.out_dir, exist_ok=True)
 
     import mujoco
     import pickle
 
-    qpos, fps, height = retarget(a.pred_file)
+    qpos, fps, height = retarget(a.pred_file, arm_pos=a.arm_pos)
     model = mujoco.MjModel.from_xml_path(str(GMR_ROOT / "assets" / "unitree_g1" / "g1_mocap_29dof.xml"))
     assert qpos.shape[1] == 7 + 29 and model.nq == 36, (qpos.shape, model.nq)
 

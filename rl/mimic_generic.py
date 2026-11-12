@@ -118,7 +118,76 @@ def dyn_contact(env, labels: str, foot: int, phases: list, command_name: str = "
   return phase_gate(env, labels, phases, command_name).float() * (ankle_z(env)[:, foot] < 0.06).float()
 
 
-TEMPLATES = ("dyn_joint", "dyn_body", "dyn_quiet", "dyn_sym", "dyn_contact")
+def dyn_base_still(env, labels: str, phases: list, std_v: float = 0.1, std_w: float = 0.3,
+                   command_name: str = "motion"):
+  """hold the final pose without drifting or rocking (user 2026-10-23, r16: drifted 9.5 cm forward in 5 s, pelvis up
+  to 0.26 m/s): 0.5 exp(-|v_xy pelvis| / std_v) + 0.5 exp(-|w torso| / std_w) in `phases`."""
+  robot = env.scene["robot"]
+  v = robot.data.root_link_lin_vel_w[:, :2].norm(dim=-1)
+  w = env.command_manager.get_term(command_name).robot_anchor_ang_vel_w.norm(dim=-1)
+  r = 0.5 * torch.exp(-v / std_v) + 0.5 * torch.exp(-w / std_w)
+  return phase_gate(env, labels, phases, command_name).float() * r
+
+
+def dyn_hold_spot(env, labels: str, phases: list, std: float = 0.15, command_name: str = "motion"):
+  """hold the final pose ON THE SPOT (generic): in `phases`, exp(-|pelvis xy - xy0| / std), xy0 = the pelvis xy at
+  the env's first step inside the phases (per episode). After the main event the global position is not tracked
+  (lesson walk-to-reference), and dyn_base_still only penalises speed, so a push made the robot step away and stay
+  there (cartwheel_2 r07: robustness failed only by drift > 0.3 m in the 5 s past the reference)."""
+  robot = env.scene["robot"]
+  xy = robot.data.root_link_pos_w[:, :2]
+  g = phase_gate(env, labels, phases, command_name)
+  key = ("_spot", id(env))
+  if key not in _cache:
+    _cache[key] = (torch.zeros_like(xy), torch.zeros(xy.shape[0], dtype=torch.bool, device=xy.device))
+  xy0, have = _cache[key]
+  have &= env.episode_length_buf > 1          # new episode -> forget the spot
+  new = g & ~have
+  xy0[new] = xy[new]
+  have |= new
+  d = (xy - xy0).norm(dim=-1)
+  return g.float() * torch.exp(-d / std)
+
+
+TEMPLATES = ("dyn_joint", "dyn_body", "dyn_quiet", "dyn_sym", "dyn_contact", "dyn_base_still", "dyn_hold_spot")
+
+_below = {}
+
+
+def term_below_reference(env, labels: str = "", margin: float = 0.12, min_clear: float = 0.05,
+                         command_name: str = "motion"):
+  """terminate (generic, any skill): a tracked body goes lower than the reference EVER takes it, minus `margin` -
+  e.g. head / elbows / shoulders on the floor where the reference supports itself on straight arms (cartwheel_2 r03:
+  pelvis, torso, shoulders and elbows ~0.2 m below the reference's own minimum, head and forearms on the floor).
+  Thresholds come from the reference (per body: min over all frames of its height - margin); bodies whose threshold
+  would be below `min_clear` (the feet / hands that do touch the floor) are not checked. The reference passes by
+  construction."""
+  cmd = env.command_manager.get_term(command_name)
+  key = (id(cmd), margin, min_clear)
+  if key not in _below:
+    thr = cmd.motion.body_pos_w[:, :, 2].min(0).values - margin
+    _below[key] = (thr, thr > min_clear)
+  thr, on = _below[key]
+  z = cmd.robot_body_pos_w[:, :, 2] - env.scene.env_origins[:, None, 2]
+  return ((z < thr[None]) & on[None]).any(-1)
+
+
+def term_foot_lifted(env, labels: str, phases: list = ("stand",), max_lift: float = 0.05, planted_z: float = 0.06,
+                     command_name: str = "motion"):
+  """terminate (generic): in still-stance `phases`, a foot the REFERENCE has planted (its ankle below `planted_z`)
+  is more than `max_lift` higher than the reference's ankle (cartwheel_2 r04-r05: left foot lifted 10 cm for 15
+  steps in the first stand although the reference stands on both feet; the dyn_contact reward at weight 1 did not
+  change it). The reference passes by construction."""
+  cmd = env.command_manager.get_term(command_name)
+  key = ("_ank_cmd", id(cmd))
+  if key not in _cache:
+    bn = list(cmd.cfg.body_names)
+    _cache[key] = [bn.index("left_ankle_roll_link"), bn.index("right_ankle_roll_link")]
+  i = _cache[key]
+  zr = cmd.body_pos_w[:, i, 2] - env.scene.env_origins[:, None, 2]
+  zz = cmd.robot_body_pos_w[:, i, 2] - env.scene.env_origins[:, None, 2]
+  bad = ((zr < planted_z) & (zz - zr > max_lift)).any(-1)
+  return phase_gate(env, labels, list(phases), command_name) & bad
 
 
 def add_dyn_rewards(rewards, labels, dyn, family_module=None):
@@ -129,6 +198,38 @@ def add_dyn_rewards(rewards, labels, dyn, family_module=None):
     f = globals().get(d["func"]) or getattr(family_module, d["func"])
     rewards[d["name"]] = RewardTermCfg(func=f, weight=d["weight"], params={"labels": labels, **d["params"]})
   return rewards
+
+
+def hold_pad_npz(src, dst, extra_s, fps=50.0):
+  """Copy a 50 fps reference npz to `dst` with `extra_s` seconds appended that hold its final frame (positions
+  copied, velocities zero). Used by every evaluation (user 2026-10-23: playback must run >= 5 s past the reference
+  so one can see whether the robot stays stable). Returns (frames before, frames after)."""
+  z = dict(np.load(src))
+  T = len(z["joint_pos"])
+  n = int(round(extra_s * fps))
+  for k, v in z.items():
+    if k != "fps" and isinstance(v, np.ndarray) and v.ndim > 0 and len(v) == T:
+      tail = np.zeros((n,) + v.shape[1:], v.dtype) if "vel" in k else np.repeat(v[-1:], n, axis=0)
+      z[k] = np.concatenate([v, tail], 0)
+  np.savez(dst, **z)
+  return T, T + n
+
+
+HAND_GEOMS = r"^(left|right)_hand_collision$"
+
+
+def set_hand_friction(entity_cfg, mu=0.6):
+  """Robot-model correction for hand-supported skills: in mjlab's G1 FULL_COLLISION every non-foot geom has condim 1
+  (frictionless), so a hand planted on the floor slides freely; the real G1 rubber hands have friction. Hands get
+  condim 3, priority 1 and friction mu (feet keep 0.6). First matching pattern wins (mjlab resolve_expr)."""
+  import dataclasses
+  feet = r"^(left|right)_foot[1-7]_collision$"
+  out = []
+  for c in entity_cfg.collisions:
+    out.append(dataclasses.replace(
+      c, condim={feet: 3, HAND_GEOMS: 3, ".*_collision": 1}, priority={feet: 1, HAND_GEOMS: 1},
+      friction={feet: (0.6,), HAND_GEOMS: (mu,)}))
+  entity_cfg.collisions = tuple(out)
 
 
 # --- real-robot constraints (generic: every skill is trained under them)

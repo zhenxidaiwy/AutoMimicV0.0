@@ -24,6 +24,54 @@ def cum_pitch(quats_wxyz):
   return np.degrees(np.concatenate([[0.0], np.cumsum(inc @ ax)]))
 
 
+HOLD_S = 2.0  # judged final hold (user 2026-10-23: stay stable >= 2 s after the motion, no sway, good posture)
+
+
+def hold_metrics(lz, tilt, aq, rz, az, pel_v, pel_xy, tor_w, act_d, q, qr, foot_z, fps=50.0):
+  """Generic (L0) end-of-motion hold, judged over the last HOLD_S of the clip, relative to the reference's own final
+  pose (so standing, kneeling or a freeze all work). The window must lie inside the final phase run after the main
+  event; hold_window_s < HOLD_S means the reference tail is too short (fix: scripts/data/hold_tail.py)."""
+  import numpy as np
+  ph = np.asarray(lz["phase"])
+  names = [str(x) for x in lz["phase_names"]]
+  n = len(tilt)
+  if "land" in names and (ph == names.index("land")).any():
+    ev = int(np.where(ph == names.index("land"))[0][0])
+  else:
+    ev = len(ph) - 1
+    while ev > 0 and ph[ev - 1] == ph[-1]:
+      ev -= 1
+  s = min(len(ph), n) - 1
+  while s > ev and ph[s - 1] == ph[min(len(ph), n) - 1]:
+    s -= 1
+  w0 = max(s, n - int(HOLD_S * fps))
+  w = slice(w0, n)
+  if n - w0 < 5:
+    return {"hold_window_s": round((n - w0) / fps, 2)}
+  utilt = np.degrees(np.arccos(np.clip([1 - 2 * (x[1] ** 2 + x[2] ** 2) for x in aq[:n]], -1, 1)))
+  xy = np.array(pel_xy)[w]
+  q, qr = np.array(q)[w], np.array(qr)[w]
+  fz = np.asarray(foot_z)[w]
+  feet_off = 0
+  for side, key in ((0, "contact_L"), (1, "contact_R")):
+    if key in lz.files:
+      c = np.asarray(lz[key])[w0:n].astype(bool)
+      feet_off += int(((fz[: len(c), side] > 0.06) & c).sum())
+  tilt_w, z_w, zr = np.asarray(tilt)[w], np.asarray(rz)[w], np.asarray(az[:n])[w]
+  out = {"hold_window_s": round((n - w0) / fps, 2),
+         "hold_fell": bool((tilt_w > 45).any() or (z_w < 0.5 * zr).any()),
+         "hold_tilt_err_max_deg": round(float(np.abs(tilt_w - utilt[w]).max()), 1),
+         "hold_height_err_m": round(float(np.abs(z_w - zr).mean()), 3),
+         "hold_pose_err_rad": round(float(np.abs(q - qr).mean()), 3),
+         "hold_pelvis_speed_max": round(float(np.max(np.asarray(pel_v)[w])), 3),
+         "hold_drift_m": round(float(np.linalg.norm(xy[-1] - xy[0])), 3),
+         "hold_sway_m": round(float(np.linalg.norm(xy - xy.mean(0), axis=1).max()), 3),
+         "hold_torso_angvel_rms": round(float(np.sqrt(np.mean(np.square(np.asarray(tor_w)[w])))), 3),
+         "hold_action_change": round(float(np.mean(np.asarray(act_d)[w])), 4),
+         "hold_feet_off_steps": feet_off}
+  return out
+
+
 if __name__ == "__main__":
   ap = argparse.ArgumentParser()
   ap.add_argument("--ckpt", required=True)
@@ -34,11 +82,24 @@ if __name__ == "__main__":
   ap.add_argument("--tag", default="")
   ap.add_argument("--effort-scale", type=float, default=1.0, help="must match the training run's --effort-scale")
   ap.add_argument("--knee-limit", type=float, default=None, help="must match the training run's --knee-limit")
+  ap.add_argument("--hand-friction", type=float, default=0.0, help="must match the training run's --hand-friction")
   ap.add_argument("--labels", default=None, help="labels_50fps.npz: report whether the torso fell before take-off")
   ap.add_argument("--size", type=int, nargs=2, default=None, metavar=("W", "H"),
                   help="render size (default = the play cfg's 320x240, too small to judge the legs)")
+  ap.add_argument("--post_s", type=float, default=5.0,
+                  help="seconds recorded past the reference, the reference holding its final frame (user 2026-10-23: "
+                       "playback must run >= 5 s longer than the reference to show whether the robot stays stable)")
   a = ap.parse_args()
   sys.path.insert(0, str(REPO))
+  sys.path.insert(0, str(Path(__file__).resolve().parent))
+  from mimic_generic import hold_pad_npz
+  n_ref = None
+  if a.post_s > 0:
+    ck0 = Path(a.ckpt)
+    (ck0.parent / "eval").mkdir(exist_ok=True)
+    padded = ck0.parent / "eval" / f"_post_{a.tag or ck0.stem}.npz"
+    n_ref, _ = hold_pad_npz(a.motion, padded, a.post_s)
+    a.motion = str(padded)
   import imageio.v2 as imageio
   import numpy as np
   import torch
@@ -59,6 +120,9 @@ if __name__ == "__main__":
     sys.path.insert(0, str(Path(__file__).resolve().parent))
     from flip_rewards import set_knee_limit
     set_knee_limit(env_cfg.scene.entities["robot"].articulation, a.knee_limit)
+  if a.hand_friction > 0:
+    from mimic_generic import set_hand_friction
+    set_hand_friction(env_cfg.scene.entities["robot"], a.hand_friction)
   if a.effort_scale != 1.0:
     import dataclasses
     art = env_cfg.scene.entities["robot"].articulation
@@ -85,7 +149,7 @@ if __name__ == "__main__":
   trk_body, trk_joint = [], []  # fidelity to the green reference (mjlab tracking metrics)
   # quiet standing after landing: arm joint speed, action change, pelvis horizontal speed, torso angular speed
   arm_ids = [i for i, n in enumerate(jn) if any(s in n for s in ("shoulder", "elbow", "wrist"))]
-  arm_v, act_d, pel_v, tor_w = [], [], [], []
+  arm_v, act_d, pel_v, tor_w, pel_xy = [], [], [], [], []
   prev_act = None
   # full per-step record for the automatic critic (rl/flip_auto/critic.py): every joint and tracked body
   rec = {k: [] for k in ("q", "qr", "dq", "dqr", "bp", "bpr", "bq", "bqr", "act", "foot_z")}
@@ -114,6 +178,7 @@ if __name__ == "__main__":
     prev_act = act
     arm_v.append(float(np.sqrt((robot.data.joint_vel[0, arm_ids].cpu().numpy() ** 2).mean())))
     pel_v.append(float(robot.data.root_link_lin_vel_w[0, :2].norm()))
+    pel_xy.append((robot.data.root_link_pos_w[0, :2] - env.scene.env_origins[0, :2]).cpu().numpy())
     tor_w.append(float(cmd.robot_anchor_ang_vel_w[0].norm()))
     trk_body.append(float(cmd.metrics["error_body_pos"][0]))
     trk_joint.append(float(cmd.metrics["error_joint_pos"][0]))
@@ -147,7 +212,8 @@ if __name__ == "__main__":
   up = np.array([1 - 2 * (q[1] ** 2 + q[2] ** 2) for q in rq])  # torso z-axis . world z
   tilt = np.degrees(np.arccos(np.clip(up, -1, 1)))
   tail = slice(-10, None)  # last 0.2 s of the clip
-  res = {"ckpt": a.ckpt, "motion": a.motion, "clip_s": round(T * dt, 2),
+  nr = (n_ref - 2) if n_ref else len(tilt)  # steps that belong to the reference itself (before the post hold)
+  res = {"ckpt": a.ckpt, "motion": a.motion, "clip_s": round(T * dt, 2), "post_s": a.post_s,
          "ref_rotation_deg": round(float(rot_a[-1]), 1), "robot_rotation_deg": round(float(rot_r[-1]), 1),
          "robot_max_rotation_deg": round(float(np.abs(rot_r).max()), 1),
          "ref_peak_pelvis_m": round(float(max(az)), 3), "robot_peak_pelvis_m": round(float(max(rz)), 3),
@@ -160,8 +226,19 @@ if __name__ == "__main__":
                               and (np.array(rz[-50:]) > 0.7).all()),
          "stand_feet_d_end": round(float(feet_d[-1]), 3),
          # fidelity to the reference over the whole clip (first steps skipped: metrics are stale right after reset)
-         "track_body_err_m": round(float(np.mean(trk_body[3:])), 4),
-         "track_joint_err": round(float(np.mean(trk_joint[3:])), 4)}
+         "track_body_err_m": round(float(np.mean(trk_body[3:nr])), 4),
+         "track_joint_err": round(float(np.mean(trk_joint[3:nr])), 4)}
+  if nr < len(tilt) - 5:  # the post_s hold past the reference: does it stay stable (no fall, no drift, no sway)?
+    pw = slice(nr, len(tilt))
+    pxy = np.array(pel_xy)[pw]
+    ut = np.degrees(np.arccos(np.clip([1 - 2 * (x[1] ** 2 + x[2] ** 2) for x in aq[pw]], -1, 1)))
+    res.update({"post_fell": bool((tilt[pw] > 45).any() or (np.array(rz)[pw] < 0.5 * np.array(az)[pw]).any()),
+                "post_tilt_err_max_deg": round(float(np.abs(tilt[pw] - ut).max()), 1),
+                "post_drift_m": round(float(np.linalg.norm(pxy[-1] - pxy[0])), 3),
+                "post_sway_m": round(float(np.linalg.norm(pxy - pxy.mean(0), axis=1).max()), 3),
+                "post_pelvis_speed_max": round(float(np.max(np.array(pel_v)[pw])), 3),
+                "post_action_change": round(float(np.mean(np.array(act_d)[pw])), 4),
+                "post_feet_off_steps": int((np.asarray(rec["foot_z"])[pw] > 0.06).any(-1).sum())})
   if a.labels:
     lz = np.load(a.labels)
     pn = [str(x) for x in lz["phase_names"]]
@@ -230,6 +307,8 @@ if __name__ == "__main__":
       res["stand_pelvis_speed"] = round(float(np.mean(pel_v[q0:])), 3)                       # m/s
       res["stand_torso_angvel"] = round(float(np.mean(tor_w[q0:])), 3)                       # rad/s
       res["pelvis_min_after_landing_m"] = round(float(min(rz[f1:min(f1 + 25, len(rz))])), 3) if f1 < len(rz) else None
+    res.update(hold_metrics(lz, tilt[:nr], aq[:nr], rz[:nr], az[:nr], pel_v[:nr], pel_xy[:nr], tor_w[:nr],
+                            act_d[:nr], steps_q[:nr], steps_qr[:nr], rec["foot_z"][:nr]))
   ck = Path(a.ckpt)
   out = ck.parent / "eval"
   out.mkdir(exist_ok=True)

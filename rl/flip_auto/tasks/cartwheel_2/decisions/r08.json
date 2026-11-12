@@ -1,0 +1,34 @@
+{
+ "round": 8,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "step 1 analysis/r07_quant.md -> step 2 analysis/r07_llm.md (19 sheets + close-ups + robust_why) -> step 3 this file -> train",
+ "based_on": "r07: all hold / post / family gates pass, tracking 0.040 m, probe 1.0 everywhere; robustness fails only by drift after pushes (nothing pulls the robot back to its spot)",
+ "init": {"run": "2026-10-26_08-05-57_cw2auto_r07", "ckpt": "model_8994.pt"},
+ "reviewed_sheets": ["000-039", "040-079", "080-119", "120-159", "160-199", "200-239", "240-279", "280-319",
+                     "320-359", "360-399", "400-439", "440-479", "480-519", "520-559", "560-599", "600-639",
+                     "640-679", "680-719", "720-737"],
+ "reviewed_closeups": ["close/c_000-011 ... c_120-131 (every frame 0-131)"],
+ "human_input": [],
+ "priorities": ["P1 robustness: return to the hold spot after a push (generic dyn_hold_spot in stand_after)"],
+ "knobs": {
+  "extra_dyn": [
+   {"name": "agent_r05_base_still", "func": "dyn_base_still", "weight": 3.0,
+    "params": {"phases": ["stand_after"], "std_v": 0.1, "std_w": 0.3}},
+   {"name": "agent_r08_hold_spot", "func": "dyn_hold_spot", "weight": 2.0,
+    "params": {"phases": ["stand_after"], "std": 0.15}}
+  ]
+ },
+ "library": {},
+ "library_params": {},
+ "waive": [],
+ "lessons_seeded": "library.LESSONS: generic hold-on-the-spot",
+ "lessons_used": ["train-the-judged-window", "quiet-stance", "no-lower-than-reference", "planted-foot-stays-down"],
+ "code_changes": ["rl/mimic_generic.dyn_hold_spot (new generic template)"],
+ "expect": {
+  "robust drift p95": "< 0.3 m (r07 0.43 / 0.68 / 0.53)",
+  "robust dr / delay1 / kp085": "> 0.9 (r07 0.85 / 0.64 / 0.79)",
+  "nominal hold": "still (speed max <= 0.15)"
+ },
+ "rollback_if": "nominal hold speed > 0.15 or cartwheel regresses: r09 from r07 model_8994 with hold_spot weight 1"
+}

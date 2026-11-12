@@ -29,6 +29,8 @@ if __name__ == "__main__":
   ap = argparse.ArgumentParser()
   ap.add_argument("--knee-limit", type=float, default=120.0)
   ap.add_argument("--policy", default="backflip_r14_fid2")
+  ap.add_argument("--hand-friction", type=float, default=0.0, help="hand-supported skills: rl/mimic_generic.set_hand_friction")
+  ap.add_argument("--name", default="flip", help="output models/<name>.mjb / .xml / _info.json / _fields.npz")
   a = ap.parse_args()
   import mujoco
   import numpy as np
@@ -46,13 +48,16 @@ if __name__ == "__main__":
   removed = [k for k in ("base_com", "encoder_bias", "foot_friction", "push_robot") if cfg.events.pop(k, None) is not None]
   art = cfg.scene.entities["robot"].articulation
   set_knee_limit(art, a.knee_limit)
+  if a.hand_friction > 0:
+    from mimic_generic import set_hand_friction
+    set_hand_friction(cfg.scene.entities["robot"], a.hand_friction)
   groups = [(tuple(c.target_names_expr), c.effort_limit, c.stiffness, c.damping, type(c).__name__) for c in art.actuators]
   print("[cfg] actuator groups after set_knee_limit:", groups, flush=True)
   env = ManagerBasedRlEnv(cfg=cfg, device="cuda:0")
   m = env.sim.mj_model
-  mujoco.mj_saveModel(m, str(out / "flip.mjb"))
+  mujoco.mj_saveModel(m, str(out / f"{a.name}.mjb"))
   try:
-    (out / "flip.xml").write_text(env.scene.spec.to_xml())
+    (out / f"{a.name}.xml").write_text(env.scene.spec.to_xml())
     xml_ok = True
   except Exception as e:  # noqa: BLE001
     xml_ok = repr(e)
@@ -71,7 +76,7 @@ if __name__ == "__main__":
   obs_layout = {g: [(n, list(om._group_obs_term_dim[g][i])) for i, n in enumerate(om._group_obs_term_names[g])]
                 for g in om._group_obs_term_names}
   info = {
-    "task": TASK, "knee_limit": a.knee_limit, "actuator_groups": [[list(g[0]), g[1], g[2], g[3], g[4]] for g in groups],
+    "task": TASK, "knee_limit": a.knee_limit, "hand_friction": a.hand_friction, "actuator_groups": [[list(g[0]), g[1], g[2], g[3], g[4]] for g in groups],
     "removed_events": removed, "mujoco_version": mujoco.__version__, "timestep": float(m.opt.timestep),
     "step_dt": float(env.step_dt), "decimation": int(round(env.step_dt / m.opt.timestep)),
     "nq": int(m.nq), "nv": int(m.nv), "nu": int(m.nu), "nbody": int(m.nbody),
@@ -84,11 +89,11 @@ if __name__ == "__main__":
     "default_joint_pos": r.data.default_joint_pos[0].cpu().numpy().tolist(),
     "action_terms": terms, "obs_layout": obs_layout, "xml_export": xml_ok,
   }
-  (out / "flip_info.json").write_text(json.dumps(info, indent=1))
+  (out / f"{a.name}_info.json").write_text(json.dumps(info, indent=1))
 
   # ---- verification
-  mb = mujoco.MjModel.from_binary_path(str(out / "flip.mjb"))
-  np.savez(out / "flip_fields.npz", **{f: np.asarray(getattr(mb, f), float) for f in FIELDS})
+  mb = mujoco.MjModel.from_binary_path(str(out / f"{a.name}.mjb"))
+  np.savez(out / f"{a.name}_fields.npz", **{f: np.asarray(getattr(mb, f), float) for f in FIELDS})
   diff = {f: float(np.abs(np.asarray(getattr(mb, f), float) - np.asarray(getattr(m, f), float)).max()) for f in FIELDS}
   print("[verify] flip.mjb vs runtime mj_model, max abs per field:", json.dumps(diff), flush=True)
   print("[verify] max over all fields:", max(diff.values()), flush=True)

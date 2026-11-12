@@ -1,0 +1,16 @@
+{
+ "round": "13_final",
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "closing decision, no training: the harness only launches decisions/rNN.json; stop_criteria.waivers() reads every decisions/r*.json, so these waivers apply to the gates",
+ "based_on": "r12 and r13 regressed (rollback); r11 model_12500 passes every gate incl. the sim2sim exam (8 scenarios x 100/100) except critic 3.38 (jitter:all:settle) and 3.09 (jitter:wrist_roll:land)",
+ "human_input": ["2026-11-02 user: the test runs without human intervention, so the waiver is the agent's call"],
+ "candidate": {"run": "2026-11-02_00-12-37_cw2auto_r11", "ckpt": "model_12500.pt"},
+ "waive": [
+  {"check": "cartwheel_2/jitter:all:settle", "reason": "settle = the steps right after the foot impact, where the robot is still braking; the check compares mean action change with a still-stand value (0.05). In stand_after the same check does not fire (r11 quant: 1 of 54 measurements beyond tolerance) and all hold gates pass (tilt 4.9). Fixing it with dyn_quiet in r12/r13 changed the landing to a two-foot crouch and cost robustness (r13 20 ms v2 0.895)"},
+  {"check": "cartwheel_2/jitter:wrist_roll:land", "reason": "ratio to the reference's joint acceleration (1 rad/s^2, a smoothed retarget with no impact) at the foot impact; absolute RMS 53 rad/s^2 on a wrist that carries no load in land. The dyn_quiet fix at weight 1 has been on since r10 and lowered it from 4.98"}
+ ],
+ "real_robot_note": "sim2real check before hardware: log the action change in settle and the wrist acceleration on the real G1; a deployment-side action low-pass is the fallback. These waivers do not apply to stand_after.",
+ "library_note": "library.json still carries jitter:all:settle weight 1 from r13; a future cartwheel_2 round must set it explicitly (r11 had 0)",
+ "result": "cartwheel_2 converged at r11 model_12500 (13 rounds, 20.7 GPU-h)"
+}

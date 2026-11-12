@@ -131,4 +131,4 @@ bash rl/flip_auto/launch_llm.sh <轮次>
 
 ## 当前状态
 
-研究进行中（后空翻：开发用技能；下一步：用冻结的 harness 做侧空翻和侧手翻、MimicX 规则基线、多种子评测、每个技能都做 sim-to-sim）。代码采用 Apache-2.0 许可证（见 LICENSE）；第三方视频的版权归原作者所有。
+研究进行中（后空翻：开发用技能；下一步：用冻结的 harness 做侧空翻和侧手翻、MimicX 规则基线、多种子评测、每个技能都做 sim-to-sim）。本仓库目前为私有。

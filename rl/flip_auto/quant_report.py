@@ -17,19 +17,24 @@ sys.path.insert(0, str(HERE))
 sys.path.insert(0, str(HERE.parent))
 import critic  # noqa: E402
 import library as libm  # noqa: E402
+from taskcfg import ANALYSIS, CLIP, DECISIONS, DS as TDS, LABELS, STATE, TASK, VID, train_log  # noqa: E402
 
 H = Path.home()
 LOGS = H / "projects/dance/runs/logs/rsl_rl/g1_tracking"
-DS = H / "projects/dance/dataset/backflip_3"
+DS = TDS
 k = int(sys.argv[1])
-st = json.loads((HERE / "state.json").read_text())
+st = json.loads(STATE.read_text())
 rd = st["rounds"][k - 1]
 best = max(rd["evals"], key=lambda e: e.get("score", -1))
 prev = max(st["rounds"][k - 2]["evals"], key=lambda e: e.get("score", -1)) if k > 1 else {}
 ck = best["ckpt"][:-3]
 ev = LOGS / rd["run"] / "eval"
 R = np.load(ev / f"flip_auto_{ck}_record.npz", allow_pickle=True)
-L = np.load(DS / "labels_50fps.npz")
+L = np.load(DS / rd.get("knobs", {}).get("reference", {}).get("labels", LABELS))
+ej = ev / f"flip_auto_{ck}.json"  # full eval json: metrics the state does not keep (hold_*, post_*)
+if ej.exists():
+  for key, v in json.loads(ej.read_text()).items():
+    best.setdefault(key, v)
 V = critic.measure(R, L)
 M = [f"# Round {k} - quantitative report (step 1, before any diagnosis)", "",
      f"run `{rd['run']}`, best checkpoint `{best['ckpt']}` (score {best.get('score')}), "
@@ -48,10 +53,22 @@ for key, v in best.items():
 # A2 robustness (eval_flip_robust.py via robust.sh: 256 envs per scenario)
 rp = ev / f"robust_{ck}.json"
 if rp.exists():
-  M += ["", "## A2. Robustness (success = rotation >= 330, upright, pelvis > 0.6 m at the end)", "",
-        "| scenario | success | fell | rotation p5/50/95 | end tilt p5/50/95 |", "|---|---|---|---|---|"]
-  M += [f"| {r['scenario']} | {r['success']} | {r['fell']} | {r['rotation_deg_p5_50_95']} | {r['end_tilt_deg_p5_50_95']} |"
-        for r in json.loads(rp.read_text())]
+  M += ["", "## A2. Robustness (success = rotation >= 0.9 x the reference's own rotation and, over the run past the "
+        "reference, upright, pelvis > 0.6 m, drift < 0.3 m (v1) / < 0.5 m under pushes (v2, gates))", "",
+        "| scenario | success v2 | success v1 | fell | rotation p5/50/95 | end tilt p5/50/95 | drift p5/50/95 |",
+        "|---|---|---|---|---|---|---|"]
+  M += [f"| {r['scenario']} | {r.get('success_v2', '-')} | {r['success']} | {r['fell']} | {r['rotation_deg_p5_50_95']} | "
+        f"{r['end_tilt_deg_p5_50_95']} | {r.get('post_drift_m_p5_50_95', '-')} |" for r in json.loads(rp.read_text())]
+
+# A3 segment probe (eval_segments.py via segments.sh, last checkpoint): start at frame s, steps until lost
+segs = sorted((H / "projects/dance_logs").glob(f"segments_{TASK}_r{k:02d}_*.json"))  # per task (cartwheel_2_wm shares the clip)
+for sp in segs:
+  M += ["", f"## A3. Segment probe `{sp.stem.split('_')[-1]}` (start at frame s with the training randomisation, "
+        "lost = anchor height error > 0.4 m or torso orientation error > 1 rad)", "",
+        "| start | phase | lost after steps p10/50/90 | lost at frame (median) | phase lost | never lost |",
+        "|---|---|---|---|---|---|"]
+  M += [f"| {r['start']} | {r.get('start_phase', '')} | {r['lost_step_p10_50_90']} | {r['lost_frame_median']} | "
+        f"{r.get('lost_phase', '')} | {r['never_lost']} |" for r in json.loads(sp.read_text())]
 
 # B per phase
 M += ["", "## B. Deviations per phase (severity = measured / tolerance; top 6 per phase)", ""]
@@ -64,7 +81,7 @@ for ph in dict.fromkeys(r[0] for r in rows):
 
 # C library + effective signal
 lib = libm.load()
-TASK = next(iter(lib.get("tasks", {})), "backflip_3")
+TASK = CLIP
 TCHK = libm.task_checks(lib, TASK)  # measured checks of this task (generic / family priors are copied in)
 M += ["## C. Library checks that fail, with the effective signal of their fix", "",
       "signal = exp(-measured / std) of the fix's own reward at the measured error (dyn_joint / dyn_sym in rad, dyn_body in m);",
@@ -124,7 +141,7 @@ if len(sa):
                f"drift {np.linalg.norm(pel[ii[-1]] - pel[ii[0]]):.2f} m")
 
 # F training-config audit
-log = H / "projects/dance_logs" / f"train_flipauto_r{k:02d}.log"
+log = train_log(k)
 M += ["", "## F. Training-config audit (what the training actually ran)", ""]
 if log.exists():
   txt = log.read_text(errors="ignore")
@@ -160,7 +177,7 @@ if k > 1:
   M += [f"- {key}: {x} -> {y}" for key, x, y in diff]
   # the state's knobs of a round can have been mutated by the rules after it trained; the training logs are the truth
   def cfg_lines(r):
-    p = H / "projects/dance_logs" / f"train_flipauto_r{r:02d}.log"
+    p = train_log(r)
     if not p.exists():
       return {}
     out = {}
@@ -176,7 +193,7 @@ if k > 1:
       M += [f"- {key} r{k - 1}: {ca.get(key, '-')[:260]}", f"  r{k}: {cb.get(key, '-')[:260]}"]
 
 # G sheets
-out = H / "dance_win/videos/backflip/auto" / f"r{k:02d}"
+out = VID / f"r{k:02d}"
 # S stop criteria (layered; also writes analysis/rKK_stop.json that the harness enforces)
 try:
   import stop_criteria
@@ -186,7 +203,7 @@ except Exception as e:  # the report must not fail because of the stop section
 
 M += ["", "## G. Frame sheets to review (every step) - all must be reviewed before the decision", ""]
 M += [f"- [ ] {p.name}" for p in sorted(out.glob("sheet_*.jpg"))]
-dst = HERE / "analysis" / f"r{k:02d}_quant.md"
+dst = ANALYSIS / f"r{k:02d}_quant.md"
 dst.parent.mkdir(exist_ok=True)
 dst.write_text("\n".join(M) + "\n")
 print("\n".join(M))

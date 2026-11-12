@@ -1,0 +1,44 @@
+{
+ "round": 1,
+ "task": "cartwheel_2",
+ "decider": "agent (Claude, in the Claude Code session)",
+ "protocol": "first round of a new task: no previous round to analyse; the harness runs task_init (checklist from the reference + generic / family priors) before training",
+ "human_input": [
+  "user 2026-10-25: chose the source video (videos/candidates/csf2.mp4) and required the retarget to match the GVHMR result (left arm, palms on the floor); 'start training with the framework we fixed'"
+ ],
+ "reference": "dataset/cartwheel_2/g1_lock_vlm_hold_50fps.npz (GVHMR -> GMR with arms matched by position (left-arm offset bug) + elbow branch escape -> palm-down wrists while a hand is planted -> ground fix incl. hand contacts (root height only) -> foot lock -> 2.5 s held final pose); labels_hold_50fps.npz (stand, lunge, support, land, settle, stand; feet + hand contacts)",
+ "priorities": [
+  "P1 learn the whole flow once: lunge -> hands -> legs over -> land -> stand",
+  "P2 do not terminate what the reference itself does: it lands and stands in a WIDE stance (ankle distance 0.68 m vs 0.23 m for the backflip) with torso tilt up to ~26 deg in settle",
+  "P3 physics needed by the skill: hands must be able to carry load (frictionless hand geoms in the stock model)"
+ ],
+ "transferred_generic_lessons": [
+  "hold-final-pose-2s (reference with held final pose; eval +5 s)",
+  "control-latency (train with 0..25 ms actuator delay)",
+  "walk-to-reference / waist-twist-heading (global anchor terms limited after the main event; automatic in flip mode)",
+  "quiet-stance / stand-still / reward-gate-boundary (rest-pose terms cover all frames after the event; automatic)",
+  "fix-std-no-gradient, config-audit, knobs-truth-from-logs, best-score-not-best-policy (decider procedure)"
+ ],
+ "not_transferred": "backflip task-level terms (hip tuck, arms in air, legs stand, pre-stand arms) and aerial-family technique rewards: their phases (crouch / takeoff / flight) do not exist in this clip, so they are inactive",
+ "knobs": {
+  "hand_friction": 0.6,
+  "delay_ms": 25.0,
+  "terms.term_stand_fail": {"max_d": 0.85, "max_tilt": 40.0, "max_waist": 0.6},
+  "weights.flip_stand_still": 3.0,
+  "weights.flip_stand_quiet": 3.0,
+  "extra_dyn": []
+ },
+ "library": {},
+ "library_params": {},
+ "code_changes": [
+  "harness generalised to tasks (rl/flip_auto/taskcfg.py, AUTOMIMIC_TASK; backflip_3 keeps its historical paths)",
+  "rl/mimic_generic.set_hand_friction + --hand-friction in train / eval / robustness (hand geoms condim 3, friction 0.6)",
+  "eval_flip_robust: rotation success threshold = 0.9 x the reference's own rotation (was fixed 330 deg)",
+  "stop_criteria: family:hand_support gates (rotation >= 0.9 x reference, landed upright) + generic hold / post gates"
+ ],
+ "expect": {
+  "rotation": ">= 0.5 x reference after one round from scratch (learning signal, not the stop gate)",
+  "no early termination storm": "mean episode length grows over the round"
+ },
+ "rollback_if": "n/a (first round)"
+}

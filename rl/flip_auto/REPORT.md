@@ -17,110 +17,102 @@
 | 13 | 81.3 | 459.07 | model_11499.pt | 9.55 | 366.9 (367.0) | 0.373 | 0.58 | True | 4.1/9.3 | 2.0/4.8 | 0.212/0.21 | (suggestion) full flip landed -> keep knobs, train on; (suggestion) took off 5 steps early -> stay-down x1.5; (suggestion) flow complete -> fidelity stage 1: tracking x3.375, std x0.614 (body err 0.073 m) |
 | 14 | 81.2 | 480.89 | model_12000.pt | 9.61 | 364.9 (366.5) | 0.344 | 0.56 | True | 2.9/6.4 | 2.1/5.2 | 0.207/0.207 | (suggestion) full flip landed -> keep knobs, train on; (suggestion) took off 5 steps early -> stay-down x1.5; (suggestion) flow complete -> fidelity stage 1: tracking x4.0, std x0.522 (body err 0.0638 m); (suggestion) not quiet after landing (arm 0.803 rad/s, torso 0.399 rad/s, action change 0.0527) -> quiet x1.5 |
 | 15 | 92.1 | 448.13 | model_13499.pt | 9.489 | 367.5 (370.1) | 0.392 | 0.58 | True | 6.4/11.2 | 2.7/6.7 | 0.229/0.2 | (suggestion) full flip landed -> keep knobs, train on; (suggestion) took off 5 steps early -> stay-down x1.5; (suggestion) flow complete -> fidelity stage 1: tracking x4.0, std x0.522 (body err 0.0698 m); (suggestion) not quiet after landing (arm 1.086 rad/s, torso 0.686 rad/s, action change 0.1854) -> quiet x1.5 |
+| 16 | 101.0 | 455.34 | model_14998.pt | 9.576 | 363.1 (366.5) | 0.438 | 0.6 | True | 3.5/5.8 | 2.0/6.6 | 0.214/0.18 | (suggestion) full flip landed -> keep knobs, train on; (suggestion) took off 5 steps early -> stay-down x1.5; (suggestion) flow complete -> fidelity stage 1: tracking x4.0, std x0.522 (body err 0.0699 m); (suggestion) not quiet after landing (arm 0.47 rad/s, torso 0.412 rad/s, action change 0.0723) -> quiet x1.5 |
 
-## LLM decision applied to round 15
+## LLM decision applied to round 16
 
 reasoning: 
 
-- priority: P1 control-latency robustness (sim-to-real): train with 0..25 ms randomised actuator delay
-- priority: - fidelity converged; wrists cosmetic
-- knob delay_ms: 25.0
-- code: flip_rewards.add_action_delay + train_dance --delay-ms: mjlab DelayedActuatorCfg around every actuator
-- code: eval_flip_robust.py + robust.sh: 256-env robustness eval (nominal, training DR, delay 20/40 ms, stiffness x0.85)
-- code: harness: robustness eval after every LLM-mode round; quant_report section A2
+- priority: P1 delay-buffer reset bug (0 rad targets after every reset) - fixed in code
+- priority: P2 quietness after landing (action change 0.185, pelvis 0.27 m/s): expected to follow P1; otherwise stand terms next round
+- priority: - wrists: waived (cosmetic, unreliable GVHMR hand orientation)
+- code: rl/mimic_generic.py: generic (L0) layer; HoldDelayedActuator fixes the 0-rad targets after reset
+- code: rl/flip_rewards.py: generic part replaced by imports from mimic_generic (names unchanged)
+- code: library v2: scopes generic / family:aerial / task:backflip_3, lessons, mark_verified, promote, freeze; migrated
+- code: stop_criteria.json/.py + quant_report section S + harness enforcement; critic --task
 
-## Library changes after round 15 (RSI on the checklist)
+## Library changes after round 16 (RSI on the checklist)
 
-- suggest: fix asymmetry:wrist_roll:crouch (severity 6.44, weight now 0.0)
-- suggest: fix asymmetry:wrist_roll:flight (severity 5.93, weight now 0.0)
-- suggest: fix jitter:hip_yaw:stand_after (severity 5.72, weight now 0.0)
-- suggest: fix joint:shoulder_yaw:takeoff (severity 5.7, weight now 0.0)
-- suggest: fix jitter:knee:stand_after (severity 5.49, weight now 0.0)
-- suggest: fix joint:wrist_pitch:takeoff (severity 5.2, weight now 0.0)
-- suggest: fix joint:wrist_pitch:flight (severity 4.63, weight now 0.0)
-- suggest: fix asymmetry:wrist_roll:takeoff (severity 4.54, weight now 0.0)
-- suggest: fix jitter:wrist_roll:stand_after (severity 4.51, weight now 0.0)
-- suggest: fix joint:wrist_pitch:crouch (severity 4.42, weight now 0.0)
-- suggest: fix jitter:ankle_pitch:stand_after (severity 4.18, weight now 0.0)
-- suggest: fix jitter:waist_roll:stand_after (severity 3.91, weight now 0.0)
-- suggest: fix joint:elbow:takeoff (severity 3.82, weight now 0.0)
-- suggest: fix body:wrist_yaw:takeoff (severity 3.72, weight now 0.0)
-- suggest: fix joint:wrist_pitch:stand_after (severity 3.34, weight now 0.0)
-- suggest: fix joint:wrist_roll:flight (severity 3.28, weight now 0.0)
-- suggest: fix joint:wrist_yaw:flight (severity 3.27, weight now 0.0)
-- suggest: fix body:wrist_yaw:flight (severity 3.01, weight now 0.0)
-- suggest: fix jitter:elbow:stand_after (severity 2.87, weight now 0.0)
-- suggest: fix jitter:ankle_roll:stand_after (severity 2.86, weight now 0.0)
-- suggest: fix joint:wrist_pitch:stand (severity 2.73, weight now 0.0)
-- suggest: fix jitter:hip_pitch:stand_after (severity 2.66, weight now 0.0)
-- suggest: fix joint:wrist_roll:crouch (severity 2.54, weight now 0.0)
-- suggest: fix jitter:hip_roll:stand_after (severity 2.52, weight now 0.0)
-- suggest: fix body:ankle_roll:takeoff (severity 2.49, weight now 0.0)
-- suggest: fix jitter:shoulder_pitch:stand_after (severity 2.49, weight now 0.0)
-- suggest: fix joint:wrist_roll:takeoff (severity 2.48, weight now 0.0)
-- suggest: fix jitter:shoulder_yaw:stand_after (severity 2.41, weight now 0.0)
-- suggest: fix joint:wrist_yaw:takeoff (severity 2.37, weight now 0.0)
-- suggest: fix joint:elbow:land (severity 2.25, weight now 0.0)
-- suggest: fix body:knee:flight (severity 2.22, weight now 0.0)
-- suggest: fix body:ankle_roll:crouch (severity 2.09, weight now 0.0)
-- suggest: fix body:wrist_yaw:land (severity 2.0, weight now 0.0)
-- suggest: fix joint:wrist_yaw:stand (severity 1.89, weight now 0.0)
-- suggest: fix jitter:waist_roll:land (severity 1.87, weight now 0.0)
-- suggest: fix jitter:ankle_pitch:settle (severity 1.84, weight now 0.0)
-- suggest: fix joint:ankle_pitch:takeoff (severity 1.83, weight now 0.0)
-- suggest: fix body:elbow:flight (severity 1.82, weight now 0.0)
-- suggest: fix body:knee:takeoff (severity 1.81, weight now 0.0)
-- suggest: fix joint:shoulder_pitch:flight (severity 1.79, weight now 0.0)
-- suggest: fix joint:shoulder_yaw:flight (severity 1.76, weight now 0.0)
-- suggest: fix joint:elbow:crouch (severity 1.73, weight now 0.0)
-- suggest: fix body:ankle_roll:land (severity 1.71, weight now 0.0)
-- suggest: fix joint:knee:land (severity 1.7, weight now 0.0)
-- suggest: fix body:wrist_yaw:stand (severity 1.66, weight now 0.0)
-- suggest: fix jitter:waist_yaw:stand_after (severity 1.6, weight now 0.0)
-- suggest: fix joint:shoulder_roll:flight (severity 1.53, weight now 0.0)
-- suggest: fix asymmetry:hip_yaw:takeoff (severity 1.49, weight now 0.0)
-- suggest: fix joint:hip_pitch:takeoff (severity 1.48, weight now 0.0)
-- suggest: fix asymmetry:shoulder_yaw:takeoff (severity 1.48, weight now 1.0)
-- suggest: fix body:wrist_yaw:crouch (severity 1.47, weight now 0.0)
-- suggest: fix asymmetry:shoulder_pitch:stand_after (severity 1.39, weight now 0.0)
-- suggest: fix asymmetry:shoulder_roll:flight (severity 1.37, weight now 0.0)
-- suggest: fix asymmetry:ankle_pitch:crouch (severity 1.3, weight now 0.0)
-- suggest: fix joint:shoulder_pitch:land (severity 1.27, weight now 0.0)
-- suggest: fix joint:shoulder_pitch:stand (severity 1.24, weight now 0.0)
-- suggest: fix joint:elbow:flight (severity 1.17, weight now 0.0)
-- suggest: fix joint:shoulder_yaw:crouch (severity 1.16, weight now 0.0)
-- suggest: fix joint:wrist_roll:stand_after (severity 1.16, weight now 0.0)
-- suggest: fix jitter:knee:settle (severity 1.12, weight now 0.0)
-- suggest: fix joint:wrist_yaw:stand_after (severity 1.08, weight now 0.0)
-- suggest: fix body:knee:crouch (severity 1.06, weight now 0.0)
-- suggest: fix asymmetry:shoulder_pitch:takeoff (severity 1.03, weight now 0.0)
-- NEW check joint:wrist_yaw:settle (severity 2.81) with template fix (fix not switched on: LLM decides)
-- NEW check jitter:shoulder_roll:stand_after (severity 2.8) with template fix (fix not switched on: LLM decides)
-- NEW check asymmetry:wrist_roll:land (severity 2.74) with template fix (fix not switched on: LLM decides)
-- NEW check joint:wrist_roll:land (severity 2.47) with template fix (fix not switched on: LLM decides)
-- NEW check joint:wrist_pitch:land (severity 2.28) with template fix (fix not switched on: LLM decides)
-- NEW check jitter:ankle_pitch:land (severity 2.03) with template fix (fix not switched on: LLM decides)
+- suggest: fix backflip_3/joint:shoulder_yaw:takeoff (severity 5.51, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_pitch:takeoff (severity 5.34, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_pitch:flight (severity 5.16, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_pitch:crouch (severity 3.94, weight now 0.0)
+- suggest: fix backflip_3/body:wrist_yaw:takeoff (severity 3.85, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_pitch:stand_after (severity 3.68, weight now 0.0)
+- suggest: fix backflip_3/jitter:all:settle (severity 3.44, weight now 1.0)
+- suggest: fix backflip_3/jitter:hip_yaw:stand_after (severity 3.25, weight now 0.0)
+- suggest: fix backflip_3/joint:elbow:takeoff (severity 3.23, weight now 0.0)
+- suggest: fix backflip_3/body:wrist_yaw:flight (severity 3.17, weight now 0.0)
+- suggest: fix backflip_3/body:ankle_roll:takeoff (severity 2.86, weight now 0.0)
+- suggest: fix backflip_3/jitter:ankle_pitch:settle (severity 2.85, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_roll:flight (severity 2.66, weight now 0.0)
+- suggest: fix backflip_3/jitter:knee:stand_after (severity 2.53, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_yaw:stand (severity 2.42, weight now 0.0)
+- suggest: fix backflip_3/jitter:ankle_pitch:stand_after (severity 2.33, weight now 0.0)
+- suggest: fix backflip_3/jitter:ankle_pitch:land (severity 2.28, weight now 0.0)
+- suggest: fix backflip_3/body:knee:flight (severity 2.26, weight now 0.0)
+- suggest: fix backflip_3/joint:elbow:crouch (severity 2.22, weight now 0.0)
+- suggest: fix backflip_3/joint:ankle_pitch:takeoff (severity 2.19, weight now 0.0)
+- suggest: fix backflip_3/body:knee:takeoff (severity 2.19, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_yaw:takeoff (severity 2.18, weight now 0.0)
+- suggest: fix backflip_3/asymmetry:wrist_roll:flight (severity 2.17, weight now 0.0)
+- suggest: fix backflip_3/joint:shoulder_yaw:flight (severity 2.15, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_pitch:stand (severity 2.01, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_yaw:stand_after (severity 1.96, weight now 0.0)
+- suggest: fix backflip_3/body:ankle_roll:crouch (severity 1.92, weight now 0.0)
+- suggest: fix backflip_3/asymmetry:hip_yaw:takeoff (severity 1.92, weight now 0.0)
+- suggest: fix backflip_3/asymmetry:shoulder_yaw:crouch (severity 1.9, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_pitch:land (severity 1.87, weight now 0.0)
+- suggest: fix backflip_3/joint:elbow:land (severity 1.8, weight now 0.0)
+- suggest: fix backflip_3/jitter:hip_yaw:settle (severity 1.79, weight now 0.0)
+- suggest: fix backflip_3/body:elbow:flight (severity 1.79, weight now 0.0)
+- suggest: fix backflip_3/jitter:ankle_roll:stand_after (severity 1.74, weight now 0.0)
+- suggest: fix backflip_3/jitter:hip_pitch:stand_after (severity 1.72, weight now 0.0)
+- suggest: fix backflip_3/body:wrist_yaw:land (severity 1.6, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_pitch:settle (severity 1.58, weight now 0.0)
+- suggest: fix backflip_3/joint:shoulder_pitch:flight (severity 1.54, weight now 0.0)
+- suggest: fix backflip_3/jitter:waist_roll:land (severity 1.48, weight now 0.0)
+- suggest: fix backflip_3/body:ankle_roll:land (severity 1.45, weight now 0.0)
+- suggest: fix backflip_3/jitter:knee:settle (severity 1.39, weight now 0.0)
+- suggest: fix backflip_3/body:wrist_yaw:stand (severity 1.38, weight now 0.0)
+- suggest: fix backflip_3/joint:shoulder_roll:flight (severity 1.37, weight now 0.0)
+- suggest: fix backflip_3/body:wrist_yaw:crouch (severity 1.35, weight now 0.0)
+- suggest: fix backflip_3/joint:knee:land (severity 1.34, weight now 0.0)
+- suggest: fix backflip_3/asymmetry:wrist_roll:crouch (severity 1.32, weight now 0.0)
+- suggest: fix backflip_3/joint:hip_pitch:takeoff (severity 1.32, weight now 0.0)
+- suggest: fix backflip_3/joint:shoulder_pitch:land (severity 1.24, weight now 0.0)
+- suggest: fix backflip_3/jitter:wrist_roll:stand_after (severity 1.23, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_roll:crouch (severity 1.21, weight now 0.0)
+- suggest: fix backflip_3/jitter:shoulder_yaw:stand_after (severity 1.21, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_yaw:settle (severity 1.21, weight now 0.0)
+- suggest: fix backflip_3/joint:wrist_yaw:flight (severity 1.19, weight now 0.0)
+- suggest: fix backflip_3/body:knee:crouch (severity 1.17, weight now 0.0)
+- suggest: fix backflip_3/joint:elbow:flight (severity 1.11, weight now 0.0)
+- suggest: fix backflip_3/asymmetry:shoulder_roll:crouch (severity 1.02, weight now 0.0)
+- suggest: fix backflip_3/joint:shoulder_yaw:crouch (severity 1.01, weight now 0.0)
+- NEW check backflip_3/joint:wrist_yaw:crouch (severity 3.17) with template fix (fix not switched on: LLM decides)
+- NEW check backflip_3/joint:wrist_yaw:land (severity 2.55) with template fix (fix not switched on: LLM decides)
 
 ## Needs a hand-written fix (template cannot express it or did not help)
 
 | check | severity | why | detail |
 |---|---|---|---|
-| jitter:all:stand_after | 4.27 | template fix did not reduce the severity for 2 rounds | mean action change 0.214 (quiet < 0.05) |
-| body:ankle_roll:flight | 3.24 | template fix did not reduce the severity for 2 rounds | left_ankle_roll_link: mean 0.26 m, max 0.44 m |
-| jitter:all:settle | 2.52 | template fix did not reduce the severity for 2 rounds | mean action change 0.126 (quiet < 0.05) |
+| backflip_3/body:ankle_roll:flight | 3.39 | template fix did not reduce the severity for 2 rounds | left_ankle_roll_link: mean 0.27 m, max 0.40 m |
+| backflip_3/jitter:all:stand_after | 1.73 | template fix did not reduce the severity for 2 rounds | mean action change 0.086 (quiet < 0.05) |
+| backflip_3/asymmetry:shoulder_yaw:stand_after | 1.19 | template fix did not reduce the severity for 2 rounds | left/right differ 17 deg vs reference 5 deg |
 
-## Automatic critic, round 15 (top issues, severity = measured / tolerance)
+## Automatic critic, round 16 (top issues, severity = measured / tolerance)
 
 | severity | kind | what | phase | detail |
 |---|---|---|---|---|
-| 6.44 | asymmetry | wrist_roll | crouch | left/right differ 73 deg vs reference 9 deg |
-| 5.93 | asymmetry | wrist_roll | flight | left/right differ 65 deg vs reference 6 deg |
-| 5.72 | jitter | hip_yaw | stand_after | right_hip_yaw_joint: joint acceleration RMS 86 vs reference 0 rad/s^2 |
-| 5.7 | joint | shoulder_yaw | takeoff | left_shoulder_yaw_joint: mean |err| 86 deg (signed +86), step 95: robot +0.64 vs ref -1.11 rad |
-| 5.49 | jitter | knee | stand_after | left_knee_joint: joint acceleration RMS 82 vs reference 0 rad/s^2 |
-| 5.2 | joint | wrist_pitch | takeoff | right_wrist_pitch_joint: mean |err| 78 deg (signed +78), step 93: robot +1.05 vs ref -0.35 rad |
-| 4.63 | joint | wrist_pitch | flight | right_wrist_pitch_joint: mean |err| 69 deg (signed +69), step 98: robot +0.93 vs ref -0.37 rad |
-| 4.54 | asymmetry | wrist_roll | takeoff | left/right differ 56 deg vs reference 10 deg |
+| 5.51 | joint | shoulder_yaw | takeoff | left_shoulder_yaw_joint: mean |err| 83 deg (signed +83), step 97: robot +0.77 vs ref -1.04 rad |
+| 5.34 | joint | wrist_pitch | takeoff | right_wrist_pitch_joint: mean |err| 80 deg (signed +80), step 92: robot +1.09 vs ref -0.33 rad |
+| 5.16 | joint | wrist_pitch | flight | right_wrist_pitch_joint: mean |err| 77 deg (signed +77), step 107: robot +1.19 vs ref -0.43 rad |
+| 3.94 | joint | wrist_pitch | crouch | right_wrist_pitch_joint: mean |err| 59 deg (signed +59), step 90: robot +1.12 vs ref -0.18 rad |
+| 3.85 | body | wrist_yaw | takeoff | left_wrist_yaw_link: mean 0.31 m, max 0.40 m |
+| 3.68 | joint | wrist_pitch | stand_after | left_wrist_pitch_joint: mean |err| 55 deg (signed -55), step 170: robot -1.20 vs ref -0.18 rad |
+| 3.44 | jitter | all | settle | mean action change 0.172 (quiet < 0.05) |
+| 3.39 | body | ankle_roll | flight | left_ankle_roll_link: mean 0.27 m, max 0.40 m |
 
 best so far: {'run': '2026-10-23_10-10-11_flipauto_r14', 'ckpt': 'model_12000.pt', 'score': 9.61, 'round': 14}
 

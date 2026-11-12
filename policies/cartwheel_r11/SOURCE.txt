@@ -1,0 +1,1 @@
+source: /home/user/projects/dance/runs/logs/rsl_rl/g1_tracking/2026-11-02_00-12-37_cw2auto_r11/model_12500.pt (cartwheel_2 r11, knee limit 120 N.m, hand friction 0.6, motion /home/user/projects/dance/dataset/cartwheel_2/g1_reachqp_vlm_hold8_50fps.npz, labels /home/user/projects/dance/dataset/cartwheel_2/labels_hold8_50fps.npz)

@@ -1,0 +1,13 @@
+{
+ "clip_id": "cartwheel_2",
+ "source": {"platform": "user-provided screen recording (short-video tutorial, 小支毯技-空翻课堂)", "file": "videos/candidates/csf2.mp4", "note": "user-specified clip 2026-10-25 (replaces cartwheel_1); portrait 576x1280, app UI cropped (rows 140-1169); the camera ZOOMS IN during the clip (performer ~1/3 -> ~full frame height)"},
+ "fps": 30, "n_frames": 78, "camera": "static position, zooming in", "people": 1, "full_body": true,
+ "performer": "adult male, sports hall carpet", "move": "侧手翻 cartwheel", "quality": 3,
+ "notes": "Cartwheel from a standing arms-up pose to a standing arms-up pose. Labels by the VLM decider (Claude) from every-frame sheets, cross-checked with the retargeted ankle / wrist heights (scripts/data/ref_contacts.py) after the elbow branch-escape retarget. Arms look straight during the hand support in the video (GVHMR estimates 37-54 deg bend). Rest poses in the source: 0.33 s before, 0.30 s after (generic hold tail pads the end).",
+ "annotator": "Claude (VLM, every-frame sheets) + retargeted ankle/wrist heights",
+ "phases": [[0, 9, "stand"], [10, 27, "lunge"], [28, 48, "support"], [49, 56, "land"], [57, 68, "settle"], [69, 77, "stand"]],
+ "swing": [[24, 30, "R"], [46, 56, "L"]],
+ "airborne": [[31, 45]],
+ "unsure": [],
+ "hand_contact": {"L": [[28, 42]], "R": [[35, 48]]}
+}

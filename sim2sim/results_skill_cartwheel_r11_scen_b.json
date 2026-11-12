@@ -1,0 +1,105 @@
+{
+ "policy": "cartwheel_r11",
+ "model": "models/cartwheel.mjb",
+ "mujoco": "3.5.0",
+ "hand_friction": 0.6,
+ "knee_limit": 120.0,
+ "runs_per_scenario": 100,
+ "frames_reference": 490,
+ "frames_with_hold": 740,
+ "ref_rotation_deg": 255.5,
+ "success_rule": "rl/eval_flip_robust.py v2 (nominal: v1)",
+ "start_jitter": {
+  "root_xy_m": 0.02,
+  "roll_pitch_rad": 0.02,
+  "yaw_rad": 0.05,
+  "joint_pos_rad": 0.02
+ },
+ "push_range_lo": [
+  -0.25,
+  -0.25,
+  -0.1,
+  -0.26,
+  -0.26,
+  -0.39
+ ],
+ "push_range_hi": [
+  0.25,
+  0.25,
+  0.1,
+  0.26,
+  0.26,
+  0.39
+ ],
+ "scenarios": [
+  {
+   "name": "fric1.0",
+   "description": "foot geom friction 1.0 (nominal 0.6)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "success_rate_v1": 1.0,
+   "falls": 0,
+   "rotation_deg_p5_50_95": [
+    267.59,
+    270.55,
+    273.805
+   ],
+   "hold_tilt_max_deg_p5_50_95": [
+    15.4,
+    15.5,
+    15.6
+   ],
+   "hold_drift_m_p5_50_95": [
+    0.001,
+    0.002,
+    0.004
+   ],
+   "knee_torque_max_Nm": 107.77,
+   "exact_start": {
+    "success": true,
+    "success_v1": true,
+    "rotation_deg": 269.0,
+    "hold_tilt_max_deg": 15.5,
+    "hold_pelvis_min_m": 0.719,
+    "hold_drift_m": 0.003,
+    "fell": false,
+    "knee_torque_max_Nm": 93.16
+   }
+  },
+  {
+   "name": "kp085",
+   "description": "PD stiffness x0.85 on every actuator (damping unchanged)",
+   "runs": 100,
+   "success_rate": 1.0,
+   "success_rate_v1": 1.0,
+   "falls": 0,
+   "rotation_deg_p5_50_95": [
+    275.155,
+    279.7,
+    282.52
+   ],
+   "hold_tilt_max_deg_p5_50_95": [
+    16.4,
+    16.7,
+    16.9
+   ],
+   "hold_drift_m_p5_50_95": [
+    0.001,
+    0.002,
+    0.002
+   ],
+   "knee_torque_max_Nm": 114.03,
+   "exact_start": {
+    "success": true,
+    "success_v1": true,
+    "rotation_deg": 279.7,
+    "hold_tilt_max_deg": 16.8,
+    "hold_pelvis_min_m": 0.708,
+    "hold_drift_m": 0.002,
+    "fell": false,
+    "knee_torque_max_Nm": 106.21
+   }
+  }
+ ],
+ "wall_s": 47.5
+}
